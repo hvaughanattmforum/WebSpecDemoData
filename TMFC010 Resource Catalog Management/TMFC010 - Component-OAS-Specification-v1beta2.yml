@@ -7,7 +7,7 @@ spec:
   componentName: ResourceCatalogManagement
   componentFunctionalBlock: Production 
   componenentDescription: "Resource Catalog Management component is responsible for organizing the collection resource specifications that identify and define all requirements for a resource. Resource Catalog Management component has the functionality that enable presenting a customer-facing view, so users are able to browse and select resource they need, as well as a technical view to enable define and setup resources contained in the resource catalog. Additional functionalities include capturing specifications of new resource specifications, managing resources (registering assets and components and identifying and mapping connections/relationships), administering the lifecycle of resources, describing relationships between resources, reporting on resources and changes to their attributes, and facilitating easy access to identify and assign resources."
-  componentVersion: 1.2.0
+  componentVersion: 1.2.1
   componentStatus: specified 
   componentPublicationDate: 2023-08-18
   maintainers:
@@ -93,17 +93,16 @@ coreFunction:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
       port: 8080
-      resources:
-        - event:
-            - GET
-            - GET /id
-            - POST
-            - PATCH
-            - DELETE
+      resources: 
+      - listener:  
+        - POST
+      - hub:  
+        - POST
+        - DELETE
   dependantAPIs:
     - name: ResourceCatalogManagement
       id: TMF634
-      isRequired: yes
+      isRequired: no
       version: 4.1
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634_resourceCatalog-v4.1.0.swagger.json
       implementation: /{{.Release.Name}}-ResourceCatalog
@@ -152,7 +151,9 @@ coreFunction:
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4/docs
       port: 8080
       resources:
-        - partyRole: -GET -GET /id
+        - partyRole:
+          -GET
+          -GET /id
     - name: Party
       id: TMF632
       isRequired: no
@@ -171,7 +172,7 @@ coreFunction:
             - GET
             - GET /id
     - name: EntityCatalogManagement
-      id: TMF632
+      id: TMF662
       isRequired: no
       version: 4.0
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF662_EntityCatalog/master/TMF662-EntityCatalog-v4.0.0.swagger.json
@@ -187,6 +188,20 @@ coreFunction:
         - associationSpecification:
             - GET
             - GET /id
+    - name: UserRolePermission
+      id: TMF672
+      isRequired: no
+      version: 4.0
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF672-UserRolePermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
+      implementation: /{{.Release.Name}}-Event
+      apitype: openapi
+      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
+      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
+      port: 8080
+      resources: 
+      - permission:  
+        - GET
+        - GET /id
     - name: Event
       id: TMF688
       isRequired: no
@@ -197,10 +212,12 @@ coreFunction:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
       port: 8080
-      resources:
-        - event:
-            - POST
-            - DELETE
+      resources: 
+      - listener:  
+        - POST
+      - hub:  
+        - POST
+        - DELETE
   publishedEvents:
     - name: ResourceCatalogManagement
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634_resourceCatalog-v4.1.0.swagger.json
@@ -254,6 +271,34 @@ coreFunction:
             - entitySpecificationAttributeValueChangeEvent
             - entitySpecificationStateChangeEvent
             - entitySpecificationDeleteEvent
-management: []
-reporting: []
-security: []
+    - name: PartyRoleManagement
+      id: TMF669
+      version: 4.0
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.swagger.json
+      call-back: /{{.Release.Name}}-EntityCatalog/call-back
+      port: 80
+      resources:
+        - PartyRoleManagement:
+            - partyRoleDeleteEvent
+    - name: UserRolePermission
+      id: TMF672
+      version: 4.0
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF672-UserRolePermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
+      call-back: /{{.Release.Name}}-EntityCatalog/call-back
+      port: 80
+      resources:
+        - UserRolePermission:
+            - permissionDeleteEvent
+    - name: Party
+      id: TMF632
+      version: 4.0
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
+      call-back: /{{.Release.Name}}-EntityCatalog/call-back
+      port: 80
+      resources:
+        - Party:
+            - individualDeleteEvent
+            - organizationDeleteEvent  
+managementFunction: []
+reportingFunction: []
+securityFunction: []
