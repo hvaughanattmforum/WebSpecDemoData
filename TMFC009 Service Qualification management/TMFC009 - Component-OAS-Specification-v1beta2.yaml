@@ -7,7 +7,7 @@ spec:
   componentName: ServiceQualificationManagement
   componentFunctionalBlock: Production 
   componenentDescription: "Service Qualification component is responsible for checking and validating the availability of a service according to specified and configured business rules. It must identify at least one technical solution (RFSspec) available to deliver the service (CFSspec) and check the availability of all the resources types involved in this technical solution. No resources are allocated during Service Qualification. Service Qualification component has functionality that include checking service feasibility status and publishing or reporting service qualification result, but also calculated service delivery due date and identified need of an appointment at the customer site. Service Qualification can also be in charge of the cost calculation of the technical solution identified, when it cannot be determined at catalog design time (complex B2B services). This information will be used as an input to price calculation."
-  componentVersion: 1.1.0
+  componentVersion: 1.1.1
   componentStatus: specified 
   componentPublicationDate: 2023-08-18
   maintainers:
@@ -40,10 +40,12 @@ coreFunction:
                 - GET
                 - GET /id
                 - POST
+                - PATCH
+                - DELETE
     dependantAPIs:
        - name: ServiceCatalogManagement
          id: TMF633
-         isRequired: no
+         isRequired: yes
          version: 4.0
          specification: https://raw.githubusercontent.com/tmforum-apis/TMF633_ServiceCatalog/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
          apitype: openapi
@@ -53,8 +55,11 @@ coreFunction:
          port: 8080
          resources:
          - serviceSpecification:
-         - GET
-         - GET /id
+           - GET
+           - GET /id
+         - serviceCategory:
+           - GET
+           - GET /id
        - name: ServiceInventory
          id: TMF638
          isRequired: no
@@ -67,10 +72,7 @@ coreFunction:
          resources:
               - service:
                 - GET
-                - GET /id
-                - POST
-                - PATCH
-                - DELETE 
+                - GET /id 
        - name: ResourceCatalog
          id: TMF634
          isRequired: no
@@ -82,8 +84,8 @@ coreFunction:
          port: 8080
          resources:
           - resourceSpecification:
-          - GET
-          - GET /id
+            - GET
+            - GET /id
        - name: ResourceInventoryManagement
          id: TMF639
          isRequired: no
@@ -95,8 +97,8 @@ coreFunction:
          port: 8080
          resources:
           - resource:
-          - GET
-          - GET /id
+            - GET
+            - GET /id
        - name: PartyManagement
          id: TMF632
          isRequired: no
@@ -126,11 +128,11 @@ coreFunction:
          port: 8080
          resources:  
           - partyRole:
-          - GET
-          - GET /id
+            - GET
+            - GET /id
        - name: GeographicAddressManagement
          id: TMF673
-         isRequired: yes
+         isRequired: no
          version: 4.0
          specification: https://raw.githubusercontent.com/tmforum-apis/TMF673_GeographicAddress/master/TMF673-GeographicAddress-v4.0.1.swagger.json
          implementation: /{{.Release.Name}}-GeographicAddressManagement
@@ -144,7 +146,7 @@ coreFunction:
                 - GET /id
        - name: GeographicSiteManagement
          id: TMF674
-         isRequired: yes
+         isRequired: no
          version: 4.0
          specification: https://raw.githubusercontent.com/tmforum-apis/TMF674_GeographicSite/master/TMF674-GeographicSite-v4.0.0.swagger.json
          implementation: /{{.Release.Name}}-GeographicSiteManagement
@@ -157,7 +159,7 @@ coreFunction:
              - GET /id
        - name: GeographicLocation
          id: TMF675
-         isRequired: yes
+         isRequired: no
          version: 4.0
          specification: https://raw.githubusercontent.com/tmforum-apis/TMF675_GeographicLocation/master/TMF675-GeographicLocation-v4.0.0.swagger.json
          implementation: /{{.Release.Name}}-GeographicLocation
@@ -170,7 +172,7 @@ coreFunction:
             - GET /id
        - name: UserRolesPermissions
          id: TMF672
-         isRequired: yes
+         isRequired: no
          version: 4.0
          specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRolesPermissions/master/TMF672-UserRolePermission-v4.0.0.swagger.json
          implementation: /{{.Release.Name}}-UserRolesPermissions
@@ -209,7 +211,6 @@ coreFunction:
            - queryServiceQualificationStateChangeEvent
            - queryServiceQualificationCreateEvent
            - queryServiceQualificationDeleteEvent
-    subscribedEvents: []
-management: []
-reporting: []
-security: []
+managementFunction: []
+reportingFunction: []
+securityFunction: []
