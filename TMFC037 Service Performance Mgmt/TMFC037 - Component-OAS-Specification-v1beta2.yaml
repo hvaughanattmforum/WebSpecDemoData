@@ -370,7 +370,7 @@ spec:
           - processFlowStateChangeEvent
           - taskFlowCreateEvent
           - taskFlowStateChangeEvent
-management: []
-reporting: []
-security: []
+managementFunction: []
+reportingFunction: []
+securityFunction: []
    
