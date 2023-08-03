@@ -358,6 +358,6 @@ coreFunction:
         - taskFlowStateChangeEvent
         - taskFlowDeleteEvent
         - taskFlowAttributeValueChangeEvent
-management: []
-reporting: []
-security: []
+managementFunction: []
+reportingFunction: []
+securityFunction: []
