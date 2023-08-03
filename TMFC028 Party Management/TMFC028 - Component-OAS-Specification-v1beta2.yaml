@@ -251,6 +251,6 @@ coreFunction:
           - PartyRoleAttributeValueChangeEvent
           - PartyRoleStateChangeEvent
           - PartyRoleDeleteEvent
-management: []
-reporting: []
-security: []
+managementFunction: []
+reportingFunction: []
+securityFunction: []
