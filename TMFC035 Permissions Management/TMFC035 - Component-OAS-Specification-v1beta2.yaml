@@ -7,7 +7,7 @@ spec:
   componentName: PermissionsManagement
   componentFunctionalBlock: PartyManagement 
   componenentDescription: "Party Roles & Permissions Management component aims to manage and expose, roles and related permissions. Permissions Management component allows to: create, modify and delete permissions. delegate permissions. When a specific role is assigned, a set of permissions is inherited."
-  componentVersion: 1.1.0
+  componentVersion: 1.1.1
   componentStatus: specified 
   componentPublicationDate: 2023-08-18
   maintainers:
@@ -70,10 +70,9 @@ coreFunction:
       port: 8080
       resources:
         - event:
-          - GET
-          - GET /id
           - POST
-          - PATCH
+        - hub:
+          - POST
           - DELETE
   dependantAPIs:
     - name: PartyManagement
@@ -169,6 +168,6 @@ coreFunction:
         - processFlowStateChangeEvent
         - taskFlowCreateEvent
         - taskFlowStateChangeEvent
-management: []
-reporting: []
-security: []
+managementFunction: []
+reportingFunction: []
+securityFunction: []
