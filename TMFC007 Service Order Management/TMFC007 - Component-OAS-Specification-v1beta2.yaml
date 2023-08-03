@@ -6,7 +6,7 @@ spec:
   componentId: TMFC007
   componentName: ServiceOrderManagement
   componentFunctionalBlock: Production 
-  componenentDescription: The SOM is the entry point of Production Domain. It is in charge of Customer-Facing-Service (CFS) delivery of resources (network and service platforms equipment). The SOM exposes in particular the API" ServiceOrder". It is triggered when the Product Order Orchestration Management component calls this API to request CFS delivery. To achieve delivery of a CFS, the SOM orchestrates the CFS delivery process which. Identifies possible RFS and chooses one, using the catalog and technical inventory. Selects the resources (servers, equipment, etc.) and their instances. Requests the ROM to update selected resource instances to deliver CFS. Request sent to the ROM contain the CFS and the list of configured resource instances to update.
+  componenentDescription: The SOM is the entry point of the Production Domain. It oversees Customer-Facing-Service (CFS) delivery of resources (network and service platforms equipment). The SOM exposes in particular the API" ServiceOrder". It is triggered when the Product Order Orchestration Management component calls this API to request CFS delivery. To achieve delivery of a CFS, the SOM orchestrates the CFS delivery process which. Identifies possible RFS and chooses one, using the catalog and technical inventory. Selects the resources (servers, equipment, etc.) and their instances. Requests the ROM to update selected resource instances to deliver CFS. Request sent to the ROM contain the CFS and the list of configured resource instances to update.
   componentVersion: 1.1.0
   componentStatus: specified 
   componentPublicationDate: 2023-08-18
@@ -71,16 +71,15 @@ coreFunction:
           developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
           port: 8080
           resources: 
-          - event:  
-            - GET
-            - GET /id
+          - listener:
             - POST
-            - PATCH
+          - hub:
+            - POST
             - DELETE
     dependantAPIs:
        - name: ServiceCatalogManagement
          id: TMF633
-         isRequired: no
+         isRequired: yes
          version: 4.0
          specification: https://raw.githubusercontent.com/tmforum-apis/TMF633_ServiceCatalog/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
          apitype: openapi
@@ -90,11 +89,11 @@ coreFunction:
          port: 8080
          resources:
          - serviceSpecification:
-         - GET
-         - GET /id
+           - GET
+           - GET /id
        - name: ServiceInventory
          id: TMF638
-         isRequired: no
+         isRequired: yes
          version: 4.0
          specification: https://raw.githubusercontent.com/tmforum-apis/TMF638_ServiceInventory/master/TMF638-ServiceInventory-v4.0.0.swagger.json
          implementation: /{{.Release.Name}}-ServiceInventory
@@ -138,15 +137,15 @@ coreFunction:
          port: 8080
          resources:
           - checkServiceQualification:
-          - GET
-          - GET /id
-          - POST
-          - PATCH
+            - GET
+            - GET /id
+            - POST
+            - PATCH
           - queryServiceQualification:
-          - GET
-          - GET /id
-          - POST
-          - PATCH
+            - GET
+            - GET /id
+            - POST
+            - PATCH
        - name: ServiceTestManagement
          id: TMF653
          isRequired: no
@@ -158,11 +157,11 @@ coreFunction:
          port: 8080
          resources:
           - serviceTest:
-          - GET
-          - GET /id
+            - GET
+            - GET /id
           - serviceTestSpecification:
-          - GET
-          - GET /id
+            - GET
+            - GET /id
        - name: ResourceInventoryManagement
          id: TMF639
          isRequired: no
@@ -174,8 +173,8 @@ coreFunction:
          port: 8080
          resources:
           - resource:
-          - GET
-          - GET /id
+            - GET
+            - GET /id
        - name: ResourceCatalog
          id: TMF634
          isRequired: no
@@ -187,8 +186,8 @@ coreFunction:
          port: 8080
          resources:
           - resourceSpecification:
-          - GET
-          - GET /id
+            - GET
+            - GET /id
        - name: ResourceOrderManagement
          id: TMF652
          isRequired: no
@@ -200,17 +199,17 @@ coreFunction:
          port: 8080
          resources:
             - resourceOrder:
-            - GET
-            - GET /id
-            - POST
-            - PATCH
-            - DELETE
+              - GET
+              - GET /id
+              - POST
+              - PATCH
+              - DELETE
             - cancelResourceOrder:
-            - GET
-            - GET /id
-            - POST
-            - PATCH
-            - DELETE
+              - GET
+              - GET /id
+              - POST
+              - PATCH
+              - DELETE
        - name: ResourceActivationConfiguration
          id: TMF702
          isRequired: no
@@ -222,33 +221,14 @@ coreFunction:
          port: 8080
          resources:
           - resource:
-          - GET
-          - GET /id
-          - POST
-          - PATCH
-          - DELETE
+            - GET
+            - GET /id
+            - POST
+            - PATCH
+            - DELETE
           - monitor:
-          - GET
-          - GET /id
-       - name: ResourceFunctionActivationConfiguration
-         id: TMF664
-         isRequired: no
-         version: 4.0
-         specification: https://raw.githubusercontent.com/tmforum-apis/TMF664_ResourceFunctionActivationConfiguration/master/TMF664-ResourceFunctionActivation-v4.0.0.swagger.json
-         implementation: /{{.Release.Name}}-ResourceFunctionActivationConfiguration
-         path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationConfiguration/v4
-         developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationConfiguration/v4/docs
-         port: 8080
-         resources:
-          - resourceFunction:
-          - GET
-          - GET /id
-          - POST
-          - PATCH
-          - DELETE
-          - monitor:
-          - GET
-          - GET /id
+            - GET
+            - GET /id
        - name: ResourceFunctionActivationConfiguration
          id: TMF664
          isRequired: no
@@ -298,15 +278,15 @@ coreFunction:
          port: 8080
          resources:
           - appointment:
-          - GET
-          - GET /id
-          - POST
-          - PATCH
+            - GET
+            - GET /id
+            - POST
+            - PATCH
           - searchTimeSlot:
-          - GET
-          - GET /id
-          - POST
-          - PATCH
+            - GET
+            - GET /id
+            - POST
+            - PATCH
        - name: WorkOrder
          id: TMF697
          isRequired: no
@@ -318,11 +298,11 @@ coreFunction:
          port: 8080
          resources:
           - workOrder:
-          - GET
-          - GET /id
-          - POST
-          - PATCH
-          - DELETE
+            - GET
+            - GET /id
+            - POST
+            - PATCH
+            - DELETE
        - name: PartyManagement
          id: TMF632
          isRequired: no
@@ -352,8 +332,8 @@ coreFunction:
          port: 8080
          resources:  
           - partyRole:
-          - GET
-          - GET /id
+            - GET
+            - GET /id
        - name: GeographicAddressManagement
          id: TMF673
          isRequired: yes
@@ -365,9 +345,9 @@ coreFunction:
          developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4/docs
          port: 8080
          resources:
-         - geographicAddress:
-                - GET
-                - GET /id
+          - geographicAddress:
+            - GET
+            - GET /id
        - name: GeographicSiteManagement
          id: TMF674
          isRequired: yes
@@ -378,10 +358,10 @@ coreFunction:
          developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4/docs
          port: 8080
          resources:
-       - geographicSite:
+         - geographicSite:
              - GET
              - GET /id
-       - name: GeographicLocation
+         - name: GeographicLocation
          id: TMF675
          isRequired: yes
          version: 4.0
@@ -404,10 +384,10 @@ coreFunction:
          developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolesPermissions/v4/docs
          port: 8080
          resources:
-       - permission:
+         - permission:
           - GET
           - GET /id
-       - name: Event 
+         - name: Event 
          id: TMF688
          isRequired: no
          version: 4.0
@@ -555,6 +535,6 @@ coreFunction:
          resources:
           - WorkOrder:
             - workOrderStateChange
-management: []
-reporting: []
-security: []
+managementFunction: []
+reportingFunction: []
+securityFunction: []
