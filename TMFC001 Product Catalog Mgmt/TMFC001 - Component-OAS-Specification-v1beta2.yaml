@@ -357,7 +357,34 @@ coreFunction:
         - resourceSpecificationCreateEvent
         - resourceSpecificationChangeEvent
         - resourceSpecificationDeleteEvent         
+    - name: PartyRoleManagement
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
+      port: 80
+      implementation: /{{.Release.Name}}-PartyRoleManagement
+      apitype: openapi
+      resources:   
+      - PartyRoleManagement:
+        - partyRoleDeleteEvent
+    - name: UserRolePermission 
+      specification: https://github.com/tmforum-apis/TMF672_UserRolesPermissions/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json     
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
+      port: 80
+      implementation: /{{.Release.Name}}-UserRolePermission
+      apitype: openapi     
+      resources: 
+      - UserRolePermission:
+        - permissionDeleteEvent
+    - name: Party
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
+      port: 80
+      implementation: /{{.Release.Name}}-Party
+      apitype: openapi
+      resources:  
+      - Party:
+        - individualDeleteEvent
+        - organizationDeleteEvent
 managementFunction: []
 reportingFunction: []
 securityFunction: []
-  
