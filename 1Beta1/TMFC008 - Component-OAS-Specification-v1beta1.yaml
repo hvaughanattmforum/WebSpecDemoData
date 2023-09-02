@@ -187,25 +187,25 @@ coreFunction:
         - GET /id  
         - POST                                
     publishedEvents: 
-    - name: ServiceInventoryManagement
-      specification: https://github.com/tmforum-apis/TMF638_ServiceInventoryManagement/blob/master/TMF638_ServiceInventoryManagement-v4.0.0.swagger.json
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/hub
-      implementation: /{{.Release.Name}}-serviceInventoryEvent
-      apitype: openapi
-      port: 80
-      -resources: 
-         serviceInventory:
+      - name: ServiceInventoryManagement
+        specification: https://github.com/tmforum-apis/TMF638_ServiceInventoryManagement/blob/master/TMF638_ServiceInventoryManagement-v4.0.0.swagger.json
+        hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/hub
+        implementation: /{{.Release.Name}}-serviceInventoryEvent
+        apitype: openapi
+        port: 80
+      - resources: 
+        serviceInventory:
             - serviceCreateEvent
             - serviceAttributeValueChangeEvent
             - serviceStateChangeEvent
             - serviceDeleteEvent
-    - name: ProcessFlowManagement
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.0.0.swagger.json
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
-      apitype: openapi
-      port: 80
-      -resources: 
+      - name: ProcessFlowManagement
+        specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+        hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+        implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
+        apitype: openapi
+        port: 80
+      - resources: {}
         ProcessFlowManagement:
           - processFlowCreateEvent
           - processFlowStateChangeEvent

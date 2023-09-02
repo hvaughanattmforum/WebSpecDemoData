@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC027-productconfigurator
   labels:
-    oda.tmforum.org/componentName: TMFC027-productconfigurator
+    oda.tmforum.org/componentName: TMFC027-productConfigurator
     oda.tmforum.org/funtionalBlockName: CoreCommerceManagement
 spec:
   type: TMFC027-productconfigurator

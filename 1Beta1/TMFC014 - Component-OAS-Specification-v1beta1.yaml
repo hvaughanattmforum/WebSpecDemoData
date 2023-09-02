@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC014-locationmanagement
   labels:
-    oda.tmforum.org/componentName: TMFC014-locationmanagement
+    oda.tmforum.org/componentName: TMFC014-locationManagement
     oda.tmforum.org/funtionalBlockName: Production
 spec:
   type: TMFC014-locationmanagement

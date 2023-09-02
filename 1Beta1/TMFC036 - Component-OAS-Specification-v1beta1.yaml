@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC036 - Lead and Opportunity Management
   labels:
-    oda.tmforum.org/componentName: TMFC036 - Lead and Opportunity Management
+    oda.tmforum.org/componentName: TMFC036-LeadAndOpportunityManagement
     oda.tmforum.org/funtionalBlockName: Party Management
 spec:
   type: TMFC036 - Lead and Opportunity Management

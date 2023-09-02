@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC024-billingaccountmanagement
   labels:
-    oda.tmforum.org/componentName: TMFC024-billingaccountmanagement
+    oda.tmforum.org/componentName: TMFC024-billingAccountManagement
     oda.tmforum.org/funtionalBlockName: PartyManagement
 spec:
   type: TMFC024-billingaccountmanagement

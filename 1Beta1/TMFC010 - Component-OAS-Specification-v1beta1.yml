@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC010-resourcecatalogmanagement
   labels:
-    oda.tmforum.org/componentName: TMFC010-resourcecatalogmanagement
+    oda.tmforum.org/componentName: TMFC010-resourceCatalogManagement
     oda.tmforum.org/funtionalBlockName: Production
 spec:
   type: TMFC010-resourcecatalogmanagement

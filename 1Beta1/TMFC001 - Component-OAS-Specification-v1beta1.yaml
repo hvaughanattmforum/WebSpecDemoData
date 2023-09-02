@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC001-productcatalogmanagement
   labels:
-    oda.tmforum.org/componentName: TMFC001-productcatalogmanagement
+    oda.tmforum.org/componentName: TMFC001-productcatalogManagement
     oda.tmforum.org/funtionalBlockName: CoreCommerce
 spec:
   type: TMFC001-productcatalogmanagement

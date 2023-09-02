@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC035-partyroles&permissionsmanagement
   labels:
-    oda.tmforum.org/componentName: TMFC035-partyroles&permissionsmanagement
+    oda.tmforum.org/componentName: TMFC035-partyRolesAndPermissionsManagement
     oda.tmforum.org/funtionalBlockName: PartyManagement
 spec:
   type: TMFC035-partyroles&permissionsmanagement

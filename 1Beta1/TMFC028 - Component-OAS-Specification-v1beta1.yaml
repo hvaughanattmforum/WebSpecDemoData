@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC028-partymanagement
   labels:
-    oda.tmforum.org/componentName: TMFC028-partymanagement
+    oda.tmforum.org/componentName: TMFC028-partyManagement
     oda.tmforum.org/funtionalBlockName: PartyManagement
 spec:
   type: TMFC028-partymanagement

@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC005-productinventory
   labels:
-    oda.tmforum.org/componentName: TMFC005-productinventory
+    oda.tmforum.org/componentName: TMFC005-productInventory
     oda.tmforum.org/funtionalBlockName: CoreCommerce
 spec:
   type: TMFC005-productinventory

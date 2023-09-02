@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMC011-serviceorderingmanagement
   labels:
-    oda.tmforum.org/componentName: TMC011-serviceorderingmanagement
+    oda.tmforum.org/componentName: TMC011-serviceorderingManagement
     oda.tmforum.org/funtionalBlockName: Production
 spec:
   type: TMC011-serviceorderingmanagement

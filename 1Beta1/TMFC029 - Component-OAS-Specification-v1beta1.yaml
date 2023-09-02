@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC029-paymentmanagement
   labels:
-    oda.tmforum.org/componentName: TMFC029-paymentmanagement
+    oda.tmforum.org/componentName: TMFC029-paymentManagement
     oda.tmforum.org/funtionalBlockName: Production
 spec:
   type: TMFC029-paymentmanagement

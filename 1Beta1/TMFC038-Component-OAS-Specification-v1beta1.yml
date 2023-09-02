@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC038-resourceperformancemanagement
   labels:
-    oda.tmforum.org/componentName: TMFC038-resourceperformancemanagement
+    oda.tmforum.org/componentName: TMFC038-resourcePerformanceManagement
     oda.tmforum.org/funtionalBlockName: IntelligenceManagement
 spec:
   type: TMFC038-resourceperformancemanagement

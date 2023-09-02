@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMFC020-digitalidentitymanagement
   labels:
-    oda.tmforum.org/componentName: TMFC020-digitalidentitymanagement
+    oda.tmforum.org/componentName: TMFC020-digitalIdentityManagement
     oda.tmforum.org/funtionalBlockName: PartyManagement
 spec:
   type: TMFC020-digitalidentitymanagement
