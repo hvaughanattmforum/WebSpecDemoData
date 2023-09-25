@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: TMC011-serviceorderingmanagement
   labels:
-    oda.tmforum.org/componentName: TMC011-serviceorderingManagement
+    oda.tmforum.org/componentName: TMFC011-serviceorderingManagement
     oda.tmforum.org/funtionalBlockName: Production
 spec:
   type: TMC011-serviceorderingmanagement
@@ -43,7 +43,7 @@ coreFunction:
           id: TMF701
           isRequired: not
           version: 4.0
-          specification: ttps://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+          specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.0.0.swagger.json
           implementation: /{{.Release.Name}}-ProcessFlowManagement
           apitype: openapi
           path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4

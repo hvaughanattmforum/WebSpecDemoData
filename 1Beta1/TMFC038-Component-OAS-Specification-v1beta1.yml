@@ -18,13 +18,14 @@ spec:
 coreFunction:
   exposedAPIs:
     - name: PerformanceManagement
-      id: TMFXXX
+      id: TMF628
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF628-Performance-v4.0.0.swagger.json
       required: true
       implementation: /{{.Release.Name}}-PerformanceManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/v4/docs
       port: 8080
+      version: 4.0.0
     - name: AlarmManagement
       id: TMF642
       specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642-Alarm-v4.0.0.swagger.json
@@ -33,6 +34,7 @@ coreFunction:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/v4/docs
       port: 8080
+      version: 4.0.0
     - name: ProcessFlowManagement
       id: TMF688
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.0.0.swagger.json
@@ -40,6 +42,7 @@ coreFunction:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/processFlowManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/processFlowManagement/v4/docs
       port: 8080
+      version: 4.0.0
     - name: Event
       id: TMF701
       specification: https://github.com/tmforum-apis/TMF688-Event/blob/master/TMF688-EventManagement-v4.0.0.swagger.json
@@ -47,6 +50,7 @@ coreFunction:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4/docs
       port: 8080
+      version: 4.0.0
   dependantAPIs:
     - name: PerformanceManagement
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF628-Performance-v4.0.0.swagger.json
@@ -55,36 +59,42 @@ coreFunction:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/v4/docs
       port: 8080
+      version: 4.0.0
     - name: ResourceInventory
       specification: https://github.com/tmforum-apis/TMF639_ResourceInventory/blob/master/TMF639-ResourceInventory-v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-ResourceInventory
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
       port: 8080
+      version: 4.0.0
     - name: GeographicAddressManagement
       specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
       implementation: /{{.Release.Name}}-GeographicAddressManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagementt/v4/docs
       port: 8080
+      version: 4.0.1
     - name: GeographicSiteManagement
       specification: https://github.com/tmforum-apis/TMF674_GeographicSite/blob/master/TMF674-GeographicSite-v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-GeographicSiteManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4/docs
       port: 8080
+      version: 4.0.0
     - name: ProcessFlowManagement
       specification: https://github.com/tmforum-apis/TMF701-ProcessFlowManagement/blob/master/TMF701-ProcessFlowManagement-v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-ProcessFlowManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
       port: 8080
+      version: 4.0.0
     - name: EventManagement
       specification: https://github.com/tmforum-apis/TMF688-EventManagement/blob/master/TMF688-EventManagement-v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-EventManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4/docs
       port: 8080
+      version: 4.0.0
   managementAPIs:
   eventNotification:
   PublishedEvent:

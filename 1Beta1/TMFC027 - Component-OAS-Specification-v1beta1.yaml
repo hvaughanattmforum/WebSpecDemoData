@@ -315,7 +315,7 @@ coreFunction:
       isRequired: 'no'
       version: 4
       specification: >-
-        ttps://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+        https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.0.0.swagger.json
       apitype: openapi
       resources:
         - processFlow:
