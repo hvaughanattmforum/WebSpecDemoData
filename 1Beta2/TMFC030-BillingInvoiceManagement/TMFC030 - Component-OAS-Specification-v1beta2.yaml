@@ -18,8 +18,8 @@ spec:
       email: gaetano.biancardi@accenture.com
 coreFunction:
   exposedAPIs:
-    - name: AccountManagement
-      id: TMF666
+    - name: CustomerBillManagement
+      id: TMF678
       isRequired: yes
       version: 4.0
       specification: >-
