@@ -1,0 +1,17 @@
+name: Trigger build
+
+on: [push]
+
+jobs:
+  trigger_target:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger target workflow
+        env: 
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          curl -X POST \
+          -H "Authorization: token ${{ secrets.DEVOPS_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/tmforum-rand/TMForum-ODA-Asset-Build/actions/workflows/build-specifications.yml/dispatches \
+          -d '{"ref":"main", "inputs": {"ref_name":"$BRANCH_NAME"}}'
