@@ -35,7 +35,7 @@ jobs:
 
     - name: Commit and push changes
       run: |
-        cd TMForum-ODA-Ready-for-publication
+        cd $GITHUB_WORKSPACE/TMForum-ODA-Ready-for-publication
 
         # Check for changes
         if ! git diff --exit-code; then
