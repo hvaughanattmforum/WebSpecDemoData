@@ -1,0 +1,45 @@
+name: build-component-specifications
+
+on:
+  push:
+    branches:
+      - v1beta2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout spec repository
+      uses: actions/checkout@v4
+      with:
+        path: TMForum-ODA-Component-Specification
+
+    - name: Checkout canvas repository
+      uses: actions/checkout@v4
+      with:
+        repository: tmforum-rand/TMForum-ODA-Canvas-Specification
+        path: TMForum-ODA-Canvas-Specification
+
+    - name: Checkout release repository
+      uses: actions/checkout@v4
+      with:
+        repository: tmforum-rand/TMForum-ODA-Ready-for-publication
+        path: TMForum-ODA-Ready-for-publication
+
+    - name: Run build script
+      run: python3 TMForum-ODA-Component-Specification/ci/build-specificaitons.py
+
+    - name: Commit and push changes
+      run: |
+        cd TMForum-ODA-Ready-for-publication
+
+        # Check for changes
+        if ! git diff --exit-code; then
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Update from GitHub Actions"
+          git push
+        else
+          echo "No changes to commit"
+        fi

@@ -14,7 +14,7 @@ def get_functions():
         with function_file.open() as f:
             yield yaml.safe_load(f)
 
-def get_specifications(version):
+def get_specifications():
     specs = Path(__file__).parents[1] / "specifications"
     print("Specs folder exists: ", specs.exists())
     for spec_file in specs.glob("TMFC*/**/*.yaml"):
