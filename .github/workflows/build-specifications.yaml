@@ -3,7 +3,7 @@ name: build-component-specifications
 on:
   push:
     branches:
-      - v1beta2
+      - v1beta*
 
 jobs:
   build:
@@ -19,12 +19,14 @@ jobs:
       with:
         repository: tmforum-rand/TMForum-ODA-Canvas-Specification
         path: TMForum-ODA-Canvas-Specification
+        ref: ${{ github.ref_name }}
 
     - name: Checkout release repository
       uses: actions/checkout@v4
       with:
         repository: tmforum-rand/TMForum-ODA-Ready-for-publication
         path: TMForum-ODA-Ready-for-publication
+        ref: ${{ github.ref_name }}
 
     - name: Run build script
       run: python3 TMForum-ODA-Component-Specification/ci/build-specificaitons.py
