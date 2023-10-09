@@ -2,7 +2,6 @@ import yaml
 import os
 import json
 from pathlib import Path
-from git import Repo
 
 ODA_CANVAS_REPO = Path(__file__).parents[2] / "TMForum-ODA-Canvas-Specification"
 RELEASE_REPO = Path(__file__).parents[2] / "TMForum-ODA-Ready-for-publication" / "specifications"
