@@ -38,7 +38,7 @@ jobs:
         cd $GITHUB_WORKSPACE/TMForum-ODA-Ready-for-publication
 
         # Check for changes
-        if ! git diff --exit-code; then
+        if [[ `git status --porcelain` ]]; then
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add .
