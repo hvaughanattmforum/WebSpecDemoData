@@ -19,7 +19,7 @@ jobs:
       with:
         repository: tmforum-rand/TMForum-ODA-Canvas-Specification
         path: TMForum-ODA-Canvas-Specification
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.DEVOPS_TOKEN }}
         ref: ${{ github.ref_name }}
 
     - name: Checkout release repository
@@ -27,7 +27,7 @@ jobs:
       with:
         repository: tmforum-rand/TMForum-ODA-Ready-for-publication
         path: TMForum-ODA-Ready-for-publication
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.DEVOPS_TOKEN }}
         ref: ${{ github.ref_name }}
 
     - name: Run build script
