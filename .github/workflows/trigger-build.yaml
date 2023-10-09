@@ -17,5 +17,5 @@ jobs:
           curl -X POST \
           -H "Authorization: Bearer $GH_TOKEN" \
           -H "Accept: application/vnd.github+json" \
-          https://api.github.com/repos/tmforum-rand/TMForum-ODA-Asset-Build/actions/workflows/64793162/dispatches \
+          https://api.github.com/repos/tmforum-rand/TMForum-ODA-Asset-Build/actions/workflows/72084960/dispatches \
           -d '{"ref":"main", "inputs": {"ref_name":"$BRANCH_NAME"}}'
