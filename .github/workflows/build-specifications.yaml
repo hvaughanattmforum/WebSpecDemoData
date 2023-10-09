@@ -11,9 +11,7 @@ jobs:
     steps:
     - name: Checkout spec repository
       uses: actions/checkout@v4
-      with:
-        path: TMForum-ODA-Component-Specification
-
+      
     - name: Checkout canvas repository
       uses: actions/checkout@v4
       with:
