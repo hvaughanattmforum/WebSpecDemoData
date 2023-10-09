@@ -151,16 +151,16 @@ coreFunction:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4/docs
       port: 8080
-          resources:
-           - geographicAddressValidation:
-                - GET
-                - GET /id
-           - geographicAddress:
-                - GET
-                - GET /id
-           - geographicSubAddress:
-                - GET
-                - GET /id
+      resources:
+        - geographicAddressValidation:
+            - GET
+            - GET /id
+        - geographicAddress:
+            - GET
+            - GET /id
+        - geographicSubAddress:
+            - GET
+            - GET /id
     - name: GeographicSite
       id: TMF674
       isRequired: no

@@ -144,18 +144,18 @@ coreFunction:
         - GET
         - GET /id  
     - name: ServiceOrderingManagement
-          id: TMF641
-          isRequired: yes
-          version: 4.1
-          specification: https://raw.githubusercontent.com/tmforum-apis/TMF641_ServiceOrdering/master/TMF641-ServiceOrdering-v4.1.0.swagger.json
-          implementation: /{{.Release.Name}}-serviceorderingmanagement
-          path: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/v4/
-          developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
-          port: 8080
-          resources:
-           - serviceOrder:
-                - GET /id
-                - POST
+      id: TMF641
+      isRequired: yes
+      version: 4.1
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF641_ServiceOrdering/master/TMF641-ServiceOrdering-v4.1.0.swagger.json
+      implementation: /{{.Release.Name}}-serviceorderingmanagement
+      path: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/v4/
+      developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
+      port: 8080
+      resources:
+        - serviceOrder:
+            - GET /id
+            - POST
     - name: ServiceInventory
       id: TMF638
       isRequired: no
