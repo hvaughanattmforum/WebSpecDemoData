@@ -9,9 +9,13 @@ jobs:
       - name: Trigger target workflow
         env: 
           BRANCH_NAME: ${{ github.ref_name }}
+          GH_TOKEN: ${{ secrets.DEVOPS_TOKEN }}
         run: |
+          echo $BRANCH_NAME
+          echo $GH_TOKEN
+
           curl -X POST \
-          -H "Authorization: token ${{ secrets.DEVOPS_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/tmforum-rand/TMForum-ODA-Asset-Build/actions/workflows/build-specifications.yml/dispatches \
+          -H "Authorization: Bearer $GH_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/tmforum-rand/TMForum-ODA-Asset-Build/actions/workflows/64793162/dispatches \
           -d '{"ref":"main", "inputs": {"ref_name":"$BRANCH_NAME"}}'
