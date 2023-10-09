@@ -31,7 +31,7 @@ jobs:
         ref: ${{ github.ref_name }}
 
     - name: Run build script
-      run: cd $GITHUB_WORKSPACE/artifacts && python3 ci/build-specificaitons.py
+      run: cd $GITHUB_WORKSPACE/TMForum-ODA-Component-Specification && python3 ci/build-specificaitons.py
 
     - name: Commit and push changes
       run: |
