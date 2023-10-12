@@ -54,7 +54,7 @@
       id: TMF701
       isRequired: not
       version: 4.0
-      specification: ttps://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      specification: ttps://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       implementation: /{{.Release.Name}}-ProcessFlowManagement
       apitype: openapi
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
@@ -74,7 +74,7 @@
       id: TMF671
       isRequired: yes
       version: 4.0
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       implementation: /{{.Release.Name}}-PromotionManagement
       apitype: openapi
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
@@ -91,7 +91,7 @@
       id: TMF688
       isRequired: not
       version: 4.0
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF671_Promotion/master/TMF671-Promotion-v4.0.0.swagger.json
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF671_Promotion/master/TMF671-Promotion-v4.1.0.swagger.json
       implementation: /{{.Release.Name}}-PromotionManagement
       apitype: openapi
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4

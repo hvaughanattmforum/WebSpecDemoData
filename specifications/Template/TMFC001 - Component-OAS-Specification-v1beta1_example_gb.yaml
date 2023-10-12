@@ -72,7 +72,7 @@ coreFunction:
       id: TMF701
       isRequired: not
       version: 4.0
-      specification: ttps://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      specification: ttps://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       implementation: /{{.Release.Name}}-ProcessFlowManagement
       apitype: openapi
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
@@ -92,7 +92,7 @@ coreFunction:
       id: TMF671
       isRequired: yes
       version: 4.0
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       implementation: /{{.Release.Name}}-PromotionManagement
       apitype: openapi
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
@@ -109,7 +109,7 @@ coreFunction:
       id: TMF688
       isRequired: not
       version: 4.0
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF671_Promotion/master/TMF671-Promotion-v4.0.0.swagger.json
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF671_Promotion/master/TMF671-Promotion-v4.1.0.swagger.json
       implementation: /{{.Release.Name}}-PromotionManagement
       apitype: openapi
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
@@ -137,7 +137,7 @@ coreFunction:
       id: TMF669
       isRequired: not
       version: 4.0
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       apitype: openapi
       resources:  
       - PartyRoleManagement:
@@ -263,7 +263,7 @@ coreFunction:
           - catalogDeleteEvent
           - catalogBatchEvent     
     - name: PromotionManagement
-      specification: https://github.com/tmforum-apis/TMF671_Promotion/blob/master/TMF671-Promotion-v4.0.0.swagger.json
+      specification: https://github.com/tmforum-apis/TMF671_Promotion/blob/master/TMF671-Promotion-v4.1.0.swagger.json
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
       implementation: /{{.Release.Name}}-PromotionManagementEvent
       apitype: openapi
@@ -276,7 +276,7 @@ coreFunction:
           - promotionStateChangeEvent
           - promotionInformationRequiredEvent      
     - name: ProcessFlowManagement
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       apitype: openapi

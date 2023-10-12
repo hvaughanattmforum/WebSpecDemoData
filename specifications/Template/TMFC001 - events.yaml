@@ -23,7 +23,7 @@
           - catalogDeleteEvent
           - catalogBatchEvent     
     - name: PromotionManagement
-      specification: https://github.com/tmforum-apis/TMF671_Promotion/blob/master/TMF671-Promotion-v4.0.0.swagger.json
+      specification: https://github.com/tmforum-apis/TMF671_Promotion/blob/master/TMF671-Promotion-v4.1.0.swagger.json
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
       implementation: /{{.Release.Name}}-PromotionManagementEvent
       apitype: openapi
@@ -36,7 +36,7 @@
           - promotionStateChangeEvent
           - promotionInformationRequiredEvent      
     - name: ProcessFlowManagement
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       apitype: openapi
