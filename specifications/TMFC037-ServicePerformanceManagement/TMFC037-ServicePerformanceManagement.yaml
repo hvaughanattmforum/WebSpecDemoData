@@ -305,6 +305,7 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/v4
       port: 8080
       required: false
+      version: 4
       resources:
       - alarm:
         - POST

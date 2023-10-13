@@ -292,6 +292,7 @@ spec:
         - GET /id
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF622-ProductOrder-v4.0.0.swagger.json
       version: 4
+      port: 8080
     - apitype: openapi
       id: TMF648
       implementation: /{{.Release.Name}}-QuoteManagement
@@ -306,6 +307,7 @@ spec:
         - DELETE
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF648-Quote-v4.0.0.swagger.json
       version: 4
+      port: 8080
     - apitype: openapi
       id: TMF663
       implementation: /{{.Release.Name}}-QuoteManagement
@@ -320,6 +322,7 @@ spec:
         - DELETE
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF663-ShoppingCart-v4.0.0.swagger.json
       version: 4
+      port: 8080
     - apitype: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
       id: TMF701

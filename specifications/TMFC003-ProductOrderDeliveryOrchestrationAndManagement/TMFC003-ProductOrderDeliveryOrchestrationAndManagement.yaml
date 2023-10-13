@@ -9,6 +9,7 @@ spec:
       id: TMF620
       name: ProductCatalogManagement
       required: false
+      port: 8080
       resources:
       - productSpecification:
         - GET
@@ -20,6 +21,7 @@ spec:
       implementation: /{{.Release.Name}}-ProductOrder
       name: ProductOrder
       required: true
+      port: 8080
       resources:
       - productOrder:
         - GET /id
@@ -30,6 +32,7 @@ spec:
       id: TMF637
       name: ProductInventory
       required: false
+      port: 8080
       resources:
       - product:
         - GET
@@ -61,6 +64,7 @@ spec:
       id: TMF633
       name: ServiceCatalogManagement
       required: false
+      port: 8080
       resources:
       - serviceSpecification:
         - GET
@@ -71,6 +75,7 @@ spec:
       id: TMF634
       name: ResourceCatalogManagement
       required: false
+      port: 8080
       resources:
       - resourceSpecification:
         - GET
@@ -94,6 +99,7 @@ spec:
       id: TMF638
       name: ServiceInventory
       required: false
+      port: 8080
       resources:
       - service:
         - GET / id
