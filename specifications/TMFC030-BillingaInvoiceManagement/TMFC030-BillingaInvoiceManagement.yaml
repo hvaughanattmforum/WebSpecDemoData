@@ -247,6 +247,3 @@ coreFunction:
         - userRoleAttributeValueChangeEvent
         - userRoleStateChangeEvent
         - userRoleDeleteEvent
-managementFunction: []
-reportingFunction: []
-securityFunction: []
