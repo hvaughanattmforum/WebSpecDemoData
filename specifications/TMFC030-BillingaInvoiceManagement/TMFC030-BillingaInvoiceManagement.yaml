@@ -3,13 +3,13 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  componentId: TMFC030
-  componentName: BillingaInvoiceManagement
-  componentFunctionalBlock: PartyManagement 
-  componenentDescription: "Bill Invoice mgmt. manage the party invoice management. It addresses the invoice formatting, presentation and dispatching to the proper means of communication."
-  componentVersion: 1.0.0
-  componentStatus: specified 
-  componentPublicationDate: 2023-09-27
+  id: TMFC030
+  name: BillingaInvoiceManagement
+  functionalBlock: PartyManagement 
+  description: "Bill Invoice mgmt. manage the party invoice management. It addresses the invoice formatting, presentation and dispatching to the proper means of communication."
+  version: 1.0.0
+  status: specified 
+  publicationDate: 2023-09-27
   maintainers:
     - name: Gaetano Biancardi
       email: gaetano.biancardi@accenture.com
