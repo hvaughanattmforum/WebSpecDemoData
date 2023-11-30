@@ -22,6 +22,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Calculate Changes
+        id: calculate-changes
         run: |
           git fetch origin
           git diff --name-only --diff-filter=M HEAD origin/${{ github.base_ref }} >> filechanges
@@ -33,7 +34,7 @@ jobs:
     needs: calcualte-changes
     strategy:
         matrix:
-            component: ${{fromJson(needs.calcualte-changes.outputs.components)}}
+            components: ${{fromJson(needs.calcualte-changes.outputs.components)}}
         fail-fast: false
     steps:
       - name: Checkout Components
