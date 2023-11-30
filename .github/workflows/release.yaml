@@ -1,4 +1,4 @@
-name: Trigger build
+name: Trigger Release
 
 on: 
   workflow_dispatch:
