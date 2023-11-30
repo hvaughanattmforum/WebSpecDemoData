@@ -11,7 +11,7 @@ def read_file_changes():
 
 def fileter_changes(changes):
     for line in changes:
-        if "template" in line:
+        if "Template" in line:
             continue
         if "specifications" in line:
             yield line.strip()
@@ -19,7 +19,8 @@ def fileter_changes(changes):
 def main():
     changes = read_file_changes()
     changes = fileter_changes(changes)
-    print(list(changes))
+    components_changes = [Path(p).stem for p in changes]
+    print(f"components={json.dumps(components_changes)}")
     
     return 0
 
