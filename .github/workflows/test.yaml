@@ -19,11 +19,12 @@ jobs:
     steps:
       - name: Checkout Components
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Calculate Changes
         run: |
-          echo "checking out ${{ github.base_ref }}"
           git fetch origin
-          git checkout origin/${{ github.base_ref }}
+          git diff --name-only --diff-filter=M HEAD origin/${{ github.base_ref }} >> filechanges
 
           pip3 install -r .github/ci/requirements.txt 
           #python3 .github/ci/calculate_changes.py >> $GITHUB_OUTPUT

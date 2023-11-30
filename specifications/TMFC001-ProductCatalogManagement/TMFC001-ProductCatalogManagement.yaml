@@ -1,5 +1,6 @@
 apiVersion: oda.tmforum.org/v1beta2
 kind: component
+
 metadata:
   name: components.oda.tmforum.org
 spec:
