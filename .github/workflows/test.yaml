@@ -13,8 +13,13 @@ on:
 
 
 jobs:
-  build:
+  calcualte-changes:
     runs-on: ubuntu-latest
+    outputs:
+      components: ${{ steps.calculate-changes.outputs.components }}
     steps:
-      - name: Checkout build repository
+      - name: Checkout Components
         uses: actions/checkout@v4
+      - name: Calculate Changes
+        run: | 
+          python3 .github/ci/calculate_changes.py >> $GITHUB_OUTPUT
