@@ -1,6 +1,16 @@
 name: Trigger build
 
-on: [push]
+on: 
+  workflow_dispatch:
+    inputs:
+      ref_name:
+        description: 'Branch name'
+        required: true
+        default: 'v1beta2'
+
+  push:
+    branches:
+      - v1beta2
 
 jobs:
   trigger_target:

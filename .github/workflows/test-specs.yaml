@@ -1,0 +1,20 @@
+name: Test ODA specs
+on:
+  workflow_dispatch:
+    inputs:
+      ref_name:
+        description: 'Branch name'
+        required: true
+        default: 'v1beta2'
+
+  pull_request:
+    branches:
+      - v1beta2
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout build repository
+        uses: actions/checkout@v4
