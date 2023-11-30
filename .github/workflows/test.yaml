@@ -1,4 +1,4 @@
-name: Test ODA specs
+name: Trigger Tests
 on:
   workflow_dispatch:
     inputs:
