@@ -27,7 +27,7 @@ jobs:
           git diff --name-only --diff-filter=M HEAD origin/${{ github.base_ref }} >> filechanges
 
           pip3 install -r .github/ci/requirements.txt 
-          #python3 .github/ci/calculate_changes.py >> $GITHUB_OUTPUT
+          python3 .github/ci/calculate_changes.py >> $GITHUB_OUTPUT
   spec-test-matrix:
     runs-on: ubuntu-latest
     needs: calcualte-changes
