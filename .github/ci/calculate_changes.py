@@ -16,15 +16,19 @@ def fileter_changes(changes):
         if "specifications" in line:
             yield line.strip()
 
-def main():
+def main(args):
     changes = read_file_changes()
     changes = fileter_changes(changes)
     components_changes = [Path(p).stem for p in changes]
-    print(f"components={json.dumps(components_changes)}")
+    output = f"components={json.dumps(components_changes)}"
+    print(output)
+
+    with Path(args[1]).open('a+') as f:
+        f.write(output + "\n")
     
     return 0
 
 
 if __name__ == "__main__":
     import sys
-    sys.exit(main())
+    sys.exit(main(sys.argv))
