@@ -22,6 +22,7 @@ def main(args):
     components_changes = [Path(p).stem for p in changes]
     output = f"components={json.dumps(components_changes)}"
     print(output)
+    print(args[1])
 
     with Path(args[1]).open('a+') as f:
         f.write(output + "\n")
