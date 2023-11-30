@@ -9,8 +9,7 @@ on:
 
   pull_request:
     branches:
-      - v1beta2
-
+      - v1beta*
 
 jobs:
   calcualte-changes:
@@ -21,5 +20,10 @@ jobs:
       - name: Checkout Components
         uses: actions/checkout@v4
       - name: Calculate Changes
-        run: | 
-          python3 .github/ci/calculate_changes.py >> $GITHUB_OUTPUT
+        run: |
+          echo "checking out ${{ github.base_ref }}"
+          git fetch origin
+          git checkout origin/${{ github.base_ref }}
+
+          pip3 install -r .github/ci/requirements.txt 
+          #python3 .github/ci/calculate_changes.py >> $GITHUB_OUTPUT
