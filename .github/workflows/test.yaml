@@ -31,7 +31,7 @@ jobs:
           python3 .github/ci/calculate_changes.py "$GITHUB_OUTPUT"
   spec-test-matrix:
     runs-on: ubuntu-latest
-    needs: calcualte-changes
+    needs: calculate-changes
     strategy:
         matrix:
             components: ${{fromJson(needs.calcualte-changes.outputs.components)}}
