@@ -20,6 +20,9 @@ def main(args):
     changes = read_file_changes()
     changes = fileter_changes(changes)
     components_changes = [Path(p).stem for p in changes]
+    if len(components_changes) == 0:
+        print("No component changes found")
+        return 1
     output = f"components={json.dumps(components_changes)}"
     print(output)
     print(args[1])
