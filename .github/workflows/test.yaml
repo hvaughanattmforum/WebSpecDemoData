@@ -34,7 +34,7 @@ jobs:
     needs: calculate-changes
     strategy:
         matrix:
-            components: ${{fromJson(needs.calcualte-changes.outputs.components)}}
+            components: ${{fromJson(needs.calculate-changes.outputs.components)}}
         fail-fast: false
     steps:
       - name: Checkout Components
