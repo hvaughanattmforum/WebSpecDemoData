@@ -12,7 +12,7 @@ on:
       - v1beta*
 
 jobs:
-  calcualte-changes:
+  calculate-changes:
     runs-on: ubuntu-latest
     outputs:
       components: ${{ steps.calculate-changes.outputs.components }}
@@ -39,4 +39,8 @@ jobs:
     steps:
       - name: Checkout Components
         uses: actions/checkout@v4
+      - name: Test component ${{ matrix.components }}
+        run: |
+          pip3 install -r .github/ci/requirements.txt 
+          python3 .github/ci/test_component.py "${{ matrix.components }}" 
       
