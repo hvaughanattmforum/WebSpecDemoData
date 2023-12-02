@@ -3,6 +3,8 @@
 
 **Program:** Open Digital Architecture
 
+[TOC]
+
 ## For Our Team Members
 
 As members of the ODA spec team, you are the driving force behind this project. Here, you'll find all the necessary resources, documentation, and tools to contribute effectively to the TMForum ODA. We value your insights and contributions, and we're excited to see how we can grow and evolve the together.
