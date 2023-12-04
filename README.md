@@ -47,7 +47,7 @@ As members of the ODA spec team, you are the driving force behind this project. 
 
 
 ## Introduction
-The Component factory is the name given to the processes that implement the CI/CD development lifecycle of Component assets. 
+The Component factory is the name given to the processes that implements the CI/CD development lifecycle of Component assets. 
 
 The releasable assets are:
 - Golden Component definitions, 
