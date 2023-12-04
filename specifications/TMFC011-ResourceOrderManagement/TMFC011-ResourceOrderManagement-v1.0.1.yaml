@@ -176,61 +176,61 @@ spec:
       version: 4      
   exposedAPIs:
      - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/resourceOrderingManagement/v4/docs
-      id: TMF652
-      implementation: /{{.Release.Name}}-resourceOrdering
-      name: ResourceOrderingManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/resourceOrderingManagement/v4
-      port: 8080
-      required: true
-      resources:
-       - resourceOrder:
+       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/resourceOrderingManagement/v4/docs
+       id: TMF652
+       implementation: /{{.Release.Name}}-resourceOrdering
+       name: ResourceOrderingManagement
+       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/resourceOrderingManagement/v4
+       port: 8080
+       required: true
+       resources:
+        - resourceOrder:
             - GET
             - GET /id
             - POST
             - PATCH
             - DELETE
-      - cancelResourceOrder:
+        - cancelResourceOrder:
             - GET
             - GET /id
             - POST
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF652-ResourceOrder-v4.0.0.swagger.json
+       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF652-ResourceOrder-v4.0.0.swagger.json
      - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
-      name: ProcessFlowManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
-      required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF701-ProcessFlow-v4.1.0.swagger.json
-      version: 4
+       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
+       id: TMF701
+       implementation: /{{.Release.Name}}-ProcessFlowManagement
+       name: ProcessFlowManagement
+       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
+       port: 8080
+       required: false
+       resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
+       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF701-ProcessFlow-v4.1.0.swagger.json
+       version: 4
      - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-Event
-      name: Event
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
-      port: 8080
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF688-Event-v4.0.0.swagger.json
-      version: 4
+       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
+       id: TMF688
+       implementation: /{{.Release.Name}}-Event
+       name: Event
+       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
+       port: 8080
+       required: false
+       resources:
+        - listener:
+          - POST
+        - hub:
+          - POST
+          - DELETE
+       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF688-Event-v4.0.0.swagger.json
+       version: 4
   publishedEvents:
   - resources:
       ResourceOrder:
@@ -265,14 +265,14 @@ spec:
         - taskFlowDeleteEvent
         - taskFlowAttributeValueChangeEvent
         - taskFlowInformationRequiredEvent
-      apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
-      name: ProcessFlowManagement
-      port: 80
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-  subscribedEvents:
     apitype: openapi
+    hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
+    name: ProcessFlowManagement
+    port: 80
+    specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+  subscribedEvents:
+    - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationConfiguration/call-back
       implementation: /{{.Release.Name}}-ResourceFunctionActivationConfiguration
       name: ResourceFunctionActivationConfiguration
@@ -286,7 +286,7 @@ spec:
         - scaleStatechangeEvent
         - migrateStatechangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF664_ResourceFunctionActivationConfiguration/master/TMF664-ResourceFunctionActivationConfiguration-v4.0.0.swagger.json
-    apitype: openapi
+    - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationAndConfiguration/call-back
       implementation: /{{.Release.Name}}-ResourceActivationAndConfiguration
       name: ResourceActivationAndConfiguration
@@ -297,14 +297,14 @@ spec:
         - monitorCreateEvent
         - monitorStatechangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF702_ResourceActivation/master/TMF702-ResourceActivation-v4.0.0.swagger.json
-    apitype: openapi
+    - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrder/call-back
       implementation: /{{.Release.Name}}-WorkOrder
       name: WorkOrder
       port: 80
       resources:
       - WorkOrder:
-       - workOrderStateChange
+         - workOrderStateChange
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF697-WorkOrder/master/TMF697-WorkOrder-v4.0.0.swagger.json
   description: Resource Order Management Component manages the end-to-end lifecycle
     of a resource  order request. This includes validating resource availability as
