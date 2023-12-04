@@ -1,4 +1,4 @@
-# Welcome to the TMForum ODA Specification
+# Welcome To The TMForum ODA Specification
 **Project:** TMForum ODA
 
 **Program:** Open Digital Architecture
