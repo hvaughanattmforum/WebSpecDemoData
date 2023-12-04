@@ -64,7 +64,7 @@ Workflow steps are described in more detail in the workflow definition below.
 
 ## Dependencies
 There are two file dependencies in order to publish a **Golden Component**.
-- **Component spec:** This file contains the metadata and core functions of a Component. This is maintained by the components team.
+- **Component Spec:** This file contains the metadata and core functions of a Component. This is maintained by the components team.
 - **supporting functions:** This file contains the security and management functions which are shared across all components 
 
 Golden components are used to auto generate **Component CTK's** and **reference implementations**.
@@ -72,15 +72,15 @@ Golden components are used to auto generate **Component CTK's** and **reference 
 ## Usage
 To build a Component users only need to interact with two repositories which are managed by different teams. Contributions are made by opening pull requests which will be validated by their respective teams before merging. 
 
-First the **Component spec** has to be produced and can be contributed to the **canvas spec** repository via pull requests. 
+First the **Component Spec** has to be produced and can be contributed to the **canvas spec** repository via pull requests. 
 Contributions to the **Supporting functions** must be done in the file `supportingFunctions.yaml` under `src/supporting-functions`
 
-Apart from the pull requests to contribute to the Component spec or supporting functions there are a set of validation jobs which will validate the spec before merging into the correct branch which will depend on the version of the asset.
+Apart from the pull requests to contribute to the Component Spec or supporting functions there are a set of validation jobs which will validate the spec before merging into the correct branch which will depend on the version of the asset.
 
 The versioning approach is a combination between semantic versioning and grouping based on api stability.
 
 For example each version v1, v2, may have different branches depending on stability. 
-This will be refered too as v1alphaX, v1BetaX etc.
+This will be refered too as v1alphaX, v1betaX etc.
 
 Contributions for each of the versions available will be done in the branches named with the same versions as the asset.
 For example a **v1beta1** asset will go to the branch **v1beta2** in the **components spec** repository
@@ -92,7 +92,7 @@ It is implemented using github actions which are triggered when committing to th
 
 Pull requests are used for previewing and filtering the changes before merging and publishing the specifications.
 ### Step 1 
-This step is responsible of producing a **Component spec**. This is a two step process. First a pull requests must be raised which triggers a validation job. Once the validation has succeeded and the spec has been approved it will be merged. Second process is triggered by merging a validated spec to a branch in the **Component spec** repository. This will trigger the following jobs:
+This step is responsible of producing a **Component Spec**. This is a two step process. First a pull requests must be raised which triggers a validation job. Once the validation has succeeded and the spec has been approved it will be merged. Second process is triggered by merging a validated spec to a branch in the **Component Spec** repository. This will trigger the following jobs:
 1. **Spec build:** This merges the spec and supporting functions to create a Golden Component which will be used for generation of **conformance** assets.
 2. **Report:** This job is responsible for reporting the result of the merging. The job will create a hierarchy of issues in Jira to track each of the components to be published and its assets.   
 
@@ -101,7 +101,7 @@ This step is responsible of producing a **Component spec**. This is a two step p
 ### Step 2
 In this step Component assets are generated and tested. Once a spec has been approved the following assets will generated:
 - **Golden Component**: This is the complete build of the Component with the core and supporting functions.
-- **CTK**: Conformance testing software to validate implementations of a Component spec.
+- **CTK**: Conformance testing software to validate implementations of a Component Spec.
 - **RI**: This is an example implementation of the spec which has been validated by the previous ctk.
 The output gathered through this pipeline will be used to automatically update Jira for development reporting.
 
