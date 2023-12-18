@@ -3,46 +3,52 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  id: TMFC030
-  name: BillingaInvoiceManagement
-  functionalBlock: PartyManagement 
-  description: "Bill Invoice mgmt. manage the party invoice management. It addresses the invoice formatting, presentation and dispatching to the proper means of communication."
-  version: 1.0.0
-  status: specified 
-  publicationDate: 2023-09-27
+  componentId: TMFC022
+  componentName: PartyPrivacyManagement
+  componentFunctionalBlock: PartyManagement 
+  componenentDescription: "The Party Privacy Management component aims to: define the Privacy Policy rules established by the CSP, according to applicable regulations, such as GDPR in Europe, apply these rules to each Party interacting with the CSP and to all of their personnal information and personally identifiable information (PII); register explicit opt-in and opt-out given by Parties regarding the usage of some of their personal information for dedicated purpose, such as marketing."
+  componentVersion: 1.0.0
+  componentStatus: specified 
+  componentPublicationDate: 2023-11-28
   maintainers:
     - name: Gaetano Biancardi
       email: gaetano.biancardi@accenture.com
   owners: 
-    - name: Gaetano Biancardi
-      email: gaetano.biancardi@accenture.com
+    - name: sylvie Demarest
+      email: sylvie.demarest@orange.com
 coreFunction:
   exposedAPIs:
-    - name: AccountManagement
-      id: TMF666
+    - name: PrivacyManagement
+      id: TMF644
       isRequired: yes
       version: 4.0
-      specification: >-
-        https://github.com/tmforum-apis/TMF678_CustomerBill/blob/master/TMF678-CustomerBill-v4.0.0.swagger.json#L33 
-      implementation: '/{{.Release.Name}}-CustomerBill'
+      specification: https://github.com/tmforum-apis/TMF644_Privacy/blob/master/TMF644-Privacy-v4.0.0.swagger.json 
+      implementation: '/{{.Release.Name}}-PrivacyManagement'
       apitype: openapi
       path: >-
-        /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/customerBillManagement/v4
+        /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PrivacyManagement/v4
       developerUI: >-
-        /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/customerBillManagement/v4/docs
+        /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PrivacyManagement/v4/docs
       port: 8080
       resources:
-        - customerBillOnDemand:
+        - PartyPrivacyProfileSpecification:
           - GET
+          - GET /id
           - POST
-          - GET /id
-        - customerBill:
-          - GET
-          - GET /id
           - PATCH /id
-        - appliedCustomerBillingRate:
+          - DELETE
+        - PartyPrivacyProfile:
           - GET
           - GET /id
+          - POST
+          - PATCH /id
+          - DELETE          
+        - PartyPrivacyAgreement:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE              
     - name: ProcessFlowManagement
       id: TMF701
       isRequired: no
@@ -86,39 +92,6 @@ coreFunction:
           - POST
           - DELETE /id
   dependantAPIs:
-    - name: AccountManagement
-      id: TMF666
-      isRequired: yes
-      version: 4.0
-      specification: >-
-        https://raw.githubusercontent.com/tmforum-apis/TMF666_AccountManagement/master/TMF666-AccountManagement-v4.0.0.swagger.json
-      apitype: openapi
-
-      resources:
-        - BillingAccount:
-          - GET
-          - GET /id
-          - POST
-          - PATCH /id
-          - DELETE /id
-        - BillingCycleSpecification:
-          - GET
-          - GET /id
-          - POST
-          - PATCH /id
-          - DELETE /id
-        - BillFormat:
-          - GET
-          - GET /id
-          - POST
-          - PATCH /id
-          - DELETE /id
-        - BillPresentationMedia:
-          - GET
-          - GET /id
-          - POST
-          - PATCH /id
-          - DELETE /id
     - name: PartyManagement
       id: TMF632
       isRequired: yes
@@ -133,45 +106,6 @@ coreFunction:
         - organization:
           - GET
           - GET /id
-    - name: PaymentManagement
-      id: TMF676
-      isRequired: no
-      version: 4.0
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF676_PaymentManagement/master/TMF676-Payment-v4.0.0.swagger.json 
-      apitype: openapi
-      port: 8080
-      resources: 
-       - payment:
-                - GET
-                - GET /id
-                - POST
-       - refund:
-                - GET
-                - GET /id
-                - POST
-    - name: Document
-      id: TMF667
-      isRequired: no
-      version: 4.0
-      specification: https://github.com/tmforum-apis/TMF667_Document/blob/master/TMF667-Document-v4.0.0.swagger.json
-      apitype: openapi
-      port: 8080
-      resources: 
-       - document:
-                - GET
-                - GET /id
-                - POST
-    - name: Productinventory
-      id: TMF637
-      isRequired: no
-      version: 4.0
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF637_ProductInventory/master/TMF637-ProductInventory-v4.0.0.swagger.json
-      apitype: openapi
-      port: 8080
-      resources:
-        - product:
-          - GET
-          - GET /id
     - name: PartyRoleManagement
       id: TMF669
       isRequired: yes
@@ -180,7 +114,7 @@ coreFunction:
         https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
       apitype: openapi
       resources:
-        - PartyRole:
+        - partyRole:
             - GET
             - GET /id
     - name: UserRolePermissionManagement
@@ -221,7 +155,47 @@ coreFunction:
         - event:
             - GET
             - GET /id
-  publishedEvents: []
+    - name: Document
+      id: TMF667
+      isRequired: no
+      version: 4.0
+      specification: https://github.com/tmforum-apis/TMF667_Document/blob/master/TMF667-Document-v4.0.0.swagger.json
+      apitype: openapi
+      port: 8080
+      resources: 
+       - document:
+                - GET
+                - GET /id
+                - POST      
+    - name: ProductCatalogManagement 
+      id: TMF620
+      isRequired: no
+      version: 4.1
+      specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json     
+      apitype: openapi     
+      resources: 
+      - productOffering:  
+        - GET
+        - GET /id                        
+  publishedEvents:
+    - name: PrivacyManagement
+      specification: https://github.com/tmforum-apis/TMF644_Privacy/blob/master/TMF644-Privacy-v4.0.0.swagger.json 
+      apitype: openapi
+      port: 8080
+      resources:
+        - PartyPrivacyProfileCreateEvent
+        - PartyPrivacyProfileAttributeValueChangeEvent
+        - PartyPrivacyProfileDeleteEvent
+        - PartyPrivacyProfileStatusChangeEvent
+        - PartyPrivacyProfileSpecificationCreateEvent
+        - PartyPrivacyProfileSpecificationAttributeValueChangeEvent
+        - PartyPrivacyProfileSpecificationDeleteEvent
+        - PartyPrivacyProfileSpecificationStatusChangeEvent
+        - PartyPrivacyAgreementCreateEvent
+        - PartyPrivacyAgreementAttributeValueChangeEvent
+        - PartyPrivacyAgreementDeleteEvent
+        - PartyPrivacyAgreementStatusChangeEvent
+
   subscribedEvents:
     - name: PartyRoleManagement
       specification: >-
@@ -229,9 +203,6 @@ coreFunction:
       apitype: openapi
       port: 80
       resources:
-        - partyRoleCreateEvent
-        - partyRoleAttributeValueChangeEvent
-        - partyRoleStateChangeEvent
         - partyRoleDeleteEvent
     - name: UserRolePermissionManagement
       specification: >-
@@ -239,11 +210,19 @@ coreFunction:
       apitype: openapi
       port: 80
       resources:
-        - permissionCreateEvent
-        - permissionAttributeValueChangeEvent
-        - permissionStateChangeEvent
         - permissionDeleteEvent
-        - userRoleCreateEvent
-        - userRoleAttributeValueChangeEvent
-        - userRoleStateChangeEvent
-        - userRoleDeleteEvent
+    - name: PartyManagement  
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
+      port: 80
+      resources:
+       - IndividualDeleteEvent
+       - OrganizationDeleteEvent
+    - name: ProductCatalogManagement  
+      specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json     
+      port: 80
+      resources:
+       - ProductOfferingDeleteEvent   
+
+managementFunction: []
+reportingFunction: []
+securityFunction: []
