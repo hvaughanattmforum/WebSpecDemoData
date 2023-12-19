@@ -3,13 +3,13 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  componentId: TMFC030
-  componentName: BillGeneration
-  componentFunctionalBlock: PartyManagement 
-  componenentDescription: "Bill generation mgmt. manage the party invoice management. It addresses the invoice formatting, presentation and dispatching to the proper means of communication."
-  componentVersion: 2.0.0
-  componentStatus: specified 
-  componentPublicationDate: 2023-12-18
+  id: TMFC030
+  name: BillGeneration
+  functionalBlock: PartyManagement 
+  description: "Bill generation mgmt. manage the party invoice management. It addresses the invoice formatting, presentation and dispatching to the proper means of communication."
+  version: 2.0.0
+  status: specified 
+  publicationDate: 2023-12-18
   maintainers:
     - name: Gaetano Biancardi
       email: gaetano.biancardi@accenture.com
