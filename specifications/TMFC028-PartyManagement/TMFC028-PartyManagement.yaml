@@ -3,6 +3,7 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  SecurityFunction: {}
   coreFunction:
     dependentAPIs:
     - apitype: openapi
@@ -247,12 +248,12 @@ spec:
   maintainers:
   - email: matteo.destino@accenture.com
     name: Matteo Destino
-  managementFunction: []
+  managementFunction: {}
   name: PartyManagement
   owners:
   - email: matteo.destino@accenture.com
     name: Matteo Destino
-  publicationDate: 2023-08-18 00:00:00+00:00
+  publicationDate: 2023-08-18 00:00:00
   securityFunction: []
   status: specified
   version: 1.3.1

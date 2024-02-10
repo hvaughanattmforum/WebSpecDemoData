@@ -3,13 +3,14 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  SecurityFunction: {}
   coreFunction:
     dependentAPIs:
     - apitype: openapi
       id: TMF620
       name: ProductCatalogManagement
-      required: false
       port: 8080
+      required: false
       resources:
       - productSpecification:
         - GET
@@ -20,8 +21,8 @@ spec:
       id: TMF622
       implementation: /{{.Release.Name}}-ProductOrder
       name: ProductOrder
-      required: true
       port: 8080
+      required: true
       resources:
       - productOrder:
         - GET /id
@@ -31,8 +32,8 @@ spec:
     - apitype: openapi
       id: TMF637
       name: ProductInventory
-      required: false
       port: 8080
+      required: false
       resources:
       - product:
         - GET
@@ -63,8 +64,8 @@ spec:
     - apitype: openapi
       id: TMF633
       name: ServiceCatalogManagement
-      required: false
       port: 8080
+      required: false
       resources:
       - serviceSpecification:
         - GET
@@ -74,8 +75,8 @@ spec:
     - apitype: openapi
       id: TMF634
       name: ResourceCatalogManagement
-      required: false
       port: 8080
+      required: false
       resources:
       - resourceSpecification:
         - GET
@@ -98,8 +99,8 @@ spec:
     - apitype: openapi
       id: TMF638
       name: ServiceInventory
-      required: false
       port: 8080
+      required: false
       resources:
       - service:
         - GET / id
@@ -172,6 +173,7 @@ spec:
     - apitype: openapi
       id: TMF688
       name: Event
+      port: 8080
       required: false
       resources:
       - listener:
@@ -185,7 +187,6 @@ spec:
         - GET /id
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF688-Event-v4.0.0.swagger.json
       version: 4
-      port: 8080
     publishedEvents:
     - -resources:
         ProcessFlowManagement:
@@ -261,12 +262,12 @@ spec:
   maintainers:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  managementFunction: []
+  managementFunction: {}
   name: ProductOrderDeliveryOrchestrationAndManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-08-18 00:00:00+00:00
+  publicationDate: 2023-08-18 00:00:00
   securityFunction: []
   status: specified
   version: 1.1.1
