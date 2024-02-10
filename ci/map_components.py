@@ -20,7 +20,7 @@ def remove_arrays(component):
 
 def save_component(file_path, component):
     with file_path.open("w+") as f:
-        yaml.dump(component, f)
+        yaml.dump(component, f, default_flow_style=False)
 
 def main():
     for file_path, component in load_components():
