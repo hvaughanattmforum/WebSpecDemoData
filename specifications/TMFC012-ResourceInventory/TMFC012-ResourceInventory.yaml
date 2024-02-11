@@ -3,7 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  SecurityFunction: {}
   coreFunction:
     dependentAPIs:
     - apitype: openapi
@@ -398,12 +397,10 @@ spec:
   maintainers:
   - email: sylvie.demarest@orange.com
     name: Sylvie Demarest
-  managementFunction: {}
   name: ResourceInventory
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
   publicationDate: 2023-08-18 00:00:00
-  securityFunction: []
   status: specified
   version: 2.0.0

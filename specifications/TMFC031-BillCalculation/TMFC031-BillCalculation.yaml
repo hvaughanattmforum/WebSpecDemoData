@@ -1,12 +1,8 @@
 apiVersion: oda.tmforum.org/v1beta2
 kind: component
-managementFunction: []
 metadata:
   name: components.oda.tmforum.org
-reportingFunction: []
-securityFunction: []
 spec:
-  SecurityFunction: {}
   coreFunction:
     dependantAPIs:
     - apitype: openapi
@@ -173,43 +169,41 @@ spec:
         - DELETE /id
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF671_Promotion/master/TMF671-Promotion-v4.0.0.swagger.json
       version: 4.0
-    
-  publishedEvents: []
-  subscribedEvents:
-  - apitype: openapi
-    name: PartyRoleManagement
-    port: 80
-    resources:
-    - partyRoleCreateEvent
-    - partyRoleAttributeValueChangeEvent
-    - partyRoleStateChangeEvent
-    - partyRoleDeleteEvent
-    specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-  - apitype: openapi
-    name: UserRolePermissionManagement
-    port: 80
-    resources:
-    - permissionCreateEvent
-    - permissionAttributeValueChangeEvent
-    - permissionStateChangeEventac
-    - permissionDeleteEvent
-    - userRoleCreateEvent
-    - userRoleAttributeValueChangeEvent
-    - userRoleStateChangeEvent
-    - userRoleDeleteEvent
-    specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRoleandPermission-v4.0.0.swagger.json
-  - name: usageManagement
-    port: 80
-    resources:
-    - UsageCreateEvent
-    - UsageAttributeValueChangeEvent
-    - UsageDeleteEvent
-    - UsageStateChangeEvent
-    - UsageSpecificationCreateEvent
-    - UsageSpecificationAttributeValueChangeEvent
-    - UsageSpecificationDeleteEvent
-    specification: https://github.com/tmforum-apis/TMF635_UsageManagement/blob/master/TMF635-UsageManagement-v4.0.0.swagger.json
-
+    publishedEvents: []
+    subscribedEvents:
+    - apitype: openapi
+      name: PartyRoleManagement
+      port: 80
+      resources:
+      - partyRoleCreateEvent
+      - partyRoleAttributeValueChangeEvent
+      - partyRoleStateChangeEvent
+      - partyRoleDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
+    - apitype: openapi
+      name: UserRolePermissionManagement
+      port: 80
+      resources:
+      - permissionCreateEvent
+      - permissionAttributeValueChangeEvent
+      - permissionStateChangeEventac
+      - permissionDeleteEvent
+      - userRoleCreateEvent
+      - userRoleAttributeValueChangeEvent
+      - userRoleStateChangeEvent
+      - userRoleDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRoleandPermission-v4.0.0.swagger.json
+    - name: usageManagement
+      port: 80
+      resources:
+      - UsageCreateEvent
+      - UsageAttributeValueChangeEvent
+      - UsageDeleteEvent
+      - UsageStateChangeEvent
+      - UsageSpecificationCreateEvent
+      - UsageSpecificationAttributeValueChangeEvent
+      - UsageSpecificationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF635_UsageManagement/blob/master/TMF635-UsageManagement-v4.0.0.swagger.json
   description: Bill generation mgmt. manage the party invoice management. It addresses
     the invoice formatting, presentation and dispatching to the proper means of communication.
   functionalBlock: PartyManagement
@@ -217,7 +211,6 @@ spec:
   maintainers:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  managementFunction: {}
   name: BillCalculation
   owners:
   - email: gaetano.biancardi@accenture.com

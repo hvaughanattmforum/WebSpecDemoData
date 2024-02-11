@@ -15,7 +15,7 @@ def load_components():
             yield yaml.load(f, Loader=yaml.SafeLoader)
 
 def validate_apis(index, component):
-    functions = ["coreFunction", "SecurityFunction", "managementFunction"]
+    functions = ["coreFunction", "securityFunction", "managementFunction"]
     print(type(component), component["spec"]["id"])
 
     for block in functions:

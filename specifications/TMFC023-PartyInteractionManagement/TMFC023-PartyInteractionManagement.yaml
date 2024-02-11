@@ -3,7 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  SecurityFunction: {}
   coreFunction:
     dependentAPIs:
     - apitype: openapi
@@ -133,7 +132,7 @@ spec:
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF688-Event-v4.0.0.swagger.json
       version: 4
     publishedEvents:
-    - -resources:
+    - resources:
         partyInteractionManagement:
         - partyInteractionCreateEvent
         - partyInteractionAttributeValueChangeEvent
@@ -145,7 +144,7 @@ spec:
       name: PartyInteractionManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF683_PartyInteraction/blob/master/partyInteractionManagement_TMF_v1.0.0Review2.json
-    - -resources:
+    - resources:
         ProcessFlowManagement:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
@@ -199,7 +198,7 @@ spec:
         - documentChangeEvent
         - documentSpecificationAttributeValueChangeEvent
       specification: https://github.com/tmforum-apis/TMF667_Document/blob/master/TMF667-Document-v4.0.0.swagger.json
-    - -resources:
+    - resources:
         ProcessFlowManagement:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
@@ -222,12 +221,10 @@ spec:
   maintainers:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  managementFunction: {}
   name: PartyInteractionManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
   publicationDate: 2023-08-18 00:00:00
-  securityFunction: []
   status: specified
   version: 1.1.1

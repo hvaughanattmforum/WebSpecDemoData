@@ -3,7 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  SecurityFunction: {}
   coreFunction:
     dependentAPIs:
     - apitype: openapi
@@ -140,9 +139,7 @@ spec:
     owners: null
   - email: matteo.destino@accenture.com
     name: Matteo Destino
-  managementFunction: {}
   name: DigitalIdentityManagement
   publicationDate: 2023-08-18 00:00:00
-  securityFunction: []
   status: specified
   version: 1.1.1

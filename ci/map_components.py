@@ -13,9 +13,10 @@ def load_components():
             yield spec, yaml.load(f, Loader=yaml.SafeLoader)
 
 def remove_arrays(component):
-    functions = ["SecurityFunction", "managementFunction"]
+    functions = ["securityFunction", "managementFunction", "SecurityFunction", "ManagementFunction"]
     for block in functions:
-        component["spec"][block] = {}
+        if block in component["spec"]:
+            del component["spec"][block]
 
     if not component["spec"].get("coreFunction"):
         component["spec"]["coreFunction"] = {}

@@ -3,7 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  SecurityFunction: {}
   coreFunction:
     dependantAPIs:
     - apitype: openapi
@@ -221,7 +220,6 @@ spec:
   maintainers:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  managementFunction: {}
   name: BillGeneration
   owners:
   - email: gaetano.biancardi@accenture.com

@@ -3,10 +3,9 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  SecurityFunction: {}
   coreFunction:
     PublishedEvent:
-    - -resources:
+    - resources:
         ProcessFlowManagement:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
@@ -23,7 +22,7 @@ spec:
       name: ProcessFlowManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF701-ProcessFlowManagement/blob/master/TMF701-ProcessFlowManagement-v4.0.0.swagger.json
-    - -resources:
+    - resources:
         AlarmManagement:
         - alarmStateChange**
         - alarmCreateEvent**
@@ -35,7 +34,7 @@ spec:
       name: AlarmManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642-Alarm-v4.0.0.swagger.json
-    - -resources:
+    - resources:
         PerformanceManagement:
         - measurementCollectionJobCreateEvent
         - measurementCollectionJobExecutionStateChangeEvent
@@ -362,12 +361,10 @@ spec:
   maintainers:
   - email: milind.2.bhagwat@bt.com
     name: Milind Bhagwat
-  managementFunction: {}
   name: ServicePerformanceManagement
   owners:
   - email: milind.2.bhagwat@bt.com
     name: Milind Bhagwat
   publicationDate: 2023-08-18 00:00:00
-  securityFunction: []
   status: specified
   version: 1.1.0

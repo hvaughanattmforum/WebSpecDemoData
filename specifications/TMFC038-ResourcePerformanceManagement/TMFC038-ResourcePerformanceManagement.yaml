@@ -3,10 +3,9 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  SecurityFunction: {}
   coreFunction:
     PublishedEvent:
-    - -resources:
+    - resources:
         ProcessFlowManagement:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
@@ -23,7 +22,7 @@ spec:
       name: ProcessFlowManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-    - -resources:
+    - resources:
       - alarmStateChange**
       - alarmCreateEvent**
       - alarmClearEvent**
@@ -34,7 +33,7 @@ spec:
       name: AlarmManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642-Alarm-v4.0.0.swagger.json
-    - -resources:
+    - resources:
       - measurementCollectionJobCreateEvent
       - measurementCollectionJobExecutionStateChangeEvent
       - measurementCollectionJobDeleteEvent
@@ -53,7 +52,7 @@ spec:
       name: PerformanceManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF628-Performance-v4.0.0.swagger.json
-    - -resources:
+    - resources:
       - thresholdCreateNotification
       - thresholdChangeNotification
       - thresholdRuleCreateNotification
@@ -69,7 +68,7 @@ spec:
       port: 80
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF649-PerformanceThreshold-v4.0.0.swagger.json
     SubscribedEvent:
-    - -resources:
+    - resources:
       - ResourceSpecificationChangeEvent
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/hub
@@ -77,7 +76,7 @@ spec:
       name: ResourceCatalogManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF634_ResourceCatalog/blob/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
-    - -resources:
+    - resources:
       - ResourceCreateEvent
       - ResourceAttributeValueChangeEvent
       - ResourceStateChangeEvent
@@ -96,7 +95,7 @@ spec:
       resources:
       - geographicAddressValidationStateChange
       specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
-    - -resources:
+    - resources:
         ProcessFlowManagement:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
@@ -338,19 +337,16 @@ spec:
         - DELETE
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF671-Promotion-v4.1.0.swagger.json
       version: 4
-  description: "\tResource Performance Management will monitor, analyze, and report\
-    \ on the performance of the service provider's resources."
+  description: Resource Performance Management will monitor, analyze, and report on the performance of the service provider's resources.
   functionalBlock: IntelligenceManagement
   id: TMFC038
   maintainers:
   - email: milind.2.bhagwat@bt.com
     name: Milind Bhagwat
-  managementFunction: {}
   name: ResourcePerformanceManagement
   owners:
   - email: milind.2.bhagwat@bt.com
     name: Milind Bhagwat
   publicationDate: 2023-08-18 00:00:00
-  securityFunction: []
   status: specified
   version: 1.1.0

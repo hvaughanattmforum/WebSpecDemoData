@@ -3,7 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  SecurityFunction: {}
   coreFunction:
     dependentAPIs:
     - apitype: openapi
@@ -229,7 +228,7 @@ spec:
         - exportJobCreateEvent
         - exportJobStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
-    - -resources:
+    - resources:
         ProcessFlowManagement:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
@@ -303,12 +302,10 @@ spec:
   maintainers:
   - email: elisabeth.andersson@matrixx.com
     name: Elisabeth Andersson
-  managementFunction: {}
   name: ResourceCatalogManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
   publicationDate: 2023-08-18 00:00:00
-  securityFunction: []
   status: specified
   version: 1.2.1
