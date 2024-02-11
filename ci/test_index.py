@@ -16,12 +16,13 @@ def load_components():
 
 def validate_apis(index, component):
     functions = ["coreFunction", "SecurityFunction", "managementFunction"]
+    print(type(component), component["spec"]["id"])
+
     for block in functions:
         function_edges = component["spec"].get(block, {})
         for edge, apis in function_edges.items():
             for api in apis:
-                print(api.get("id", "no id"))
-
+                pass
             
 
 
