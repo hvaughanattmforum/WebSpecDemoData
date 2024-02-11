@@ -4,7 +4,7 @@ metadata:
   name: components.oda.tmforum.org
 spec:
   SecurityFunction: {}
-  coreFunction: null
+  coreFunction: {}
   dependentAPIs:
   - apitype: openapi
     developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationAndConfiguration/v4/docs
@@ -288,17 +288,7 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
     specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-  securityFunction:
-    controllerRole: '{{ .Values.security.controllerRole }}'
-    exposedAPIs:
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/partyRoleManagement/v4/docs
-      id: TMF669
-      implementation: '{{.Release.Name}}-partyroleapi'
-      name: partyrole
-      path: /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/partyRoleManagement/v4
-      port: 8080
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.0.swagger.json
+  securityFunction: {}
   status: Pre-production
   subscribedEvents:
   - apitype: openapi
