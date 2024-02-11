@@ -17,8 +17,8 @@ def remove_arrays(component):
     for block in functions:
         component["spec"][block] = {}
 
-    if not component.get("coreFunction"):
-        component["coreFunction"] = {}
+    if not component["spec"].get("coreFunction"):
+        component["spec"]["coreFunction"] = {}
 
 
 def save_component(file_path, component):
