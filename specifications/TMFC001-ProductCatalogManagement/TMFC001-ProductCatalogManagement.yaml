@@ -4,7 +4,7 @@ metadata:
   name: components.oda.tmforum.org
 spec:
   coreFunction:
-    dependentAPIs:
+    dependantAPIs:
     - apitype: openapi
       id: TMF633
       name: ServiceCatalogManagement
