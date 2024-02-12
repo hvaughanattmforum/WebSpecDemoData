@@ -14,13 +14,13 @@ on:
 
 
 jobs:
-  spec-test-matrix:
+  component-validation-checks:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Components
         uses: actions/checkout@v4
       - name: install dependencies
-        run: pip3 install -r .github/ci/requirements.txt 
+        run: pip3 install -r ci/requirements.txt 
       
       - name: Validate component schema
         run: |
