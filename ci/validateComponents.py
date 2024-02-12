@@ -21,22 +21,22 @@ def load_json_schema():
     with CI.joinpath("component.schema.json").open("r") as f:
         return json.load(f)
 
-def validate_component(schema, component):
+def validate_component(schema, component, name):
     errors = 0
     try:
         validate(instance=component, schema=schema)
     except Exception as e:
         errors = 1
+        print(f"::group::{name}")
         print(f"::error::{e}")
+        print("::endgroup::")
     return errors
 def main():
     component_schema = load_json_schema()
     yaml.SafeLoader.add_constructor('tag:yaml.org,2002:timestamp', str_constructor)
     return_code = 0
     for file_path, component in load_components():
-        print(f"::group::validating {file_path.parent.name}")
-        return_code = validate_component(component_schema, component)
-        print("::endgroup::")
+        return_code |= validate_component(component_schema, component, file_path.parent.name)
 
     return return_code
 
