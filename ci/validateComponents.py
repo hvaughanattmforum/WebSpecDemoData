@@ -35,7 +35,7 @@ def main():
     return_code = 0
     for file_path, component in load_components():
         print(f"::group::validating {file_path.parent.name}")
-        return_code = validate_component(component_schema, component)
+        return_code |= validate_component(component_schema, component)
         print("::endgroup::")
 
     return return_code
