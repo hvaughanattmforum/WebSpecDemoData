@@ -22,20 +22,23 @@ def load_json_schema():
         return json.load(f)
 
 def validate_component(schema, component):
+    errors = 0
     try:
         validate(instance=component, schema=schema)
     except Exception as e:
+        errors = 1
         print(f"::error::{e}")
-
+    return errors
 def main():
     component_schema = load_json_schema()
     yaml.SafeLoader.add_constructor('tag:yaml.org,2002:timestamp', str_constructor)
+    return_code = 0
     for file_path, component in load_components():
         print(f"::group::validating {file_path.parent.name}")
-        validate_component(component_schema, component)
+        return_code = validate_component(component_schema, component)
         print("::endgroup::")
 
-    return 0
+    return return_code
 
 
 if __name__ == "__main__":
