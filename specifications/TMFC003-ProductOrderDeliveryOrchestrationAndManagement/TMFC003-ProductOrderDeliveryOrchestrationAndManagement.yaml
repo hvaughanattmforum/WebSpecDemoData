@@ -7,7 +7,7 @@ spec:
     dependentAPIs:
     - apitype: openapi
       id: TMF620
-      name: ProductCatalogManagement
+      name: ProductCatalogMnaagement
       port: 8080
       required: false
       resources:
@@ -114,9 +114,9 @@ spec:
       port: 8080
       required: false
       resources:
-      - resource: null
-      - GET
-      - GET /id
+      - resource: 
+        - GET
+        - GET /id
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF639_ResourceInventory/master/TMF639-ResourceInventory-v4.0.0.swagger.json
       version: 4
     - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrderManagement/v4/docs
@@ -127,9 +127,9 @@ spec:
       port: 8080
       required: false
       resources:
-      - resourceOrder: null
-      - GET /id
-      - POST
+      - resourceOrder:
+        - GET /id
+        - POST
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF652_ResourceOrderManagement/master/TMF652-ResourceOrder-v4.0.0.swagger.json
       version: 4
     exposedAPIs:
@@ -169,35 +169,17 @@ spec:
         - DELETE
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF671-Promotion-v4.1.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF688
-      name: Event
-      port: 8080
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
-      - event:
-        - POST
-        - GET
-        - GET /id
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF688-Event-v4.0.0.swagger.json
-      version: 4
     publishedEvents:
-    - -resources:
-        ProcessFlowManagement:
-        - processFlowCreateEvent
-        - processFlowStateChangeEvent
-        - processFlowStateDeleteEvent
-        - processFlowStateAttributeValueChangeEvent
-        - taskFlowCreateEvent
-        - taskFlowStateChangeEvent
-        - taskFlowDeleteEvent
-        - taskFlowAttributeValueChangeEvent
-        - taskFlowInformationRequiredEvent
+    - resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -205,8 +187,7 @@ spec:
       port: 80
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
     subscribedEvents:
-    - -resources:
-        ProductOrderingManagement:
+    - resources:
         - productOrderStateChangeEvent
         - cancelProductOrderStateChangeEvent
       apitype: openapi
@@ -215,8 +196,7 @@ spec:
       name: ProductOrder
       port: 80
       specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/master/TMF622-ProductOrder-v4.0.0.swagger.json
-    - -resources:
-        ServiceOrderingManagement:
+    - resources:
         - serviceOrderStateChangeEvent
         - serviceOrderAttributeValueChangeEvent
         - serviceOrderInformationRequiredEvent
@@ -231,8 +211,7 @@ spec:
       name: ServiceOrder
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF641_ServiceOrdering/master/TMF641-ServiceOrdering-v4.1.0.swagger.json
-    - -resources:
-        ResourceOrderManagement:
+    - resources:
         - resourceOrderStateChange
         - resourceOrderAttributeValueChangeEvent
         - resourceOrderInformationRequiredEvent

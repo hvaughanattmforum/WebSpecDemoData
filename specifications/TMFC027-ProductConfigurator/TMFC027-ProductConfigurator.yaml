@@ -263,7 +263,6 @@ spec:
       name: ProductOfferingQualification
       port: 80
       resources:
-        ProductOfferingQualification:
         - ProductOfferingQualificationCreateEvent
         - ProductOfferingQualificationAttributeValueChangeEvent
         - ProductOfferingQualificationStateChangeEvent
@@ -275,7 +274,6 @@ spec:
       name: ProductCatalogManagement
       port: 80
       resources:
-        ProductCatalogManagement:
         - CatalogCreateEvent
         - CatalogAttributeValueChangeEvent
         - CatalogStateChangeEvent

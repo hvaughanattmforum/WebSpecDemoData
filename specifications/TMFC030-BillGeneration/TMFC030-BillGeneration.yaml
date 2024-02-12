@@ -4,10 +4,10 @@ metadata:
   name: components.oda.tmforum.org
 spec:
   coreFunction:
-    dependantAPIs:
+    dependentAPIs:
     - apitype: openapi
       id: TMF666
-      isRequired: true
+      required: true
       name: accountManagement
       resources:
       - BillingAccount:
@@ -38,7 +38,7 @@ spec:
       version: 4.0
     - apitype: openapi
       id: TMF632
-      isRequired: true
+      required: true
       name: partyManagement
       resources:
       - individual:
@@ -51,7 +51,7 @@ spec:
       version: 4.0
     - apitype: openapi
       id: TMF676
-      isRequired: false
+      required: false
       name: paymentManagement
       port: 8080
       resources:
@@ -67,7 +67,7 @@ spec:
       version: 4.0
     - apitype: openapi
       id: TMF667
-      isRequired: false
+      required: false
       name: document
       port: 8080
       resources:
@@ -79,7 +79,7 @@ spec:
       version: 4.0
     - apitype: openapi
       id: TMF637
-      isRequired: false
+      required: false
       name: productinventory
       port: 8080
       resources:
@@ -90,7 +90,7 @@ spec:
       version: 4.0
     - apitype: openapi
       id: TMF669
-      isRequired: true
+      required: true
       name: partyRoleManagement
       resources:
       - PartyRole:
@@ -100,7 +100,7 @@ spec:
       version: 4.0
     - apitype: openapi
       id: TMF672
-      isRequired: true
+      required: true
       name: userRolePermissionManagement
       resources:
       - permission:
@@ -113,7 +113,7 @@ spec:
       version: 4.0
     - apitype: openapi
       id: TMF701
-      isRequired: false
+      required: false
       name: processFlowManagement
       resources:
       - processFlow:
@@ -125,7 +125,7 @@ spec:
       version: 4.0
     - apitype: openapi
       id: TMF688
-      isRequired: false
+      required: false
       name: event
       resources:
       - event:
@@ -138,7 +138,7 @@ spec:
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/customerBillManagement/v4/docs
       id: TMF678
       implementation: /{{.Release.Name}}-CustomerBill
-      isRequired: true
+      required: true
       name: customerBillManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/customerBillManagement/v4
       port: 8080
@@ -157,7 +157,7 @@ spec:
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
       id: TMF701
       implementation: /{{.Release.Name}}-procmngttapi
-      isRequired: false
+      required: false
       name: processFlowManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
       port: 8080
@@ -177,7 +177,7 @@ spec:
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
       id: TMF688
       implementation: /{{.Release.Name}}-PromotionManagement
-      isRequired: false
+      required: false
       name: event
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
       port: 8080

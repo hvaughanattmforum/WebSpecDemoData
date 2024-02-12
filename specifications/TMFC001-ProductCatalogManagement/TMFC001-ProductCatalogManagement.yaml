@@ -274,8 +274,7 @@ spec:
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF688-Event-v4.0.0.swagger.json
       version: 4
     publishedEvents:
-    - -resources:
-        ProductCatalogManagement:
+    - resources:
         - productSpecificationCreate
         - productSpecificationDeleteEvent
         - categoryCreateEvent
@@ -297,8 +296,7 @@ spec:
       name: ProductCatalogManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
-    - -resources:
-        PromotionManagement:
+    - resources:
         - promotionCreateEvent
         - promotionDeleteEvent
         - promotionAttributeValueChangeEvent
@@ -310,8 +308,7 @@ spec:
       name: PromotionManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF671_Promotion/blob/master/TMF671-Promotion-v4.1.0.swagger.json
-    - -resources:
-        ProcessFlowManagement:
+    - resources:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
         - processFlowStateDeleteEvent
@@ -334,12 +331,10 @@ spec:
       name: ServiceCatalogManagement
       port: 80
       resources:
-      - ServiceCatalogManagement:
         - serviceSpecificationStateChange
         - serviceSpecificationAttributeValueChangeEvent
         - serviceSpecificationCreateEvent
         - serviceSpecificationDeleteEvent
-      - ResourceCatalog:
         - resourceSpecificationCreateEvent
         - resourceSpecificationChangeEvent
         - resourceSpecificationDeleteEvent
@@ -350,7 +345,6 @@ spec:
       name: PartyRoleManagement
       port: 80
       resources:
-      - PartyRoleManagement:
         - partyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
     - apitype: openapi
@@ -359,7 +353,6 @@ spec:
       name: UserRolePermission
       port: 80
       resources:
-      - UserRolePermission:
         - permissionDeleteEvent
       specification: https://github.com/tmforum-apis/TMF672_UserRolesPermissions/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
     - apitype: openapi
@@ -368,7 +361,6 @@ spec:
       name: Party
       port: 80
       resources:
-      - Party:
         - individualDeleteEvent
         - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json

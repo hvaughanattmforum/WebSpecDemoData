@@ -183,7 +183,6 @@ spec:
       version: 4
     publishedEvents:
     - resources:
-        ServiceCatalogManagement:
         - serviceSpecificationCreateEvent
         - serviceSpecificationChangeEvent
         - serviceSpecificationDeleteEvent
@@ -204,7 +203,6 @@ spec:
       port: 80
       specification: https://github.com/tmforum-apis/TMF633_ServiceCatalog/blob/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
     - resources:
-        ServiceQuality:
         - serviceLevelObjectiveCreateEvent
         - serviceLevelObjectiveChangeEvent
         - serviceLevelObjectiveAttributeValueChangeEvent
@@ -218,7 +216,6 @@ spec:
       port: 80
       specification: https://github.com/tmforum-apis/TMF657_ServiceQualityManagement/blob/master/TMF657-ServiceQualityManagement-v4.0.0.swagger.json
     - resources:
-        ProcessFlowManagement:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
         - processFlowStateDeleteEvent
@@ -241,7 +238,6 @@ spec:
       name: ResourceCatalogManagement
       port: 80
       resources:
-      - ResourceCatalog:
         - resourceSpecificationCreateEvent
         - resourceSpecificationChangeEvent
         - resourceSpecificationDeleteEvent
@@ -252,7 +248,6 @@ spec:
       name: EntityCatalogManagement
       port: 80
       resources:
-      - ResourceCatalog:
         - entitySpecificationCreateEvent
         - entitySpecificationAttributeValueChangeEvent
         - entitySpecificationChangeEvent

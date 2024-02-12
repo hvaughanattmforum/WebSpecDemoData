@@ -117,7 +117,6 @@ spec:
       name: digitalIdentity
       port: 80
       resources:
-        DigitalIdentity:
         - DigitalIdentityCreateEvent
         - DigitalIdentityStateChangeEvent
         - DigitalIdentityDeleteEvent
@@ -127,7 +126,9 @@ spec:
     - apitype: openapi
       name: PartyRoleManagement
       port: 80
-      resources: userRoles - UserRoleCreationNotification - UserRoleChangeNotification
+      resources: 
+        - UserRoleCreationNotification 
+        - UserRoleChangeNotification
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
   description: The Digital Identity Management is responsible for the parties (customers,
     employees, partners) and resources authentication.
@@ -136,9 +137,9 @@ spec:
   maintainers:
   - email: matteo.destino@accenture.com
     name: Matteo Destino
-    owners: null
   - email: matteo.destino@accenture.com
     name: Matteo Destino
+  owners: []
   name: DigitalIdentityManagement
   publicationDate: 2023-08-18 00:00:00
   status: specified

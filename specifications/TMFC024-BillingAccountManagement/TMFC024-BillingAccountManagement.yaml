@@ -161,7 +161,6 @@ spec:
       name: AccountManagement
       port: 80
       resources:
-        AccountManagement:
         - billingAccountAttributeValueChangeEvent
         - billingAccountStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF666_AccountManagement/master/TMF666-AccountManagement-v4.0.0.swagger.json

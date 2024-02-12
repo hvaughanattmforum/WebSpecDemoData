@@ -35,7 +35,7 @@ spec:
       id: TMF639
       name: ResourceInventory
       required: false
-      resource:
+      resources:
       - resource:
         - GET
         - GET /id
@@ -217,7 +217,6 @@ spec:
       version: 4
     publishedEvents:
     - resources:
-        Productinventory:
         - productCreateEvent
         - productAttributeValueChangeEvent
         - productStateChangeEvent
@@ -229,8 +228,7 @@ spec:
       name: Productinventory
       port: 80
       specification: https://github.com/tmforum-apis/TMF637_ProducInventory/blob/master/TMF637-ProducInventory-v4.0.0.swagger.json
-    - -resources:
-        ProcessFlow:
+    - resources:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
         - processFlowStateDeleteEvent
@@ -253,7 +251,6 @@ spec:
       name: ResourceInventoryManagement
       port: 80
       resources:
-      - ResourceInventory:
         - resourceDeleteEvent
       specification: https://open-api.tmforum.org20-ResourceInventory-v4.0.0.swagger.json
     - apitype: openapi
@@ -262,7 +259,6 @@ spec:
       name: ServiceInventoryManagement
       port: 80
       resources:
-      - ServiceInventory:
         - serviceDeleteEvent
       specification: https://open-api.tmforum.org20-ServiceInventory-v4.0.0.swagger.json
     - apitype: openapi
@@ -271,7 +267,6 @@ spec:
       name: ProductCatalogManagement
       port: 80
       resources:
-      - ProductCatalog:
         - productSpecificationDeleteEvent
         - productOfferingDeleteEvent
         - productOfferingPriceDeleteEvent
@@ -282,7 +277,6 @@ spec:
       name: PartyRoleManagement
       port: 80
       resources:
-      - PartyRole:
         - partyRoleDeleteEvent
       specification: https://open-api.tmforum.org20-PartyRole-v4.0.0.swagger.json
     - apitype: openapi
@@ -291,7 +285,6 @@ spec:
       name: AgreementManagement
       port: 80
       resources:
-      - Agreement:
         - agreementDeleteEvent
       specification: https://open-api.tmforum.org20-Agreement-v4.0.0.swagger.json
     - apitype: openapi
@@ -300,7 +293,6 @@ spec:
       name: AccountManagement
       port: 80
       resources:
-      - Account:
         - billingAccountDeleteEvent
       specification: https://open-api.tmforum.org20-Account-v4.0.0.swagger.json
     - apitype: openapi
@@ -309,7 +301,6 @@ spec:
       name: UserRolePermissionManagement
       port: 80
       resources:
-      - UserRolePermission:
         - permissionDeleteEvent
       specification: https://open-api.tmforum.org20-UserRolePermission-v4.0.0.swagger.json
     - apitype: openapi
@@ -318,7 +309,6 @@ spec:
       name: GeographicSiteManagement
       port: 80
       resources:
-      - GeographicSite:
         - geographicSiteDeleteEvent
       specification: https://open-api.tmforum.org20-GeographicSite-v4.0.0.swagger.json
     - apitype: openapi
@@ -327,7 +317,6 @@ spec:
       name: GeographicLocation
       port: 80
       resources:
-      - GeographicLocation:
         - geographicLocationDeleteEvent
       specification: https://open-api.tmforum.org20-GeographicLocatin-v4.0.0.swagger.json
     - apitype: openapi
@@ -336,7 +325,6 @@ spec:
       name: PartyManagement
       port: 80
       resources:
-      - Party:
         - individualDeleteEvent
         - organizationDeleteEvent
       specification: https://open-api.tmforum.org20-Party-v4.0.0.swagger.json
@@ -346,7 +334,6 @@ spec:
       name: ProductOrderingManagement
       port: 80
       resources:
-      - ProductOrdering:
         - productOrderDeleteEvent
       specification: https://open-api.tmforum.org20-ProductOrdering-v4.0.0.swagger.json
     - apitype: openapi
@@ -355,7 +342,6 @@ spec:
       name: ProductInventoryManagement
       port: 80
       resources:
-      - ProductInventory:
         - productCreateEvent
         - productDeleteEvent
         - productAttributeValueChangeEvent

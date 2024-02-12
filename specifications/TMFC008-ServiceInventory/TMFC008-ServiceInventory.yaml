@@ -29,7 +29,7 @@ spec:
       id: TMF639
       name: ResourceInventoryManagement
       required: false
-      resource:
+      resources:
       - resource:
         - GET
         - GET /id
@@ -39,7 +39,7 @@ spec:
       id: TMF638
       name: ServiceInventoryManagement
       required: false
-      resource:
+      resources:
       - service:
         - GET
         - GET /id
@@ -176,7 +176,6 @@ spec:
       version: 4
     publishedEvents:
     - resources:
-        serviceInventory:
         - serviceCreateEvent
         - serviceAttributeValueChangeEvent
         - serviceStateChangeEvent
@@ -188,7 +187,6 @@ spec:
       port: 80
       specification: https://github.com/tmforum-apis/TMF638_ServiceInventoryManagement/blob/master/TMF638_ServiceInventoryManagement-v4.0.0.swagger.json
     - resources:
-        ProcessFlowManagement:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
         - processFlowStateDeleteEvent
@@ -211,7 +209,6 @@ spec:
       name: ResourceInventoryManagement
       port: 80
       resources:
-      - ResourceInventory:
         - resourceDeleteEvent
       specification: https://open-api.tmforum.org20-ResourceInventory-v4.0.0.swagger.json
     - apitype: openapi
@@ -220,7 +217,6 @@ spec:
       name: ServiceInventoryManagement
       port: 80
       resources:
-      - ServiceInventory:
         - serviceCreateEvent
         - serviceAttributeValueChangeEvent
         - serviceStateChangeEvent
@@ -232,7 +228,6 @@ spec:
       name: ServiceCatalogManagement
       port: 80
       resources:
-      - ServiceCatalog:
         - serviceSpecificationDeleteEvent
       specification: https://open-api.tmforum.org20-ServiceCatalog-v4.0.0.swagger.json
     - apitype: openapi
@@ -241,7 +236,6 @@ spec:
       name: PartyRoleManagement
       port: 80
       resources:
-      - PartyRole:
         - partyRoleDeleteEvent
       specification: https://open-api.tmforum.org20-PartyRole-v4.0.0.swagger.json
     - apitype: openapi
@@ -250,7 +244,6 @@ spec:
       name: UserRolePermissionManagement
       port: 80
       resources:
-      - UserRolePermission:
         - permissionDeleteEvent
       specification: https://open-api.tmforum.org20-UserRolePermission-v4.0.0.swagger.json
     - apitype: openapi
@@ -259,7 +252,6 @@ spec:
       name: GeographicSiteManagement
       port: 80
       resources:
-      - GeographicSite:
         - geographicSiteDeleteEvent
       specification: https://open-api.tmforum.org20-GeographicSite-v4.0.0.swagger.json
     - apitype: openapi
@@ -268,7 +260,6 @@ spec:
       name: GeographicLocation
       port: 80
       resources:
-      - GeographicLocation:
         - geographicLocationDeleteEvent
       specification: https://open-api.tmforum.org20-GeographicLocatin-v4.0.0.swagger.json
     - apitype: openapi
@@ -277,7 +268,6 @@ spec:
       name: PartyManagement
       port: 80
       resources:
-      - Party:
         - individualDeleteEvent
         - organizationDeleteEvent
       specification: https://open-api.tmforum.org20-Party-v4.0.0.swagger.json
@@ -287,7 +277,6 @@ spec:
       name: ServiceOrderingManagement
       port: 80
       resources:
-      - ServiceOrdering:
         - serviceOrderDeleteEvent
       specification: https://open-api.tmforum.org20-ServiceOrdering-v4.0.0.swagger.json
   description: Service Inventory component is responsible for storage and exposure

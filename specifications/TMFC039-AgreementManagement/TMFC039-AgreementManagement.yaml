@@ -166,7 +166,6 @@ spec:
       name: userRole
       port: 80
       resources:
-        agreement:
         - agreementCreateEvent
         - agreementAttributeValueChangeEvent
         - agreementStateChangeEvent
@@ -179,7 +178,6 @@ spec:
       name: PartyManagement
       port: 80
       resources:
-        party:
         - individualDeleteEvent
         - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json

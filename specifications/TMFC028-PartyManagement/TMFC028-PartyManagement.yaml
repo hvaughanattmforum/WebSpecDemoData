@@ -182,12 +182,10 @@ spec:
       name: PartnershipTypeMaagement
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF668_PartnershipTypeManagement/master/TMF668-PartnershipTypeManagement-v4.0.0.swagger.json
-    - resources:
-        Partnership:
+      resources:
         - PartnershipCreateEvent
         - PartnershipChangeEvent
         - PartnershipDeleteEvent
-        PartnershipSpecification:
         - PartnershipSpecificationCreateEvent
         - PartnershipSpecificationChangeEvent
         - PartnershipSpecificationDeleteEvent
@@ -196,13 +194,11 @@ spec:
       name: partyManagement
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
-    - resources:
-        Individual:
+      resources:
         - IndividualCreateEvent
         - IndividualAttributeValueChangeEvent
         - IndividualStateChangeEvent
         - IndividualDeleteEvent
-        Organization:
         - OrganizationCreateEvent
         - OrganizationAttributeValueChangeEvent
         - OrganizationStateChangeEvent
@@ -212,8 +208,7 @@ spec:
       name: CustomerManagement
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF629_CustomerManagement/master/TMF629-CustomerManagement-v4.0.0.swagger.json
-    - resources:
-        customer:
+      resources:
         - CustomerCreateEvent
         - CustomerAttributeValueChangeEvent
         - CustomerStateChangeEvent
@@ -223,20 +218,18 @@ spec:
       name: UserRolesandPermissions
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRolesandPermissions/master/TMF672-UserRolesandPermissions-v4.0.0.swagger.json
-    - resources:
-        UserRoles:
+      resources:
         - UserRoleCreationNotification
         - UserRoleChangeNotification
     - apitype: openapi
       name: PartyRoleManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-    - resources:
-        PartyRole:
-        - PartyRoleCreateEvent
-        - PartyRoleAttributeValueChangeEvent
-        - PartyRoleStateChangeEvent
-        - PartyRoleDeleteEvent
+      resources:
+      - PartyRoleCreateEvent
+      - PartyRoleAttributeValueChangeEvent
+      - PartyRoleStateChangeEvent
+      - PartyRoleDeleteEvent
   description: 'Party Management component is responsible for the capture, validation
     and management of Parties and their Roles. A Party may be an individual or organization
     that has a relationship with an enterprise. In this context it is responsible

@@ -123,7 +123,7 @@ spec:
         - GET
         - GET /id
       specification: https://github.com/tmforum-apis/TMF685_ResourcePool/blob/master/Resource_Pool_Management.regular.swagger.json
-      version: 1.0.1
+      version: 4
     - apitype: openapi
       id: TMF687
       name: StockManagement
@@ -277,6 +277,7 @@ spec:
     - apitype: openapi
       id: TMF622
       implementation: /{{.Release.Name}}-ProductOrder
+      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productOrderManagement/v4
       name: ProductOrder
       port: 8080
       required: true
@@ -298,6 +299,7 @@ spec:
       implementation: /{{.Release.Name}}-QuoteManagement
       name: QuoteManagement
       port: 8080
+      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/quoteManagement/v4
       required: false
       resources:
       - Quote:
@@ -311,6 +313,7 @@ spec:
     - apitype: openapi
       id: TMF663
       implementation: /{{.Release.Name}}-QuoteManagement
+      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/shoppingCart/v4
       name: ShoppingCart
       port: 8080
       required: false
@@ -360,57 +363,53 @@ spec:
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF688-Event-v4.0.0.swagger.json
       version: 4
     publishedEvents:
-    - -resources:
-        ProductOrderingManagement:
-        - productOrderStateChange
-        - productOrderCreateEvent
-        - productOrderAttributeValueChange
-        - productOrderDelete
-        - productOrderInformationRequired
-        - cancelProductOrderCreateEvent
-        - cancelProductOrderStateChange
-        - cancelProductOrderInformationRequired
+    - resources:
+      - productOrderStateChange
+      - productOrderCreateEvent
+      - productOrderAttributeValueChange
+      - productOrderDelete
+      - productOrderInformationRequired
+      - cancelProductOrderCreateEvent
+      - cancelProductOrderStateChange
+      - cancelProductOrderInformationRequired
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrder/hub
       implementation: /{{.Release.Name}}-ProductOrderEvent
       name: ProductOrder
       port: 80
       specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/master/TMF622-ProductOrder-v4.0.0.swagger.json
-    - -resources:
-        QuoteManagement:
-        - quoteStateChange
-        - quoteCreateEvent
-        - quoteAttributeValueChange
-        - quoteDelete
-        - quoteInformationRequired
+    - resources:
+      - quoteStateChange
+      - quoteCreateEvent
+      - quoteAttributeValueChange
+      - quoteDelete
+      - quoteInformationRequired
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Quote/hub
       implementation: /{{.Release.Name}}-QuoteEvent
       name: Quote
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF648_QuoteManagement/master/TMF648-QuoteManagement-v4.0.0.swagger.json
-    - -resources:
-        ShoppingCartManagement:
-        - shoppingCartCreateEvent
-        - shoppingCartAttributeValueChange
-        - shoppingCartDelete
+    - resources:
+      - shoppingCartCreateEvent
+      - shoppingCartAttributeValueChange
+      - shoppingCartDelete
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ShoppingCart/hub
       implementation: /{{.Release.Name}}-ShoppingCartEvent
       name: ShoppingCart
       port: 80
       specification: https://github.com/tmforum-apis/TMF663_ShoppingCart/blob/master/TMF663-ShoppingCart-v4.0.0.swagger.json
-    - -resources:
-        ProcessFlowManagement:
-        - processFlowCreateEvent
-        - processFlowStateChangeEvent
-        - processFlowStateDeleteEvent
-        - processFlowStateAttributeValueChangeEvent
-        - taskFlowCreateEvent
-        - taskFlowStateChangeEvent
-        - taskFlowDeleteEvent
-        - taskFlowAttributeValueChangeEvent
-        - taskFlowInformationRequiredEvent
+    - resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -424,7 +423,6 @@ spec:
       name: ProductOfferingQualification
       port: 80
       resources:
-      - ProductOfferingQualification:
         - productOfferingQualificationStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF679_ProductOfferingQualification/blob/master/TMF679-ProductOfferingQualification-v4.0.0.swagger.json
     - apitype: openapi
@@ -433,7 +431,6 @@ spec:
       name: ServiceQualification
       port: 80
       resources:
-      - ServiceQualification:
         - checkServiceQualificationStateChangeEvent
         - queryServiceQualificationStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF645_ServiceQualification/blob/master/TMF645-ServiceQualification-v4.0.0.swagger.json
@@ -443,7 +440,6 @@ spec:
       name: GeographicAddressManagement
       port: 80
       resources:
-      - GeographicAddressManagement:
         - geographicAddressValidationStateChange
       specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
     - apitype: openapi
@@ -452,7 +448,6 @@ spec:
       name: ResourcePoolManagement
       port: 80
       resources:
-      - ResourcePoolManagementEvent:
         - reservationStateChangeNotification
       specification: https://github.com/tmforum-apis/TMF685_ResourcePool/blob/master/Resource_Pool_Management.regular.swagger.json
     - apitype: openapi
@@ -461,11 +456,8 @@ spec:
       name: StockManagement
       port: 80
       resources:
-      - CheckProductStock:
         - checkProductStockStateChange
-      - QueryProductStock:
         - queryProductStockStateChange
-      - ReserveProductStock:
         - reserveProductStockStateChange
       specification: https://github.com/tmforum-apis/TMF685_ResourcePool/blob/master/Resource_Pool_Management.regular.swagger.json
     - apitype: openapi
@@ -474,12 +466,10 @@ spec:
       name: PaymentManagement
       port: 80
       resources:
-      - PaymentManagement:
         - paymentCreate
         - paymentStateChange
       specification: https://github.com/tmforum-apis/TMF676_PaymentManagement/blob/master/TMF676-Payment-v4.0.0.swagger.json
-    - -resources:
-        ProcessFlowManagement:
+    - resources:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
         - taskFlowCreateEvent

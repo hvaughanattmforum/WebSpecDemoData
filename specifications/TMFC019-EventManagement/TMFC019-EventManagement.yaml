@@ -64,7 +64,6 @@ spec:
       name: EventManagement
       port: 80
       resources:
-      - EventManagement:
         - topicCreateEvent
         - TopicAttributeValueChangeEvent
         - TopicStateChangeEvent

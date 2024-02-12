@@ -133,11 +133,10 @@ spec:
       version: 4
     publishedEvents:
     - resources:
-        partyInteractionManagement:
-        - partyInteractionCreateEvent
-        - partyInteractionAttributeValueChangeEvent
-        - partyInteractionDeleteEvent
-        - partyInteractionStatusChangeEvent
+      - partyInteractionCreateEvent
+      - partyInteractionAttributeValueChangeEvent
+      - partyInteractionDeleteEvent
+      - partyInteractionStatusChangeEvent
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyInteractionManagement/hub
       implementation: /{{.Release.Name}}-PartyInteractionManagementEvent
@@ -145,16 +144,15 @@ spec:
       port: 80
       specification: https://github.com/tmforum-apis/TMF683_PartyInteraction/blob/master/partyInteractionManagement_TMF_v1.0.0Review2.json
     - resources:
-        ProcessFlowManagement:
-        - processFlowCreateEvent
-        - processFlowStateChangeEvent
-        - processFlowStateDeleteEvent
-        - processFlowStateAttributeValueChangeEvent
-        - taskFlowCreateEvent
-        - taskFlowStateChangeEvent
-        - taskFlowDeleteEvent
-        - taskFlowAttributeValueChangeEvent
-        - taskFlowInformationRequiredEvent
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -168,12 +166,10 @@ spec:
       name: PartyManagement
       port: 80
       resources:
-      - Individual:
         - IndividualCreateEvent
         - IndividualAttributeValueChangeEvent
         - IndividualStateChangeEvent
         - IndividualDeleteEvent
-      - Organization:
         - OrganizationCreateEvent
         - OrganizationAttributeValueChangeEvent
         - OrganizationStateChangeEvent
@@ -185,7 +181,6 @@ spec:
       name: PartyRoleManagement
       port: 80
       resources:
-      - PartyRole:
         - PartyRoleCreateEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
     - apitype: openapi
@@ -194,12 +189,10 @@ spec:
       name: documentManagement
       port: 80
       resources:
-      - documentManagement:
         - documentChangeEvent
         - documentSpecificationAttributeValueChangeEvent
       specification: https://github.com/tmforum-apis/TMF667_Document/blob/master/TMF667-Document-v4.0.0.swagger.json
     - resources:
-        ProcessFlowManagement:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
         - taskFlowCreateEvent

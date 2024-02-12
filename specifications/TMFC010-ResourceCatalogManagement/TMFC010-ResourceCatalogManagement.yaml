@@ -211,7 +211,6 @@ spec:
       name: ResourceCatalogManagement
       port: 80
       resources:
-        ResourceCatalogManagement:
         - resourceCatalogCreateEvent
         - resourceCatalogChangeEvent
         - resourceCatalogDeleteEvent
@@ -229,7 +228,6 @@ spec:
         - exportJobStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
     - resources:
-        ProcessFlowManagement:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
         - processFlowStateDeleteEvent
@@ -251,7 +249,6 @@ spec:
       name: EntityCatalogManagement
       port: 80
       resources:
-      - EntityCatalogManagement:
         - entitySpecificationCreateEvent
         - entitySpecificationAttributeValueChangeEvent
         - entitySpecificationStateChangeEvent
@@ -263,7 +260,6 @@ spec:
       name: PartyRoleManagement
       port: 80
       resources:
-      - PartyRoleManagement:
         - partyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.swagger.json
       version: 4
@@ -272,7 +268,6 @@ spec:
       name: UserRolePermission
       port: 80
       resources:
-      - UserRolePermission:
         - permissionDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672-UserRolePermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
       version: 4
@@ -281,7 +276,6 @@ spec:
       name: Party
       port: 80
       resources:
-      - Party:
         - individualDeleteEvent
         - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json

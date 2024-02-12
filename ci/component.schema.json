@@ -180,11 +180,10 @@
                     "type": "string"
                   },
                   "version": {
-                    "type": "integer"
+                    "type": "number"
                   }
                 },
                 "required": [
-                  "apitype",
                   "id",
                   "name",
                   "resources",
@@ -217,7 +216,7 @@
                     "type": "string"
                   },
                   "port": {
-                    "type": "integer"
+                    "type": "number"
                   },
                   "required": {
                     "type": "boolean"
@@ -300,7 +299,7 @@
                     "type": "string"
                   },
                   "version": {
-                    "type": "integer"
+                    "type": "number"
                   },
                   "resource": {
                     "type": "array",
@@ -321,8 +320,6 @@
                   }
                 },
                 "required": [
-                  "apitype",
-                  "developerUI",
                   "id",
                   "implementation",
                   "name",
@@ -339,27 +336,10 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "-resources": {
-                    "type": "object",
-                    "properties": {
-                      "ProductCatalogManagement": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "PromotionManagement": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "ProcessFlowManagement": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      }
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
                     }
                   },
                   "apitype": {
@@ -375,16 +355,14 @@
                     "type": "string"
                   },
                   "port": {
-                    "type": "integer"
+                    "type": "number"
                   },
                   "specification": {
                     "type": "string"
                   }
                 },
                 "required": [
-                  "-resources",
-                  "apitype",
-                  "hub",
+                  "resources",
                   "implementation",
                   "name",
                   "port",
@@ -410,44 +388,12 @@
                     "type": "string"
                   },
                   "port": {
-                    "type": "integer"
+                    "type": "number"
                   },
                   "resources": {
                     "type": "array",
                     "items": {
-                      "type": "object",
-                      "properties": {
-                        "ServiceCatalogManagement": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "ResourceCatalog": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "PartyRoleManagement": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "UserRolePermission": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "Party": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      }
+                      "type": "string"
                     }
                   },
                   "specification": {
@@ -455,9 +401,6 @@
                   }
                 },
                 "required": [
-                  "apitype",
-                  "call-back",
-                  "implementation",
                   "name",
                   "port",
                   "resources",
@@ -525,7 +468,8 @@
           }
         },
         "publicationDate": {
-          "type": "string"
+          "type": ["string", "null"],
+          "format": "date"
         },
         "securityFunction": {
           "type": "array"
@@ -543,11 +487,9 @@
         "functionalBlock",
         "id",
         "maintainers",
-        "managementFunction",
         "name",
         "owners",
         "publicationDate",
-        "securityFunction",
         "status",
         "version"
       ]
