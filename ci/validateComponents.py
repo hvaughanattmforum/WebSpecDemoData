@@ -31,7 +31,7 @@ def validate_apis(component):
             for api in apis:
                 for field in required_api_fields:
                     if field not in api:
-                        raise ValueError(f"API {api} is missing required field {field}")
+                        raise ValueError(f"API {json.dumps(api, indent=4)} is missing required field {field}")
 
                 
 
