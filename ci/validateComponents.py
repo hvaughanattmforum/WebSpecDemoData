@@ -23,12 +23,17 @@ def load_json_schema():
 
 def validate_apis(component):
     functions = ["coreFunction", "securityFunction", "managementFunction"]
+    required_api_fields = ["id", "version"]
 
     for block in functions:
         function_edges = component["spec"].get(block, {})
         for edge, apis in function_edges.items():
             for api in apis:
-                print(api["id"])
+                for field in required_api_fields:
+                    if field not in api:
+                        raise ValueError(f"API {api} is missing required field {field}")
+
+                
 
 
 def validate_component(schema, component, name):
