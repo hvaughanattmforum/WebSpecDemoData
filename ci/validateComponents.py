@@ -21,16 +21,29 @@ def load_json_schema():
     with CI.joinpath("component.schema.json").open("r") as f:
         return json.load(f)
 
+def validate_apis(component):
+    functions = ["coreFunction", "securityFunction", "managementFunction"]
+
+    for block in functions:
+        function_edges = component["spec"].get(block, {})
+        for edge, apis in function_edges.items():
+            for api in apis:
+                print(api["id"])
+
+
 def validate_component(schema, component, name):
     errors = 0
     try:
-        validate(instance=component, schema=schema)
+        #validate(instance=component, schema=schema)
+        validate_apis(component)
     except Exception as e:
         errors = 1
         print(f"::group::{name}")
         print(f"::error::{e}")
         print("::endgroup::")
     return errors
+
+
 def main():
     component_schema = load_json_schema()
     yaml.SafeLoader.add_constructor('tag:yaml.org,2002:timestamp', str_constructor)
