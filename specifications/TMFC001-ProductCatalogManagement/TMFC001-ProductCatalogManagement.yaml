@@ -10,9 +10,9 @@ spec:
       name: ServiceCatalogManagement
       required: false
       resources:
-      - serviceSpecification:
-        - GET
-        - GET /id
+        - serviceSpecification:
+          - GET
+          - GET /id
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF620_ProductCatalog/master/TMF620-ProductCatalog-v4.0.0.swagger.json
       version: 4
     - apitype: openapi

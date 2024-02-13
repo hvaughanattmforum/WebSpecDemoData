@@ -28,307 +28,13 @@
             "dependentAPIs": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "apitype": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "required": {
-                    "type": "boolean"
-                  },
-                  "resources": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "serviceSpecification": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "PartyRole": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "Individual": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "Organisation": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "resourceSpecification": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "agreement": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "agreementSpecification": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "serviceLevelAgreement": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "geographicAddress": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "geographicSite": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "geographicLocation": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "permission": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "entitySpecification": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "associationSpecification": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "catalog": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "category": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "productOffering": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "ProductOfferingPrice": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "importJob": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "exportJob": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "event": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "specification": {
-                    "type": "string"
-                  },
-                  "version": {
-                    "type": "number"
-                  }
-                },
-                "required": [
-                  "id",
-                  "name",
-                  "resources",
-                  "specification",
-                  "version"
-                ]
+                "$ref": "#/definitions/api"
               }
             },
             "exposedAPIs": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "apitype": {
-                    "type": "string"
-                  },
-                  "developerUI": {
-                    "type": "string"
-                  },
-                  "id": {
-                    "type": "string"
-                  },
-                  "implementation": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "port": {
-                    "type": "number"
-                  },
-                  "required": {
-                    "type": "boolean"
-                  },
-                  "resources": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "catalog": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "category": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "productSpecification": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "productOffering": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "productOfferingPrice": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "exportJob": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "importJob": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "processFlow": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "taskFlow": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "listener": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "hub": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "specification": {
-                    "type": "string"
-                  },
-                  "version": {
-                    "type": "number"
-                  },
-                  "resource": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "promotion": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "required": [
-                        "promotion"
-                      ]
-                    }
-                  }
-                },
-                "required": [
-                  "id",
-                  "implementation",
-                  "name",
-                  "path",
-                  "port",
-                  "required",
-                  "specification",
-                  "version"
-                ]
+                "$ref": "#/definitions/api"
               }
             },
             "publishedEvents": {
@@ -500,5 +206,37 @@
     "kind",
     "metadata",
     "spec"
-  ]
+  ],
+  "definitions": {
+    "api": {
+      "type": "object",
+      "properties": {
+        "apitype": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "specification": {
+          "type": "string"
+        },
+        "version": {
+          "type": "number"
+        }
+      },
+      "required": ["id", "version", "resources"]
+    }
+  }
 }
