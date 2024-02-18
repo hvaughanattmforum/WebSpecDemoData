@@ -46,6 +46,8 @@ def main():
     for file_path, component in load_components():
         return_code |= validate_component(component_schema, component, file_path.parent.name)
 
+    if return_code == 0:
+        print("All components are valid")
     return return_code
 
 

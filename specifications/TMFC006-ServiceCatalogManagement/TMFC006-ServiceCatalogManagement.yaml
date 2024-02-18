@@ -60,6 +60,7 @@ spec:
         - GET /id
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRoleAndPermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
       version: 4
+      required: false
     - apitype: openapi
       id: TMF688
       name: Event

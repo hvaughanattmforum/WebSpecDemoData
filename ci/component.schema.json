@@ -236,7 +236,7 @@
           "type": "number"
         }
       },
-      "required": ["id", "version", "resources"]
+      "required": ["id", "version", "resources", "required"]
     }
   }
 }
