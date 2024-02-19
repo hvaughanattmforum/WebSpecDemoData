@@ -3,7 +3,6 @@ from jsonschema import validate
 
 import json
 import yaml
-import jsonschema
 
 COMPONENTS = Path(__file__).parents[1] / "specifications"
 CI = Path(__file__).parents[1] / "ci"
