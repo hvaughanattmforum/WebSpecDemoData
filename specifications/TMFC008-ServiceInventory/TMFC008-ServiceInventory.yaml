@@ -57,6 +57,7 @@ spec:
         - GET /id
       specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
       version: 4
+      required: false
     - apitype: openapi
       id: TMF674
       name: GeographicSiteManagement
@@ -66,6 +67,7 @@ spec:
         - GET /id
       specification: https://github.com/tmforum-apis/TMF674_GeographicSite/blob/master/TMF674-GeographicSite-v4.0.0.swagger.json
       version: 4
+      required: false
     - apitype: openapi
       id: TMF675
       name: GeographicLocation
@@ -75,6 +77,7 @@ spec:
         - GET /id
       specification: https://github.com/tmforum-apis/TMF675_GeographicLocation/blob/master/TMF675-GeographicLocation-v4.0.0.swagger.json
       version: 4
+      required: false
     - apitype: openapi
       id: TMF672
       name: UserRolePermission

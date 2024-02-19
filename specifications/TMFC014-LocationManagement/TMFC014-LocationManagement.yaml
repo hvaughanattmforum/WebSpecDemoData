@@ -31,6 +31,7 @@ spec:
         - GET /id
       specification: https://github.com/tmforum-apis/TMF674_GeographicSite/blob/master/TMF674-GeographicSite-v4.0.0.swagger.json
       version: 4
+      required: false
     - apitype: openapi
       id: TMF688
       name: Event
