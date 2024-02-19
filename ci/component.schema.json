@@ -1,0 +1,242 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "coreFunction": {
+          "type": "object",
+          "properties": {
+            "dependentAPIs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/api"
+              }
+            },
+            "exposedAPIs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/api"
+              }
+            },
+            "publishedEvents": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "apitype": {
+                    "type": "string"
+                  },
+                  "hub": {
+                    "type": "string"
+                  },
+                  "implementation": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "number"
+                  },
+                  "specification": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "resources",
+                  "implementation",
+                  "name",
+                  "port",
+                  "specification"
+                ]
+              }
+            },
+            "subscribedEvents": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "apitype": {
+                    "type": "string"
+                  },
+                  "call-back": {
+                    "type": "string"
+                  },
+                  "implementation": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "number"
+                  },
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "specification": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "port",
+                  "resources",
+                  "specification"
+                ]
+              }
+            }
+          },
+          "required": [
+            "dependentAPIs",
+            "exposedAPIs",
+            "publishedEvents",
+            "subscribedEvents"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "functionalBlock": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "maintainers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "email",
+              "name"
+            ]
+          }
+        },
+        "managementFunction": {
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "email",
+              "name"
+            ]
+          }
+        },
+        "publicationDate": {
+          "type": ["string", "null"],
+          "format": "date"
+        },
+        "securityFunction": {
+          "type": "array"
+        },
+        "status": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coreFunction",
+        "description",
+        "functionalBlock",
+        "id",
+        "maintainers",
+        "name",
+        "owners",
+        "publicationDate",
+        "status",
+        "version"
+      ]
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "spec"
+  ],
+  "definitions": {
+    "api": {
+      "type": "object",
+      "properties": {
+        "apitype": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "specification": {
+          "type": "string"
+        },
+        "version": {
+          "type": "number"
+        }
+      },
+      "required": ["id", "version", "resources", "required"]
+    }
+  }
+}

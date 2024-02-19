@@ -1,0 +1,38 @@
+import yaml
+
+from pathlib import Path
+import json
+import yaml
+
+COMPONENTS = Path(__file__).parents[1] / "specifications"
+
+
+def load_components():
+    for spec in COMPONENTS.glob("TMFC*/*.yaml"):
+        with spec.open("r") as f:
+            yield spec, yaml.load(f, Loader=yaml.SafeLoader)
+
+def remove_arrays(component):
+    functions = ["securityFunction", "managementFunction", "SecurityFunction", "ManagementFunction"]
+    for block in functions:
+        if block in component["spec"]:
+            del component["spec"][block]
+
+    if not component["spec"].get("coreFunction"):
+        component["spec"]["coreFunction"] = {}
+
+
+def save_component(file_path, component):
+    with file_path.open("w+") as f:
+        yaml.dump(component, f, default_flow_style=False)
+
+def main():
+    for file_path, component in load_components():
+        remove_arrays(component)
+        save_component(file_path, component)
+    return 0
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(main())

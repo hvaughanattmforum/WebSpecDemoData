@@ -254,7 +254,6 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
       port: 8080
       resources:
-        resource:
         - resourceCreateEvent
         - resourceChangeEvent
         - resourceDeleteEvent
@@ -270,15 +269,13 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourcePool/v4.1.0
       port: 8080
       resources:
-        resourcePool:
         - reservationStateChangeNotification
         - informationRequiredNotification
         - resourceReservationCreationEvent
         - resourceReservationRemoveEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF685_ResourcePool/master/Resource_Pool_Management.admin.swagger.json
       version: 4
-    - -resources:
-        ProcessFlowManagement:
+    - resources:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
         - processFlowStateDeleteEvent
@@ -304,7 +301,6 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
       port: 8080
       resources:
-        ResourceCatalogManagement:
         - resourceCatalogCreateEvent
         - resourceCatalogChangeEvent
         - resourceCatalogDeleteEvent
@@ -331,7 +327,6 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
       port: 8080
       resources:
-        resource:
         - resourceCreateEvent
         - resourceChangeEvent
         - resourceDeleteEvent
@@ -342,8 +337,7 @@ spec:
       name: PartyRoleManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-    - resources:
-        PartyRole:
+      resources:
         - PartyRoleCreateEvent
         - PartyRoleAttributeValueChangeEvent
         - PartyRoleStateChangeEvent
@@ -352,8 +346,7 @@ spec:
       name: UserRolesandPermissions
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRolesandPermissions/master/TMF672-UserRolesandPermissions-v4.0.0.swagger.json
-    - resources:
-        UserRoles:
+      resources:
         - UserRoleCreationNotification
         - UserRoleChangeNotification
     - apitype: openapi
@@ -362,7 +355,6 @@ spec:
       name: GeographicSiteManagement
       port: 80
       resources:
-      - GeographicSite:
         - geographicSiteDeleteEvent
       specification: https://open-api.tmforum.org20-GeographicSite-v4.0.0.swagger.json
     - apitype: openapi
@@ -371,7 +363,6 @@ spec:
       name: GeographicLocation
       port: 80
       resources:
-      - GeographicLocation:
         - geographicLocationDeleteEvent
       specification: https://open-api.tmforum.org20-GeographicLocatin-v4.0.0.swagger.json
     - apitype: openapi
@@ -380,7 +371,6 @@ spec:
       name: PartyManagement
       port: 80
       resources:
-      - Party:
         - individualDeleteEvent
         - organizationDeleteEvent
       specification: https://open-api.tmforum.org20-Party-v4.0.0.swagger.json
@@ -397,12 +387,10 @@ spec:
   maintainers:
   - email: sylvie.demarest@orange.com
     name: Sylvie Demarest
-  managementFunction: []
   name: ResourceInventory
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-08-18 00:00:00+00:00
-  securityFunction: []
+  publicationDate: 2023-08-18 00:00:00
   status: specified
   version: 2.0.0

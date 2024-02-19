@@ -4,9 +4,8 @@ metadata:
   name: components.oda.tmforum.org
 spec:
   coreFunction:
-    PublishedEvent:
-    - -resources:
-        ProcessFlowManagement:
+    publishedEvents:
+    - resources:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
         - processFlowStateDeleteEvent
@@ -16,14 +15,13 @@ spec:
         - taskFlowDeleteEvent
         - taskFlowAttributeValueChangeEvent
         - taskFlowInformationRequiredEvent
-      apitype: null
+      apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-processFlowEvent
       name: ProcessFlowManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF701-ProcessFlowManagement/blob/master/TMF701-ProcessFlowManagement-v4.0.0.swagger.json
-    - -resources:
-        AlarmManagement:
+    - resources:
         - alarmStateChange**
         - alarmCreateEvent**
         - alarmClearEvent**
@@ -34,8 +32,7 @@ spec:
       name: AlarmManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642-Alarm-v4.0.0.swagger.json
-    - -resources:
-        PerformanceManagement:
+    - resources:
         - measurementCollectionJobCreateEvent
         - measurementCollectionJobExecutionStateChangeEvent
         - measurementCollectionJobDeleteEvent
@@ -48,7 +45,6 @@ spec:
         - onDemandCollectionAttributeValueChangeEvent
         - onDemandCollectionFilesReadyEvent
         - onDemandCollectionFilesPreparationErrorEvent
-        PerformanceThresholdManagement:
         - thresholdCreateNotification
         - thresholdChangeNotification
         - thresholdRuleCreateNotification
@@ -63,14 +59,13 @@ spec:
       name: PerformanceManagement
       port: 80
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF628-Performance-v4.1.0.swagger.json
-    SubscribedEvent:
+    subscribedEvents:
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/call-back
       implementation: /{{.Release.Name}}-ServiceCatalogManagement
       name: ServiceCatalogManagement
       port: 80
       resources:
-      - ServiceCatalog:
         - serviceSpecificationChangeEvent
       specification: https://github.com/tmforum-apis/TMF633_ServiceCatalog/blob/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
     - apitype: openapi
@@ -79,7 +74,6 @@ spec:
       name: ServiceInventoryManagement
       port: 80
       resources:
-      - ServiceInventory:
         - serviceCreateEvent
         - serviceAttributeValueChangeEvent
         - serviceStateChangeEvent
@@ -91,7 +85,6 @@ spec:
       name: ResourceInventoryManagement
       port: 80
       resources:
-      - ResourceInventory:
         - resourceCreateEvent
         - resourceAttributeValueChangeEvent
         - resourceStateChangeEvent
@@ -103,7 +96,6 @@ spec:
       name: ProcessFlowManagement
       port: 80
       resources:
-      - ProcessFlow:
         - processFlowCreateEvent
         - processFlowStateChangeEvent
         - taskFlowCreateEvent
@@ -117,6 +109,7 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/v4
       port: 8080
       required: false
+      version: 4
       resources:
       - measurementCollectionJob*:
         - POST
@@ -153,6 +146,7 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4
       port: 8080
       required: false
+      version: 4
       resources:
       - resource:
         - GET
@@ -165,6 +159,7 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4
       port: 8080
       required: false
+      version: 4
       resources:
       - service:
         - GET
@@ -177,6 +172,7 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4
       port: 8080
       required: false
+      version: 4
       resources:
       - geographicAddress:
         - GET
@@ -192,6 +188,7 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4
       port: 8080
       required: false
+      version: 4
       resources:
       - geographicSite:
         - GET
@@ -204,6 +201,7 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualityManagement/v4
       port: 8080
       required: false
+      version: 4
       resources:
       - serviceLevelObjective:
         - GET
@@ -305,7 +303,6 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/v4
       port: 8080
       required: false
-      version: 4
       resources:
       - alarm:
         - POST
@@ -314,6 +311,7 @@ spec:
         - PATCH /id
         - DELETE /id
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF642-Alarm-v4.0.0.swagger.json
+      version: 4
     - apitype: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
       id: TMF701
@@ -361,12 +359,10 @@ spec:
   maintainers:
   - email: milind.2.bhagwat@bt.com
     name: Milind Bhagwat
-  managementFunction: []
   name: ServicePerformanceManagement
   owners:
   - email: milind.2.bhagwat@bt.com
     name: Milind Bhagwat
-  publicationDate: 2023-08-18 00:00:00+00:00
-  securityFunction: []
+  publicationDate: 2023-08-18 00:00:00
   status: specified
   version: 1.1.0

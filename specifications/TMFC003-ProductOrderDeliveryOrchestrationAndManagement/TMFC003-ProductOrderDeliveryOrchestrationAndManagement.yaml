@@ -7,9 +7,9 @@ spec:
     dependentAPIs:
     - apitype: openapi
       id: TMF620
-      name: ProductCatalogManagement
-      required: false
+      name: ProductCatalogMnaagement
       port: 8080
+      required: false
       resources:
       - productSpecification:
         - GET
@@ -20,8 +20,8 @@ spec:
       id: TMF622
       implementation: /{{.Release.Name}}-ProductOrder
       name: ProductOrder
-      required: true
       port: 8080
+      required: true
       resources:
       - productOrder:
         - GET /id
@@ -31,8 +31,8 @@ spec:
     - apitype: openapi
       id: TMF637
       name: ProductInventory
-      required: false
       port: 8080
+      required: false
       resources:
       - product:
         - GET
@@ -63,8 +63,8 @@ spec:
     - apitype: openapi
       id: TMF633
       name: ServiceCatalogManagement
-      required: false
       port: 8080
+      required: false
       resources:
       - serviceSpecification:
         - GET
@@ -74,8 +74,8 @@ spec:
     - apitype: openapi
       id: TMF634
       name: ResourceCatalogManagement
-      required: false
       port: 8080
+      required: false
       resources:
       - resourceSpecification:
         - GET
@@ -98,8 +98,8 @@ spec:
     - apitype: openapi
       id: TMF638
       name: ServiceInventory
-      required: false
       port: 8080
+      required: false
       resources:
       - service:
         - GET / id
@@ -114,9 +114,9 @@ spec:
       port: 8080
       required: false
       resources:
-      - resource: null
-      - GET
-      - GET /id
+      - resource: 
+        - GET
+        - GET /id
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF639_ResourceInventory/master/TMF639-ResourceInventory-v4.0.0.swagger.json
       version: 4
     - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrderManagement/v4/docs
@@ -127,9 +127,9 @@ spec:
       port: 8080
       required: false
       resources:
-      - resourceOrder: null
-      - GET /id
-      - POST
+      - resourceOrder:
+        - GET /id
+        - POST
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF652_ResourceOrderManagement/master/TMF652-ResourceOrder-v4.0.0.swagger.json
       version: 4
     exposedAPIs:
@@ -169,35 +169,17 @@ spec:
         - DELETE
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF671-Promotion-v4.1.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF688
-      name: Event
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
-      - event:
-        - POST
-        - GET
-        - GET /id
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF688-Event-v4.0.0.swagger.json
-      version: 4
-      port: 8080
     publishedEvents:
-    - -resources:
-        ProcessFlowManagement:
-        - processFlowCreateEvent
-        - processFlowStateChangeEvent
-        - processFlowStateDeleteEvent
-        - processFlowStateAttributeValueChangeEvent
-        - taskFlowCreateEvent
-        - taskFlowStateChangeEvent
-        - taskFlowDeleteEvent
-        - taskFlowAttributeValueChangeEvent
-        - taskFlowInformationRequiredEvent
+    - resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -205,8 +187,7 @@ spec:
       port: 80
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
     subscribedEvents:
-    - -resources:
-        ProductOrderingManagement:
+    - resources:
         - productOrderStateChangeEvent
         - cancelProductOrderStateChangeEvent
       apitype: openapi
@@ -215,8 +196,7 @@ spec:
       name: ProductOrder
       port: 80
       specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/master/TMF622-ProductOrder-v4.0.0.swagger.json
-    - -resources:
-        ServiceOrderingManagement:
+    - resources:
         - serviceOrderStateChangeEvent
         - serviceOrderAttributeValueChangeEvent
         - serviceOrderInformationRequiredEvent
@@ -231,8 +211,7 @@ spec:
       name: ServiceOrder
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF641_ServiceOrdering/master/TMF641-ServiceOrdering-v4.1.0.swagger.json
-    - -resources:
-        ResourceOrderManagement:
+    - resources:
         - resourceOrderStateChange
         - resourceOrderAttributeValueChangeEvent
         - resourceOrderInformationRequiredEvent
@@ -261,12 +240,10 @@ spec:
   maintainers:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  managementFunction: []
   name: ProductOrderDeliveryOrchestrationAndManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-08-18 00:00:00+00:00
-  securityFunction: []
+  publicationDate: 2023-08-18 00:00:00
   status: specified
   version: 1.1.1

@@ -113,12 +113,13 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4
       port: 8080
       required: false
-      resources: null
+      resources:
+        - geographicSite:
+          - GET
+          - GET /id
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF674_GeographicSite/master/TMF674-GeographicSite-v4.0.0.swagger.json
       version: 4
-    - geographicSite:
-      - GET
-      - GET /id
+    
     - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4/docs
       id: TMF675
       implementation: /{{.Release.Name}}-GeographicLocation
@@ -126,12 +127,13 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4
       port: 8080
       required: false
-      resources: null
+      resources:
+        - geographicLocation:
+          - GET
+          - GET /id
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF675_GeographicLocation/master/TMF675-GeographicLocation-v4.0.0.swagger.json
       version: 4
-    - geographicLocation:
-      - GET
-      - GET /id
+    
     - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolesPermissions/v4/docs
       id: TMF672
       implementation: /{{.Release.Name}}-UserRolesPermissions
@@ -139,20 +141,21 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolesPermissions/v4
       port: 8080
       required: false
-      resources: null
+      resources:
+        - permission:
+          - GET
+          - GET /id
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRolesPermissions/master/TMF672-UserRolePermission-v4.0.0.swagger.json
       version: 4
-    - permission:
-      - GET
-      - GET /id
+    
     - apitype: openapi
       id: TMF688
       name: Event
       required: false
       resources:
-      - event:
-        - GET
-        - GET /id
+        - event:
+          - GET
+          - GET /id
       specification: https://github.com/tmforum-apis/TMF688-Event/blob/master/TMF688-Event-v4.0.0.swagger.json
       version: 4
     exposedAPIs:
@@ -179,8 +182,7 @@ spec:
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF645-ServiceQualification-v4.0.0.swagger.json
       version: 4
     publishedEvents:
-    - -resources:
-        ServiceQualification:
+    - resources:
         - checkServiceQualificationCreateEvent
         - checkServiceQualificationStateChangeEvent
         - checkServiceQualificationInformationRequiredEvent
@@ -196,6 +198,7 @@ spec:
       name: ServiceQualification
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF645_ServiceQualification/master/TMF645-ServiceQualification-v4.0.0.swagger.json
+    subscribedEvents: []
   description: Service Qualification component is responsible for checking and validating
     the availability of a service according to specified and configured business rules.
     It must identify at least one technical solution (RFSspec) available to deliver
@@ -213,14 +216,12 @@ spec:
   maintainers:
   - email: Anastasios.sarantis@cityfibre.com
     name: Tassos Sarantis
-  managementFunction: []
   name: ServiceQualificationManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
   - email: Anastasios.sarantis@cityfibre.com
     name: Tassos Sarantis
-  publicationDate: 2023-08-18 00:00:00+00:00
-  securityFunction: []
+  publicationDate: 2023-08-18 00:00:00
   status: specified
   version: 1.1.1

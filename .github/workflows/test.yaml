@@ -1,4 +1,5 @@
 name: Trigger Tests
+run-name: Component validation checks ${{ github.sha }}
 on:
   workflow_dispatch:
     inputs:
@@ -11,36 +12,17 @@ on:
     branches:
       - v1beta*
 
-jobs:
-  calculate-changes:
-    runs-on: ubuntu-latest
-    outputs:
-      components: ${{ steps.calculate-changes.outputs.components }}
-    steps:
-      - name: Checkout Components
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Calculate Changes
-        id: calculate-changes
-        run: |
-          git fetch origin
-          git diff --name-only --diff-filter=M HEAD origin/${{ github.base_ref }} >> filechanges
 
-          pip3 install -r .github/ci/requirements.txt 
-          python3 .github/ci/calculate_changes.py "$GITHUB_OUTPUT"
-  spec-test-matrix:
+jobs:
+  component-validation-checks:
     runs-on: ubuntu-latest
-    needs: calculate-changes
-    strategy:
-        matrix:
-            components: ${{fromJson(needs.calculate-changes.outputs.components)}}
-        fail-fast: false
     steps:
       - name: Checkout Components
         uses: actions/checkout@v4
-      - name: Test component ${{ matrix.components }}
+      - name: install dependencies
+        run: pip3 install -r ci/requirements.txt 
+      
+      - name: Validate component schema
         run: |
-          pip3 install -r .github/ci/requirements.txt 
-          python3 .github/ci/test_component.py "${{ matrix.components }}" 
+          python3 ci/validateComponents.py 
       

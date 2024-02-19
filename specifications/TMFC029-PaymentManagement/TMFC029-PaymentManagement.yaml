@@ -185,44 +185,41 @@ spec:
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF671-Promotion-v4.1.0.swagger.json
       version: 4
     publishedEvents:
-    - -resources:
-        PaymentManagement:
-        - PaymentAttributeValueChangeEvent
-        - PaymentCreateEvent
-        - PaymentDeleteEvent
-        - PaymentStatusChangeEvent
-        - RefundAttributeValueChangeEvent
-        - RefundCreateEvent
-        - RefundStatusChangeEvent
+    - resources:
+      - PaymentAttributeValueChangeEvent
+      - PaymentCreateEvent
+      - PaymentDeleteEvent
+      - PaymentStatusChangeEvent
+      - RefundAttributeValueChangeEvent
+      - RefundCreateEvent
+      - RefundStatusChangeEvent
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentManagement/hub
       implementation: /{{.Release.Name}}-PaymentManagement
       name: PaymentManagement
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF676_PaymentManagement/master/TMF676-Payment-v4.0.0.swagger.json
-    - -resources:
-        PaymentMethod:
-        - PaymentMethodAttributeValueChangeEvent
-        - PaymentMethodCreateEvent
-        - PaymentMethodDeleteEvent
-        - PaymentMethodStatusChangeEvent
+    - resources:
+      - PaymentMethodAttributeValueChangeEvent
+      - PaymentMethodCreateEvent
+      - PaymentMethodDeleteEvent
+      - PaymentMethodStatusChangeEvent
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentMethods/hub
       implementation: /{{.Release.Name}}-PaymentMethods
       name: PaymentMethods
       port: 80
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF670_PaymentMethods/master/TMF670-PaymentMethod-v4.0.0.swagger.json
-    - -resources:
-        ProcessFlowManagement:
-        - ProcessFlowCreateEvent
-        - ProcessFlowStateChangeEvent
-        - ProcessFlowStateDeleteEvent
-        - ProcessFlowStateAttributeValueChangeEvent
-        - TaskFlowCreateEvent
-        - TaskFlowStateChangeEvent
-        - TaskFlowDeleteEvent
-        - TaskFlowAttributeValueChangeEvent
-        - TaskFlowInformationRequiredEvent
+    - resources:
+      - ProcessFlowCreateEvent
+      - ProcessFlowStateChangeEvent
+      - ProcessFlowStateDeleteEvent
+      - ProcessFlowStateAttributeValueChangeEvent
+      - TaskFlowCreateEvent
+      - TaskFlowStateChangeEvent
+      - TaskFlowDeleteEvent
+      - TaskFlowAttributeValueChangeEvent
+      - TaskFlowInformationRequiredEvent
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -236,7 +233,6 @@ spec:
       name: ResourceActivationAndConfiguration
       port: 80
       resources:
-      - ResourceActivationAndConfiguration:
         - ResourceCreateEvent
         - ResourceAttributeValueChangeEvent
         - ResourceStateChangeEvent
@@ -245,7 +241,6 @@ spec:
         - monitorStatechangeEvent
         - monitorAttributeValueChange
         - monitorDeleteEvent
-      - ResourceFunctionActivationAndConfiguration:
         - MigrateCreateEvent
         - MigrateAttributeValueChangeEvent
         - MigrateStateChangeEvent
@@ -269,12 +264,10 @@ spec:
       name: ServiceCatalogManagement
       port: 80
       resources:
-      - ServiceCatalogManagement:
         - serviceSpecificationStateChange
         - serviceSpecificationAttributeValueChangeEvent
         - serviceSpecificationCreateEvent
         - serviceSpecificationDeleteEvent
-      - ResourceCatalog:
         - resourceSpecificationCreateEvent
         - resourceSpecificationChangeEvent
         - resourceSpecificationDeleteEvent
@@ -287,12 +280,10 @@ spec:
   maintainers:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  managementFunction: []
   name: PaymentManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-08-18 00:00:00+00:00
-  securityFunction: []
+  publicationDate: 2023-08-18 00:00:00
   status: specified
   version: 1.1.1
