@@ -1,0 +1,111 @@
+// Map of ODA Components
+graph "Exposed APIs Graph" {
+	overlap=false
+	"TMFC030-BillGeneration" [label="TMFC030-BillGeneration"]
+	TMF678 [label=TMF678]
+	"TMFC030-BillGeneration" -- TMF678
+	"TMFC039-AgreementManagement" [label="TMFC039-AgreementManagement"]
+	TMF651 [label=TMF651]
+	"TMFC039-AgreementManagement" -- TMF651
+	"TMFC023-PartyInteractionManagement" [label="TMFC023-PartyInteractionManagement"]
+	TMF683 [label=TMF683]
+	"TMFC023-PartyInteractionManagement" -- TMF683
+	"TMFC012-ResourceInventory" [label="TMFC012-ResourceInventory"]
+	TMF685 [label=TMF685]
+	"TMFC012-ResourceInventory" -- TMF685
+	TMF639 [label=TMF639]
+	"TMFC012-ResourceInventory" -- TMF639
+	"TMFC027-ProductConfigurator" [label="TMFC027-ProductConfigurator"]
+	TMF760 [label=TMF760]
+	"TMFC027-ProductConfigurator" -- TMF760
+	TMF679 [label=TMF679]
+	"TMFC027-ProductConfigurator" -- TMF679
+	"TMFC006-ServiceCatalogManagement" [label="TMFC006-ServiceCatalogManagement"]
+	TMF633 [label=TMF633]
+	"TMFC006-ServiceCatalogManagement" -- TMF633
+	"TMFC031-BillCalculation" [label="TMFC031-BillCalculation"]
+	TMF678 [label=TMF678]
+	"TMFC031-BillCalculation" -- TMF678
+	"TMFC036-LeadAndOpportunityManagement" [label="TMFC036-LeadAndOpportunityManagement"]
+	TMF699 [label=TMF699]
+	"TMFC036-LeadAndOpportunityManagement" -- TMF699
+	"TMFC024-BillingAccountManagement" [label="TMFC024-BillingAccountManagement"]
+	TMF666 [label=TMF666]
+	"TMFC024-BillingAccountManagement" -- TMF666
+	"TMFC038-ResourcePerformanceManagement" [label="TMFC038-ResourcePerformanceManagement"]
+	TMF628 [label=TMF628]
+	"TMFC038-ResourcePerformanceManagement" -- TMF628
+	TMF649 [label=TMF649]
+	"TMFC038-ResourcePerformanceManagement" -- TMF649
+	TMF642 [label=TMF642]
+	"TMFC038-ResourcePerformanceManagement" -- TMF642
+	"TMFC009-ServiceQualificationManagement" [label="TMFC009-ServiceQualificationManagement"]
+	TMF645 [label=TMF645]
+	"TMFC009-ServiceQualificationManagement" -- TMF645
+	"TMFC011-ResourceOrderManagement" [label="TMFC011-ResourceOrderManagement"]
+	TMF652 [label=TMF652]
+	"TMFC011-ResourceOrderManagement" -- TMF652
+	"TMFC037-ServicePerformanceManagement" [label="TMFC037-ServicePerformanceManagement"]
+	TMF628 [label=TMF628]
+	"TMFC037-ServicePerformanceManagement" -- TMF628
+	TMF649 [label=TMF649]
+	"TMFC037-ServicePerformanceManagement" -- TMF649
+	TMF642 [label=TMF642]
+	"TMFC037-ServicePerformanceManagement" -- TMF642
+	"TMFC001-ProductCatalogManagement" [label="TMFC001-ProductCatalogManagement"]
+	TMF671 [label=TMF671]
+	"TMFC001-ProductCatalogManagement" -- TMF671
+	TMF620 [label=TMF620]
+	"TMFC001-ProductCatalogManagement" -- TMF620
+	"TMFC010-ResourceCatalogManagement" [label="TMFC010-ResourceCatalogManagement"]
+	TMF634 [label=TMF634]
+	"TMFC010-ResourceCatalogManagement" -- TMF634
+	"TMFC005-ProductInventory" [label="TMFC005-ProductInventory"]
+	TMF637 [label=TMF637]
+	"TMFC005-ProductInventory" -- TMF637
+	"TMFC002-ProductOrderCaptureAndValidation" [label="TMFC002-ProductOrderCaptureAndValidation"]
+	TMF622 [label=TMF622]
+	"TMFC002-ProductOrderCaptureAndValidation" -- TMF622
+	TMF663 [label=TMF663]
+	"TMFC002-ProductOrderCaptureAndValidation" -- TMF663
+	TMF648 [label=TMF648]
+	"TMFC002-ProductOrderCaptureAndValidation" -- TMF648
+	"TMFC019-EventManagement" [label="TMFC019-EventManagement"]
+	"TMFC028-PartyManagement" [label="TMFC028-PartyManagement"]
+	TMF629 [label=TMF629]
+	"TMFC028-PartyManagement" -- TMF629
+	TMF632 [label=TMF632]
+	"TMFC028-PartyManagement" -- TMF632
+	TMF668 [label=TMF668]
+	"TMFC028-PartyManagement" -- TMF668
+	"TMFC035-PermissionsManagement" [label="TMFC035-PermissionsManagement"]
+	TMF669 [label=TMF669]
+	"TMFC035-PermissionsManagement" -- TMF669
+	TMF672 [label=TMF672]
+	"TMFC035-PermissionsManagement" -- TMF672
+	"TMFC008-ServiceInventory" [label="TMFC008-ServiceInventory"]
+	TMF638 [label=TMF638]
+	"TMFC008-ServiceInventory" -- TMF638
+	"TMFC003-ProductOrderDeliveryOrchestrationAndManagement" [label="TMFC003-ProductOrderDeliveryOrchestrationAndManagement"]
+	"TMFC014-LocationManagement" [label="TMFC014-LocationManagement"]
+	TMF673 [label=TMF673]
+	"TMFC014-LocationManagement" -- TMF673
+	TMF675 [label=TMF675]
+	"TMFC014-LocationManagement" -- TMF675
+	TMF674 [label=TMF674]
+	"TMFC014-LocationManagement" -- TMF674
+	"TMFC029-PaymentManagement" [label="TMFC029-PaymentManagement"]
+	TMF676 [label=TMF676]
+	"TMFC029-PaymentManagement" -- TMF676
+	TMF670 [label=TMF670]
+	"TMFC029-PaymentManagement" -- TMF670
+	"TMFC020-DigitalIdentityManagement" [label="TMFC020-DigitalIdentityManagement"]
+	TMF720 [label=TMF720]
+	"TMFC020-DigitalIdentityManagement" -- TMF720
+	"TMFC007-ServiceOrderManagement" [label="TMFC007-ServiceOrderManagement"]
+	TMF641 [label=TMF641]
+	"TMFC007-ServiceOrderManagement" -- TMF641
+	"TMFC022-PartyPrivacyManagement" [label="TMFC022-PartyPrivacyManagement"]
+	TMF644 [label=TMF644]
+	"TMFC022-PartyPrivacyManagement" -- TMF644
+}
