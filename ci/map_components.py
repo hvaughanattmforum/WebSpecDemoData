@@ -17,10 +17,10 @@ def remove_arrays(component):
     edges = ["dependentAPIs", "exposedAPIs"]
     for block in functions:
         for edge in edges:
-            for api in component[block][edge]:
-                del api["apitype"]
-                del api["name"]
-                del api["specification"]
+            for api in component["spec"][block][edge]:
+                api.pop("version", "")
+                api.pop("name", "")
+                api.pop("specification", "")
                 
 
 
