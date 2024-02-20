@@ -13,13 +13,15 @@ def load_components():
             yield spec, yaml.load(f, Loader=yaml.SafeLoader)
 
 def remove_arrays(component):
-    functions = ["securityFunction", "managementFunction", "SecurityFunction", "ManagementFunction"]
+    functions = ["coreFunction"]
+    edges = ["dependentAPIs", "exposedAPIs"]
     for block in functions:
-        if block in component["spec"]:
-            del component["spec"][block]
-
-    if not component["spec"].get("coreFunction"):
-        component["spec"]["coreFunction"] = {}
+        for edge in edges:
+            for api in component[block][edge]:
+                del api["apitype"]
+                del api["name"]
+                del api["specification"]
+                
 
 
 def save_component(file_path, component):
