@@ -97,21 +97,21 @@ spec:
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
       version: 4
     - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Appointment/v4/docs
+      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrder/v4/docs
       id: TMF646
-      implementation: /{{.Release.Name}}-Appointment
-      name: Appointment
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Appointment/v4
+      implementation: /{{.Release.Name}}-WorkOrder
+      name: WorkOrder
+      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrder/v4
       port: 8080
       required: false
       resources:
-      - individual:
+      - workOrder:
         - GET
         - GET /id
-      - organization:
-        - GET
-        - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF646_Party/master/TMF646-Appointment-v4.0.0.swagger.json
+        - POST
+        - PATCH
+        - DELETE
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF697_WorkOrder/master/TMF697-WorkOrder-v4.0.0.swagger.json
       version: 4
     - apitype: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4/docs
