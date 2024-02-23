@@ -18,9 +18,9 @@ def remove_arrays(component):
     for block in functions:
         for edge in edges:
             for api in component["spec"][block][edge]:
-                api.pop("version", "")
                 api.pop("name", "")
                 api.pop("specification", "")
+                api.pop("apitype", "")
                 
 
 

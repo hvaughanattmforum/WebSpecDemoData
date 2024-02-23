@@ -5,9 +5,7 @@ metadata:
 spec:
   coreFunction:
     dependentAPIs:
-    - apitype: openapi
-      id: TMF632
-      name: PartyManagement
+    - id: TMF632
       required: true
       resources:
       - individual:
@@ -16,11 +14,8 @@ spec:
       - organization:
         - GET
         - GET/id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF701
-      name: ProcessFlowManagement
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -32,24 +27,18 @@ spec:
         - PATCH
         - GET
         - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF688
-      name: Event
+    - id: TMF688
       required: false
       resources:
       - event:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF688-Event/blob/master/TMF688-Event-v4.0.0.swagger.json
       version: 4
     exposedAPIs:
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRoleAndPermissionManagement/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRoleAndPermissionManagement/v4/docs
       id: TMF672
       implementation: /{{.Release.Name}}-userrole&permapi
-      name: UserRoleAndPermission
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRoleAndPermissionManagement/v4
       port: 8080
       required: true
@@ -66,13 +55,10 @@ spec:
         - POST
         - PATCH/id
         - DELETE/id
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF672-UserRolePermission-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/v4/docs
       id: TMF669
       implementation: /{{.Release.Name}}-partyroleapi
-      name: PartyRoleManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/v4
       port: 8080
       required: true
@@ -83,13 +69,10 @@ spec:
         - POST
         - PATCH/id
         - DELETE/id
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF672-UserRolePermission-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
       id: TMF688
       implementation: /{{.Release.Name}}-PromotionManagement
-      name: Event
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
       port: 8080
       required: false
@@ -99,7 +82,6 @@ spec:
       - hub:
         - POST
         - DELETE
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF671-Promotion-v4.1.0.swagger.json
       version: 4
     publishedEvents:
     - apitype: openapi
@@ -107,24 +89,24 @@ spec:
       name: userRole
       port: 80
       resources:
-        - permissionCreateEvent
-        - permissionAttributeValueChangeEvent
-        - permissionStateChangeEvent
-        - permissionDeleteEvent
-        - userRoleCreateEvent
-        - userRoleAttributeValueChangeEvent
-        - userRoleStateChangeEvent
-        - userRoleDeleteEvent
+      - permissionCreateEvent
+      - permissionAttributeValueChangeEvent
+      - permissionStateChangeEvent
+      - permissionDeleteEvent
+      - userRoleCreateEvent
+      - userRoleAttributeValueChangeEvent
+      - userRoleStateChangeEvent
+      - userRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRoleAndPermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
     - apitype: openapi
       implementation: /{{.Release.Name}}-partyroleapi
       name: partyRole
       port: 80
       resources:
-        - PartyRoleCreateEvent
-        - PartyRoleAttributeValueChangeEvent
-        - PartyRoleStateChangeEvent
-        - PartyRoleDeleteEvent
+      - PartyRoleCreateEvent
+      - PartyRoleAttributeValueChangeEvent
+      - PartyRoleStateChangeEvent
+      - PartyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRoleManagement/master/TMF672-PartyRoleManagement-v4.0.0.swagger.json
     subscribedEvents:
     - apitype: openapi
@@ -132,22 +114,22 @@ spec:
       name: PartyManagement
       port: 80
       resources:
-        - individualCreateEvent
-        - individualAttributeValueChangeEvent
-        - individualStateChangeEvent
-        - organizationCreateEvenet
-        - organizationAttributeValueChangeEvent
-        - organizationStateChangeEvent
+      - individualCreateEvent
+      - individualAttributeValueChangeEvent
+      - individualStateChangeEvent
+      - organizationCreateEvenet
+      - organizationAttributeValueChangeEvent
+      - organizationStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
     - apitype: openapi
       implementation: /{{.Release.Name}}-ProcessFlowManagement
       name: ProcessFlowManagement
       port: 80
       resources:
-        - processFlowCreateEvent
-        - processFlowStateChangeEvent
-        - taskFlowCreateEvent
-        - taskFlowStateChangeEvent
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
   description: 'Party Roles & Permissions Management component aims to manage and
     expose, roles and related permissions. Permissions Management component allows

@@ -5,11 +5,9 @@ metadata:
 spec:
   coreFunction:
     dependentAPIs:
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
       id: TMF634
       implementation: /{{.Release.Name}}-ResourceCatalog
-      name: ResourceCatalogManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
       port: 8080
       required: false
@@ -43,13 +41,10 @@ spec:
         - GET
         - POST
         - DELETE
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
       version: 4.1
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4/docs
       id: TMF669
       implementation: /{{.Release.Name}}-PartyRole
-      name: PartyRoleManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/v4.0
       port: 8080
       required: false
@@ -57,13 +52,10 @@ spec:
       - partyRole:
         - GET
         - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/v4/docs
       id: TMF632
       implementation: /{{.Release.Name}}-Party
-      name: Party
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/v4
       port: 8080
       required: false
@@ -74,13 +66,10 @@ spec:
       - organization:
         - GET
         - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/v4/docs
       id: TMF662
       implementation: /{{.Release.Name}}-EntityCatalog
-      name: EntityCatalogManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/v4
       port: 8080
       required: false
@@ -91,13 +80,10 @@ spec:
       - associationSpecification:
         - GET
         - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF662_EntityCatalog/master/TMF662-EntityCatalog-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
       id: TMF672
       implementation: /{{.Release.Name}}-Event
-      name: UserRolePermission
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
       port: 8080
       required: false
@@ -105,13 +91,10 @@ spec:
       - permission:
         - GET
         - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF672-UserRolePermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
       id: TMF688
       implementation: /{{.Release.Name}}-Event
-      name: Event
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
       port: 8080
       required: false
@@ -121,14 +104,11 @@ spec:
       - hub:
         - POST
         - DELETE
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF688-Event/master/TMF688-Event-v4.0.0.swagger.json
       version: 4
     exposedAPIs:
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
       id: TMF634
       implementation: /{{.Release.Name}}-ResourceCatalog
-      name: ResourceCatalogManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
       port: 8080
       required: true
@@ -167,13 +147,10 @@ spec:
         - GET /id
         - POST
         - DELETE
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF634-ResourceCatalog-v4.1.0.swagger.json
       version: 4.1
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
       id: TMF701
       implementation: /{{.Release.Name}}-ProcessFlowManagement
-      name: ProcessFlowManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
       port: 8080
       required: false
@@ -187,13 +164,10 @@ spec:
         - PATCH
         - GET
         - GET /id
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF701-ProcessFlow-v4.1.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
       id: TMF688
       implementation: /{{.Release.Name}}-Event
-      name: Event
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
       port: 8080
       required: false
@@ -203,7 +177,6 @@ spec:
       - hub:
         - POST
         - DELETE
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF688-Event-v4.0.0.swagger.json
       version: 4
     publishedEvents:
     - hub: /{{.Release.Name}}-ResourceCatalog/hub
@@ -211,37 +184,37 @@ spec:
       name: ResourceCatalogManagement
       port: 80
       resources:
-        - resourceCatalogCreateEvent
-        - resourceCatalogChangeEvent
-        - resourceCatalogDeleteEvent
-        - resourceCategoryCreateEvent
-        - resourceCategoryChangeEvent
-        - resourceCategoryDeleteEvent
-        - resourceCandidateCreateEvent
-        - resourceCandidateChangeEvent
-        - resourceCandidateDeleteEvent
-        - resourceSpecificationCreateEvent
-        - resourceSpecificationChangeEvent
-        - resourceSpecificationDeleteEvent
-        - importJobCreateEvent
-        - exportJobCreateEvent
-        - exportJobStateChangeEvent
+      - resourceCatalogCreateEvent
+      - resourceCatalogChangeEvent
+      - resourceCatalogDeleteEvent
+      - resourceCategoryCreateEvent
+      - resourceCategoryChangeEvent
+      - resourceCategoryDeleteEvent
+      - resourceCandidateCreateEvent
+      - resourceCandidateChangeEvent
+      - resourceCandidateDeleteEvent
+      - resourceSpecificationCreateEvent
+      - resourceSpecificationChangeEvent
+      - resourceSpecificationDeleteEvent
+      - importJobCreateEvent
+      - exportJobCreateEvent
+      - exportJobStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
-    - resources:
-        - processFlowCreateEvent
-        - processFlowStateChangeEvent
-        - processFlowStateDeleteEvent
-        - processFlowStateAttributeValueChangeEvent
-        - taskFlowCreateEvent
-        - taskFlowStateChangeEvent
-        - taskFlowDeleteEvent
-        - taskFlowAttributeValueChangeEvent
-        - taskFlowInformationRequiredEvent
-      apitype: openapi
+    - apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
     subscribedEvents:
     - call-back: /{{.Release.Name}}-EntityCatalog/call-back
@@ -249,10 +222,10 @@ spec:
       name: EntityCatalogManagement
       port: 80
       resources:
-        - entitySpecificationCreateEvent
-        - entitySpecificationAttributeValueChangeEvent
-        - entitySpecificationStateChangeEvent
-        - entitySpecificationDeleteEvent
+      - entitySpecificationCreateEvent
+      - entitySpecificationAttributeValueChangeEvent
+      - entitySpecificationStateChangeEvent
+      - entitySpecificationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF662_EntityCatalog/master/TMF662-EntityCatalog-v4.0.0.swagger.json
       version: 4
     - call-back: /{{.Release.Name}}-EntityCatalog/call-back
@@ -260,7 +233,7 @@ spec:
       name: PartyRoleManagement
       port: 80
       resources:
-        - partyRoleDeleteEvent
+      - partyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.swagger.json
       version: 4
     - call-back: /{{.Release.Name}}-EntityCatalog/call-back
@@ -268,7 +241,7 @@ spec:
       name: UserRolePermission
       port: 80
       resources:
-        - permissionDeleteEvent
+      - permissionDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672-UserRolePermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
       version: 4
     - call-back: /{{.Release.Name}}-EntityCatalog/call-back
@@ -276,8 +249,8 @@ spec:
       name: Party
       port: 80
       resources:
-        - individualDeleteEvent
-        - organizationDeleteEvent
+      - individualDeleteEvent
+      - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
       version: 4
   description: Resource Catalog Management component is responsible for organizing

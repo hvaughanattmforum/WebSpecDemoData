@@ -5,9 +5,7 @@ metadata:
 spec:
   coreFunction:
     dependentAPIs:
-    - apitype: openapi
-      id: TMF632
-      name: PartyManagement
+    - id: TMF632
       required: true
       resources:
       - individual:
@@ -16,21 +14,15 @@ spec:
       - organization:
         - GET
         - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF669
-      name: PartyRoleManagement
+    - id: TMF669
       required: true
       resources:
       - PartyRole:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF672
-      name: UserRolePermissionManagement
+    - id: TMF672
       required: true
       resources:
       - permission:
@@ -39,31 +31,22 @@ spec:
       - userRole:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF670
-      name: PaymentMethodManagement
+    - id: TMF670
       required: true
       resources:
       - paymentMethod:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF670-PaymentMethodManagement/blob/master/TMF670-PaymentMethodManagement-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF676
-      name: PaymentManagement
+    - id: TMF676
       required: true
       resources:
       - payment:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF676_PaymentManagement/blob/master/TMF676-Payment-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF701
-      name: ProcessFlowManagement
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -71,24 +54,18 @@ spec:
         - GET
         - GET /id
         - PATCH
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF688
-      name: Event
+    - id: TMF688
       required: false
       resources:
       - event:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF688-Event/blob/master/TMF688-Event-v4.0.0.swagger.json
       version: 4
     exposedAPIs:
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AccountManagement/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AccountManagement/v4/docs
       id: TMF666
       implementation: /{{.Release.Name}}-accmngt
-      name: AccountManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AccountManagement/v4
       port: 8080
       required: true
@@ -117,13 +94,10 @@ spec:
         - POST
         - PATCH /id
         - DELETE /id
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF666-Account-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
       id: TMF701
       implementation: /{{.Release.Name}}-procmngttapi
-      name: ProcessFlowManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
       port: 8080
       required: false
@@ -137,13 +111,10 @@ spec:
         - GET
         - GET /id
         - PATCH /id
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF701-ProcessFlow-v4.1.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
       id: TMF688
       implementation: /{{.Release.Name}}-PromotionManagement
-      name: Event
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
       port: 8080
       required: false
@@ -153,7 +124,6 @@ spec:
       - hub:
         - POST
         - DELETE /id
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF671-Promotion-v4.1.0.swagger.json
       version: 4
     publishedEvents:
     - apitype: openapi
@@ -161,8 +131,8 @@ spec:
       name: AccountManagement
       port: 80
       resources:
-        - billingAccountAttributeValueChangeEvent
-        - billingAccountStateChangeEvent
+      - billingAccountAttributeValueChangeEvent
+      - billingAccountStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF666_AccountManagement/master/TMF666-AccountManagement-v4.0.0.swagger.json
     subscribedEvents:
     - apitype: openapi

@@ -5,49 +5,36 @@ metadata:
 spec:
   coreFunction:
     dependentAPIs:
-    - apitype: openapi
-      id: TMF633
-      name: ServiceCatalogManagement
+    - id: TMF633
       required: true
       resources:
       - serviceSpecification:
         - GET
         - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF633_ServiceCatalogManagement/master/TMF633_ServiceCatalogManagement-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF669
-      name: PartyRoleManagement
+    - id: TMF669
       required: false
       resources:
       - PartyRole:
         - GET
         - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF639
-      name: ResourceInventoryManagement
+    - id: TMF639
       required: false
       resources:
       - resource:
         - GET
         - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF639-ResourceInventory/master/TMF639-ResourceInventory-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF638
-      name: ServiceInventoryManagement
+    - id: TMF638
       required: false
       resources:
       - service:
         - GET
         - GET /id
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF638-ServiceInventory/master/TMF638-ServiceInventory-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF673
-      name: GeographicAddressManagement
+    - id: TMF673
+      required: false
       resources:
       - geographicAddress:
         - GET
@@ -55,52 +42,36 @@ spec:
       - geographicSubAddress:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
       version: 4
+    - id: TMF674
       required: false
-    - apitype: openapi
-      id: TMF674
-      name: GeographicSiteManagement
       resources:
       - geographicSite:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF674_GeographicSite/blob/master/TMF674-GeographicSite-v4.0.0.swagger.json
       version: 4
+    - id: TMF675
       required: false
-    - apitype: openapi
-      id: TMF675
-      name: GeographicLocation
       resources:
       - geographicLocation:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF675_GeographicLocation/blob/master/TMF675-GeographicLocation-v4.0.0.swagger.json
       version: 4
-      required: false
-    - apitype: openapi
-      id: TMF672
-      name: UserRolePermission
+    - id: TMF672
       required: false
       resources:
       - permission:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF672_UserRolesPermissions/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF641
-      name: ServiceOrdering
+    - id: TMF641
       required: false
       resources:
       - serviceOrder:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF641_ServiceOrdering/blob/master/TMF641_ServiceOrdering-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF632
-      name: PartyManagement
+    - id: TMF632
       required: false
       resources:
       - individual:
@@ -109,25 +80,19 @@ spec:
       - organization:
         - GET
         - GET /id
-      specification: https://github.com/tmforum-apis/TMF632_Party/blob/master/TMF632-Party-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      id: TMF688
-      name: Event
+    - id: TMF688
       required: false
       resources:
       - event:
         - GET
         - GET /id
         - POST
-      specification: https://github.com/tmforum-apis/TMF688-Event/blob/master/TMF688-Event-v4.0.0.swagger.json
       version: 4
     exposedAPIs:
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/v4/docs
       id: TMF638
       implementation: /{{.Release.Name}}-prodinvapi
-      name: serviceInventory
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/v4
       port: 8080
       required: true
@@ -138,13 +103,10 @@ spec:
         - POST
         - PATCH
         - DELETE
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF638-ServiceInventory-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
       id: TMF701
       implementation: /{{.Release.Name}}-ProcessFlowManagement
-      name: ProcessFlowManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
       port: 8080
       required: false
@@ -158,13 +120,10 @@ spec:
         - PATCH
         - GET
         - GET /id
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF701-ProcessFlow-v4.1.0.swagger.json
       version: 4
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4/docs
       id: TMF688
       implementation: /{{.Release.Name}}-EventManagement
-      name: Event
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4
       port: 8080
       required: false
@@ -175,35 +134,34 @@ spec:
         - POST
         - PATCH
         - DELETE
-      specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF688-Event-v4.0.0.swagger.json
       version: 4
     publishedEvents:
-    - resources:
-        - serviceCreateEvent
-        - serviceAttributeValueChangeEvent
-        - serviceStateChangeEvent
-        - serviceDeleteEvent
-      apitype: openapi
+    - apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/hub
       implementation: /{{.Release.Name}}-serviceInventoryEvent
       name: ServiceInventoryManagement
       port: 80
+      resources:
+      - serviceCreateEvent
+      - serviceAttributeValueChangeEvent
+      - serviceStateChangeEvent
+      - serviceDeleteEvent
       specification: https://github.com/tmforum-apis/TMF638_ServiceInventoryManagement/blob/master/TMF638_ServiceInventoryManagement-v4.0.0.swagger.json
-    - resources:
-        - processFlowCreateEvent
-        - processFlowStateChangeEvent
-        - processFlowStateDeleteEvent
-        - processFlowStateAttributeValueChangeEvent
-        - taskFlowCreateEvent
-        - taskFlowStateChangeEvent
-        - taskFlowDeleteEvent
-        - taskFlowAttributeValueChangeEvent
-        - taskFlowInformationRequiredEvent
-      apitype: openapi
+    - apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
     subscribedEvents:
     - apitype: openapi
@@ -212,7 +170,7 @@ spec:
       name: ResourceInventoryManagement
       port: 80
       resources:
-        - resourceDeleteEvent
+      - resourceDeleteEvent
       specification: https://open-api.tmforum.org20-ResourceInventory-v4.0.0.swagger.json
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/call-back
@@ -220,10 +178,10 @@ spec:
       name: ServiceInventoryManagement
       port: 80
       resources:
-        - serviceCreateEvent
-        - serviceAttributeValueChangeEvent
-        - serviceStateChangeEvent
-        - serviceDeleteEvent
+      - serviceCreateEvent
+      - serviceAttributeValueChangeEvent
+      - serviceStateChangeEvent
+      - serviceDeleteEvent
       specification: https://open-api.tmforum.org20-ServiceInventory-v4.0.0.swagger.json
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/call-back
@@ -231,7 +189,7 @@ spec:
       name: ServiceCatalogManagement
       port: 80
       resources:
-        - serviceSpecificationDeleteEvent
+      - serviceSpecificationDeleteEvent
       specification: https://open-api.tmforum.org20-ServiceCatalog-v4.0.0.swagger.json
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/call-back
@@ -239,7 +197,7 @@ spec:
       name: PartyRoleManagement
       port: 80
       resources:
-        - partyRoleDeleteEvent
+      - partyRoleDeleteEvent
       specification: https://open-api.tmforum.org20-PartyRole-v4.0.0.swagger.json
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolePermission/call-back
@@ -247,7 +205,7 @@ spec:
       name: UserRolePermissionManagement
       port: 80
       resources:
-        - permissionDeleteEvent
+      - permissionDeleteEvent
       specification: https://open-api.tmforum.org20-UserRolePermission-v4.0.0.swagger.json
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
@@ -255,7 +213,7 @@ spec:
       name: GeographicSiteManagement
       port: 80
       resources:
-        - geographicSiteDeleteEvent
+      - geographicSiteDeleteEvent
       specification: https://open-api.tmforum.org20-GeographicSite-v4.0.0.swagger.json
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
@@ -263,7 +221,7 @@ spec:
       name: GeographicLocation
       port: 80
       resources:
-        - geographicLocationDeleteEvent
+      - geographicLocationDeleteEvent
       specification: https://open-api.tmforum.org20-GeographicLocatin-v4.0.0.swagger.json
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
@@ -271,8 +229,8 @@ spec:
       name: PartyManagement
       port: 80
       resources:
-        - individualDeleteEvent
-        - organizationDeleteEvent
+      - individualDeleteEvent
+      - organizationDeleteEvent
       specification: https://open-api.tmforum.org20-Party-v4.0.0.swagger.json
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceOrdering/call-back
@@ -280,7 +238,7 @@ spec:
       name: ServiceOrderingManagement
       port: 80
       resources:
-        - serviceOrderDeleteEvent
+      - serviceOrderDeleteEvent
       specification: https://open-api.tmforum.org20-ServiceOrdering-v4.0.0.swagger.json
   description: Service Inventory component is responsible for storage and exposure
     of CFS (Customer Facing Service) that are associated to Product Inventory items.
