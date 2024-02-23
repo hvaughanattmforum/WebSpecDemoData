@@ -1,2 +1,4 @@
 jsonschema
 graphviz
+openpyxl
+xlsxwriter
