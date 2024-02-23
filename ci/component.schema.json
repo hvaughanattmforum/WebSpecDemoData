@@ -69,7 +69,6 @@
                 },
                 "required": [
                   "resources",
-                  "implementation",
                   "name",
                   "port",
                   "specification"
