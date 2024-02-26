@@ -1,4 +1,4 @@
-name: Trigger Release
+name: Component Release
 
 on: 
   workflow_dispatch:
@@ -10,13 +10,13 @@ on:
 
   push:
     branches:
-      - v1beta2
+      - v1beta*
 
 jobs:
   trigger_target:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger target workflow
+      - name: Release
         env: 
           BRANCH_NAME: ${{ github.ref_name }}
           GH_TOKEN: ${{ secrets.DEVOPS_TOKEN }}
@@ -25,5 +25,5 @@ jobs:
           curl -X POST \
           -H "Authorization: Bearer $GH_TOKEN" \
           -H "Accept: application/vnd.github+json" \
-          https://api.github.com/repos/tmforum-rand/TMForum-ODA-Asset-Build/actions/workflows/72084960/dispatches \
+          https://api.github.com/repos/tmforum-rand/TMForum-ODA-CI/actions/workflows/72084960/dispatches \
           -d "{\"ref\":\"main\", \"inputs\": {\"ref_name\":\"$BRANCH_NAME\"}}"
