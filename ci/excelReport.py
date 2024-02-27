@@ -57,7 +57,8 @@ def generate_event_report_data(components):
                             "component": file_path.stem,
                             "functionBlock": "coreFunction",
                             "function": edge,
-                            "api": event.get("name", "NAME NOT AVAILABLE"),
+                            "api id": event.get("id", "ID NOT AVAILABLE"),
+                            "api name": event.get("name", "NAME NOT AVAILABLE"),
                             "EventId": resource,
                         })
                

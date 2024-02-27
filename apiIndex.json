@@ -1,141 +1,9 @@
 [
     {
-        "id": "TMF653",
-        "name": "TMF653 Service Test Management API",
-        "version": "4.2.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.2.0/swagger/TMF653_Service_Test_Management_API_v4.2.0_swagger.json"
-    },
-    {
-        "id": "TMF915",
-        "name": "TMF915 AI Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF915_AI_Management_API_v4.0.0_swagger.json"
-    },
-    {
         "id": "TMF707",
         "name": "TMF707 Test Result Management API",
         "version": "4.0.0",
         "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF707_Test_Result_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF724",
-        "name": "TMF724 Incident Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF724_Incident_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF681",
-        "name": "TMF681 Communication Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF681_Communication_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF670",
-        "name": "TMF670 Payment Method Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF670_Payment_Method_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF651",
-        "name": "TMF651 Agreement Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF651_Agreement_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF691",
-        "name": "TMF691 Federated ID Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF691_Federated_ID_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF730",
-        "name": "TMF730 Software And Compute Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF730_Software_And_Compute_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF667",
-        "name": "TMF667 Document Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF667_Document_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF709",
-        "name": "TMF709 Test Scenario Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF709_Test_Scenario_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF705",
-        "name": "TMF705 Test Environment Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF705_Test_Environment_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF921",
-        "name": "TMF921 Intent Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF921_Intent_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF656",
-        "name": "TMF656 Service Problem Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF656_Service_Problem_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF637",
-        "name": "TMF637 Product Inventory Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF637_Product_Inventory_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF652",
-        "name": "TMF652 Resource Order Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF652_Resource_Order_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF710",
-        "name": "TMF710 General Test Artifact Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF710_General_Test_Artifact_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF655",
-        "name": "TMF655 Change Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF655_Change_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF677",
-        "name": "TMF677 Usage Consumption Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF677_Usage_Consumption_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF621",
-        "name": "TMF621 Trouble Ticket Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF621_Trouble_Ticket_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF702",
-        "name": "TMF702 Resource Activation Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF702_Resource_Activation_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF639",
-        "name": "TMF639 Resource Inventory Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF639_Resource_Inventory_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF676",
-        "name": "TMF676 Payment Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF676_Payment_Management_API_v4.0.0_swagger.json"
     },
     {
         "id": "TMF646",
@@ -144,94 +12,22 @@
         "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF646_Appointment_Management_API_v4.0.0_swagger.json"
     },
     {
-        "id": "TMF666",
-        "name": "TMF666 Account Management API",
+        "id": "TMF915",
+        "name": "TMF915 AI Management API",
         "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF666_Account_Management_API_v4.0.0_swagger.json"
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF915_AI_Management_API_v4.0.0_swagger.json"
     },
     {
-        "id": "TMF645",
-        "name": "TMF645 Service Qualification Management API",
+        "id": "TMF678",
+        "name": "TMF678 Customer Bill Management API",
         "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF645_Service_Qualification_Management_API_v4.0.0_swagger.json"
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF678_Customer_Bill_Management_API_v4.0.0_swagger.json"
     },
     {
-        "id": "TMF673",
-        "name": "TMF673 Geographic Address Management API",
+        "id": "TMF705",
+        "name": "TMF705 Test Environment Management API",
         "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF673_Geographic_Address_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF720",
-        "name": "TMF720 Digital Identity Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF720_Digital_Identity_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF668",
-        "name": "TMF668 Partnership Type",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF668_Partnership_Type_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF708",
-        "name": "TMF708 Test Execution Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF708_Test_Execution_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF662",
-        "name": "TMF662 Entity Catalog Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF662_Entity_Catalog_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF669",
-        "name": "TMF669 Party Role Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF669_Party_Role_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF704",
-        "name": "TMF704 Test Case Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF704_Test_Case_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF629",
-        "name": "TMF629 Customer Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF629_Customer_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF622",
-        "name": "TMF622 Product Ordering Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF622_Product_Ordering_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF638",
-        "name": "TMF638 Service Inventory Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF638_Service_Inventory_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF664",
-        "name": "TMF664 Resource Function Activation Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF664_Resource_Function_Activation_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF672",
-        "name": "TMF672 User Role Permission Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF672_User_Role_Permission_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF696",
-        "name": "TMF696 Risk Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF696_Risk_Management_API_v4.0.0_swagger.json"
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF705_Test_Environment_Management_API_v4.0.0_swagger.json"
     },
     {
         "id": "TMF683",
@@ -246,64 +42,10 @@
         "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF687_Stock_Management_API_v4.0.0_swagger.json"
     },
     {
-        "id": "TMF657",
-        "name": "TMF657 Service Quality Management Management API",
+        "id": "TMF720",
+        "name": "TMF720 Digital Identity Management API",
         "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF657_Service_Quality_Management_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF654",
-        "name": "TMF654 Prepay Balance Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF654_Prepay_Balance_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF640",
-        "name": "TMF640 Service Activation Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF640_Service_Activation_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF701",
-        "name": "TMF701 Process Flow Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF701_Process_Flow_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF680",
-        "name": "TMF680 Recommendation Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF680_Recommendation_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF642",
-        "name": "TMF642 Alarm Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF642_Alarm_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF644",
-        "name": "TMF644 Privacy Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF644_Privacy_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF706",
-        "name": "TMF706 Test Data Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF706_Test_Data_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF635",
-        "name": "TMF635 Usage Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF635_Usage_Management_API_v4.0.0_swagger.json"
-    },
-    {
-        "id": "TMF663",
-        "name": "TMF663 Shopping Cart Management API",
-        "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF663_Shopping_Cart_Management_API_v4.0.0_swagger.json"
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF720_Digital_Identity_Management_API_v4.0.0_swagger.json"
     },
     {
         "id": "TMF699",
@@ -312,16 +54,160 @@
         "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF699_Sales_Management_API_v4.0.0_swagger.json"
     },
     {
+        "id": "TMF640",
+        "name": "TMF640 Service Activation Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF640_Service_Activation_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF644",
+        "name": "TMF644 Privacy Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF644_Privacy_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF652",
+        "name": "TMF652 Resource Order Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF652_Resource_Order_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF709",
+        "name": "TMF709 Test Scenario Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF709_Test_Scenario_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF724",
+        "name": "TMF724 Incident Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF724_Incident_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF681",
+        "name": "TMF681 Communication Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF681_Communication_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF673",
+        "name": "TMF673 Geographic Address Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF673_Geographic_Address_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF669",
+        "name": "TMF669 Party Role Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF669_Party_Role_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF655",
+        "name": "TMF655 Change Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF655_Change_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF629",
+        "name": "TMF629 Customer Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF629_Customer_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF657",
+        "name": "TMF657 Service Quality Management Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF657_Service_Quality_Management_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF708",
+        "name": "TMF708 Test Execution Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF708_Test_Execution_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF672",
+        "name": "TMF672 User Role Permission Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF672_User_Role_Permission_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF637",
+        "name": "TMF637 Product Inventory Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF637_Product_Inventory_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF645",
+        "name": "TMF645 Service Qualification Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF645_Service_Qualification_Management_API_v4.0.0_swagger.json"
+    },
+    {
         "id": "TMF632",
         "name": "TMF632 Party Management API",
         "version": "4.0.0",
         "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF632_Party_Management_API_v4.0.0_swagger.json"
     },
     {
-        "id": "TMF674",
-        "name": "TMF674 Geographic Site Management API",
+        "id": "TMF663",
+        "name": "TMF663 Shopping Cart Management API",
         "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF674_Geographic_Site_Management_API_v4.0.0_swagger.json"
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF663_Shopping_Cart_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF651",
+        "name": "TMF651 Agreement Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF651_Agreement_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF662",
+        "name": "TMF662 Entity Catalog Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF662_Entity_Catalog_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF680",
+        "name": "TMF680 Recommendation Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF680_Recommendation_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF668",
+        "name": "TMF668 Partnership Type",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF668_Partnership_Type_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF664",
+        "name": "TMF664 Resource Function Activation Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF664_Resource_Function_Activation_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF635",
+        "name": "TMF635 Usage Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF635_Usage_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF706",
+        "name": "TMF706 Test Data Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF706_Test_Data_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF696",
+        "name": "TMF696 Risk Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF696_Risk_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF667",
+        "name": "TMF667 Document Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF667_Document_Management_API_v4.0.0_swagger.json"
     },
     {
         "id": "TMF633",
@@ -330,10 +216,76 @@
         "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF633_Service_Catalog_Management_API_v4.0.0_swagger.json"
     },
     {
-        "id": "TMF679",
-        "name": "TMF679 Product Offering Qualification Management API",
+        "id": "TMF704",
+        "name": "TMF704 Test Case Management API",
         "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF679_Product_Offering_Qualification_Management_API_v4.0.0_swagger.json"
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF704_Test_Case_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF730",
+        "name": "TMF730 Software And Compute Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF730_Software_And_Compute_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF666",
+        "name": "TMF666 Account Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF666_Account_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF656",
+        "name": "TMF656 Service Problem Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF656_Service_Problem_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF622",
+        "name": "TMF622 Product Ordering Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF622_Product_Ordering_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF702",
+        "name": "TMF702 Resource Activation Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF702_Resource_Activation_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF691",
+        "name": "TMF691 Federated ID Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF691_Federated_ID_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF654",
+        "name": "TMF654 Prepay Balance Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF654_Prepay_Balance_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF670",
+        "name": "TMF670 Payment Method Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF670_Payment_Method_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF674",
+        "name": "TMF674 Geographic Site Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF674_Geographic_Site_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF921",
+        "name": "TMF921 Intent Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF921_Intent_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF621",
+        "name": "TMF621 Trouble Ticket Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF621_Trouble_Ticket_Management_API_v4.0.0_swagger.json"
     },
     {
         "id": "TMF648",
@@ -342,16 +294,52 @@
         "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF648_Quote_Management_API_v4.0.0_swagger.json"
     },
     {
-        "id": "TMF678",
-        "name": "TMF678 Customer Bill Management API",
+        "id": "TMF638",
+        "name": "TMF638 Service Inventory Management API",
         "version": "4.0.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF678_Customer_Bill_Management_API_v4.0.0_swagger.json"
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF638_Service_Inventory_Management_API_v4.0.0_swagger.json"
     },
     {
-        "id": "TMF620",
-        "name": "TMF620 Product Catalog Management API",
-        "version": "4.1.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF620_Product_Catalog_Management_API_v4.1.0_swagger.json"
+        "id": "TMF701",
+        "name": "TMF701 Process Flow Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF701_Process_Flow_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF710",
+        "name": "TMF710 General Test Artifact Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF710_General_Test_Artifact_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF642",
+        "name": "TMF642 Alarm Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF642_Alarm_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF679",
+        "name": "TMF679 Product Offering Qualification Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF679_Product_Offering_Qualification_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF677",
+        "name": "TMF677 Usage Consumption Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF677_Usage_Consumption_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF676",
+        "name": "TMF676 Payment Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF676_Payment_Management_API_v4.0.0_swagger.json"
+    },
+    {
+        "id": "TMF639",
+        "name": "TMF639 Resource Inventory Management API",
+        "version": "4.0.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF639_Resource_Inventory_Management_API_v4.0.0_swagger.json"
     },
     {
         "id": "TMF634",
@@ -360,15 +348,27 @@
         "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF634_Resource_Catalog_Management_API_v4.1.0_swagger.json"
     },
     {
-        "id": "TMF641",
-        "name": "TMF641 Service Ordering Management API",
+        "id": "TMF620",
+        "name": "TMF620 Product Catalog Management API",
         "version": "4.1.0",
-        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF641_Service_Ordering_Management_API_v4.1.0_swagger.json"
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF620_Product_Catalog_Management_API_v4.1.0_swagger.json"
     },
     {
         "id": "TMF671",
         "name": "TMF671 Promotion Management API",
         "version": "4.1.0",
         "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF671_Promotion_Management_API_v4.1.0_swagger.json"
+    },
+    {
+        "id": "TMF641",
+        "name": "TMF641 Service Ordering Management API",
+        "version": "4.1.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF641_Service_Ordering_Management_API_v4.1.0_swagger.json"
+    },
+    {
+        "id": "TMF653",
+        "name": "TMF653 Service Test Management API",
+        "version": "4.2.0",
+        "spec_url": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.2.0/swagger/TMF653_Service_Test_Management_API_v4.2.0_swagger.json"
     }
 ]
