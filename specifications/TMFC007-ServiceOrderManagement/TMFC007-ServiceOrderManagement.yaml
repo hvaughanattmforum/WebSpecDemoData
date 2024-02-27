@@ -23,7 +23,7 @@ spec:
         - GET /id
       version: 4.0
     - id: TMF634
-      required: true
+      required: false
       resources:
       - resourceSpecification:
         - GET
@@ -96,7 +96,7 @@ spec:
         - PATCH
       version: 4.0
     - id: TMF652
-      required: true
+      required: false
       resources:
       - resourceOrder:
         - GET
