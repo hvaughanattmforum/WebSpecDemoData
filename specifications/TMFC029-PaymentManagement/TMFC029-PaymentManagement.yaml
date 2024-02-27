@@ -5,11 +5,7 @@ metadata:
 spec:
   coreFunction:
     dependentAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4/docs
-      id: TMF632
-      implementation: /{{.Release.Name}}-PartyManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4
-      port: 8080
+    - id: TMF632
       required: false
       resources:
       - individual:
@@ -19,11 +15,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AccountManagement/v4/docs
-      id: TMF666
-      implementation: /{{.Release.Name}}-AccountManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AccountManagement/v4
-      port: 8080
+    - id: TMF666
       required: false
       resources:
       - partyAccount:
@@ -48,11 +40,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4/docs
-      id: TMF673
-      implementation: /{{.Release.Name}}-GeographicAddressManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4
-      port: 8080
+    - id: TMF673
       required: false
       resources:
       - geographicAddressValidation:
@@ -65,22 +53,14 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4/docs
-      id: TMF674
-      implementation: /{{.Release.Name}}-GeographicSiteManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4
-      port: 8080
+    - id: TMF674
       required: false
       resources:
       - geographicSite:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4/docs
-      id: TMF675
-      implementation: /{{.Release.Name}}-GeographicLocation
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4
-      port: 8080
+    - id: TMF675
       required: false
       resources:
       - geographicLocation:
@@ -96,11 +76,7 @@ spec:
         - GET /id
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentMethods/v4/docs
-      id: TMF670
-      implementation: /{{.Release.Name}}-PaymentMethods
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentMethods/v4
-      port: 8080
+    - id: TMF670
       required: true
       resources:
       - paymentMethod:
@@ -110,11 +86,7 @@ spec:
         - PATCH
         - DELETE
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentManagement/v4/docs
-      id: TMF676
-      implementation: /{{.Release.Name}}-PaymentManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentManagement/v4
-      port: 8080
+    - id: TMF676
       required: true
       resources:
       - payment:
@@ -126,11 +98,7 @@ spec:
         - GET /id
         - POST
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -143,11 +111,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:

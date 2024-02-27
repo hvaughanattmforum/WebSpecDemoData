@@ -6,7 +6,6 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF620
-      port: 8080
       required: false
       resources:
       - productSpecification:
@@ -14,8 +13,6 @@ spec:
         - GET /id
       version: 4.1
     - id: TMF622
-      implementation: /{{.Release.Name}}-ProductOrder
-      port: 8080
       required: true
       resources:
       - productOrder:
@@ -23,7 +20,6 @@ spec:
         - PATCH
       version: 4
     - id: TMF637
-      port: 8080
       required: false
       resources:
       - product:
@@ -31,11 +27,7 @@ spec:
         - GET /id
         - PATCH
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
-      id: TMF641
-      implementation: /{{.Release.Name}}-serviceorderingmanagement
-      path: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/v4/
-      port: 8080
+    - id: TMF641
       required: true
       resources:
       - serviceOrder:
@@ -50,7 +42,6 @@ spec:
         - POST
       version: 4.1
     - id: TMF633
-      port: 8080
       required: false
       resources:
       - serviceSpecification:
@@ -58,18 +49,13 @@ spec:
         - GET /id
       version: 4
     - id: TMF634
-      port: 8080
       required: false
       resources:
       - resourceSpecification:
         - GET
         - GET /id
       version: 4.1
-    - developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
-      id: TMF641
-      implementation: /{{.Release.Name}}-serviceorderingmanagement
-      path: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/v4/
-      port: 8080
+    - id: TMF641
       required: true
       resources:
       - serviceOrder:
@@ -77,29 +63,20 @@ spec:
         - POST
       version: 4.1
     - id: TMF638
-      port: 8080
       required: false
       resources:
       - service:
         - GET / id
         - GET
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      id: TMF639
-      implementation: /{{.Release.Name}}-ResourceInventory
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4
-      port: 8080
+    - id: TMF639
       required: false
       resources:
       - resource:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrderManagement/v4/docs
-      id: TMF652
-      implementation: /{{.Release.Name}}-ResourceOrderManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrderManagement/v4
-      port: 8080
+    - id: TMF652
       required: false
       resources:
       - resourceOrder:
@@ -107,11 +84,7 @@ spec:
         - POST
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -124,11 +97,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:

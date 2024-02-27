@@ -77,11 +77,7 @@ spec:
         - GET /id
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/SalesManagement/v4/docs
-      id: TMF699
-      implementation: /{{.Release.Name}}-SalesManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/SalesManagement/v4
-      port: 8080
+    - id: TMF699
       required: true
       resources:
       - SalesLead:
@@ -97,11 +93,7 @@ spec:
         - PATCH
         - DELETE
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -114,11 +106,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:

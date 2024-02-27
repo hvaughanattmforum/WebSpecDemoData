@@ -21,6 +21,10 @@ def remove_arrays(component):
                 api.pop("name", "")
                 api.pop("specification", "")
                 api.pop("apitype", "")
+                api.pop("implementation", "")
+                api.pop("port", "")
+                api.pop("path", "")
+                api.pop("developerUI", "")
                 
 
 

@@ -5,11 +5,7 @@ metadata:
 spec:
   coreFunction:
     dependentAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
-      id: TMF634
-      implementation: /{{.Release.Name}}-ResourceCatalog
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
-      port: 8080
+    - id: TMF634
       required: true
       resources:
       - resourceCatalog:
@@ -42,20 +38,14 @@ spec:
         - POST
         - DELETE
       version: 4.1
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4/docs
-      id: TMF669
-      implementation: /{{.Release.Name}}-PartyRole
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/v4.0
-      port: 8080
+    - id: TMF669
       required: false
       resources:
-      - partyRole: -GET -GET /id
+      - partyRole: 
+        - GET 
+        - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/v4/docs
-      id: TMF632
-      implementation: /{{.Release.Name}}-Party
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/v4
-      port: 8080
+    - id: TMF632
       required: false
       resources:
       - individual:
@@ -65,55 +55,35 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4/docs
-      id: TMF673
-      implementation: /{{.Release.Name}}-GeographicAddressManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4
-      port: 8080
+    - id: TMF673
       required: true
       resources:
       - geographicAddress:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4/docs
-      id: TMF674
-      implementation: /{{.Release.Name}}-GeographicSiteManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4
-      port: 8080
+    - id: TMF674
       required: true
       resources:
       - geographicSite:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4/docs
-      id: TMF675
-      implementation: /{{.Release.Name}}-GeographicLocation
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4
-      port: 8080
+    - id: TMF675
       required: true
       resources:
       - geographicLocation:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolesPermissions/v4/docs
-      id: TMF672
-      implementation: /{{.Release.Name}}-UserRolesPermissions
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolesPermissions/v4
-      port: 8080
+    - id: TMF672
       required: true
       resources:
       - permission:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      id: TMF639
-      implementation: /{{.Release.Name}}-ResourceInventory
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4
-      port: 8080
+    - id: TMF639
       required: true
       resources:
       - resource:
@@ -123,11 +93,7 @@ spec:
         - PATCH
         - DELETE
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-Event
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - event:
@@ -135,11 +101,7 @@ spec:
         - DELETE
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      id: TMF639
-      implementation: /{{.Release.Name}}-ResourceInventory
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
-      port: 8080
+    - id: TMF639
       required: true
       resources:
       - resource:
@@ -149,11 +111,7 @@ spec:
         - PATCH
         - DELETE
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PoolManagement/v4/docs
-      id: TMF685
-      implementation: /{{.Release.Name}}-PoolManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PoolManagement/v4
-      port: 8080
+    - id: TMF685
       required: false
       resources:
       - resourcePool:
@@ -178,11 +136,7 @@ spec:
         - GET /id
         - POST
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -195,11 +149,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-Event
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - event:

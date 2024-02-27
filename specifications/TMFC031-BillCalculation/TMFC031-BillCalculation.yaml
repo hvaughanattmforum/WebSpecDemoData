@@ -44,7 +44,6 @@ spec:
         - GET /id
       version: 4.0
     - id: TMF637
-      port: 8080
       required: false
       resources:
       - product:
@@ -95,22 +94,14 @@ spec:
         - GET /id
       version: 4.0
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/customerBillManagement/v4/docs
-      id: TMF678
-      implementation: /{{.Release.Name}}-CustomerBill
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/customerBillManagement/v4
-      port: 8080
+    - id: TMF678
       required: true
       resources:
       - appliedCustomerBillingRate:
         - GET
         - GET /id
       version: 4.0
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-procmngttapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -123,11 +114,7 @@ spec:
         - GET /id
         - PATCH /id
       version: 4.0
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:

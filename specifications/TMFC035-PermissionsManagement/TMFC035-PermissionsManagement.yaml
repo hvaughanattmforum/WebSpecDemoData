@@ -36,11 +36,7 @@ spec:
         - GET /id
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRoleAndPermissionManagement/v4/docs
-      id: TMF672
-      implementation: /{{.Release.Name}}-userrole&permapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRoleAndPermissionManagement/v4
-      port: 8080
+    - id: TMF672
       required: true
       resources:
       - permission:
@@ -56,11 +52,7 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/v4/docs
-      id: TMF669
-      implementation: /{{.Release.Name}}-partyroleapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/v4
-      port: 8080
+    - id: TMF669
       required: true
       resources:
       - partyRole:
@@ -70,11 +62,7 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - event:

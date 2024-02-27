@@ -49,7 +49,6 @@ spec:
         - GET /id
       version: 4.0
     - id: TMF667
-      port: 8080
       required: false
       resources:
       - document:
@@ -65,11 +64,7 @@ spec:
         - GET /id
       version: 4.1
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PrivacyManagement/v4/docs
-      id: TMF644
-      implementation: /{{.Release.Name}}-PrivacyManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PrivacyManagement/v4
-      port: 8080
+    - id: TMF644
       required: true
       resources:
       - PartyPrivacyProfileSpecification:
@@ -91,11 +86,7 @@ spec:
         - PATCH /id
         - DELETE
       version: 4.0
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-procmngttapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -108,11 +99,7 @@ spec:
         - GET /id
         - PATCH /id
       version: 4.0
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:

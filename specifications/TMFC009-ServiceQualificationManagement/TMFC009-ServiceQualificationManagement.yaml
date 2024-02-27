@@ -5,11 +5,7 @@ metadata:
 spec:
   coreFunction:
     dependentAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalogManagement/v4/docs
-      id: TMF633
-      implementation: /{{.Release.Name}}-ServiceCatalogManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalogManagement/v4
-      port: 8080
+    - id: TMF633
       required: true
       resources:
       - serviceSpecification:
@@ -19,44 +15,28 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/v4/docs
-      id: TMF638
-      implementation: /{{.Release.Name}}-ServiceInventory
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/v4
-      port: 8080
+    - id: TMF638
       required: false
       resources:
       - service:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
-      id: TMF634
-      implementation: /{{.Release.Name}}-ResourceCatalog
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4
-      port: 8080
+    - id: TMF634
       required: false
       resources:
       - resourceSpecification:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      id: TMF639
-      implementation: /{{.Release.Name}}-ResourceInventory
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4
-      port: 8080
+    - id: TMF639
       required: false
       resources:
       - resource:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4/docs
-      id: TMF632
-      implementation: /{{.Release.Name}}-PartyManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4
-      port: 8080
+    - id: TMF632
       required: false
       resources:
       - individual:
@@ -66,55 +46,35 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/v4/docs
-      id: TMF669
-      implementation: /{{.Release.Name}}-PartyRoleManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/v4
-      port: 8080
+    - id: TMF669
       required: false
       resources:
       - partyRole:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4/docs
-      id: TMF673
-      implementation: /{{.Release.Name}}-GeographicAddressManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4
-      port: 8080
+    - id: TMF673
       required: false
       resources:
       - geographicAddress:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4/docs
-      id: TMF674
-      implementation: /{{.Release.Name}}-GeographicSiteManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4
-      port: 8080
+    - id: TMF674
       required: false
       resources:
       - geographicSite:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4/docs
-      id: TMF675
-      implementation: /{{.Release.Name}}-GeographicLocation
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4
-      port: 8080
+    - id: TMF675
       required: false
       resources:
       - geographicLocation:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolesPermissions/v4/docs
-      id: TMF672
-      implementation: /{{.Release.Name}}-UserRolesPermissions
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolesPermissions/v4
-      port: 8080
+    - id: TMF672
       required: false
       resources:
       - permission:
@@ -129,11 +89,7 @@ spec:
         - GET /id
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ServiceQualificationManagement/v4/docs
-      id: TMF645
-      implementation: /{{.Release.Name}}-ServiceQualificationManagement
-      path: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ServiceQualificationManagement/v4/
-      port: 8080
+    - id: TMF645
       required: true
       resources:
       - checkServiceQualification:

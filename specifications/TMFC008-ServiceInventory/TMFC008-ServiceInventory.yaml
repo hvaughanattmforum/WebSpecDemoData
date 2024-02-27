@@ -90,11 +90,7 @@ spec:
         - POST
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/v4/docs
-      id: TMF638
-      implementation: /{{.Release.Name}}-prodinvapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/v4
-      port: 8080
+    - id: TMF638
       required: true
       resources:
       - service:
@@ -104,11 +100,7 @@ spec:
         - PATCH
         - DELETE
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -121,11 +113,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-EventManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - event:

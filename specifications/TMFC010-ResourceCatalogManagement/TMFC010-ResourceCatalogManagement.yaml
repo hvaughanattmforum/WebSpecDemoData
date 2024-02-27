@@ -5,11 +5,7 @@ metadata:
 spec:
   coreFunction:
     dependentAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
-      id: TMF634
-      implementation: /{{.Release.Name}}-ResourceCatalog
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
-      port: 8080
+    - id: TMF634
       required: false
       resources:
       - resourceCatalog:
@@ -42,22 +38,14 @@ spec:
         - POST
         - DELETE
       version: 4.1
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4/docs
-      id: TMF669
-      implementation: /{{.Release.Name}}-PartyRole
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/v4.0
-      port: 8080
+    - id: TMF669
       required: false
       resources:
       - partyRole:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/v4/docs
-      id: TMF632
-      implementation: /{{.Release.Name}}-Party
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/v4
-      port: 8080
+    - id: TMF632
       required: false
       resources:
       - individual:
@@ -67,11 +55,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/v4/docs
-      id: TMF662
-      implementation: /{{.Release.Name}}-EntityCatalog
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/v4
-      port: 8080
+    - id: TMF662
       required: false
       resources:
       - entitySpecification:
@@ -81,22 +65,14 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
-      id: TMF672
-      implementation: /{{.Release.Name}}-Event
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
-      port: 8080
+    - id: TMF672
       required: false
       resources:
       - permission:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-Event
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:
@@ -106,11 +82,7 @@ spec:
         - DELETE
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
-      id: TMF634
-      implementation: /{{.Release.Name}}-ResourceCatalog
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
-      port: 8080
+    - id: TMF634
       required: true
       resources:
       - resourceCatalog:
@@ -148,11 +120,7 @@ spec:
         - POST
         - DELETE
       version: 4.1
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -165,11 +133,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-Event
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Event/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:

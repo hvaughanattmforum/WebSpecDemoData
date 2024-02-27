@@ -15,11 +15,7 @@ spec:
         - DELETE /id
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-EventManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4
-      port: 8080
+    - id: TMF688
       required: true
       resources:
       - topic:

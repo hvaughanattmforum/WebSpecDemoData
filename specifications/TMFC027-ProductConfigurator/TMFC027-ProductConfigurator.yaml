@@ -96,11 +96,7 @@ spec:
         - GET
         - GET /id
       version: 4.0
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -120,11 +116,7 @@ spec:
         - GET
         - GET /id
       version: 4.0
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -137,11 +129,7 @@ spec:
         - GET
         - GET /id
       version: 4.0
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/IntentManagement/v4/docs
-      id: TMF921
-      implementation: /{{.Release.Name}}-IntentManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/IntentManagement/v4
-      port: 8080
+    - id: TMF921
       required: false
       resources:
       - intent:
@@ -149,11 +137,7 @@ spec:
         - GET /id
       version: 4.0
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOfferingQualificationManagement/v4/docs
-      id: TMF679
-      implementation: /{{.Release.Name}}-pdtquali
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOfferingQualificationManagement/v4
-      port: 8080
+    - id: TMF679
       required: true
       resources:
       - productOfferingQualification:
@@ -163,11 +147,7 @@ spec:
         - PATCH/id
         - DELETE
       version: 4.0
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/checkProductConfiguration/v5/docs
-      id: TMF760
-      implementation: /{{.Release.Name}}-ProductConfiguration
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/checkProductConfiguration/v5
-      port: 8080
+    - id: TMF760
       required: true
       resources:
       - checkProductConfiguration:
@@ -179,11 +159,7 @@ spec:
         - GET/id
         - POST
       version: 5.0
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:

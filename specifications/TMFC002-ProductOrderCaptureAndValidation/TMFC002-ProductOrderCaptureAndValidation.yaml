@@ -215,9 +215,6 @@ spec:
       version: 4
     exposedAPIs:
     - id: TMF622
-      implementation: /{{.Release.Name}}-ProductOrder
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productOrderManagement/v4
-      port: 8080
       required: true
       resources:
       - productOrder:
@@ -232,9 +229,6 @@ spec:
         - GET /id
       version: 4
     - id: TMF648
-      implementation: /{{.Release.Name}}-QuoteManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/quoteManagement/v4
-      port: 8080
       required: false
       resources:
       - Quote:
@@ -245,9 +239,6 @@ spec:
         - DELETE
       version: 4
     - id: TMF663
-      implementation: /{{.Release.Name}}-QuoteManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/shoppingCart/v4
-      port: 8080
       required: false
       resources:
       - ShoppingCart:
@@ -257,11 +248,7 @@ spec:
         - PATCH
         - DELETE
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -274,11 +261,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:

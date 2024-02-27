@@ -63,11 +63,7 @@ spec:
         - GET /id
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AccountManagement/v4/docs
-      id: TMF666
-      implementation: /{{.Release.Name}}-accmngt
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AccountManagement/v4
-      port: 8080
+    - id: TMF666
       required: true
       resources:
       - BillingAccount:
@@ -95,11 +91,7 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-procmngttapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -112,11 +104,7 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:

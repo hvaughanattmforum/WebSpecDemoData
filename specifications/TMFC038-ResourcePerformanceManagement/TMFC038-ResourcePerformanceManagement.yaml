@@ -5,11 +5,7 @@ metadata:
 spec:
   coreFunction:
     dependentAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/v4/docs
-      id: TMF628
-      implementation: /{{.Release.Name}}-PerformanceManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/v4
-      port: 8080
+    - id: TMF628
       required: false
       resources:
       - measurementCollectionJob*:
@@ -40,22 +36,14 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      id: TMF639
-      implementation: /{{.Release.Name}}-ResourceInventory
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4
-      port: 8080
+    - id: TMF639
       required: false
       resources:
       - resource:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagementt/v4/docs
-      id: TMF673
-      implementation: /{{.Release.Name}}-GeographicAddressManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4
-      port: 8080
+    - id: TMF673
       required: false
       resources:
       - geographicAddress:
@@ -65,22 +53,14 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4/docs
-      id: TMF674
-      implementation: /{{.Release.Name}}-GeographicSiteManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/v4
-      port: 8080
+    - id: TMF674
       required: false
       resources:
       - geographicSite:
         - GET
         - GET/id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4/docs
-      id: TMF675
-      implementation: /{{.Release.Name}}-GeographicLocation
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4
-      port: 8080
+    - id: TMF675
       required: false
       resources:
       - geographicLocation:
@@ -108,11 +88,7 @@ spec:
         - GET /id
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/v4/docs
-      id: TMF628
-      implementation: /{{.Release.Name}}-PerformanceManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/v4
-      port: 8080
+    - id: TMF628
       required: true
       resources:
       - measurementCollectionJob*:
@@ -143,11 +119,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceThresholdManagement/v4/docs
-      id: TMF649
-      implementation: /{{.Release.Name}}-PerformanceManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceThresholdManagement/v4
-      port: 8080
+    - id: TMF649
       required: true
       resources:
       - threshold:
@@ -163,11 +135,7 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/v4/docs
-      id: TMF642
-      implementation: /{{.Release.Name}}-AlarmManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/v4
-      port: 8080
+    - id: TMF642
       required: false
       resources:
       - alarm:
@@ -177,11 +145,7 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-procflowapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFlow:
@@ -194,11 +158,7 @@ spec:
         - GET
         - GET /id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - listener:

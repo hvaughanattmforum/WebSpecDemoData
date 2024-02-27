@@ -70,11 +70,7 @@ spec:
         - GET /id
       version: 4
     exposedAPIs:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartnershipTypeManagement/v4/docs
-      id: TMF668
-      implementation: /{{.Release.Name}}-partnermngtapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartnershipTypeManagement/v4
-      port: 8080
+    - id: TMF668
       required: false
       resources:
       - partnershipSpecification:
@@ -84,11 +80,7 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4/docs
-      id: TMF632
-      implementation: /{{.Release.Name}}-partymngtapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/v4
-      port: 8080
+    - id: TMF632
       required: true
       resources:
       - individual:
@@ -104,11 +96,7 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/CustomerManagement/v4/docs
-      id: TMF629
-      implementation: /{{.Release.Name}}-custmngtapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/CustomerManagement/v4
-      port: 8080
+    - id: TMF629
       required: false
       resources:
       - customer:
@@ -118,11 +106,7 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4/docs
-      id: TMF701
-      implementation: /{{.Release.Name}}-procmngttapi
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v4
-      port: 8080
+    - id: TMF701
       required: false
       resources:
       - processFloe:
@@ -135,11 +119,7 @@ spec:
         - GET/id
         - PATCH/id
       version: 4
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
-      id: TMF688
-      implementation: /{{.Release.Name}}-PromotionManagement
-      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4
-      port: 8080
+    - id: TMF688
       required: false
       resources:
       - event:
