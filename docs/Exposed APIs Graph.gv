@@ -20,6 +20,11 @@ graph "Exposed APIs Graph" {
 	"TMFC027-ProductConfigurator" -- TMF760
 	TMF679 [label=TMF679]
 	"TMFC027-ProductConfigurator" -- TMF679
+	"TMFC040-ProductUsageManagement" [label="TMFC040-ProductUsageManagement"]
+	TMF677 [label=TMF677]
+	"TMFC040-ProductUsageManagement" -- TMF677
+	TMF635 [label=TMF635]
+	"TMFC040-ProductUsageManagement" -- TMF635
 	"TMFC006-ServiceCatalogManagement" [label="TMFC006-ServiceCatalogManagement"]
 	TMF633 [label=TMF633]
 	"TMFC006-ServiceCatalogManagement" -- TMF633
@@ -33,12 +38,12 @@ graph "Exposed APIs Graph" {
 	TMF666 [label=TMF666]
 	"TMFC024-BillingAccountManagement" -- TMF666
 	"TMFC038-ResourcePerformanceManagement" [label="TMFC038-ResourcePerformanceManagement"]
-	TMF628 [label=TMF628]
-	"TMFC038-ResourcePerformanceManagement" -- TMF628
 	TMF649 [label=TMF649]
 	"TMFC038-ResourcePerformanceManagement" -- TMF649
 	TMF642 [label=TMF642]
 	"TMFC038-ResourcePerformanceManagement" -- TMF642
+	TMF628 [label=TMF628]
+	"TMFC038-ResourcePerformanceManagement" -- TMF628
 	"TMFC009-ServiceQualificationManagement" [label="TMFC009-ServiceQualificationManagement"]
 	TMF645 [label=TMF645]
 	"TMFC009-ServiceQualificationManagement" -- TMF645
@@ -46,12 +51,12 @@ graph "Exposed APIs Graph" {
 	TMF652 [label=TMF652]
 	"TMFC011-ResourceOrderManagement" -- TMF652
 	"TMFC037-ServicePerformanceManagement" [label="TMFC037-ServicePerformanceManagement"]
-	TMF628 [label=TMF628]
-	"TMFC037-ServicePerformanceManagement" -- TMF628
 	TMF649 [label=TMF649]
 	"TMFC037-ServicePerformanceManagement" -- TMF649
 	TMF642 [label=TMF642]
 	"TMFC037-ServicePerformanceManagement" -- TMF642
+	TMF628 [label=TMF628]
+	"TMFC037-ServicePerformanceManagement" -- TMF628
 	"TMFC001-ProductCatalogManagement" [label="TMFC001-ProductCatalogManagement"]
 	TMF671 [label=TMF671]
 	"TMFC001-ProductCatalogManagement" -- TMF671
@@ -64,20 +69,20 @@ graph "Exposed APIs Graph" {
 	TMF637 [label=TMF637]
 	"TMFC005-ProductInventory" -- TMF637
 	"TMFC002-ProductOrderCaptureAndValidation" [label="TMFC002-ProductOrderCaptureAndValidation"]
+	TMF648 [label=TMF648]
+	"TMFC002-ProductOrderCaptureAndValidation" -- TMF648
 	TMF622 [label=TMF622]
 	"TMFC002-ProductOrderCaptureAndValidation" -- TMF622
 	TMF663 [label=TMF663]
 	"TMFC002-ProductOrderCaptureAndValidation" -- TMF663
-	TMF648 [label=TMF648]
-	"TMFC002-ProductOrderCaptureAndValidation" -- TMF648
 	"TMFC019-EventManagement" [label="TMFC019-EventManagement"]
 	"TMFC028-PartyManagement" [label="TMFC028-PartyManagement"]
 	TMF629 [label=TMF629]
 	"TMFC028-PartyManagement" -- TMF629
-	TMF632 [label=TMF632]
-	"TMFC028-PartyManagement" -- TMF632
 	TMF668 [label=TMF668]
 	"TMFC028-PartyManagement" -- TMF668
+	TMF632 [label=TMF632]
+	"TMFC028-PartyManagement" -- TMF632
 	"TMFC035-PermissionsManagement" [label="TMFC035-PermissionsManagement"]
 	TMF669 [label=TMF669]
 	"TMFC035-PermissionsManagement" -- TMF669
@@ -95,10 +100,10 @@ graph "Exposed APIs Graph" {
 	TMF674 [label=TMF674]
 	"TMFC014-LocationManagement" -- TMF674
 	"TMFC029-PaymentManagement" [label="TMFC029-PaymentManagement"]
-	TMF676 [label=TMF676]
-	"TMFC029-PaymentManagement" -- TMF676
 	TMF670 [label=TMF670]
 	"TMFC029-PaymentManagement" -- TMF670
+	TMF676 [label=TMF676]
+	"TMFC029-PaymentManagement" -- TMF676
 	"TMFC020-DigitalIdentityManagement" [label="TMFC020-DigitalIdentityManagement"]
 	TMF720 [label=TMF720]
 	"TMFC020-DigitalIdentityManagement" -- TMF720
