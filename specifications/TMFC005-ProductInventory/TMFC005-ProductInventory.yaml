@@ -17,7 +17,7 @@ spec:
       - productOfferingPrice:
         - GET
         - GET /id
-      version: 4
+      version: 4.1
     - id: TMF669
       required: false
       resources:

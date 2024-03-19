@@ -20,7 +20,7 @@ spec:
       - productSpecification:
         - GET
         - GET /id
-      version: 4
+      version: 4.1
     - id: TMF637
       required: true
       resources:
