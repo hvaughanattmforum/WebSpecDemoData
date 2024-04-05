@@ -42,7 +42,7 @@
     "TMF710_v4.0.0": {
         "name": "General Test Artifact Management API",
         "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF710_General_Test_Artifact/4.0.0/swagger/TMF710_General_Test_Artifact_Management_API_v4.0.0_swagger.json",
-        "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF710_General_Test_Artifact/4.0.0/ctk/TMF710-GeneralTestArtifact.zip"
+        "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF710_General_Test_Artifact/4.0.0/ctk/TMF710-GeneralTestArtifact_ctk.zip"
     },
     "TMF704_v4.0.0": {
         "name": "Test Case Management API",
@@ -77,7 +77,7 @@
     "TMF706_v4.0.0": {
         "name": "Test Data Management API",
         "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF706_Test_Data/4.0.0/swagger/TMF706_Test_Data_Management_API_v4.0.0_swagger.json",
-        "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF706_Test_Data/4.0.0/ctk/TMF706-TestData.zip"
+        "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF706_Test_Data/4.0.0/ctk/TMF706_Test_Data_ctk.zip"
     },
     "TMF681_v4.0.0": {
         "name": "Communication Management API",
