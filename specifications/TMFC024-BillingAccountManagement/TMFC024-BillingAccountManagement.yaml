@@ -33,14 +33,14 @@ spec:
         - GET /id
       version: 4
     - id: TMF670
-      required: true
+      required: false
       resources:
       - paymentMethod:
         - GET
         - GET /id
       version: 4
     - id: TMF676
-      required: true
+      required: false
       resources:
       - payment:
         - GET
