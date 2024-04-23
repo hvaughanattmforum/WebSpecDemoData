@@ -59,6 +59,13 @@ spec:
         - GET
         - GET /id
       version: 4
+    - id: TMF681
+      required: false
+      resources:
+      - communicationMessage:
+        - GET
+        - GET /id
+      version: 4      
     exposedAPIs:
     - id: TMF683
       required: true
