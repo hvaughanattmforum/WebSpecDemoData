@@ -65,7 +65,16 @@ spec:
       - communicationMessage:
         - GET
         - GET /id
-      version: 4      
+      version: 4
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+      version: 4            
     exposedAPIs:
     - id: TMF683
       required: true
