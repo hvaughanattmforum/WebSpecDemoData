@@ -162,9 +162,9 @@ spec:
     publishedEvents:
     - apitype: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      id: TMF634
+      
       implementation: /{{.Release.Name}}-ResourceInventory
-      isRequired: 'yes'
+     
       name: ResourceInventory
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
       port: 8080
@@ -177,9 +177,9 @@ spec:
       version: 4
     - apitype: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourcePool/v4/docs
-      id: TMF685
+      
       implementation: /{{.Release.Name}}-ResourcePool
-      isRequired: 'yes'
+      
       name: ResourcePoolManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourcePool/v4.1.0
       port: 8080
@@ -209,9 +209,9 @@ spec:
     subscribedEvents:
     - apitype: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
-      id: TMF634
+      
       implementation: /{{.Release.Name}}-ResourceCatalog
-      isRequired: 'yes'
+      
       name: ResourceCatalogManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
       port: 8080
@@ -235,9 +235,9 @@ spec:
       version: 4.1
     - apitype: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      id: TMF634
+      
       implementation: /{{.Release.Name}}-ResourceInventory
-      isRequired: 'yes'
+      
       name: ResourceInventory
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
       port: 8080
