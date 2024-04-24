@@ -92,8 +92,8 @@ spec:
         - GET /id
         - DELETE
       version: 4
-    - id: TMF633
-      required: true
+    - id: TMF657
+      required: false
       resources:
       - serviceLevelSpecification:
         - GET
