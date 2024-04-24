@@ -32,7 +32,7 @@ spec:
     - id: TMF662
       required: false
       resources:
-      - 'entitySpecification:':
+      - entitySpecification:
         - GET
         - GET /id
       - associationSpecification:
