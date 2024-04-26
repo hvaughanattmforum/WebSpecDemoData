@@ -46,7 +46,7 @@
     },
     "TMF696_v4.0.0": {
         "name": "Risk Management API",
-        "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF696_Risk_Management/4.0.0/ctk/TMF669-PartyRole_ctk.zip",
+        "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF696_Risk_Management/4.0.0/ctk/TMF696-RiskManagement_ctk.zip",
         "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF696_Risk_Management/4.0.0/swagger/TMF696_Risk_Management_API_v4.0.0_swagger.json"
     },
     "TMF760_v5.0.0": {
