@@ -334,6 +334,11 @@
         "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF656_Service_Problem/4.0.0/ctk/TMF656-ServiceProblem.zip",
         "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF656_Service_Problem/4.0.0/swagger/TMF656_Service_Problem_Management_API_v4.0.0_swagger.json"
     },
+    "TMF656_v5.0.0": {
+        "name": "Service Problem Management API",
+        "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF656_Service_Problem/5.0.0/ctk/TMF656.zip",
+        "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF656_Service_Problem/5.0.0/swagger/TMF656-Service_Problem_Management-v5.0.0.oas.yaml"
+    },
     "TMF720_v4.0.0": {
         "name": "Digital Identity Management API",
         "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF720_Digital_Identity/4.0.0/ctk/TMF720-DigitalIdentity_ctk.zip",
