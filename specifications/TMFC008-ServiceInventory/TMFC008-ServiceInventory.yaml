@@ -122,6 +122,8 @@ spec:
         - POST
         - PATCH
         - DELETE
+      - listener:
+        - POST
       version: 4
     publishedEvents:
     - apitype: openapi
