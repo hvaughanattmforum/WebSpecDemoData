@@ -1,4 +1,9 @@
 {
+    "TMF716_v4.0.0": {
+        "name": "Resource Reservation",
+        "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF716_v4.0.0.swagger.json",
+        "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF716_Resource_Reservation/4.0.0/ctk/TMF716-ResourceReservation_ctk.zip"
+    },
     "TMF696_v4.0.0": {
         "name": "Risk Management API",
         "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF696_v4.0.0.swagger.json",
