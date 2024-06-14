@@ -95,7 +95,7 @@
         "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF679_Product_Offering_Qualification/4.0.0/ctk/TMF679-ProductOfferingQualification.zip"
     },
     "TMF657_v4.0.0": {
-        "name": "Service Quality Management Management API",
+        "name": "Service Quality Management API",
         "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF657_v4.0.0.swagger.json",
         "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF657_Service_Quality_Management/4.0.0/ctk/TMF657-ServiceQualityManagement.zip"
     },
