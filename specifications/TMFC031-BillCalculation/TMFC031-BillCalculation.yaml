@@ -58,7 +58,7 @@ spec:
         - GET /id
       version: 4.0
     - id: TMF672
-      required: true
+      required: false
       resources:
       - permission:
         - GET
@@ -169,6 +169,6 @@ spec:
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-11-21
+  publicationDate: 2023-06-25
   status: specified
-  version: 1.0.0
+  version: 2.0.0
