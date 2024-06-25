@@ -78,7 +78,7 @@ spec:
         - GET /id
       version: 4.0
     - id: TMF672
-      required: true
+      required: false
       resources:
       - permission:
         - GET
