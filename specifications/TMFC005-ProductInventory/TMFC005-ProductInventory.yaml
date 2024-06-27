@@ -17,7 +17,7 @@ spec:
       - productOfferingPrice:
         - GET
         - GET /id
-      version: 4.1
+      version: 4
     - id: TMF669
       required: false
       resources:
@@ -111,14 +111,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-        - POST
-      version: 4
     exposedAPIs:
     - id: TMF637
       required: true
@@ -142,15 +134,6 @@ spec:
         - PATCH
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
       version: 4
     publishedEvents:
     - apitype: openapi
