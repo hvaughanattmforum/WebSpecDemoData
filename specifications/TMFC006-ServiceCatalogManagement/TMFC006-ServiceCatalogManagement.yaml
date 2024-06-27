@@ -32,7 +32,7 @@ spec:
     - id: TMF662
       required: false
       resources:
-      - 'entitySpecification:':
+      - entitySpecification:
         - GET
         - GET /id
       - associationSpecification:
@@ -92,7 +92,7 @@ spec:
         - GET /id
         - DELETE
       version: 4
-    - id: TMF633
+    - id: TMF657
       required: true
       resources:
       - serviceLevelSpecification:
