@@ -63,13 +63,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      version: 4
     - id: TMF666
       required: false
       resources:

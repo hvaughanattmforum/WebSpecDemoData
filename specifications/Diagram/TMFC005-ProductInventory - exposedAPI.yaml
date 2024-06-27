@@ -1,0 +1,28 @@
+@startyaml
+exposedAPIs:
+    - id: TMF637
+      name: Product Inventory Management APIPI
+      required: true
+      resources:
+      - product:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF701
+      name: Process Flow Management APIPI
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+@endyaml

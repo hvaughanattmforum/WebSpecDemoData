@@ -1,0 +1,114 @@
+@startyaml
+dependentAPIs:
+    - id: TMF620
+      name: Product Catalog Management API
+      required: true
+      resources:
+      - productSpecification:
+        - GET
+        - GET /id
+      - productOffering:
+        - GET
+        - GET /id
+      - productOfferingPrice:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF669
+      name: Party Role Management API
+      required: false
+      resources:
+      - PartyRoleManagement:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF639
+      name: Resource Inventory Management API
+      required: false
+      resources:
+      - resource:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF651
+      name: Agreement Management API
+      required: false
+      resources:
+      - agreement:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF673
+      name: Geographic Address Management API
+      required: false
+      resources:
+      - geographicAddress:
+        - GET
+        - GET /id
+      - geographicSubAddress:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF674
+      name: Geographic Site Management API
+      required: false
+      resources:
+      - geographicSite:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF675
+      name: Geographic Location Management API
+      required: false
+      resources:
+      - geographicLocation:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF666
+      name: Account Management API
+      required: false
+      resources:
+      - billingAccount:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF632
+      name: Party Management API
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF637
+      name: Product Inventory Management API
+      required: false
+      resources:
+      - product:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF638
+      name: Service Inventory Management API
+      required: false
+      resources:
+      - service:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF622
+      name: Product Ordering Management API
+      required: false
+      resources:
+      - productOrder:
+        - GET
+        - GET /id
+      version: 4
+@endyaml
