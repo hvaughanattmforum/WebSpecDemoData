@@ -1,0 +1,39 @@
+@startyaml
+exposedAPIs:
+    - id: TMF639
+      required: true
+      resources:
+      - resource:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF688
+      required: false
+      resources:
+      - event:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4     
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+
+
+
+@endyaml

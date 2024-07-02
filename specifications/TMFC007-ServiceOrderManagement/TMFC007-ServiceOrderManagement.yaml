@@ -14,21 +14,21 @@ spec:
       - organization:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF633
       required: true
       resources:
       - serviceSpecification:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF634
       required: false
       resources:
       - resourceSpecification:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF638
       required: true
       resources:
@@ -38,21 +38,21 @@ spec:
         - POST
         - PATCH
         - DELETE
-      version: 4.0
+      version: 4
     - id: TMF639
       required: false
       resources:
       - resource:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF640
       required: false
       resources:
       - monitor:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF641
       required: false
       resources:
@@ -66,7 +66,7 @@ spec:
         - GET
         - GET /id
         - POST
-      version: 4.0
+      version: 4
     - id: TMF645
       required: false
       resources:
@@ -80,7 +80,7 @@ spec:
         - GET /id
         - POST
         - PATCH
-      version: 4.0
+      version: 4
     - id: TMF646
       required: false
       resources:
@@ -94,7 +94,7 @@ spec:
         - GET /id
         - POST
         - PATCH
-      version: 4.0
+      version: 4
     - id: TMF652
       required: false
       resources:
@@ -110,7 +110,7 @@ spec:
         - POST
         - PATCH
         - DELETE
-      version: 4.0
+      version: 4
     - id: TMF653
       required: false
       resources:
@@ -120,21 +120,14 @@ spec:
       - serviceTestSpecification:
         - GET
         - GET /id
-      version: 4.0
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      version: 4.0
+      version: 4
     - id: TMF669
       required: false
       resources:
       - PartyRole:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF673
       required: false
       resources:
@@ -148,55 +141,35 @@ spec:
         - GET
         - GET /id
         - POST
-      version: 4.0
+      version: 4
     - id: TMF674
       required: false
       resources:
       - geographicLocation:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF675
       required: false
       resources:
       - geographicSite:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF681
       required: false
       resources:
       - communicationMessage:
         - GET
         - GET /id
-      version: 4.0
-    - id: TMF685
-      required: false
-      resources:
-      - reservation:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - resourcePool:
-        - GET
-        - GET /id
-      version: 4.0
+      version: 4
     - id: TMF697
       required: false
       resources:
       - workOrder:
         - GET
         - GET /id
-      version: 4.0
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-      version: 4.0
+      version: 4
     - id: TMF701
       required: false
       resources:
@@ -205,7 +178,7 @@ spec:
         - GET
         - GET /id
         - PATCH
-      version: 4.0
+      version: 4
     exposedAPIs:
     - id: TMF641
       required: true
@@ -220,7 +193,7 @@ spec:
         - GET
         - GET /id
         - POST
-      version: 4.1
+      version: 4
     - id: TMF701
       required: false
       resources:
@@ -233,16 +206,7 @@ spec:
         - GET
         - GET /id
         - PATCH /id
-      version: 4.0
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE /id
-      version: 4.0
+      version: 4
     publishedEvents:
     - apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrdeManagement/hub
@@ -296,13 +260,6 @@ spec:
       - queryServiceQualificationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF645_Service_Qualification_Management_API_v4.0.0_swagger.json
     - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourcePoolManagement/hub
-      name: ResourcePoolManagement
-      port: 80
-      resources:
-      - reservationStateChangeNotification
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Historic/3.0.0/swagger/TMF685-ResourcePool-v3.0.0.admin.swagger.json
-    - apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Communication/hub
       name: Communication
       port: 80
@@ -340,4 +297,4 @@ spec:
     name: Sylvie Demarest
   publicationDate: 2024-02-23
   status: specified
-  version: 1.1.1
+  version: 2.0.0

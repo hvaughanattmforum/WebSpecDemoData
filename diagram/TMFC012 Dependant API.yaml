@@ -1,0 +1,110 @@
+@startyaml
+dependentAPIs:
+    - id: TMF634
+      name: Resource Catalog Management API
+      required: true
+      resources:
+      - resourceCatalog:
+        - GET
+        - GET /id
+      - resourceCategory:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - resourceSpecification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - resourceCandidate:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - exportJob:
+        - GET
+        - POST
+        - DELETE
+      - importJob:
+        - GET
+        - POST
+        - DELETE
+      version: 4.1
+    - id: TMF669
+      name: Party Role Management API
+      required: false
+      resources:
+      - partyRole: 
+        - GET 
+        - GET /id
+      version: 4
+    - id: TMF632
+      name: Party Management API 
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF673
+      name: Geographic Address Management API 
+      required: true
+      resources:
+      - geographicAddress:
+        - GET
+        - GET /id
+      - geographicSubAddress:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF674
+      name: Geographic Site Management API
+      required: true
+      resources:
+      - geographicSite:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF675
+      name: Geographic Location Management API
+      required: true
+      resources:
+      - geographicLocation:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF672
+      name: User Role Permission Management API
+      required: true
+      resources:
+      - permission:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF639
+      name: Resource Inventory Management API
+      required: true
+      resources:
+      - resource:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF688
+      name: Event Management API
+      required: false
+      resources:
+      - event:
+        - GET
+        - GET /id 
+      version: 4
+@endyaml
