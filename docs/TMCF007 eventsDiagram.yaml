@@ -1,0 +1,75 @@
+@startyaml
+publishedEvents:
+    - id: TMF641
+     
+      name: Service Ordering Management API
+     
+      resources:
+      - serviceOrderCreateEvent
+      - serviceOrderStateChangeEvent
+      - serviceOrderDeleteEvent
+      - serviceOrderAttributeValueChangeEvent
+      - serviceOrderInformationRequiredEvent
+      - serviceOrderMilestoneEvent
+      - serviceOrderJeopardyEvent
+      - cancelServiceOrderCreateEvent
+      - cancelServiceOrderStateChangeEvent
+      - cancelServiceOrderInformationRequiredEvent
+     
+    - apitype: TMFF701
+     
+      name: Process Flow Management API
+     
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+     
+subscribedEvents:
+    - id: TMF652
+     
+      name: Resource Ordering Management API
+     
+      resources:
+      - resourceOrderStateChange
+      - resourceOrderAttributeValueChangeEvent
+      - resourceOrderInformationRequiredEvent
+      - cancelResourceOrderStateChange
+      - cancelResourceOrderInformationRequiredEvent
+     
+    - id: TMF645
+     
+      name: Service Qualification Management API
+     
+      resources:
+      - checkServiceQualificationStateChangeEvent
+      - queryServiceQualificationStateChangeEvent
+     
+    - id: TMF685
+     
+      name: Resource Pool Management API
+     
+      resources:
+      - reservationStateChangeNotification
+     
+    - id: TMF681
+     
+      name: Communication Management API
+     
+      resources:
+      - communicationMessageStateChangeEvent
+     
+    - id: TMF697
+     
+      name: Work Order Management API
+     
+      resources:
+      - workOrderStateChange
+     
+@endyaml      
