@@ -11,7 +11,7 @@ spec:
       - productSpecification:
         - GET
         - GET /id
-      version: 4.1
+      version: 4
     - id: TMF622
       required: true
       resources:
@@ -40,7 +40,7 @@ spec:
         - GET
         - GET /id
         - POST
-      version: 4.1
+      version: 4
     - id: TMF633
       required: false
       resources:
@@ -54,14 +54,14 @@ spec:
       - resourceSpecification:
         - GET
         - GET /id
-      version: 4.1
+      version: 4
     - id: TMF641
       required: true
       resources:
       - serviceOrder:
         - GET /id
         - POST
-      version: 4.1
+      version: 4
     - id: TMF638
       required: false
       resources:
@@ -96,15 +96,6 @@ spec:
         - PATCH
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
       version: 4
     publishedEvents:
     - apitype: openapi
