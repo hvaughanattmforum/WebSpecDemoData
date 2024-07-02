@@ -1,0 +1,108 @@
+@startyaml
+dependentAPIs:
+    - id: TMF666
+      name: Account Management API
+      required: true
+      resources:
+      - billingAccount:
+        - GET
+        - GET /id
+      - billingCycleSpecification:
+        - GET
+        - GET /id
+      - billFormat:
+        - GET
+        - GET /id
+      - billPresentationMedia:
+        - GET
+        - GET /id
+      version: 4.0
+    - id: TMF632
+      name: Party Management API
+      required: true
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4.0
+    - id: TMF676
+      name: Payment Management API
+      required: false
+      resources:
+      - payment:
+        - GET
+        - GET /id
+        - POST
+      - refund:
+        - GET
+        - GET /id
+        - POST
+      version: 4.0
+    - id: TMF667
+      name: Document Management API
+      required: false
+      resources:
+      - document:
+        - GET
+        - GET /id
+        - POST
+      version: 4.0
+    - id: TMF637
+      name: Product Inventory Management API
+      required: false
+      resources:
+      - product:
+        - GET
+        - GET /id
+      version: 4.0
+    - id: TMF669
+      name: Party Role Management API
+      required: true
+      resources:
+      - PartyRole:
+        - GET
+        - GET /id
+      version: 4.0
+    - id: TMF672
+      name: User Role Permission Management API
+      required: true
+      resources:
+      - permission:
+        - GET
+        - GET /id
+      - userRole:
+        - GET
+        - GET /id
+      version: 4.0
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+      - taskFlow:
+        - GET
+        - GET /id
+        - POST
+        - PATCH        
+      version: 4.0
+    - id: TMF688
+      name: Event Management API
+      required: false
+      resources:
+      - event:
+        - GET
+        - GET /id
+        - POST
+      hub:
+        - GET
+        - GET /id
+        - POST
+      version: 4.0
+@endyaml
