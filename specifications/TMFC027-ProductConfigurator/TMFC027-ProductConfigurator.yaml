@@ -146,7 +146,7 @@ spec:
         - POST
         - PATCH/id
         - DELETE
-      version: 4.0
+      version: 4
     - id: TMF760
       required: true
       resources:
@@ -158,16 +158,20 @@ spec:
         - GET
         - GET/id
         - POST
-      version: 5.0
-    - id: TMF688
+      version: 5
+    - id: TMF701
       required: false
       resources:
-      - listener:
+      - processFlow:
         - POST
-      - hub:
-        - POST
+        - GET
+        - GET /id
         - DELETE
-      version: 4.0
+      - taskFlow:
+        - GET
+        - get /id
+        - PATCH
+      version: 4
     publishedEvents:
     - apitype: openapi
       implementation: /{{.Release.Name}}-ProductConfiguration
