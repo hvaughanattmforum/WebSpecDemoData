@@ -1,7 +1,6 @@
 @startyaml
 exposedAPIs:
     - id: TMF639
-      name: 
       required: true
       resources:
       - resource:
