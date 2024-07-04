@@ -1,7 +1,6 @@
 @startyaml
 exposedAPIs:
     - id: TMF639
-      name: Resource Inventory API
       required: true
       resources:
       - resource:
@@ -12,7 +11,7 @@ exposedAPIs:
         - DELETE
       version: 4
     - id: TMF701
-      name: Process Flow Management API 
+      naem: Process Flow Management API 
       required: false
       resources:
       - processFlow:
@@ -25,4 +24,5 @@ exposedAPIs:
         - GET
         - GET /id
       version: 4
+    
 @endyaml
