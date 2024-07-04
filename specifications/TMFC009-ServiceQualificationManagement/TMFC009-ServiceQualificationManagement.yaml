@@ -77,20 +77,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-      version: 4
     exposedAPIs:
     - id: TMF645
       required: true
