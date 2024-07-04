@@ -80,14 +80,6 @@ dependentAPIs:
         - GET
         - GET /id
       version: 4
-    - id: TMF672
-      name: User Role Permission Management API
-      required: true
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      version: 4
     - id: TMF639
       name: Resource Inventory Management API
       required: true
@@ -98,13 +90,5 @@ dependentAPIs:
         - POST
         - PATCH
         - DELETE
-      version: 4
-    - id: TMF688
-      name: Event Management API
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id 
       version: 4
 @endyaml
