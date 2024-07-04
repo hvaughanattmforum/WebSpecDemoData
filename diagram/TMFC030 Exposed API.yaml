@@ -1,0 +1,40 @@
+@startyaml
+exposedAPIs:
+    - id: TMF678
+      name: Customer Bill Management API
+      required: true
+      resources:
+      - customerBillOnDemand:
+        - GET
+        - POST
+        - GET /id
+      - customerBill:
+        - GET
+        - GET /id
+        - PATCH /id
+      version: 4.0
+    - id: TMF701
+      name: Process Flow Management
+      required: false
+      resources:
+      - processFlow:
+        - GET
+        - GET /id
+        - POST
+        - DELETE /id
+      - taskFlow:
+        - GET
+        - GET /id
+        - PATCH /id
+      version: 4.0
+    - id: TMF688
+      name: Event Management API
+      required: false
+      resources:
+      - listener:
+        - POST
+      - hub:
+        - POST
+        - DELETE /id
+      version: 4.0
+@endyaml

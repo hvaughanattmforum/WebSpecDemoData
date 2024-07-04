@@ -1,0 +1,82 @@
+@styartyaml
+dependentAPIs:
+    - id: TMF620
+      name: Birbanete
+      required: false
+      resources:
+      - productSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF622
+      required: true
+      resources:
+      - productOrder:
+        - GET /id
+        - PATCH
+      version: 4
+    - id: TMF637
+      required: false
+      resources:
+      - product:
+        - GET
+        - GET /id
+        - PATCH
+      version: 4
+    - id: TMF641
+      required: true
+      resources:
+      - serviceOrder:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - cancelServiceOrder:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF633
+      required: false
+      resources:
+      - serviceSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF634
+      required: false
+      resources:
+      - resourceSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF641
+      required: true
+      resources:
+      - serviceOrder:
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF638
+      required: false
+      resources:
+      - service:
+        - GET / id
+        - GET
+      version: 4
+    - id: TMF639
+      required: false
+      resources:
+      - resource:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF652
+      required: false
+      resources:
+      - resourceOrder:
+        - GET /id
+        - POST
+      version: 4
+@endyaml

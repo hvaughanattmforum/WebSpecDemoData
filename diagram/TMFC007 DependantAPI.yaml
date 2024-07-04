@@ -1,0 +1,197 @@
+@startyaml
+dependentAPIs:
+    - id: TMF632
+      name: Party Management API
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF633
+      name: Service Catalog Management API 
+      required: true
+      resources:
+      - serviceSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF634
+      name: Resource Catalog Management API
+      required: false
+      resources:
+      - resourceSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF638
+      name: Service Inventory Management API
+      required: true
+      resources:
+      - service:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF639
+      name: Resource Inventory Management API
+      required: false
+      resources:
+      - resource:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF640
+      name: Service Activation and Configuration API
+      required: false
+      resources:
+      - monitor:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF641
+      name: Service Ordering Management API
+      required: false
+      resources:
+      - serviceOrder:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - cancelServiceOrder:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF645
+      name: Service Qualification Management API
+      required: false
+      resources:
+      - checkServiceQualification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      - queryServiceQualification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      version: 4
+    - id: TMF646
+      name: Appointment Management API
+      required: false
+      resources:
+      - appointment:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      - searchTimeSlot:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      version: 4
+    - id: TMF652
+      name: Resource Ordering Management API
+      required: false
+      resources:
+      - resourceOrder:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - cancelResourceOrder:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF653
+      name: Service Test Management API
+      required: false
+      resources:
+      - serviceTest:
+        - GET
+        - GET /id
+      - serviceTestSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF669
+      name: Party Role Management API
+      required: false
+      resources:
+      - PartyRole:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF673
+      name: Geographic Address Management API
+      required: false
+      resources:
+      - geographicAddress:
+        - GET
+        - GET /id
+      - geographicSubAddress:
+        - GET
+        - GET /id
+      - geographicAddressValidation:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF674
+      name: Geographic Site Management API
+      required: false
+      resources:
+      - geographicLocation:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF675
+      name: Geographic Location Management API 
+      required: false
+      resources:
+      - geographicSite:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF681
+      name: Communication Management API
+      required: false
+      resources:
+      - communicationMessage:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF697
+      name: Work Order Management API
+      required: false
+      resources:
+      - workOrder:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+      version: 4
+
+
+@endyaml

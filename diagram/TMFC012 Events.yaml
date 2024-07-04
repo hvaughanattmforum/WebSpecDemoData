@@ -1,0 +1,114 @@
+@startyaml
+publishedEvents:
+    - id: TMF639
+      name: Resource Inventory Management API
+      
+      
+      
+      resources:
+      - resourceCreateEvent
+      - resourceChangeEvent
+      - resourceDeleteEvent
+      - resourceAttributeValueChangeEvent
+      
+      
+    - id: TMF701
+      name: Process Flow Management API
+      
+      
+      
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+      
+subscribedEvents:
+    - id: TMF634
+      name: Resource Catalog Management API
+      
+      
+      
+      
+      
+      
+      resources:
+      - resourceCatalogCreateEvent
+      - resourceCatalogChangeEvent
+      - resourceCatalogDeleteEvent
+      - resourceCategoryCreateEvent
+      - resourceCategoryChangeEvent
+      - resourceCategoryDeleteEvent
+      - resourceCandidateCreateEvent
+      - resourceCandidateChangeEvent
+      - resourceCandidateDeleteEvent
+      - resourceSpecificationCreateEvent
+      - resourceSpecificationChangeEvent
+      - resourceSpecificationDeleteEvent
+      - importJobCreateEvent
+      - exportJobCreateEvent
+      - exportJobStateChangeEvent
+      
+      
+    - id: TMF639-
+      name: Resource Inventory Management API
+      
+      
+      
+      
+      
+      
+      resources:
+      - resourceCreateEvent
+      - resourceChangeEvent
+      - resourceDeleteEvent
+      - resourceAttributeValueChangeEvent
+      
+      
+    - id: TMF699
+      name: Part yRole Management API
+      
+      resources:
+      - PartyRoleCreateEvent
+      - PartyRoleAttributeValueChangeEvent
+      - PartyRoleStateChangeEvent
+      - PartyRoleDeleteEvent
+      
+    - id: TMF672
+      name: User Rolesand Permissions Management API
+      
+      resources:
+      - UserRoleCreationNotification
+      - UserRoleChangeNotification
+      
+    - id: TMF67
+      
+      
+      name: Geographic Site Management API
+      
+      resources:
+      - geographicSiteDeleteEvent
+      
+    - id: TMF675 
+      
+      
+      name: Geographic Location Management
+      
+      resources:
+      - geographicLocationDeleteEvent
+      
+    - id: TMF632
+      
+      
+      name: Party Management API
+      
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+      
+@endyaml
