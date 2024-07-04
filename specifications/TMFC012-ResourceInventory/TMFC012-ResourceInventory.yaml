@@ -53,13 +53,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF672
-      required: true
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      version: 4
     - id: TMF639
       required: true
       resources:
@@ -69,13 +62,6 @@ spec:
         - POST
         - PATCH
         - DELETE
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
       version: 4
     exposedAPIs:
     - id: TMF639
@@ -100,16 +86,6 @@ spec:
         - PATCH
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
       version: 4
     publishedEvents:
     - apitype: openapi
@@ -194,13 +170,6 @@ spec:
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      name: UserRolesandPermissions
-      port: 80
-      resources:
-      - UserRoleCreationNotification
-      - UserRoleChangeNotification
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRolesandPermissions/master/TMF672-UserRolesandPermissions-v4.0.0.swagger.json
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
       implementation: /{{.Release.Name}}-GeographicSiteManagement
