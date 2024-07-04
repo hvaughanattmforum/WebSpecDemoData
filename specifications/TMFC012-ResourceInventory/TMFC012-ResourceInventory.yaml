@@ -8,35 +8,9 @@ spec:
     - id: TMF634
       required: true
       resources:
-      - resourceCatalog:
-        - GET
-        - GET /id
-      - resourceCategory:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
       - resourceSpecification:
         - GET
         - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - resourceCandidate:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - exportJob:
-        - GET
-        - POST
-        - DELETE
-      - importJob:
-        - GET
-        - POST
-        - DELETE
       version: 4.1
     - id: TMF669
       required: false
@@ -100,8 +74,8 @@ spec:
       required: false
       resources:
       - event:
-        - POST
-        - DELETE
+        - GET
+        - GET /id
       version: 4
     exposedAPIs:
     - id: TMF639

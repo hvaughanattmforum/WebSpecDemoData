@@ -124,7 +124,7 @@ spec:
     - id: TMF669
       required: false
       resources:
-      - PartyRole:
+      - partyRole:
         - GET
         - GET /id
       version: 4

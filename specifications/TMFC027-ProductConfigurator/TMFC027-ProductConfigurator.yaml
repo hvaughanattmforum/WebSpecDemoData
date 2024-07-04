@@ -85,7 +85,7 @@ spec:
     - id: TMF674
       required: false
       resources:
-      - GeographicSite:
+      - geographicSite:
         - GET
         - GET /id
       version: 4.0
@@ -113,19 +113,6 @@ spec:
       required: false
       resources:
       - entityCatalog:
-        - GET
-        - GET /id
-      version: 4.0
-    - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
         - GET
         - GET /id
       version: 4.0

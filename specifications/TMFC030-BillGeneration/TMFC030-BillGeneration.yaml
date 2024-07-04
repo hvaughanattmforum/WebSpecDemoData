@@ -8,30 +8,18 @@ spec:
     - id: TMF666
       required: true
       resources:
-      - BillingAccount:
+      - billingAccount:
         - GET
         - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      - BillingCycleSpecification:
+      - billingCycleSpecification:
         - GET
         - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      - BillFormat:
+      - billFormat:
         - GET
         - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      - BillPresentationMedia:
+      - billPresentationMedia:
         - GET
         - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
       version: 4.0
     - id: TMF632
       required: true
@@ -78,7 +66,7 @@ spec:
         - GET /id
       version: 4.0
     - id: TMF672
-      required: true
+      required: false
       resources:
       - permission:
         - GET
@@ -95,6 +83,11 @@ spec:
         - GET
         - GET /id
         - PATCH
+      - taskFlow:
+        - GET
+        - GET /id
+        - POST
+        - PATCH        
       version: 4.0
     - id: TMF688
       required: false
@@ -102,6 +95,11 @@ spec:
       - event:
         - GET
         - GET /id
+        - POST
+      hub:
+        - GET
+        - GET /id
+        - POST
       version: 4.0
     exposedAPIs:
     - id: TMF678

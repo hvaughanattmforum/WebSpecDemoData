@@ -17,7 +17,7 @@ spec:
       - productOfferingPrice:
         - GET
         - GET /id
-      version: 4.1
+      version: 4
     - id: TMF669
       required: false
       resources:
@@ -63,13 +63,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      version: 4
     - id: TMF666
       required: false
       resources:
@@ -111,14 +104,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-        - POST
-      version: 4
     exposedAPIs:
     - id: TMF637
       required: true
@@ -142,15 +127,6 @@ spec:
         - PATCH
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
       version: 4
     publishedEvents:
     - apitype: openapi
@@ -299,6 +275,6 @@ spec:
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-08-18 00:00:00
+  publicationDate: 2024-06-27 00:00:00
   status: specified
-  version: 1.1.1
+  version: 1.2.0
