@@ -3,6 +3,17 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: PartyManagement
+  id: TMFC028
+  functionalBlock: PartyManagement
+  description: 'Party Management component is responsible for the capture, validation
+    and management of Parties and their Roles. A Party may be an individual or organization
+    that has a relationship with an enterprise. In this context it is responsible
+    for the e2e life cycle of: Individual, Organization. and its related sub-entities:Contact
+    Medium, Currency and tax exemption certificates, Identification, Community'
+  publicationDate: 2023-08-18 00:00:00
+  status: specified
+  version: 1.3.1
   coreFunction:
     dependentAPIs:
     - id: TMF672
@@ -180,20 +191,6 @@ spec:
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-  description: 'Party Management component is responsible for the capture, validation
-    and management of Parties and their Roles. A Party may be an individual or organization
-    that has a relationship with an enterprise. In this context it is responsible
-    for the e2e life cycle of: Individual, Organization. and its related sub-entities:Contact
-    Medium, Currency and tax exemption certificates, Identification, Community'
-  functionalBlock: PartyManagement
-  id: TMFC028
-  maintainers:
-  - email: matteo.destino@accenture.com
-    name: Matteo Destino
-  name: PartyManagement
   owners:
   - email: matteo.destino@accenture.com
     name: Matteo Destino
-  publicationDate: 2023-08-18 00:00:00
-  status: specified
-  version: 1.3.1

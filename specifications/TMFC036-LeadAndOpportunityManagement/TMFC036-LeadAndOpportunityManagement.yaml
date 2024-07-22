@@ -3,6 +3,15 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: LeadAndOpportunityManagement
+  id: TMFC036
+  functionalBlock: PartyManagement
+  description: 'Lead and Opportunity Management provides the necessary functionality
+    during pre-sales stage in terms of: lead and opportunity capture, qualification,
+    reporting, support.'
+  publicationDate: 2023-08-18 00:00:00
+  status: specified
+  version: 1.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -240,18 +249,6 @@ spec:
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-  description: 'Lead and Opportunity Management provides the necessary functionality
-    during pre-sales stage in terms of: lead and opportunity capture, qualification,
-    reporting, support.'
-  functionalBlock: PartyManagement
-  id: TMFC036
-  maintainers:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  name: LeadAndOpportunityManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-08-18 00:00:00
-  status: specified
-  version: 1.1.0

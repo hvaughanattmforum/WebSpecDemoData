@@ -40,7 +40,7 @@ class Component:
 
     def write_component(self):
         with self.path.open("w") as f:
-            yaml.safe_dump(self.order, f)
+            yaml.dump(self.order, f, default_flow_style=False)
 
 def load_components():
     for spec in SPECS.glob("TMF*/TMF*.yaml"):
@@ -50,6 +50,7 @@ def main():
     for component in load_components():
         component.load_yaml()
         component.order_fields()
+        component.write_component()
     return 0
 
 if __name__ == "__main__":

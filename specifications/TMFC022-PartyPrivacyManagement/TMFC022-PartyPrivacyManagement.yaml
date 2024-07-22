@@ -3,6 +3,18 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: PartyPrivacyManagement
+  id: TMFC022
+  functionalBlock: PartyManagement
+  description: 'The Party Privacy Management component aims to: define the Privacy
+    Policy rules established by the CSP, according to applicable regulations, such
+    as GDPR in Europe, apply these rules to each Party interacting with the CSP and
+    to all of their personnal information and personally identifiable information
+    (PII); register explicit opt-in and opt-out given by Parties regarding the usage
+    of some of their personal information for dedicated purpose, such as marketing.'
+  publicationDate: 2023-11-28
+  status: specified
+  version: 1.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -151,21 +163,6 @@ spec:
       resources:
       - ProductOfferingDeleteEvent
       specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
-  description: 'The Party Privacy Management component aims to: define the Privacy
-    Policy rules established by the CSP, according to applicable regulations, such
-    as GDPR in Europe, apply these rules to each Party interacting with the CSP and
-    to all of their personnal information and personally identifiable information
-    (PII); register explicit opt-in and opt-out given by Parties regarding the usage
-    of some of their personal information for dedicated purpose, such as marketing.'
-  functionalBlock: PartyManagement
-  id: TMFC022
-  maintainers:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  name: PartyPrivacyManagement
   owners:
   - email: sylvie.demarest@orange.com
     name: sylvie Demarest
-  publicationDate: 2023-11-28
-  status: specified
-  version: 1.0.0
