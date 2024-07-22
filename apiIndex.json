@@ -434,11 +434,6 @@
         "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638E_v5.0.0.swagger.json",
         "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638E_Service_Inventory/5.0.0/ctk/TMF638e-async-ctk.zip"
     },
-    "TMF730_v4.0.0": {
-        "name": "Software And Compute Management API",
-        "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF730_v4.0.0.swagger.json",
-        "ctk": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF730_Software_and_Compute/4.0.0/ctk/TMF730-SoftwareCompute_ctk.zip"
-    },
     "TMF704_v4.0.0": {
         "name": "Test Case Management API",
         "swagger": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF704_v4.0.0.swagger.json",
