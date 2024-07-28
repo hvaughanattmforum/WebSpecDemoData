@@ -150,7 +150,6 @@ spec:
       name: partyRoleManagement
       port: 80
       resources:
-      - partyRoleCreateEvent
       - partyRoleAttributeValueChangeEvent
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
