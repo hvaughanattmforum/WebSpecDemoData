@@ -1,0 +1,143 @@
+{
+    "listPartyAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "createPartyAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "retrievePartyAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "patchPartyAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "deletePartyAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "listBillingAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "createBillingAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "retrieveBillingAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "patchBillingAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "deleteBillingAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "listSettlementAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "createSettlementAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "retrieveSettlementAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "patchSettlementAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "deleteSettlementAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "listFinancialAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "createFinancialAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "retrieveFinancialAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "patchFinancialAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "deleteFinancialAccount": [
+        "TMF666_v4.0.0"
+    ],
+    "listBillingCycleSpecification": [
+        "TMF666_v4.0.0"
+    ],
+    "createBillingCycleSpecification": [
+        "TMF666_v4.0.0"
+    ],
+    "retrieveBillingCycleSpecification": [
+        "TMF666_v4.0.0"
+    ],
+    "patchBillingCycleSpecification": [
+        "TMF666_v4.0.0"
+    ],
+    "deleteBillingCycleSpecification": [
+        "TMF666_v4.0.0"
+    ],
+    "listBillFormat": [
+        "TMF666_v4.0.0"
+    ],
+    "createBillFormat": [
+        "TMF666_v4.0.0"
+    ],
+    "retrieveBillFormat": [
+        "TMF666_v4.0.0"
+    ],
+    "patchBillFormat": [
+        "TMF666_v4.0.0"
+    ],
+    "deleteBillFormat": [
+        "TMF666_v4.0.0"
+    ],
+    "listBillPresentationMedia": [
+        "TMF666_v4.0.0"
+    ],
+    "createBillPresentationMedia": [
+        "TMF666_v4.0.0"
+    ],
+    "retrieveBillPresentationMedia": [
+        "TMF666_v4.0.0"
+    ],
+    "patchBillPresentationMedia": [
+        "TMF666_v4.0.0"
+    ],
+    "deleteBillPresentationMedia": [
+        "TMF666_v4.0.0"
+    ],
+    "registerListener": [
+        "TMF666_v4.0.0"
+    ],
+    "unregisterListener": [
+        "TMF666_v4.0.0"
+    ],
+    "listenToPartyAccountAttributeValueChangeEvent": [
+        "TMF666_v4.0.0"
+    ],
+    "listenToPartyAccountStateChangeEvent": [
+        "TMF666_v4.0.0"
+    ],
+    "listenToBillingAccountAttributeValueChangeEvent": [
+        "TMF666_v4.0.0"
+    ],
+    "listenToBillingAccountStateChangeEvent": [
+        "TMF666_v4.0.0"
+    ],
+    "listenToSettlementAccountAttributeValueChangeEvent": [
+        "TMF666_v4.0.0"
+    ],
+    "listenToSettlementAccountStateChangeEvent": [
+        "TMF666_v4.0.0"
+    ],
+    "listenToFinancialAccountCreateEvent": [
+        "TMF666_v4.0.0"
+    ],
+    "listenToFinancialAccountAttributeValueChangeEvent": [
+        "TMF666_v4.0.0"
+    ],
+    "listenToFinancialAccountStateChangeEvent": [
+        "TMF666_v4.0.0"
+    ],
+    "listenToFinancialAccountDeleteEvent": [
+        "TMF666_v4.0.0"
+    ]
+}

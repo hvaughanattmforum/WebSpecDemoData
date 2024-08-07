@@ -128,7 +128,11 @@ def main():
             swagger = Swagger(swagger_path, api_ref)
             swagger.load_swagger()
             operationIndex.add_swagger(swagger)
-        component.processEvents(operationIndex.index)
+            with Path("operation_index.json").open("w+") as f:
+                json.dump(operationIndex.index, f,indent=4)
+            print(component.path)
+            return 0
+        #component.processEvents(operationIndex.index)
         return
 
     return 0
