@@ -12,7 +12,7 @@ spec:
     to all of their personnal information and personally identifiable information
     (PII); register explicit opt-in and opt-out given by Parties regarding the usage
     of some of their personal information for dedicated purpose, such as marketing.'
-  publicationDate: 2023-11-28
+  publicationDate: 2024-08-08
   status: specified
   version: 1.0.0
   coreFunction:
@@ -34,16 +34,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-    - id: TMF672
-      required: true
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      - userRole:
-        - GET
-        - GET /id
-      version: 4.0
     - id: TMF701
       required: false
       resources:
@@ -52,13 +42,6 @@ spec:
         - GET
         - GET /id
         - PATCH
-      version: 4.0
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
       version: 4.0
     - id: TMF667
       required: false
@@ -79,19 +62,19 @@ spec:
     - id: TMF644
       required: true
       resources:
-      - PartyPrivacyProfileSpecification:
+      - partyPrivacyProfileSpecification:
         - GET
         - GET /id
         - POST
         - PATCH /id
         - DELETE
-      - PartyPrivacyProfile:
+      - partyPrivacyProfile:
         - GET
         - GET /id
         - POST
         - PATCH /id
         - DELETE
-      - PartyPrivacyAgreement:
+      - partyPrivacyAgreement:
         - GET
         - GET /id
         - POST
@@ -110,15 +93,6 @@ spec:
         - GET
         - GET /id
         - PATCH /id
-      version: 4.0
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE /id
       version: 4.0
     publishedEvents:
     - apitype: openapi
@@ -146,12 +120,6 @@ spec:
       resources:
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      name: UserRolePermissionManagement
-      port: 80
-      resources:
-      - permissionDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRoleandPermission-v4.0.0.swagger.json
     - name: PartyManagement
       port: 80
       resources:
