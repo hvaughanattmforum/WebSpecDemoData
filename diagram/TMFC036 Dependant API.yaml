@@ -1,0 +1,67 @@
+@startyaml
+    dependentAPIs:
+    - id: TMF632
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET/id
+      - organization:
+        - GET
+        - GET/id
+      version: 4
+    - id: TMF669
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET/id
+      version: 4
+    - id: TMF620
+      required: false
+      resources:
+      - productOffering:
+        - GET
+        - GET/id
+      - productOfferingPrice:
+        - GET
+        - GET/id
+      version: 4.1
+    - id: TMF651
+      required: false
+      resources:
+      - agreement:
+        - GET
+        - GET/id
+      - agreementSpecification:
+        - GET
+        - GET/id
+      version: 4
+    - id: TMF648
+      required: false
+      resources:
+      - quote:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF622
+      required: false
+      resources:
+      - productOrder:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+@endyaml   
