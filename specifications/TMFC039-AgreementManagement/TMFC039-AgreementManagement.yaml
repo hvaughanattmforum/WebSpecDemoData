@@ -15,7 +15,7 @@ spec:
     specificities related to translate  agreements into contracts, when it is required.
     It provides a secure storage, version control, compliance management, and renewal
     notifications for agreements.
-  publicationDate: 2023-08-18 00:00:00
+  publicationDate: 2024-08-19 00:00:00
   status: specified
   version: 1.1.0
   coreFunction:
@@ -27,16 +27,6 @@ spec:
         - GET
         - GET/id
       - organization:
-        - GET
-        - GET/id
-      version: 4
-    - id: TMF672
-      required: true
-      resources:
-      - permission:
-        - GET
-        - GET/id
-      - userRole:
         - GET
         - GET/id
       version: 4
@@ -56,7 +46,7 @@ spec:
       - productOfferingPrice:
         - GET
         - GET/id
-      version: 4.1
+      version: 4
     - id: TMF637
       required: false
       resources:
@@ -81,13 +71,6 @@ spec:
         - DELETE
       - taskFlow:
         - PATCH
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
         - GET
         - GET /id
       version: 4
@@ -120,15 +103,6 @@ spec:
         - PATCH
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
       version: 4
     publishedEvents:
     - apitype: openapi
