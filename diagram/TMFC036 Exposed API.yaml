@@ -1,0 +1,34 @@
+@startyaml
+exposedAPIs:
+    - id: TMF699
+      name: Sales Management API
+      required: true
+      resources:
+      - salesLead:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - salesOpportunity:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+@endyaml
