@@ -19,30 +19,12 @@ spec:
       - BillingAccount:
         - GET
         - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
       - BillingCycleSpecification:
         - GET
         - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      - BillFormat:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      - BillPresentationMedia:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
       version: 4
     - id: TMF632
-      required: true
+      required: false
       resources:
       - individual:
         - GET
@@ -71,23 +53,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF669
-      required: false
-      resources:
-      - PartyRole:
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      - userRole:
-        - GET
-        - GET /id
-      version: 4.0
     - id: TMF701
       required: false
       resources:
@@ -96,13 +61,6 @@ spec:
         - GET
         - GET /id
         - PATCH
-      version: 4.0
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
       version: 4.0
     - id: TMF635
       required: false
@@ -135,39 +93,8 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE /id
-      version: 4
     publishedEvents: []
     subscribedEvents:
-    - apitype: openapi
-      name: PartyRoleManagement
-      port: 80
-      resources:
-      - partyRoleCreateEvent
-      - partyRoleAttributeValueChangeEvent
-      - partyRoleStateChangeEvent
-      - partyRoleDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      name: UserRolePermissionManagement
-      port: 80
-      resources:
-      - permissionCreateEvent
-      - permissionAttributeValueChangeEvent
-      - permissionStateChangeEventac
-      - permissionDeleteEvent
-      - userRoleCreateEvent
-      - userRoleAttributeValueChangeEvent
-      - userRoleStateChangeEvent
-      - userRoleDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRoleandPermission-v4.0.0.swagger.json
     - name: usageManagement
       port: 80
       resources:

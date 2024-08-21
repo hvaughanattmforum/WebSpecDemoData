@@ -1,4 +1,3 @@
-@startyaml
 dependentAPIs:
     - id: TMF666
       name: Bill Account Management API
@@ -12,6 +11,7 @@ dependentAPIs:
         - GET /id
       version: 4
     - id: TMF632
+      name: Party Management API
       required: false
       resources:
       - individual:
@@ -22,6 +22,7 @@ dependentAPIs:
         - GET /id
       version: 4
     - id: TMF637
+      name: Product Inventory API
       required: true
       resources:
       - product:
@@ -29,6 +30,7 @@ dependentAPIs:
         - GET /id
       version: 4.0
     - id: TMF620
+      name: Product Catalog Management API
       required: false
       resources:
       - productOffering:
@@ -42,6 +44,7 @@ dependentAPIs:
         - GET /id
       version: 4
     - id: TMF701
+      name: Process Flow Management API
       required: false
       resources:
       - processFlow:
@@ -51,6 +54,7 @@ dependentAPIs:
         - PATCH
       version: 4.0
     - id: TMF635
+      name: Usage Management API
       required: false
       resources:
       - usage:
@@ -60,4 +64,3 @@ dependentAPIs:
         - GET
         - GET /id
       version: 4.0
-@endyaml      
