@@ -97,15 +97,23 @@ spec:
       version: 4
     - name: PartyManagement
       port: 80
+      version: 4
+      id: TMFxxx
+      required: false
       resources:
-      - IndividualDeleteEvent
-      - OrganizationDeleteEvent
+      - IndividualDeleteEvent: {}
+      - OrganizationDeleteEvent: {}
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
     - name: ProductCatalogManagement
       port: 80
+      version: 4
+      id: TMF620
+      required: false
       resources:
-      - ProductOfferingDeleteEvent
+      - ProductOfferingDeleteEvent: {}
       specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
+    publishedEvents: []
+    subscribedEvents: []
   owners:
   - email: sylvie.demarest@orange.com
     name: sylvie Demarest
