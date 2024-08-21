@@ -14,7 +14,7 @@ spec:
     of some of their personal information for dedicated purpose, such as marketing.'
   publicationDate: 2024-08-08
   status: specified
-  version: 1.0.0
+  version: 1.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -26,22 +26,14 @@ spec:
       - organization:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF669
       required: true
       resources:
       - partyRole:
         - GET
         - GET /id
-      version: 4.0
-    - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - PATCH
+
       version: 4.0
     - id: TMF667
       required: false
@@ -50,14 +42,14 @@ spec:
         - GET
         - GET /id
         - POST
-      version: 4.0
+      version: 4
     - id: TMF620
       required: false
       resources:
       - productOffering:
         - GET
         - GET /id
-      version: 4.1
+      version: 4
     exposedAPIs:
     - id: TMF644
       required: true
@@ -80,7 +72,7 @@ spec:
         - POST
         - PATCH /id
         - DELETE
-      version: 4.0
+      version: 4
     - id: TMF701
       required: false
       resources:
@@ -93,44 +85,38 @@ spec:
         - GET
         - GET /id
         - PATCH /id
-      version: 4.0
-    publishedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-PrivacyManagement
-      name: PrivacyManagement
-      port: 8080
+      version: 4
+    - id: TMF688
+      required: false
       resources:
-      - PartyPrivacyProfileCreateEvent
-      - PartyPrivacyProfileAttributeValueChangeEvent
-      - PartyPrivacyProfileDeleteEvent
-      - PartyPrivacyProfileStatusChangeEvent
-      - PartyPrivacyProfileSpecificationCreateEvent
-      - PartyPrivacyProfileSpecificationAttributeValueChangeEvent
-      - PartyPrivacyProfileSpecificationDeleteEvent
-      - PartyPrivacyProfileSpecificationStatusChangeEvent
-      - PartyPrivacyAgreementCreateEvent
-      - PartyPrivacyAgreementAttributeValueChangeEvent
-      - PartyPrivacyAgreementDeleteEvent
-      - PartyPrivacyAgreementStatusChangeEvent
-      specification: https://github.com/tmforum-apis/TMF644_Privacy/blob/master/TMF644-Privacy-v4.0.0.swagger.json
-    subscribedEvents:
-    - apitype: openapi
-      name: PartyRoleManagement
-      port: 80
-      resources:
-      - partyRoleDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
+      - listener:
+        - POST
+      - hub:
+        - POST
+        - DELETE /id
+      version: 4
     - name: PartyManagement
       port: 80
+      version: 4
+      id: TMFxxx
+      required: false
       resources:
-      - IndividualDeleteEvent
-      - OrganizationDeleteEvent
+      - IndividualDeleteEvent: {}
+      - OrganizationDeleteEvent: {}
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
     - name: ProductCatalogManagement
       port: 80
+      version: 4
+      id: TMF620
+      required: false
       resources:
-      - ProductOfferingDeleteEvent
+      - ProductOfferingDeleteEvent: {}
       specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
+    publishedEvents: []
+    subscribedEvents: []
   owners:
   - email: sylvie.demarest@orange.com
     name: sylvie Demarest
+  maintainers:
+  - email: sylvie.demarest@orange.com
+    name: sylvie Demarest    
