@@ -3,6 +3,17 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: ResourceOrderManagement
+  id: TMFC011
+  functionalBlock: Production
+  description: Resource Order Management Component manages the end-to-end lifecycle
+    of a resource  order request. This includes validating resource availability as
+    well as the  resource order request. Other functionality includes resource order
+    assurance,  resource order decomposition and resource order tracking, along with
+    orchestrating  the activation and the test and turn-up processes.
+  publicationDate: null
+  status: Pre-production
+  version: 1.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF702
@@ -198,20 +209,6 @@ spec:
       - monitorCreateEvent
       - monitorStatechangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF702_ResourceActivation/master/TMF702-ResourceActivation-v4.0.0.swagger.json
-  description: Resource Order Management Component manages the end-to-end lifecycle
-    of a resource  order request. This includes validating resource availability as
-    well as the  resource order request. Other functionality includes resource order
-    assurance,  resource order decomposition and resource order tracking, along with
-    orchestrating  the activation and the test and turn-up processes.
-  functionalBlock: Production
-  id: TMFC011
-  maintainers:
-  - email: hvaughan@tmforum.org
-    name: Hugo Vaughan
-  name: ResourceOrderManagement
   owners:
   - email: anastasios.sarantis@cityfibre.com
     name: Tassos Sarantis
-  publicationDate: null
-  status: Pre-production
-  version: 1.0.0

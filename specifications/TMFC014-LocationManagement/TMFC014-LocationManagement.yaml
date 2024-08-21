@@ -3,6 +3,16 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: LocationManagement
+  id: TMFC014
+  functionalBlock: Production
+  description: "The Location Management Component  allows easy reference to geographic\
+    \ places important to other entities, where a geographic place is an entity that\
+    \ can answer the question \u201Cwhere?\u201D . This component could  be a facade\
+    \ tool into GIS systems (e.g. Google Maps)"
+  publicationDate: 2023-08-18 00:00:00
+  status: specified
+  version: 1.1.1
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -103,23 +113,8 @@ spec:
       - geographicLocationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF675_GeographicLocation/master/TMF675-GeographicLocation-v4.0.0.swagger.json
     subscribedEvents: []
-  description: "The Location Management Component  allows easy reference to geographic\
-    \ places important to other entities, where a geographic place is an entity that\
-    \ can answer the question \u201Cwhere?\u201D . This component could  be a facade\
-    \ tool into GIS systems (e.g. Google Maps)"
-  functionalBlock: Production
-  id: TMFC014
-  maintainers:
-  - email: Anastasios.sarantis@cityfibre.com
-    name: Tassos Sarantis
-  - email: adam.tlemsani@cityfibre.com
-    name: Adam Tlemsani
-  name: LocationManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
   - email: Anastasios.sarantis@cityfibre.com
     name: Tassos Sarantis
-  publicationDate: 2023-08-18 00:00:00
-  status: specified
-  version: 1.1.1

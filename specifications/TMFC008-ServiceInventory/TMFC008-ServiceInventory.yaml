@@ -3,6 +3,20 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: ServiceInventory
+  id: TMFC008
+  functionalBlock: Production
+  description: Service Inventory component is responsible for storage and exposure
+    of CFS (Customer Facing Service) that are associated to Product Inventory items.
+    It is also responsible for RFS (Resource Facing Service) definition, mapping between
+    CFS and RFS and mapping with infrastructure/network resources. Service Inventory
+    component has functionality that enables inventory items creation, inventory organization,
+    inventory search or filter, inventory monitoring and tracking, inventory control
+    and inventory auditing.The minimum check to be performed at inventory items creation
+    or update is the global consistency with related Service Catalog information.
+  publicationDate: 2023-08-18 00:00:00
+  status: specified
+  version: 1.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF633
@@ -230,23 +244,6 @@ spec:
       resources:
       - serviceOrderDeleteEvent
       specification: https://open-api.tmforum.org20-ServiceOrdering-v4.0.0.swagger.json
-  description: Service Inventory component is responsible for storage and exposure
-    of CFS (Customer Facing Service) that are associated to Product Inventory items.
-    It is also responsible for RFS (Resource Facing Service) definition, mapping between
-    CFS and RFS and mapping with infrastructure/network resources. Service Inventory
-    component has functionality that enables inventory items creation, inventory organization,
-    inventory search or filter, inventory monitoring and tracking, inventory control
-    and inventory auditing.The minimum check to be performed at inventory items creation
-    or update is the global consistency with related Service Catalog information.
-  functionalBlock: Production
-  id: TMFC008
-  maintainers:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  name: ServiceInventory
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-08-18 00:00:00
-  status: specified
-  version: 1.1.0

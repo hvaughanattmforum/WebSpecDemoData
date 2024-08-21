@@ -3,6 +3,21 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: ServiceOrderManagement
+  id: TMFC007
+  functionalBlock: Production
+  description: The SOM is the entry point of the Production Domain. It oversees Customer-Facing-Service
+    (CFS) delivery of resources (network and service platforms equipment). The SOM
+    exposes in particular the API ServiceOrder. It is triggered when the Product Order
+    Orchestration Management component calls this API to request CFS delivery. To
+    achieve delivery of a CFS, the SOM orchestrates the CFS delivery process which.
+    Identifies possible RFS and chooses one, using the catalog and technical inventory.
+    Selects the resources (servers, equipment, etc.) and their instances. Requests
+    the ROM to update selected resource instances to deliver CFS. Request sent to
+    the ROM contain the CFS and the list of configured resource instances to update.
+  publicationDate: 2024-02-23
+  status: specified
+  version: 2.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -273,28 +288,8 @@ spec:
       resources:
       - workOrderStateChange
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/4.0.0/swagger/TMF697_Work_Order_Management_API_v4.0.0_swagger.json
-  description: The SOM is the entry point of the Production Domain. It oversees Customer-Facing-Service
-    (CFS) delivery of resources (network and service platforms equipment). The SOM
-    exposes in particular the API ServiceOrder. It is triggered when the Product Order
-    Orchestration Management component calls this API to request CFS delivery. To
-    achieve delivery of a CFS, the SOM orchestrates the CFS delivery process which.
-    Identifies possible RFS and chooses one, using the catalog and technical inventory.
-    Selects the resources (servers, equipment, etc.) and their instances. Requests
-    the ROM to update selected resource instances to deliver CFS. Request sent to
-    the ROM contain the CFS and the list of configured resource instances to update.
-  functionalBlock: Production
-  id: TMFC007
-  maintainers:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  - email: sylvie.demarest@orange.com
-    name: Sylvie Demarest
-  name: ServiceOrderManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
   - email: sylvie.demarest@orange.com
     name: Sylvie Demarest
-  publicationDate: 2024-02-23
-  status: specified
-  version: 2.0.0

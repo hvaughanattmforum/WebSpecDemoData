@@ -3,6 +3,20 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: BillingAccountManagement
+  id: TMFC024
+  functionalBlock: PartyManagement
+  description: The billing account management component aims to provide all the needed
+    functionalities to create, configure and modify billing accounts. BAM component
+    has the goal to support and handle the following capabilities/ functionalities.
+    Set-up/ creation of Billing account. Associate payment plan(s). Associate payment
+    method(s) - optional. Account taxes/ fees exception management. Define account
+    associations. Provide account balance details. Set-up Billing contacts. Set-up
+    Billing preferences (e.g., bill cycle frequency, invoice media type, invoice template
+    option, etc.)
+  publicationDate: 2024-04-16 00:00:00
+  status: specified
+  version: 2.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -145,23 +159,6 @@ spec:
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-  description: The billing account management component aims to provide all the needed
-    functionalities to create, configure and modify billing accounts. BAM component
-    has the goal to support and handle the following capabilities/ functionalities.
-    Set-up/ creation of Billing account. Associate payment plan(s). Associate payment
-    method(s) - optional. Account taxes/ fees exception management. Define account
-    associations. Provide account balance details. Set-up Billing contacts. Set-up
-    Billing preferences (e.g., bill cycle frequency, invoice media type, invoice template
-    option, etc.)
-  functionalBlock: PartyManagement
-  id: TMFC024
-  maintainers:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  name: BillingAccountManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2024-04-16 00:00:00
-  status: specified
-  version: 2.0.0

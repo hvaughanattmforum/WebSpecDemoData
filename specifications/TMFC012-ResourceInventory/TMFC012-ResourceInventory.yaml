@@ -3,6 +3,20 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: ResourceInventory
+  id: TMFC012
+  functionalBlock: Production
+  description: Resource Inventory component is responsible for accounting for resources
+    (all inputs - including stock, parts, assets, production components etc.) that
+    are owned and/or held for allocation and/or use by the organization. Resource
+    Inventory component has functionality that includes inventory items creation,
+    inventory organization, inventory search or filter, inventory monitoring and tracking,
+    inventory control (organization, re-stock management etc.) and inventory auditing.
+    The minimum check to be performed at inventory items creation or update is the
+    global consistency with related Resource Catalog information.
+  publicationDate: 2024-04-30 00:00:00
+  status: specified
+  version: 2.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF634
@@ -15,8 +29,8 @@ spec:
     - id: TMF669
       required: false
       resources:
-      - partyRole: 
-        - GET 
+      - partyRole:
+        - GET
         - GET /id
       version: 4
     - id: TMF632
@@ -90,9 +104,7 @@ spec:
     publishedEvents:
     - apitype: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      
       implementation: /{{.Release.Name}}-ResourceInventory
-     
       name: ResourceInventory
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
       port: 8080
@@ -122,9 +134,7 @@ spec:
     subscribedEvents:
     - apitype: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
-      
       implementation: /{{.Release.Name}}-ResourceCatalog
-      
       name: ResourceCatalogManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
       port: 8080
@@ -148,9 +158,7 @@ spec:
       version: 4.1
     - apitype: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      
       implementation: /{{.Release.Name}}-ResourceInventory
-      
       name: ResourceInventory
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
       port: 8080
@@ -195,23 +203,6 @@ spec:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://open-api.tmforum.org20-Party-v4.0.0.swagger.json
-  description: Resource Inventory component is responsible for accounting for resources
-    (all inputs - including stock, parts, assets, production components etc.) that
-    are owned and/or held for allocation and/or use by the organization. Resource
-    Inventory component has functionality that includes inventory items creation,
-    inventory organization, inventory search or filter, inventory monitoring and tracking,
-    inventory control (organization, re-stock management etc.) and inventory auditing.
-    The minimum check to be performed at inventory items creation or update is the
-    global consistency with related Resource Catalog information.
-  functionalBlock: Production
-  id: TMFC012
-  maintainers:
-  - email: sylvie.demarest@orange.com
-    name: Sylvie Demarest
-  name: ResourceInventory
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2024-04-30 00:00:00
-  status: specified
-  version: 2.0.0

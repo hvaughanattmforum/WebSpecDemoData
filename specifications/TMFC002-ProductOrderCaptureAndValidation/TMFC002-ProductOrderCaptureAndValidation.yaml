@@ -3,6 +3,24 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: ProductOrderCaptureAndValidation
+  id: TMFC002
+  functionalBlock: CoreCommerce
+  description: Addresses the means of capturing what a customer wants to order, based
+    on the CSP Product Catalog. This component permits to choose the configuration
+    of the product offerings and products desired, to provide a quote, to check the
+    eligibility of the customer order, and to complete it with information needed
+    such as the related parties or associated the billing account and the delivery
+    appointment if needed. This component is globally in charge of these quote management,
+    order capture and validation steps, using dedicated components (e.g., Offering
+    Configurator, Service Qualification, Party Mgt) when needed. After the delivery
+    of the customer product order items, this component is also in charge of the commercial
+    closure of the order. It includes update of the Product Inventory (status and
+    starting/end date of tariffs and discounts) and potential commercial rules control
+    (e.g. receipt of the contract document signed by the customer)
+  publicationDate: 2023-08-18 00:00:00
+  status: specified
+  version: 1.1.1
   coreFunction:
     dependentAPIs:
     - id: TMF620
@@ -388,27 +406,6 @@ spec:
       - taskFlowCreateEvent
       - taskFlowStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-  description: Addresses the means of capturing what a customer wants to order, based
-    on the CSP Product Catalog. This component permits to choose the configuration
-    of the product offerings and products desired, to provide a quote, to check the
-    eligibility of the customer order, and to complete it with information needed
-    such as the related parties or associated the billing account and the delivery
-    appointment if needed. This component is globally in charge of these quote management,
-    order capture and validation steps, using dedicated components (e.g., Offering
-    Configurator, Service Qualification, Party Mgt) when needed. After the delivery
-    of the customer product order items, this component is also in charge of the commercial
-    closure of the order. It includes update of the Product Inventory (status and
-    starting/end date of tariffs and discounts) and potential commercial rules control
-    (e.g. receipt of the contract document signed by the customer)
-  functionalBlock: CoreCommerce
-  id: TMFC002
-  maintainers:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  name: ProductOrderCaptureAndValidation
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-08-18 00:00:00
-  status: specified
-  version: 1.1.1

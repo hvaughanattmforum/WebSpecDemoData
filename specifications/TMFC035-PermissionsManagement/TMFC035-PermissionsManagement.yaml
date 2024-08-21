@@ -3,6 +3,16 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: PermissionsManagement
+  id: TMFC035
+  functionalBlock: PartyManagement
+  description: 'Party Roles & Permissions Management component aims to manage and
+    expose, roles and related permissions. Permissions Management component allows
+    to: create, modify and delete permissions. delegate permissions. When a specific
+    role is assigned, a set of permissions is inherited.'
+  publicationDate: 2023-08-18 00:00:00
+  status: specified
+  version: 1.1.1
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -25,13 +35,6 @@ spec:
         - DELETE
       - taskFlow:
         - PATCH
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
         - GET
         - GET /id
       version: 4
@@ -61,15 +64,6 @@ spec:
         - POST
         - PATCH/id
         - DELETE/id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - POST
-      - hub:
-        - POST
-        - DELETE
       version: 4
     publishedEvents:
     - apitype: openapi
@@ -119,19 +113,6 @@ spec:
       - taskFlowCreateEvent
       - taskFlowStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-  description: 'Party Roles & Permissions Management component aims to manage and
-    expose, roles and related permissions. Permissions Management component allows
-    to: create, modify and delete permissions. delegate permissions. When a specific
-    role is assigned, a set of permissions is inherited.'
-  functionalBlock: PartyManagement
-  id: TMFC035
-  maintainers:
-  - email: matteo.destino@accenture.com
-    name: Matteo Destino
-  name: PermissionsManagement
   owners:
   - email: matteo.destino@accenture.com
     name: Matteo Destino
-  publicationDate: 2023-08-18 00:00:00
-  status: specified
-  version: 1.1.1

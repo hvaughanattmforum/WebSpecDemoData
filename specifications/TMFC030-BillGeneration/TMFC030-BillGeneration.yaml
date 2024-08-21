@@ -3,6 +3,14 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: BillGeneration
+  id: TMFC030
+  functionalBlock: PartyManagement
+  description: Bill generation mgmt. manage the party invoice management. It addresses
+    the invoice formatting, presentation and dispatching to the proper means of communication.
+  publicationDate: 2023-12-18
+  status: specified
+  version: 2.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF666
@@ -87,16 +95,16 @@ spec:
         - GET
         - GET /id
         - POST
-        - PATCH        
+        - PATCH
       version: 4.0
-    - id: TMF688
+    - hub:
+      - GET
+      - GET /id
+      - POST
+      id: TMF688
       required: false
       resources:
       - event:
-        - GET
-        - GET /id
-        - POST
-      hub:
         - GET
         - GET /id
         - POST
@@ -142,7 +150,6 @@ spec:
       name: partyRoleManagement
       port: 80
       resources:
-      - partyRoleCreateEvent
       - partyRoleAttributeValueChangeEvent
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
@@ -160,17 +167,6 @@ spec:
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRoleandPermission-v4.0.0.swagger.json
-  description: Bill generation mgmt. manage the party invoice management. It addresses
-    the invoice formatting, presentation and dispatching to the proper means of communication.
-  functionalBlock: PartyManagement
-  id: TMFC030
-  maintainers:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  name: BillGeneration
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-12-18
-  status: specified
-  version: 2.0.0

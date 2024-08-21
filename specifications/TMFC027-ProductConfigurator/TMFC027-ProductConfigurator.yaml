@@ -3,6 +3,15 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: ProductConfigurator
+  id: TMFC027
+  functionalBlock: CoreCommerceManagement
+  description: The Product Configurator ODA Component is empowering sales by offering
+    the right product combinations, controlling discounting, and automating approvals
+    through support of configuration, pricing and quote generation activities.
+  publicationDate: 2023-11-27
+  status: specified
+  version: 2.0.1
   coreFunction:
     dependentAPIs:
     - id: TMF637
@@ -212,18 +221,6 @@ spec:
       - ProductSpecificationStateChangeEvent
       - ProductSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF622-ProductCatalogManagement/blob/master/TMF622-ProductCatalogManagement-v4.0.0.swagger.json
-  description: The Product Configurator ODA Component is empowering sales by offering
-    the right product combinations, controlling discounting, and automating approvals
-    through support of configuration, pricing and quote generation activities.
-  functionalBlock: CoreCommerceManagement
-  id: TMFC027
-  maintainers:
-  - email: gaetafalse.biancardi@accenture.com
-    name: Gaetafalse Biancardi
-  name: ProductConfigurator
   owners:
   - email: sylvie.demarest@orange.com
     name: Sylvie Demarest
-  publicationDate: 2023-11-27
-  status: specified
-  version: 2.0.1

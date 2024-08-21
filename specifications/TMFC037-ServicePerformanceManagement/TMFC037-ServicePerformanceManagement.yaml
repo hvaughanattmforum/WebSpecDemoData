@@ -3,6 +3,18 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: ServicePerformanceManagement
+  id: TMFC037
+  functionalBlock: IntelligenceManagement
+  description: Service Performance Management will monitor, analyze, and report on
+    the end-end service performance. This can include a real-time, end-to-end view
+    to ensure that each service is functioning correctly as well as a historical view.
+    These functions build on the Resource Performance data and active end-end service
+    performance test data to provide a view of a service. The component provides a
+    key input to determine the Quality of Service.
+  publicationDate: 2023-08-18 00:00:00
+  status: specified
+  version: 1.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF628
@@ -274,21 +286,6 @@ spec:
       - taskFlowCreateEvent
       - taskFlowStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF701-ProcessFlowManagement/blob/master/TMF701-ProcessFlowManagement-v4.0.0.swagger.json
-  description: Service Performance Management will monitor, analyze, and report on
-    the end-end service performance. This can include a real-time, end-to-end view
-    to ensure that each service is functioning correctly as well as a historical view.
-    These functions build on the Resource Performance data and active end-end service
-    performance test data to provide a view of a service. The component provides a
-    key input to determine the Quality of Service.
-  functionalBlock: IntelligenceManagement
-  id: TMFC037
-  maintainers:
-  - email: milind.2.bhagwat@bt.com
-    name: Milind Bhagwat
-  name: ServicePerformanceManagement
   owners:
   - email: milind.2.bhagwat@bt.com
     name: Milind Bhagwat
-  publicationDate: 2023-08-18 00:00:00
-  status: specified
-  version: 1.1.0

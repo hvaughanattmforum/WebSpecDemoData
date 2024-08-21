@@ -3,6 +3,14 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: BillCalculation
+  id: TMFC031
+  functionalBlock: PartyManagement
+  description: Bill generation mgmt. manage the party invoice management. It addresses
+    the invoice formatting, presentation and dispatching to the proper means of communication.
+  publicationDate: 2023-06-25
+  status: specified
+  version: 2.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF666
@@ -53,15 +61,15 @@ spec:
     - id: TMF620
       required: false
       resources:
-        - productOffering:
-          - GET
-          - GET /id
-        - productOfferingPrice:
-          - GET
-          - GET /id
-        - productSpecification:
-          - GET
-          - GET /id
+      - productOffering:
+        - GET
+        - GET /id
+      - productOfferingPrice:
+        - GET
+        - GET /id
+      - productSpecification:
+        - GET
+        - GET /id
       version: 4
     - id: TMF669
       required: false
@@ -171,17 +179,6 @@ spec:
       - UsageSpecificationAttributeValueChangeEvent
       - UsageSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF635_UsageManagement/blob/master/TMF635-UsageManagement-v4.0.0.swagger.json
-  description: Bill generation mgmt. manage the party invoice management. It addresses
-    the invoice formatting, presentation and dispatching to the proper means of communication.
-  functionalBlock: PartyManagement
-  id: TMFC031
-  maintainers:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  name: BillCalculation
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2023-06-25
-  status: specified
-  version: 2.0.0

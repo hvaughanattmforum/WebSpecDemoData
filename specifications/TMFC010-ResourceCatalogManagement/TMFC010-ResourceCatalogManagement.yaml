@@ -3,6 +3,23 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: ResourceCatalogManagement
+  id: TMFC010
+  functionalBlock: Production
+  description: Resource Catalog Management component is responsible for organizing
+    the collection resource specifications that identify and define all requirements
+    for a resource. Resource Catalog Management component has the functionality that
+    enable presenting a customer-facing view, so users are able to browse and select
+    resource they need, as well as a technical view to enable define and setup resources
+    contained in the resource catalog. Additional functionalities include capturing
+    specifications of new resource specifications, managing resources (registering
+    assets and components and identifying and mapping connections/relationships),
+    administering the lifecycle of resources, describing relationships between resources,
+    reporting on resources and changes to their attributes, and facilitating easy
+    access to identify and assign resources.
+  publicationDate: 2024-04-30 00:00:00
+  status: specified
+  version: 1.2.0
   coreFunction:
     dependentAPIs:
     - id: TMF634
@@ -165,7 +182,6 @@ spec:
       - exportJobStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
       version: 4.1
-      
     - apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -220,26 +236,6 @@ spec:
       - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
       version: 4
-  description: Resource Catalog Management component is responsible for organizing
-    the collection resource specifications that identify and define all requirements
-    for a resource. Resource Catalog Management component has the functionality that
-    enable presenting a customer-facing view, so users are able to browse and select
-    resource they need, as well as a technical view to enable define and setup resources
-    contained in the resource catalog. Additional functionalities include capturing
-    specifications of new resource specifications, managing resources (registering
-    assets and components and identifying and mapping connections/relationships),
-    administering the lifecycle of resources, describing relationships between resources,
-    reporting on resources and changes to their attributes, and facilitating easy
-    access to identify and assign resources.
-  functionalBlock: Production
-  id: TMFC010
-  maintainers:
-  - email: elisabeth.andersson@matrixx.com
-    name: Elisabeth Andersson
-  name: ResourceCatalogManagement
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2024-04-30 00:00:00
-  status: specified
-  version: 1.2.0

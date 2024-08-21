@@ -3,6 +3,18 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
+  name: ProductInventory
+  id: TMFC005
+  functionalBlock: CoreCommerceManagement
+  description: Product  Inventory component is responsible for storage and exposure
+    of products that are assigned to and used by Parties. Product Inventory component
+    has functionality that enables inventory items creation, inventory organization,
+    inventory search or filter, inventory monitoring and tracking, inventory control
+    and inventory auditing. The minimum check to be performed at inventory items creation
+    or update is the global consistency with related Product Catalog information.
+  publicationDate: 2024-06-27 00:00:00
+  status: specified
+  version: 1.2.0
   coreFunction:
     dependentAPIs:
     - id: TMF620
@@ -260,21 +272,6 @@ spec:
       - productAttributeValueChangeEvent
       - productStateChangeEvent
       specification: https://open-api.tmforum.org20-ProductInventory-v4.0.0.swagger.json
-  description: Product  Inventory component is responsible for storage and exposure
-    of products that are assigned to and used by Parties. Product Inventory component
-    has functionality that enables inventory items creation, inventory organization,
-    inventory search or filter, inventory monitoring and tracking, inventory control
-    and inventory auditing. The minimum check to be performed at inventory items creation
-    or update is the global consistency with related Product Catalog information.
-  functionalBlock: CoreCommerceManagement
-  id: TMFC005
-  maintainers:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  name: ProductInventory
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2024-06-27 00:00:00
-  status: specified
-  version: 1.2.0
