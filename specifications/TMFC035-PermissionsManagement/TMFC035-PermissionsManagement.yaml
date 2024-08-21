@@ -38,13 +38,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-      version: 4
     exposedAPIs:
     - id: TMF672
       required: true
@@ -71,15 +64,6 @@ spec:
         - POST
         - PATCH/id
         - DELETE/id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - POST
-      - hub:
-        - POST
-        - DELETE
       version: 4
     publishedEvents:
     - apitype: openapi
