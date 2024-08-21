@@ -1,4 +1,3 @@
-@startyaml
 dependentAPIs:
     - id: TMF632
       name: Party Management API 
@@ -71,4 +70,3 @@ dependentAPIs:
         - GET
         - GET /id
       version: 4
-@endyaml   

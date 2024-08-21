@@ -1,4 +1,3 @@
-@startyaml
 exposedAPIs:
     - id: TMF699
       name: Sales Management API
@@ -31,4 +30,3 @@ exposedAPIs:
         - GET
         - GET /id
       version: 4
-@endyaml
