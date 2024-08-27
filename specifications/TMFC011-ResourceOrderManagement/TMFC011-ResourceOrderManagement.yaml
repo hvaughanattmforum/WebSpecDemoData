@@ -13,7 +13,7 @@ spec:
     orchestrating  the activation and the test and turn-up processes.
   publicationDate: null
   status: Pre-production
-  version: 1.0.0
+  version: 1.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF702
@@ -50,9 +50,6 @@ spec:
         - DELETE
       version: 4
     - id: TMF664
-      monitor:
-      - GET
-      - GET /id
       required: true
       resources:
       - resourceFunction:
@@ -78,9 +75,6 @@ spec:
       - workOrder:
         - GET
         - GET /id
-      - organization:
-        - GET
-        - GET /id
       version: 4
     - id: TMF673
       required: false
@@ -102,13 +96,6 @@ spec:
       - geographicLocation:
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - POST
-        - DELETE
       version: 4
     exposedAPIs:
     - id: TMF652
@@ -137,15 +124,6 @@ spec:
         - PATCH
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
       version: 4
     publishedEvents:
     - apitype: openapi
@@ -210,5 +188,5 @@ spec:
       - monitorStatechangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF702_ResourceActivation/master/TMF702-ResourceActivation-v4.0.0.swagger.json
   owners:
-  - email: anastasios.sarantis@cityfibre.com
-    name: Tassos Sarantis
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi
