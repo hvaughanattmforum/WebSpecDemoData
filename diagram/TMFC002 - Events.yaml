@@ -1,0 +1,104 @@
+@startyaml
+publishedEvents:
+    - id: TMF622
+      
+      
+      name: Product Order Management API
+      
+      resources:
+      - productOrderStateChange
+      - productOrderCreateEvent
+      - productOrderAttributeValueChange
+      - productOrderDelete
+      - productOrderInformationRequired
+      - cancelProductOrderCreateEvent
+      - cancelProductOrderStateChange
+      - cancelProductOrderInformationRequired
+      
+    - id: TMF648
+      
+      
+      name: Quote Management API
+      
+      resources:
+      - quoteStateChange
+      - quoteCreateEvent
+      - quoteAttributeValueChange
+      - quoteDelete
+      - quoteInformationRequired
+      
+    - id: TMF663
+      
+      
+      name: Shopping Cart Management API
+
+      resources:
+      - shoppingCartCreateEvent
+      - shoppingCartAttributeValueChange
+      - shoppingCartDelete
+
+    - id: TMF701
+      
+      
+      name: Process Flow Management API
+      
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+      
+subscribedEvents:
+    - id: TMF679
+      
+      
+      name: Product Offering Qualification Management API
+
+      resources:
+      - productOfferingQualificationStateChangeEvent
+
+    - id: TMF645
+      
+      
+      name: Service Qualification Management API
+      
+      resources:
+      - checkServiceQualificationStateChangeEvent
+      - queryServiceQualificationStateChangeEvent
+      
+    - apitype: TMF673
+      
+      
+      name: Geographic Address Management
+
+      resources:
+      - geographicAddressValidationStateChange
+
+
+    - id: TMF679
+      
+      
+      name: Payment Management API
+      
+      resources:
+      - paymentCreate
+      - paymentStateChange
+      
+    - id: TMF701
+      
+      
+      name: Process Flow Management
+      
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      
+ 
+@endyaml
