@@ -18,7 +18,7 @@ spec:
     closure of the order. It includes update of the Product Inventory (status and
     starting/end date of tariffs and discounts) and potential commercial rules control
     (e.g. receipt of the contract document signed by the customer)
-  publicationDate: 2024-09-03 00:00:00
+  publicationDate: 2024-09-05 00:00:00
   status: specified
   version: 2.0.1
   coreFunction:
