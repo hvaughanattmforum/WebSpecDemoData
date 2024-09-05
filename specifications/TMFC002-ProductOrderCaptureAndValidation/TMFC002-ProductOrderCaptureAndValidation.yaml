@@ -46,6 +46,7 @@ spec:
         - GET
         - GET /id
         - POST
+        - PATCH
       version: 4
     - id: TMF679
       required: false
@@ -78,11 +79,13 @@ spec:
         - GET /id
         - POST
         - PATCH
+        - DELETE
       - searchTimeSlot:
         - GET
         - GET /id
         - POST
         - PATCH
+        - DELETE
       version: 4
     - id: TMF673
       required: false
@@ -97,6 +100,7 @@ spec:
         - GET
         - GET /id
         - POST
+        - PATCH
       version: 4
     - id: TMF674
       required: false
@@ -114,9 +118,10 @@ spec:
         - POST
         - PATCH
         - DELETE
-      - resourcePool:
+      - cancelResourceReservation:
         - GET
         - GET /id
+        - POST
       version: 4
     - id: TMF687
       required: false
@@ -156,7 +161,7 @@ spec:
     - id: TMF669
       required: false
       resources:
-      - PartyRoleManagement:
+      - partyRole:
         - GET
         - GET /id
       version: 4
@@ -220,7 +225,14 @@ spec:
         - GET
         - GET /id
         - POST        
-      version: 4      
+      version: 5      
+    - id: TMF651
+      required: false
+      resources:
+      - agreement:
+        - GET
+        - GET /id
+      version: 4         
     exposedAPIs:
     - id: TMF622
       required: true
@@ -239,7 +251,7 @@ spec:
     - id: TMF648
       required: false
       resources:
-      - Quote:
+      - quote:
         - POST
         - GET
         - GET /id
@@ -249,7 +261,7 @@ spec:
     - id: TMF663
       required: false
       resources:
-      - ShoppingCart:
+      - shoppingCart:
         - POST
         - GET
         - GET /id
@@ -359,16 +371,20 @@ spec:
       - paymentStateChange
       specification: https://github.com/tmforum-apis/TMF676_PaymentManagement/blob/master/TMF676-Payment-v4.0.0.swagger.json
     - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
-      name: ProcessFlowManagement
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceReservationEvent/call-back
+      implementation: /{{.Release.Name}}-ResourceReservationEvent     
+      name: ResourceReservation
       port: 80
       resources:
-      - processFlowCreateEvent
-      - processFlowStateChangeEvent
-      - taskFlowCreateEvent
-      - taskFlowStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      - resourceReservationCreateEvent
+      - resourceReservationAttributeValueChangeEvent
+      - resourceReservationDeleteEvent
+      - resourceReservationStateChangeEvent
+      - resourceReservationInformationRequiredEvent
+      - cancelResourceReservationCreateEvent
+      - cancelResourceReservationStateChangeEvent
+      - cancelResourceReservationInformationRequiredEvent
+      specification: https://github.com/tmforum-apis/TMF716_ResourceReservation/blob/master/TMF716-ResourceReservation-v4.1.0.swagger.json
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi

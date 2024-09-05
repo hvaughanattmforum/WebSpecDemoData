@@ -19,7 +19,7 @@ exposedAPIs:
       name: Quote Management API
       required: false
       resources:
-      - Quote:
+      - quote:
         - POST
         - GET
         - GET /id
@@ -30,7 +30,7 @@ exposedAPIs:
       name: Shopping Cart Management API
       required: false
       resources:
-      - ShoppingCart:
+      - shoppingCart:
         - POST
         - GET
         - GET /id

@@ -1,10 +1,7 @@
 @startyaml
 publishedEvents:
     - id: TMF622
-      
-      
-      name: Product Order Management API
-      
+      name: Product Order Management API    
       resources:
       - productOrderStateChange
       - productOrderCreateEvent
@@ -13,35 +10,23 @@ publishedEvents:
       - productOrderInformationRequired
       - cancelProductOrderCreateEvent
       - cancelProductOrderStateChange
-      - cancelProductOrderInformationRequired
-      
-    - id: TMF648
-      
-      
-      name: Quote Management API
-      
+      - cancelProductOrderInformationRequired    
+    - id: TMF648            
+      name: Quote Management API      
       resources:
       - quoteStateChange
       - quoteCreateEvent
       - quoteAttributeValueChange
       - quoteDelete
-      - quoteInformationRequired
-      
-    - id: TMF663
-      
-      
+      - quoteInformationRequired      
+    - id: TMF663            
       name: Shopping Cart Management API
-
       resources:
       - shoppingCartCreateEvent
       - shoppingCartAttributeValueChange
       - shoppingCartDelete
-
-    - id: TMF701
-      
-      
-      name: Process Flow Management API
-      
+    - id: TMF701            
+      name: Process Flow Management API      
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -51,49 +36,41 @@ publishedEvents:
       - taskFlowStateChangeEvent
       - taskFlowDeleteEvent
       - taskFlowAttributeValueChangeEvent
-      - taskFlowInformationRequiredEvent
-      
+      - taskFlowInformationRequiredEvent      
 subscribedEvents:
-    - id: TMF679
-      
-      
+    - id: TMF679            
       name: Product Offering Qualification Management API
-
       resources:
       - productOfferingQualificationStateChangeEvent
-
-    - id: TMF645
-      
-      
-      name: Service Qualification Management API
-      
+    - id: TMF645            
+      name: Service Qualification Management API      
       resources:
       - checkServiceQualificationStateChangeEvent
-      - queryServiceQualificationStateChangeEvent
-      
-    - apitype: TMF673
-      
-      
+      - queryServiceQualificationStateChangeEvent      
+    - id: TMF673            
       name: Geographic Address Management
-
       resources:
       - geographicAddressValidationStateChange
-
-
-    - id: TMF679
-      
-      
-      name: Payment Management API
-      
+    - id: TMF679            
+      name: Payment Management API      
       resources:
       - paymentCreate
-      - paymentStateChange
+      - paymentStateChange  
+    - id: TMF716     
+      name: ResourceReservation
       
-    - id: TMF701
+      resources:
+          - resourceReservationCreateEvent
+          - resourceReservationAttributeValueChangeEvent
+          - resourceReservationDeleteEvent
+          - resourceReservationStateChangeEvent
+          - resourceReservationInformationRequiredEvent
+          - cancelResourceReservationCreateEvent
+          - cancelResourceReservationStateChangeEvent
+          - cancelResourceReservationInformationRequiredEvent
       
-      
-      name: Process Flow Management
-      
+    - id: TMF701            
+      name: Process Flow Management      
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
