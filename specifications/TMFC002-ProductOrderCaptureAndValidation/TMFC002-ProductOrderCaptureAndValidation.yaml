@@ -18,9 +18,9 @@ spec:
     closure of the order. It includes update of the Product Inventory (status and
     starting/end date of tariffs and discounts) and potential commercial rules control
     (e.g. receipt of the contract document signed by the customer)
-  publicationDate: 2023-08-18 00:00:00
+  publicationDate: 2024-09-03 00:00:00
   status: specified
-  version: 1.1.1
+  version: 2.0.1
   coreFunction:
     dependentAPIs:
     - id: TMF620
@@ -46,6 +46,7 @@ spec:
         - GET
         - GET /id
         - POST
+        - PATCH
       version: 4
     - id: TMF679
       required: false
@@ -78,11 +79,13 @@ spec:
         - GET /id
         - POST
         - PATCH
+        - DELETE
       - searchTimeSlot:
         - GET
         - GET /id
         - POST
         - PATCH
+        - DELETE
       version: 4
     - id: TMF673
       required: false
@@ -97,6 +100,7 @@ spec:
         - GET
         - GET /id
         - POST
+        - PATCH
       version: 4
     - id: TMF674
       required: false
@@ -105,18 +109,19 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF685
+    - id: TMF716
       required: false
       resources:
-      - reservation:
+      - resourceReservation:
         - GET
         - GET /id
         - POST
         - PATCH
         - DELETE
-      - resourcePool:
+      - cancelResourceReservation:
         - GET
         - GET /id
+        - POST
       version: 4
     - id: TMF687
       required: false
@@ -156,7 +161,7 @@ spec:
     - id: TMF669
       required: false
       resources:
-      - PartyRoleManagement:
+      - partyRole:
         - GET
         - GET /id
       version: 4
@@ -195,13 +200,6 @@ spec:
         - GET / id
         - GET
       version: 4
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET /id
-        - GET
-      version: 4
     - id: TMF701
       required: false
       resources:
@@ -216,21 +214,25 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF688
+    - id: TMF760
       required: false
       resources:
-      - event:
+      - checkProductConfiguration:
+        - GET
+        - GET /id
         - POST
+      - queryProductConfiguration:
         - GET
         - GET /id
-      version: 4
-    - id: TMF629
+        - POST        
+      version: 5      
+    - id: TMF651
       required: false
       resources:
-      - customer:
+      - agreement:
         - GET
         - GET /id
-      version: 4
+      version: 4         
     exposedAPIs:
     - id: TMF622
       required: true
@@ -249,7 +251,7 @@ spec:
     - id: TMF648
       required: false
       resources:
-      - Quote:
+      - quote:
         - POST
         - GET
         - GET /id
@@ -259,7 +261,7 @@ spec:
     - id: TMF663
       required: false
       resources:
-      - ShoppingCart:
+      - shoppingCart:
         - POST
         - GET
         - GET /id
@@ -278,15 +280,6 @@ spec:
         - PATCH
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
       version: 4
     publishedEvents:
     - apitype: openapi
@@ -369,24 +362,6 @@ spec:
       - geographicAddressValidationStateChange
       specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
     - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourcePoolManagementEvent/call-back
-      implementation: /{{.Release.Name}}-ResourcePoolManagementEvent
-      name: ResourcePoolManagement
-      port: 80
-      resources:
-      - reservationStateChangeNotification
-      specification: https://github.com/tmforum-apis/TMF685_ResourcePool/blob/master/Resource_Pool_Management.regular.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/StockManagementEvent/call-back
-      implementation: /{{.Release.Name}}-StockManagementEvent
-      name: StockManagement
-      port: 80
-      resources:
-      - checkProductStockStateChange
-      - queryProductStockStateChange
-      - reserveProductStockStateChange
-      specification: https://github.com/tmforum-apis/TMF685_ResourcePool/blob/master/Resource_Pool_Management.regular.swagger.json
-    - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentManagementEvent/call-back
       implementation: /{{.Release.Name}}-PaymentManagementEvent
       name: PaymentManagement
@@ -396,16 +371,20 @@ spec:
       - paymentStateChange
       specification: https://github.com/tmforum-apis/TMF676_PaymentManagement/blob/master/TMF676-Payment-v4.0.0.swagger.json
     - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
-      name: ProcessFlowManagement
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceReservationEvent/call-back
+      implementation: /{{.Release.Name}}-ResourceReservationEvent     
+      name: ResourceReservation
       port: 80
       resources:
-      - processFlowCreateEvent
-      - processFlowStateChangeEvent
-      - taskFlowCreateEvent
-      - taskFlowStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      - resourceReservationCreateEvent
+      - resourceReservationAttributeValueChangeEvent
+      - resourceReservationDeleteEvent
+      - resourceReservationStateChangeEvent
+      - resourceReservationInformationRequiredEvent
+      - cancelResourceReservationCreateEvent
+      - cancelResourceReservationStateChangeEvent
+      - cancelResourceReservationInformationRequiredEvent
+      specification: https://github.com/tmforum-apis/TMF716_ResourceReservation/blob/master/TMF716-ResourceReservation-v4.1.0.swagger.json
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
