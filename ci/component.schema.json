@@ -12,7 +12,9 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "This is the name of functional component and must refer to the name of a TM Forum published golden component.",
+          "example": "ProductCatalogManagement"
         }
       },
       "required": [
@@ -28,99 +30,38 @@
             "dependentAPIs": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/api"
+                "$ref": "#/definitions/apiSchemaDependent"
               }
             },
             "exposedAPIs": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/api"
-              }
-            },
-            "publishedEvents": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "resources": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "apitype": {
-                    "type": "string"
-                  },
-                  "hub": {
-                    "type": "string"
-                  },
-                  "implementation": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "port": {
-                    "type": "number"
-                  },
-                  "specification": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "resources",
-                  "name",
-                  "port",
-                  "specification"
-                ]
-              }
-            },
-            "subscribedEvents": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "apitype": {
-                    "type": "string"
-                  },
-                  "call-back": {
-                    "type": "string"
-                  },
-                  "implementation": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "port": {
-                    "type": "number"
-                  },
-                  "resources": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "specification": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name",
-                  "port",
-                  "resources",
-                  "specification"
-                ]
+                "$ref": "#/definitions/apiSchemaExposed"
               }
             }
           },
           "required": [
             "dependentAPIs",
-            "exposedAPIs",
-            "publishedEvents",
-            "subscribedEvents"
+            "exposedAPIs"
           ]
         },
+        "eventNotification": {
+            "type": "object",
+            "properties": {
+              "publishedEvents": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/eventSchema"
+                }
+              },
+              "subscribedEvents": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/eventSchema"
+                }
+              }
+            }
+          },
         "description": {
           "type": "string"
         },
@@ -128,62 +69,114 @@
           "type": "string"
         },
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "This is the id of functional component and must refer to the id of a TM Forum published golden component.",
+          "example": "TMFC001"
         },
         "maintainers": {
           "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "email": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "email",
-              "name"
-            ]
-          }
+          "description": "Maintainers is an optional list of maintainers of the component. The maintainers in this list maintain the source code, images, and package for the component.",
+            "items": {
+              "$ref": "#/definitions/contactData"
+            }
         },
         "managementFunction": {
-          "type": "array"
+          "type": "object",
+          "properties": {
+            "exposedAPIs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/apiSchemaExposed"
+              }
+            },
+            "dependentAPIs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/apiSchemaDependent"
+              }
+            }
+          }
         },
         "name": {
           "type": "string"
         },
         "owners": {
           "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "email": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "email",
-              "name"
-            ]
-          }
+         "description": "Owners is an optional list of the owners of the installed component.",
+            "items": {
+              "$ref": "#/definitions/contactData"
+            }
         },
         "publicationDate": {
           "type": ["string", "null"],
           "format": "date"
         },
         "securityFunction": {
-          "type": "array"
+          "type": "object",
+          "properties": {
+            "secretsManagement": {
+              "type": "object",
+              "required": ["type", "podSelector"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["sideCar"],
+                  "description": "Defines how components access the secrets; currently only sideCar is supported."
+                },
+                "sideCar": {
+                  "type": "object",
+                  "required": ["port"],
+                  "properties": {
+                    "port": {
+                      "type": "integer",
+                      "description": "The port where the API is exposed in the sideCar (localhost:<port>)."
+                    }
+                  }
+                },
+                "podSelector": {
+                  "type": "object",
+                  "properties": {
+                    "namespace": {
+                      "type": "string",
+                      "description": "Glob pattern matching the namespace of the POD."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Glob pattern matching the name of the POD."
+                    },
+                    "serviceaccount": {
+                      "type": "string",
+                      "description": "Glob pattern matching the service account of the POD."
+                    }
+                  }
+                }
+              }
+            },
+            "exposedAPIs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/apiSchemaExposed"
+              }
+            },
+            "dependentAPIs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/apiSchemaDependent"
+              }
+            },
+            "controllerRole": {
+              "type": "string",
+              "description": "This is the name of the role that the Canvas controllers will use to interact with the component's APIs."
+            }
+          }
         },
         "status": {
           "type": "string"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "description": "This is the version of the component (it is specific to the vendor of this component and not the type)."
+          
         }
       },
       "required": [
@@ -206,35 +199,148 @@
     "spec"
   ],
   "definitions": {
-    "api": {
+    "contactData": {
       "type": "object",
+      "description": "ContactData contains information about an individual or organization.",
       "properties": {
-        "apitype": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
+        "email": {
+          "type": "string",
+          "description": "Email is the email address."
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name is the descriptive name."
         },
-        "required": {
-          "type": "boolean"
+        "url": {
+          "type": "string",
+          "description": "Website address of maintaining/owning organization."
+        },
+        "required": ["name", "email"]
+      }
+    },
+    "apiSchemaExposed": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the API."
+        },
+        "specification": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "url"
+          },
+          "description": "URL to the specification of the API, if required."
+        },
+        "apiType": {
+          "type": "string",
+          "enum": ["openapi"],
+          "description": "The type of API specification. Currently only OpenAPI is supported."
+        },
+        "implementation": {
+          "type": "string",
+          "description": "The name of the service where the implementation of the API is found."
+        },
+        "path": {
+          "type": "string",
+          "description": "The path to the root of the API."
+        },
+        "developerUI": {
+          "type": "string",
+          "description": "(Optional) The path to the developer User Interface for the API."
+        },
+        "port": {
+          "type": "integer",
+          "description": "The port where the API is exposed."
         },
         "resources": {
           "type": "array",
           "items": {
             "type": "object"
-          }
+          },
+          "description": "Resources is an optional list of resources that are exposed by the API."
         },
-        "specification": {
-          "type": "string"
-        },
-        "version": {
-          "type": "number"
+        "required": {
+          "type": "boolean",
+          "description": "Required is a flag that indicates whether the API is required or not."
         }
       },
-      "required": ["id", "version", "resources", "required"]
+      "required": ["name", "apiType", "implementation", "path", "port"]
+    },
+    "apiSchemaDependent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the API that this component is dependent on."
+        },
+        "specification": {
+          "type": "string",
+          "format": "url",
+          "description": "URL to the specification of the API."
+        },
+        "apiType": {
+          "type": "string",
+          "enum": ["openapi"],
+          "description": "The type of API specification. Currently only OpenAPI is supported."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "Resources is an optional list of resources that are consumed by the API."
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Required is a flag that indicates whether the API is required or not."
+        }
+      },
+      "required": ["name", "apiType"]
+    },
+    "eventSchema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the Topic that this Component is going to push events into."
+        },
+        "description": {
+          "type": "string",
+          "description": "(Optional) Description."
+        },
+        "apiType": {
+          "type": "string",
+          "enum": ["openapi"],
+          "description": "The type of API specification. Currently only OpenAPI APIs are supported."
+        },
+        "specification": {
+          "type": "string",
+          "format": "url",
+          "description": "(Optional) URL to the specification of the API."
+        },
+        "implementation": {
+          "type": "string",
+          "description": "The name of the service receiving the notifications."
+        },
+        "path": {
+          "type": "string",
+          "description": "The path to the root of the API."
+        },
+        "port": {
+          "type": "integer",
+          "description": "The port where the API is exposed."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "Resources is an optional list of resources that are exposed by the API."
+        }
+      },
+      "required": ["name", "apiType"]
     }
   }
 }
