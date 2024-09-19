@@ -116,7 +116,6 @@
           "properties": {
             "secretsManagement": {
               "type": "object",
-              "required": ["type", "podSelector"],
               "properties": {
                 "type": {
                   "type": "string",
@@ -125,7 +124,6 @@
                 },
                 "sideCar": {
                   "type": "object",
-                  "required": ["port"],
                   "properties": {
                     "port": {
                       "type": "integer",
@@ -264,8 +262,7 @@
           "type": "boolean",
           "description": "Required is a flag that indicates whether the API is required or not."
         }
-      },
-      "required": ["name", "apiType", "implementation", "path", "port"]
+      }
     },
     "apiSchemaDependent": {
       "type": "object",
