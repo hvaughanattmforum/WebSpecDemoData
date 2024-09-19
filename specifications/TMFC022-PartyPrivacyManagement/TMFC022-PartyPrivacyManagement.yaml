@@ -111,7 +111,7 @@ spec:
       required: false
       resources:
       - ProductOfferingDeleteEvent: {}
-      specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
+      specification: ["https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json"]
     publishedEvents: []
     subscribedEvents: []
   owners:
