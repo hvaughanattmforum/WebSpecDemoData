@@ -214,8 +214,7 @@
         "url": {
           "type": "string",
           "description": "Website address of maintaining/owning organization."
-        },
-        "required": ["name", "email"]
+        }
       }
     },
     "apiSchemaExposed": {
