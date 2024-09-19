@@ -262,7 +262,8 @@
           "type": "boolean",
           "description": "Required is a flag that indicates whether the API is required or not."
         }
-      }
+      },
+      "required": ["name", "apiType", "implementation", "path", "port"]
     },
     "apiSchemaDependent": {
       "type": "object",
@@ -292,7 +293,7 @@
           "type": "boolean",
           "description": "Required is a flag that indicates whether the API is required or not."
         }
-      }
+      },"required": ["name", "apiType"]
     },
     "eventSchema": {
       "type": "object",
@@ -334,7 +335,12 @@
           },
           "description": "Resources is an optional list of resources that are exposed by the API."
         }
-      }
+      },"required": [
+        "resources",
+        "name",
+        "port",
+        "specification"
+      ]
     }
   }
 }
