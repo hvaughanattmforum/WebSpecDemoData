@@ -363,7 +363,7 @@ spec:
   managementFunction: 
     exposedAPIs: 
     - name: metrics
-      apiType: prometheus
+      apiType: openapi
       implementation: /{{.Release.Name}}-{{.Values.component.name}}-sm
       path: /{{.Release.Name}}-{{.Values.component.name}}/metrics
       port: 4000    
