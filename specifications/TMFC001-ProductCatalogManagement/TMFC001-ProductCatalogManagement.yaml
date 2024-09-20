@@ -368,7 +368,7 @@ spec:
       path: /{{.Release.Name}}-{{.Values.component.name}}/metrics
       port: 4000    
   securityFunction:
-    controllerRole: {{ .Values.security.controllerRole }}
+    controllerRole: /{{ .Values.security.controllerRole }}
     exposedAPIs: 
     - name: partyrole
       specification: ["https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.0.swagger.json"]
