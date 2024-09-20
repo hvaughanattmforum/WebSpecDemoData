@@ -272,50 +272,18 @@ spec:
         implementation: /{{.Release.Name}}-ProductCatalogManagementEvent
         name: ProductCatalogManagement
         port: 80
-        resources:
-        - productSpecificationCreate
-        - productSpecificationDeleteEvent
-        - categoryCreateEvent
-        - categoryDeleteEvent
-        - productOfferingCreateEvent
-        - productOfferingAttributeValueChangeEvent
-        - productOfferingStateChangeEvent
-        - productOfferingDeleteEvent
-        - productOfferingPriceCreateEvent
-        - productOfferingPriceAttributeValueChangeEvent
-        - productOfferingPriceStateChangeEvent
-        - productOfferingPriceDeleteEvent
-        - catalogCreateEvent
-        - catalogDeleteEvent
-        - catalogBatchEvent
         specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
       - apiType: openapi
         hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
         implementation: /{{.Release.Name}}-PromotionManagementEvent
         name: PromotionManagement
         port: 80
-        resources:
-        - promotionCreateEvent
-        - promotionDeleteEvent
-        - promotionAttributeValueChangeEvent
-        - promotionStateChangeEvent
-        - promotionInformationRequiredEvent
         specification: https://github.com/tmforum-apis/TMF671_Promotion/blob/master/TMF671-Promotion-v4.1.0.swagger.json
       - apiType: openapi
         hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
         implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
         name: ProcessFlowManagement
         port: 80
-        resources:
-        - processFlowCreateEvent
-        - processFlowStateChangeEvent
-        - processFlowStateDeleteEvent
-        - processFlowStateAttributeValueChangeEvent
-        - taskFlowCreateEvent
-        - taskFlowStateChangeEvent
-        - taskFlowDeleteEvent
-        - taskFlowAttributeValueChangeEvent
-        - taskFlowInformationRequiredEvent
         specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
     subscribedEvents:
       - apiType: openapi
@@ -323,14 +291,6 @@ spec:
         implementation: /{{.Release.Name}}-ServiceCatalogManagement
         name: ServiceCatalogManagement
         port: 80
-        resources:
-        - serviceSpecificationStateChange
-        - serviceSpecificationAttributeValueChangeEvent
-        - serviceSpecificationCreateEvent
-        - serviceSpecificationDeleteEvent
-        - resourceSpecificationCreateEvent
-        - resourceSpecificationChangeEvent
-        - resourceSpecificationDeleteEvent
         specification: https://open-api.tmforum.org/TMF633-Servicecatalog-v4.0.0.swagger.json
       - apiType: openapi
         call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
@@ -353,9 +313,6 @@ spec:
         implementation: /{{.Release.Name}}-Party
         name: Party
         port: 80
-        resources:
-        - individualDeleteEvent
-        - organizationDeleteEvent
         specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
   owners:
     - email: gaetano.biancardi@accenture.com

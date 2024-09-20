@@ -327,13 +327,6 @@
         "port": {
           "type": "integer",
           "description": "The port where the API is exposed."
-        },
-        "resources": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          },
-          "description": "Resources is an optional list of resources that are exposed by the API."
         }
       },"required": [
         "resources",
