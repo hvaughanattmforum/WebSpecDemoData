@@ -172,7 +172,7 @@ spec:
     - id: TMF620
       name: productcatalogmanagement
       path: /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/productCatalogManagement/v4
-      implementation: {{.Release.Name}}-prodcatapi
+      implementation: /{{.Release.Name}}-prodcatapi
       apiType: openapi
       port: 8080
       required: true
@@ -220,7 +220,7 @@ spec:
       version: 4.1
     - id: TMF701
       name: processflowmanagement
-      implementation: {{.Release.Name}}-procflwapi
+      implementation: /{{.Release.Name}}-procflwapi
       apiType: openapi
       path: /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/processFlowManagement/v4
       port: 8080
@@ -238,7 +238,7 @@ spec:
       version: 4.1
     - id: TMF671
       name: promotionmanagement
-      implementation: {{.Release.Name}}-promgmtapi
+      implementation: /{{.Release.Name}}-promgmtapi
       apiType: openapi
       path: /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/promotionManagement/v4
       port: 8080
@@ -253,7 +253,7 @@ spec:
       version: 4.1
     - id: TMF688
       name: eventmanagement
-      implementation: {{.Release.Name}}-evntmgmtapi
+      implementation: /{{.Release.Name}}-evntmgmtapi
       apiType: openapi
       path: /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/eventManagement/v4
       port: 8080
@@ -364,7 +364,7 @@ spec:
     exposedAPIs: 
     - name: metrics
       apiType: prometheus
-      implementation: {{.Release.Name}}-{{.Values.component.name}}-sm
+      implementation: /{{.Release.Name}}-{{.Values.component.name}}-sm
       path: /{{.Release.Name}}-{{.Values.component.name}}/metrics
       port: 4000    
   securityFunction:
@@ -372,7 +372,7 @@ spec:
     exposedAPIs: 
     - name: partyrole
       specification: ["https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.0.swagger.json"]
-      implementation: {{.Release.Name}}-partyroleapi
+      implementation: /{{.Release.Name}}-partyroleapi
       apiType: openapi
       path: /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/partyRoleManagement/v4
       developerUI: /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/partyRoleManagement/v4/docs
