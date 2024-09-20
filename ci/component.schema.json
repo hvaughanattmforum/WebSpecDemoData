@@ -328,12 +328,7 @@
           "type": "integer",
           "description": "The port where the API is exposed."
         }
-      },"required": [
-        "resources",
-        "name",
-        "port",
-        "specification"
-      ]
+      }
     }
   }
 }
