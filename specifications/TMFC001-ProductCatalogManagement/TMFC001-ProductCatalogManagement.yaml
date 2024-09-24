@@ -267,32 +267,37 @@ spec:
       version: 4
   eventNotification:
     publishedEvents:
-      - apiType: openapi
+      - id: TMF620
+        apiType: openapi
         hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productspecification/hub
         implementation: /{{.Release.Name}}-ProductCatalogManagementEvent
         name: ProductCatalogManagement
         port: 80
         specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
-      - apiType: openapi
+      - id: TMF671
+        apiType: openapi
         hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
         implementation: /{{.Release.Name}}-PromotionManagementEvent
         name: PromotionManagement
         port: 80
         specification: https://github.com/tmforum-apis/TMF671_Promotion/blob/master/TMF671-Promotion-v4.1.0.swagger.json
-      - apiType: openapi
+      - id: TMF701
+        apiType: openapi
         hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
         implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
         name: ProcessFlowManagement
         port: 80
         specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
     subscribedEvents:
-      - apiType: openapi
+      - id: TMF633
+        apiType: openapi
         call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
         implementation: /{{.Release.Name}}-ServiceCatalogManagement
         name: ServiceCatalogManagement
         port: 80
         specification: https://open-api.tmforum.org/TMF633-Servicecatalog-v4.0.0.swagger.json
-      - apiType: openapi
+      - id: TMF669
+        apiType: openapi
         call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
         implementation: /{{.Release.Name}}-PartyRoleManagement
         name: PartyRoleManagement
@@ -300,7 +305,8 @@ spec:
         resources:
         - partyRoleDeleteEvent
         specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-      - apiType: openapi
+      - id: TMF672
+        apiType: openapi
         call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
         implementation: /{{.Release.Name}}-UserRolePermission
         name: UserRolePermission
@@ -308,7 +314,8 @@ spec:
         resources:
         - permissionDeleteEvent
         specification: https://github.com/tmforum-apis/TMF672_UserRolesPermissions/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-      - apiType: openapi
+      - id: TMF632
+        apiType: openapi
         call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
         implementation: /{{.Release.Name}}-Party
         name: Party
@@ -319,7 +326,8 @@ spec:
       name: Gaetano Biancardi
   managementFunction: 
     exposedAPIs: 
-    - name: metrics
+    - id: TMF628
+      name: metrics
       apiType: openapi
       implementation: /{{.Release.Name}}-{{.Values.component.name}}-sm
       path: /{{.Release.Name}}-{{.Values.component.name}}/metrics
@@ -327,7 +335,8 @@ spec:
   securityFunction:
     controllerRole: /{{ .Values.security.controllerRole }}
     exposedAPIs: 
-    - name: partyrole
+    - id: TMF669
+      name: partyrole
       specification: ["https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.0.swagger.json"]
       implementation: /{{.Release.Name}}-partyroleapi
       apiType: openapi

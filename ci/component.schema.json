@@ -86,7 +86,58 @@
             "exposedAPIs": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/apiSchemaExposed"
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "ID of the API."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the API."
+                    },    
+                  "specification": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "url"
+                    },
+                  "description": "URL to the specification of the API, if required."
+                  },
+                  "apiType": {
+                    "type": "string",
+                    "enum": ["openapi", "prometheus"],
+                    "description": "The type of API specification. Currently only OpenAPI is supported."
+                  },
+                  "implementation": {
+                    "type": "string",
+                    "description": "The name of the service where the implementation of the API is found."
+                  },
+                  "path": {
+                    "type": "string",
+                    "description": "The path to the root of the API."
+                  },
+                  "developerUI": {
+                    "type": "string",
+                    "description": "(Optional) The path to the developer User Interface for the API."
+                  },
+                  "port": {
+                    "type": "integer",
+                    "description": "The port where the API is exposed."
+                  },
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                      },
+                    "description": "Resources is an optional list of resources that are exposed by the API."
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "description": "Required is a flag that indicates whether the API is required or not."
+                  }
+                },
+                "required": ["id","name", "apiType", "implementation", "path", "port"]
               }
             },
             "dependentAPIs": {
@@ -218,6 +269,10 @@
     "apiSchemaExposed": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "ID of the API."
+        },
         "name": {
           "type": "string",
           "description": "Name of the API."
@@ -263,11 +318,15 @@
           "description": "Required is a flag that indicates whether the API is required or not."
         }
       },
-      "required": ["name", "apiType", "implementation", "path", "port"]
+      "required": ["id", "name", "apiType", "implementation", "path", "port"]
     },
     "apiSchemaDependent": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "ID of the API."
+        },
         "name": {
           "type": "string",
           "description": "Name of the API that this component is dependent on."
@@ -293,11 +352,15 @@
           "type": "boolean",
           "description": "Required is a flag that indicates whether the API is required or not."
         }
-      },"required": ["name", "apiType"]
+      },"required": ["id", "name","apiType"]
     },
     "eventSchema": {
       "type": "object",
       "properties": {
+        "id":{
+           "type": "string",
+          "description": "ID of the Topic that this Component is going to push events into."
+        },
         "name": {
           "type": "string",
           "description": "Name of the Topic that this Component is going to push events into."
