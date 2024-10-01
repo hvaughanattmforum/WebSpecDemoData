@@ -1,0 +1,241 @@
+apiVersion: oda.tmforum.org/v1beta3
+kind: component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  name: ResourceInventory
+  id: TMFC012
+  functionalBlock: Production
+  description: Resource Inventory component is responsible for accounting for resources
+    (all inputs - including stock, parts, assets, production components etc.) that
+    are owned and/or held for allocation and/or use by the organization. Resource
+    Inventory component has functionality that includes inventory items creation,
+    inventory organization, inventory search or filter, inventory monitoring and tracking,
+    inventory control (organization, re-stock management etc.) and inventory auditing.
+    The minimum check to be performed at inventory items creation or update is the
+    global consistency with related Resource Catalog information.
+  publicationDate: 2024-04-30 00:00:00
+  status: specified
+  version: 2.0.0
+  coreFunction:
+    dependentAPIs:
+    - id: TMF634
+      required: true
+      resources:
+      - resourceSpecification:
+        - GET
+        - GET /id
+      version: 4.1
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF669
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF632
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF673
+      required: true
+      resources:
+      - geographicAddress:
+        - GET
+        - GET /id
+      - geographicSubAddress:
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF674
+      required: true
+      resources:
+      - geographicSite:
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF675
+      required: true
+      resources:
+      - geographicLocation:
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF639
+      required: true
+      resources:
+      - resource:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    exposedAPIs:
+    - id: TMF639
+      required: true
+      resources:
+      - resource:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: _must_be_defined
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: _must_be_defined
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi
+  eventNotification:
+    publishedEvents:
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
+      implementation: /{{.Release.Name}}-ResourceInventory
+      name: ResourceInventory
+      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
+      port: 8080
+      resources:
+      - resourceCreateEvent
+      - resourceChangeEvent
+      - resourceDeleteEvent
+      - resourceAttributeValueChangeEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF639-ResourceInventory/master/TMF639-ResourceInventory-v4.0.0.swagger.json
+      version: 4
+      id: TMF639
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
+      name: ProcessFlowManagement
+      port: 80
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      id: TMF701
+      apiType: openapi
+    subscribedEvents:
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
+      implementation: /{{.Release.Name}}-ResourceCatalog
+      name: ResourceCatalogManagement
+      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
+      port: 8080
+      resources:
+      - resourceCatalogCreateEvent
+      - resourceCatalogChangeEvent
+      - resourceCatalogDeleteEvent
+      - resourceCategoryCreateEvent
+      - resourceCategoryChangeEvent
+      - resourceCategoryDeleteEvent
+      - resourceCandidateCreateEvent
+      - resourceCandidateChangeEvent
+      - resourceCandidateDeleteEvent
+      - resourceSpecificationCreateEvent
+      - resourceSpecificationChangeEvent
+      - resourceSpecificationDeleteEvent
+      - importJobCreateEvent
+      - exportJobCreateEvent
+      - exportJobStateChangeEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
+      version: 4.1
+      id: TMF634
+      apiType: openapi
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
+      implementation: /{{.Release.Name}}-ResourceInventory
+      name: ResourceInventory
+      path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
+      port: 8080
+      resources:
+      - resourceCreateEvent
+      - resourceChangeEvent
+      - resourceDeleteEvent
+      - resourceAttributeValueChangeEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF639-ResourceInventory/master/TMF639-ResourceInventory-v4.0.0.swagger.json
+      version: 4
+      id: TMF639
+      apiType: openapi
+    - name: PartyRoleManagement
+      port: 80
+      resources:
+      - PartyRoleCreateEvent
+      - PartyRoleAttributeValueChangeEvent
+      - PartyRoleStateChangeEvent
+      - PartyRoleDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
+      id: TMF669
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
+      implementation: /{{.Release.Name}}-GeographicSiteManagement
+      name: GeographicSiteManagement
+      port: 80
+      resources:
+      - geographicSiteDeleteEvent
+      specification: https://open-api.tmforum.org20-GeographicSite-v4.0.0.swagger.json
+      id: null
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
+      implementation: /{{.Release.Name}}-GeographicLocation
+      name: GeographicLocation
+      port: 80
+      resources:
+      - geographicLocationDeleteEvent
+      specification: https://open-api.tmforum.org20-GeographicLocatin-v4.0.0.swagger.json
+      id: null
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
+      implementation: /{{.Release.Name}}-PartyManagement
+      name: PartyManagement
+      port: 80
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+      specification: https://open-api.tmforum.org20-Party-v4.0.0.swagger.json
+      id: null
+      apiType: openapi

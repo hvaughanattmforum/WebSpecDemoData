@@ -1,0 +1,271 @@
+apiVersion: oda.tmforum.org/v1beta3
+kind: component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  name: ResourceCatalogManagement
+  id: TMFC010
+  functionalBlock: Production
+  description: Resource Catalog Management component is responsible for organizing
+    the collection resource specifications that identify and define all requirements
+    for a resource. Resource Catalog Management component has the functionality that
+    enable presenting a customer-facing view, so users are able to browse and select
+    resource they need, as well as a technical view to enable define and setup resources
+    contained in the resource catalog. Additional functionalities include capturing
+    specifications of new resource specifications, managing resources (registering
+    assets and components and identifying and mapping connections/relationships),
+    administering the lifecycle of resources, describing relationships between resources,
+    reporting on resources and changes to their attributes, and facilitating easy
+    access to identify and assign resources.
+  publicationDate: 2024-04-30 00:00:00
+  status: specified
+  version: 1.2.0
+  coreFunction:
+    dependentAPIs:
+    - id: TMF634
+      required: false
+      resources:
+      - resourceCatalog:
+        - GET
+        - GET /id
+      - resourceCategory:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - resourceSpecification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - resourceCandidate:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - exportJob:
+        - GET
+        - POST
+        - DELETE
+      - importJob:
+        - GET
+        - POST
+        - DELETE
+      version: 4.1
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF669
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF632
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF662
+      required: false
+      resources:
+      - entitySpecification:
+        - GET
+        - GET /id
+      - associationSpecification:
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF672
+      required: false
+      resources:
+      - permission:
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    - id: TMF688
+      required: false
+      resources:
+      - listener:
+        - POST
+      - hub:
+        - POST
+        - DELETE
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+    exposedAPIs:
+    - id: TMF634
+      required: true
+      resources:
+      - resourceCatalog:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - resourceCategory:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - resourceSpecification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - resourceCandidate:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - exportJob:
+        - GET
+        - GET /id
+        - POST
+        - DELETE
+      - importJob:
+        - GET
+        - GET /id
+        - POST
+        - DELETE
+      version: 4.1
+      name: _must_be_defined
+      apiType: _must_be_defined
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: _must_be_defined
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: _must_be_defined
+    - id: TMF688
+      required: false
+      resources:
+      - listener:
+        - POST
+      - hub:
+        - POST
+        - DELETE
+      version: 4
+      name: _must_be_defined
+      apiType: _must_be_defined
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: _must_be_defined
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi
+  eventNotification:
+    publishedEvents:
+    - hub: /{{.Release.Name}}-ResourceCatalog/hub
+      implementation: /{{.Release.Name}}-ResourceCatalogEvent
+      name: ResourceCatalogManagement
+      port: 80
+      resources:
+      - resourceCatalogCreateEvent
+      - resourceCatalogChangeEvent
+      - resourceCatalogDeleteEvent
+      - resourceCategoryCreateEvent
+      - resourceCategoryChangeEvent
+      - resourceCategoryDeleteEvent
+      - resourceCandidateCreateEvent
+      - resourceCandidateChangeEvent
+      - resourceCandidateDeleteEvent
+      - resourceSpecificationCreateEvent
+      - resourceSpecificationChangeEvent
+      - resourceSpecificationDeleteEvent
+      - importJobCreateEvent
+      - exportJobCreateEvent
+      - exportJobStateChangeEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
+      version: 4.1
+      id: TMF634
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
+      name: ProcessFlowManagement
+      port: 80
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      version: 4
+      id: TMF701
+      apiType: openapi
+    subscribedEvents:
+    - call-back: /{{.Release.Name}}-EntityCatalog/call-back
+      id: TMF662
+      name: EntityCatalogManagement
+      port: 80
+      resources:
+      - entitySpecificationCreateEvent
+      - entitySpecificationAttributeValueChangeEvent
+      - entitySpecificationStateChangeEvent
+      - entitySpecificationDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF662_EntityCatalog/master/TMF662-EntityCatalog-v4.0.0.swagger.json
+      version: 4
+    - call-back: /{{.Release.Name}}-EntityCatalog/call-back
+      id: TMF669
+      name: PartyRoleManagement
+      port: 80
+      resources:
+      - partyRoleDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.swagger.json
+      version: 4
+    - call-back: /{{.Release.Name}}-EntityCatalog/call-back
+      id: TMF672
+      name: UserRolePermission
+      port: 80
+      resources:
+      - permissionDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF672-UserRolePermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
+      version: 4
+    - call-back: /{{.Release.Name}}-EntityCatalog/call-back
+      id: TMF632
+      name: Party
+      port: 80
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
+      version: 4
