@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -29,6 +29,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF622
       required: true
       resources:
@@ -36,6 +38,8 @@ spec:
         - GET /id
         - PATCH
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF637
       required: false
       resources:
@@ -44,6 +48,8 @@ spec:
         - GET /id
         - PATCH
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF641
       required: true
       resources:
@@ -58,6 +64,8 @@ spec:
         - GET /id
         - POST
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF633
       required: false
       resources:
@@ -65,6 +73,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF634
       required: false
       resources:
@@ -72,6 +82,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF641
       required: true
       resources:
@@ -79,6 +91,8 @@ spec:
         - GET /id
         - POST
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF638
       required: false
       resources:
@@ -86,6 +100,8 @@ spec:
         - GET / id
         - GET
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF639
       required: false
       resources:
@@ -93,6 +109,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF652
       required: false
       resources:
@@ -100,6 +118,8 @@ spec:
         - GET /id
         - POST
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     exposedAPIs:
     - id: TMF701
       required: false
@@ -114,9 +134,17 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi
+  eventNotification:
     publishedEvents:
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80
@@ -131,9 +159,10 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      id: TMF701
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrder/call-back
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrder/call-back
       implementation: /{{.Release.Name}}-ProductOrderEvent
       name: ProductOrder
       port: 80
@@ -141,8 +170,9 @@ spec:
       - productOrderStateChangeEvent
       - cancelProductOrderStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/master/TMF622-ProductOrder-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/call-back
+      id: TMF622
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/call-back
       developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
       implementation: /{{.Release.Name}}-serviceOrderingManagementEvent
       name: ServiceOrder
@@ -156,8 +186,9 @@ spec:
       - cancelServiceOrderStateChangeEvent
       - cancelServiceOrderInformationRequiredEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF641_ServiceOrdering/master/TMF641-ServiceOrdering-v4.1.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ResourceOrder/call-back
+      id: TMF641
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ResourceOrder/call-back
       developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ResourceOrder/v4/docs
       implementation: /{{.Release.Name}}-ResourceOrder
       name: ResourceOrder
@@ -169,6 +200,5 @@ spec:
       - cancelResourceOrderStateChange
       - cancelResourceOrderInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF652_ResourceOrderManagement/blob/master/TMF652-ResourceOrder-v4.0.0.swagger.json
-  owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+      id: TMF652
+      apiType: openapi
