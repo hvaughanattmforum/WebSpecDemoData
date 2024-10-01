@@ -24,7 +24,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF632
       required: false
       resources:
@@ -36,7 +36,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF637
       required: true
       resources:
@@ -45,7 +45,7 @@ spec:
         - GET /id
       version: 4.0
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF620
       required: false
       resources:
@@ -60,7 +60,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -71,7 +71,7 @@ spec:
         - PATCH
       version: 4.0
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF635
       required: false
       resources:
@@ -83,7 +83,7 @@ spec:
         - GET /id
       version: 4.0
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     exposedAPIs:
     - id: TMF678
       required: true
@@ -93,7 +93,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
       port: _must_be_defined
@@ -111,7 +111,7 @@ spec:
         - PATCH /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
       port: _must_be_defined

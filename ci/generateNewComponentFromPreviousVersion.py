@@ -160,14 +160,20 @@ def add_requiredFields_to_functionSection(new_yaml, old_yaml, schema):
                 # Ensure required properties are checked inside each API in 'exposedAPIs'
                 if required_prop not in api:
                     print(f"! spec missing required field {required_prop} in {functionName} -> exposedAPIs[{index}]")
-                    new_yaml['spec'][functionName]['exposedAPIs'][index][required_prop] = '_must_be_defined'
+                    if(required_prop == "apiType"):
+                        new_yaml['spec'][functionName]['exposedAPIs'][index][required_prop] = 'openapi'
+                    else:
+                        new_yaml['spec'][functionName]['exposedAPIs'][index][required_prop] = '_must_be_defined'
        
         for required_prop in dependentAPIs_schema:
             for index, api in enumerate(dependent_apis_oldyaml):
                 # Ensure required properties are checked inside each API in 'dependentAPIs'
                 if required_prop not in api:
                     print(f"! spec missing required field {required_prop} in {functionName} -> dependentAPIs[{index}]")
-                    new_yaml['spec'][functionName]['dependentAPIs'][index][required_prop] = '_must_be_defined'
+                    if(required_prop == "apiType"):
+                        new_yaml['spec'][functionName]['dependentAPIs'][index][required_prop] = 'openapi'
+                    else:
+                        new_yaml['spec'][functionName]['dependentAPIs'][index][required_prop] = '_must_be_defined'
 
 def add_requiredFields_to_specSection(new_yaml,old_yaml, schema):
     # Handle the `spec` section based on the schema definition
@@ -175,7 +181,11 @@ def add_requiredFields_to_specSection(new_yaml,old_yaml, schema):
     for required_prop in spec_required_fields:
         if required_prop not in old_yaml['spec']:
             print("! spec missing required field", required_prop)
-            new_yaml['spec'][required_prop] = old_yaml['spec'].get(required_prop, '_must_be_defined')
+            if(required_prop == "apiType"):
+                new_yaml['spec'][required_prop] = old_yaml['spec'].get(required_prop, 'openapi')
+            else:
+                new_yaml['spec'][required_prop] = old_yaml['spec'].get(required_prop, '_must_be_defined')
+            
 
 def add_requiredFields_to_metadataSection(new_yaml, old_yaml, schema):
     metadata_required_fields = schema['properties'].get('metadata', {}).get('required', [])

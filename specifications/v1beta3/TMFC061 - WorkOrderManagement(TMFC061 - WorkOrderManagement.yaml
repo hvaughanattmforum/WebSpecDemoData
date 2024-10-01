@@ -30,7 +30,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF669
       required: false
       resources:
@@ -39,7 +39,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF646
       required: true
       resources:
@@ -57,7 +57,7 @@ spec:
         - DELETE /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -72,7 +72,7 @@ spec:
         - PATCH
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF688
       required: false
       resources:
@@ -81,7 +81,7 @@ spec:
         - GET /id
       version: 4.0
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     exposedAPIs:
     - id: TMF713
       required: true
@@ -100,7 +100,7 @@ spec:
         - DELETE
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
       port: _must_be_defined
@@ -119,7 +119,7 @@ spec:
         - POST
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
       port: _must_be_defined
@@ -140,7 +140,7 @@ spec:
         - DELETE /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
       port: _must_be_defined
@@ -158,7 +158,7 @@ spec:
         - PATCH /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
       port: _must_be_defined
@@ -173,7 +173,7 @@ spec:
         - DELETE
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
       port: _must_be_defined

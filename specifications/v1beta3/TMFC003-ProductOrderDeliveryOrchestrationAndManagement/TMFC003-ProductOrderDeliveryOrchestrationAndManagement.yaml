@@ -30,7 +30,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF622
       required: true
       resources:
@@ -39,7 +39,7 @@ spec:
         - PATCH
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF637
       required: false
       resources:
@@ -49,7 +49,7 @@ spec:
         - PATCH
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF641
       required: true
       resources:
@@ -65,7 +65,7 @@ spec:
         - POST
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF633
       required: false
       resources:
@@ -74,7 +74,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF634
       required: false
       resources:
@@ -83,7 +83,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF641
       required: true
       resources:
@@ -92,7 +92,7 @@ spec:
         - POST
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF638
       required: false
       resources:
@@ -101,7 +101,7 @@ spec:
         - GET
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF639
       required: false
       resources:
@@ -110,7 +110,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     - id: TMF652
       required: false
       resources:
@@ -119,7 +119,7 @@ spec:
         - POST
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
     exposedAPIs:
     - id: TMF701
       required: false
@@ -135,7 +135,7 @@ spec:
         - GET /id
       version: 4
       name: _must_be_defined
-      apiType: _must_be_defined
+      apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
       port: _must_be_defined
