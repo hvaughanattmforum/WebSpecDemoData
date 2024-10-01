@@ -111,7 +111,7 @@ spec:
       apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
-      port: _must_be_defined
+      port: 80
     - id: TMF676
       required: true
       resources:
@@ -128,7 +128,7 @@ spec:
       apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
-      port: _must_be_defined
+      port: 80
     - id: TMF701
       required: false
       resources:
@@ -146,7 +146,7 @@ spec:
       apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
-      port: _must_be_defined
+      port: 80
     - id: TMF688
       required: false
       resources:
@@ -160,7 +160,7 @@ spec:
       apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
-      port: _must_be_defined
+      port: 80
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi

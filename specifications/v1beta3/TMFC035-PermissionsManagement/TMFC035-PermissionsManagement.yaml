@@ -63,7 +63,7 @@ spec:
       apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
-      port: _must_be_defined
+      port: 80
     - id: TMF669
       required: true
       resources:
@@ -78,7 +78,7 @@ spec:
       apiType: openapi
       implementation: _must_be_defined
       path: _must_be_defined
-      port: _must_be_defined
+      port: 80
   owners:
   - email: matteo.destino@accenture.com
     name: Matteo Destino

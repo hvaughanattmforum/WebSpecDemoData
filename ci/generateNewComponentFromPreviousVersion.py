@@ -162,6 +162,8 @@ def add_requiredFields_to_functionSection(new_yaml, old_yaml, schema):
                     print(f"! spec missing required field {required_prop} in {functionName} -> exposedAPIs[{index}]")
                     if(required_prop == "apiType"):
                         new_yaml['spec'][functionName]['exposedAPIs'][index][required_prop] = 'openapi'
+                    elif(required_prop == "port"):
+                        new_yaml['spec'][functionName]['exposedAPIs'][index][required_prop] = 80
                     else:
                         new_yaml['spec'][functionName]['exposedAPIs'][index][required_prop] = '_must_be_defined'
        
@@ -172,6 +174,8 @@ def add_requiredFields_to_functionSection(new_yaml, old_yaml, schema):
                     print(f"! spec missing required field {required_prop} in {functionName} -> dependentAPIs[{index}]")
                     if(required_prop == "apiType"):
                         new_yaml['spec'][functionName]['dependentAPIs'][index][required_prop] = 'openapi'
+                    elif(required_prop == "port"):
+                        new_yaml['spec'][functionName]['dependentAPIs'][index][required_prop] = 80
                     else:
                         new_yaml['spec'][functionName]['dependentAPIs'][index][required_prop] = '_must_be_defined'
 
@@ -183,6 +187,8 @@ def add_requiredFields_to_specSection(new_yaml,old_yaml, schema):
             print("! spec missing required field", required_prop)
             if(required_prop == "apiType"):
                 new_yaml['spec'][required_prop] = old_yaml['spec'].get(required_prop, 'openapi')
+            elif(required_prop == "port"):
+                new_yaml['spec'][required_prop] = old_yaml['spec'].get(required_prop, 80)
             else:
                 new_yaml['spec'][required_prop] = old_yaml['spec'].get(required_prop, '_must_be_defined')
             
