@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -44,6 +44,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF639
       required: false
       resources:
@@ -51,6 +53,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF673
       required: false
       resources:
@@ -61,6 +65,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF674
       required: false
       resources:
@@ -68,6 +74,8 @@ spec:
         - GET
         - GET/id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF675
       required: false
       resources:
@@ -75,6 +83,8 @@ spec:
         - GET
         - GET/id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF688
       required: false
       resources:
@@ -82,6 +92,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -95,6 +107,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     exposedAPIs:
     - id: TMF628
       required: true
@@ -127,6 +141,11 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
     - id: TMF649
       required: true
       resources:
@@ -143,6 +162,11 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
     - id: TMF642
       required: false
       resources:
@@ -153,6 +177,11 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
     - id: TMF701
       required: false
       resources:
@@ -166,6 +195,11 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
     - id: TMF688
       required: false
       resources:
@@ -175,9 +209,17 @@ spec:
         - POST
         - DELETE
       version: 4
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
+  owners:
+  - email: milind.2.bhagwat@bt.com
+    name: Milind Bhagwat
+  eventNotification:
     publishedEvents:
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80
@@ -192,8 +234,9 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Alarm/hub
+      id: TMF701
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Alarm/hub
       implementation: /{{.Release.Name}}-Alarm
       name: AlarmManagement
       port: 80
@@ -203,8 +246,9 @@ spec:
       - alarmClearEvent**
       - alarmAckEvent**
       specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642-Alarm-v4.0.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Performance/hub
+      id: TMF642
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Performance/hub
       implementation: /{{.Release.Name}}-Performance
       name: PerformanceManagement
       port: 80
@@ -222,8 +266,9 @@ spec:
       - onDemandCollectionFilesReadyEvent
       - onDemandCollectionFilesPreparationErrorEvent
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF628-Performance-v4.0.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceThreshold/hub
+      id: TMF628
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceThreshold/hub
       implementation: /{{.Release.Name}}-PerformanceThreshold
       name: PerformanceThresholdManagement
       port: 80
@@ -237,17 +282,19 @@ spec:
       - thresholdJobSuspendedNotification
       - thresholdJobResumedNotification
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF649-PerformanceThreshold-v4.0.0.swagger.json
+      id: TMF628
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/hub
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/hub
       implementation: /{{.Release.Name}}-ResourceCatalog
       name: ResourceCatalogManagement
       port: 80
       resources:
       - ResourceSpecificationChangeEvent
       specification: https://github.com/tmforum-apis/TMF634_ResourceCatalog/blob/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/hub
+      id: TMF634
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/hub
       implementation: /{{.Release.Name}}-ResourceInventory
       name: ResourceInventoryManagement
       port: 80
@@ -257,16 +304,18 @@ spec:
       - ResourceStateChangeEvent
       - ResourceDeleteEvent
       specification: https://github.com/tmforum-apis/TMF639_ResourceInventory/blob/master/TMF639-ResourceInventory-v4.0.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/hub
+      id: TMF639
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/hub
       implementation: /{{.Release.Name}}-GeographicAddressManagement
       name: GeographicAddressManagement
       port: 80
       resources:
       - geographicAddressValidationStateChange
       specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      id: TMF673
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80
@@ -280,6 +329,5 @@ spec:
       - taskFlowDeleteEvent
       - taskFlowAttributeValueChangeEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-  owners:
-  - email: milind.2.bhagwat@bt.com
-    name: Milind Bhagwat
+      id: TMF701
+      apiType: openapi

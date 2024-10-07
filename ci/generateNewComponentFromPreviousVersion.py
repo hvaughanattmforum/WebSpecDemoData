@@ -65,17 +65,24 @@ def new_Component_yaml_Template(old_yaml):
 
     # Add 'securityFunction' only if it exists in old YAML
     if old_yaml['spec'].get('securityFunction'):
-        new_yaml['spec']['securityFunction'] = {
-            'secretsManagement': {
-                'type': old_yaml['spec']['securityFunction'].get('secretsManagement', {}).get('secretManagementType', None),
+        new_yaml['spec']['securityFunction'] = {}
+        if old_yaml['spec']['securityFunction'].get('secretsManagement'):
+            new_yaml['spec']['securityFunction'] = {
+                 'secretsManagement': {
+                'type': old_yaml['spec']['securityFunction'].get('secretsManagement', {}).get('secretManagementType', 'sideCar'),
                 'sideCar': old_yaml['spec']['securityFunction'].get('secretsManagement', {}).get('sideCar', None),
                 'podSelector': old_yaml['spec']['securityFunction'].get('secretsManagement', {}).get('podSelector', None)
-            },
-            'dependentAPIs': old_yaml['spec']['securityFunction'].get('dependentAPIs', []),
-            'exposedAPIs': old_yaml['spec']['securityFunction'].get('exposedAPIs', []),
-            'controllerRole': old_yaml['spec']['securityFunction'].get('controllerRole', None)
-        }
-    
+                }
+            }
+        if old_yaml['spec']['securityFunction'].get('dependentAPIs'):
+            new_yaml['spec']['securityFunction']['dependentAPIs'] = old_yaml['spec']['securityFunction'].get('dependentAPIs', [])
+            
+        if old_yaml['spec']['securityFunction'].get('exposedAPIs'):
+            new_yaml['spec']['securityFunction']['exposedAPIs'] = old_yaml['spec']['securityFunction'].get('exposedAPIs', [])
+            
+        if old_yaml['spec']['securityFunction'].get('controllerRole'):
+            new_yaml['spec']['securityFunction']['controllerRole'] = old_yaml['spec']['securityFunction'].get('controllerRole', None)
+            
     return new_yaml
 
 def extract_tmf_id(spec_url):

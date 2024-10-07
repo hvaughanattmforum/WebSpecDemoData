@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -30,6 +30,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF633
       required: true
       resources:
@@ -37,6 +39,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF634
       required: false
       resources:
@@ -44,6 +48,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF638
       required: true
       resources:
@@ -54,6 +60,8 @@ spec:
         - PATCH
         - DELETE
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF639
       required: false
       resources:
@@ -61,6 +69,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF640
       required: false
       resources:
@@ -68,6 +78,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF641
       required: false
       resources:
@@ -82,6 +94,8 @@ spec:
         - GET /id
         - POST
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF645
       required: false
       resources:
@@ -96,6 +110,8 @@ spec:
         - POST
         - PATCH
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF646
       required: false
       resources:
@@ -110,6 +126,8 @@ spec:
         - POST
         - PATCH
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF652
       required: false
       resources:
@@ -126,6 +144,8 @@ spec:
         - PATCH
         - DELETE
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF653
       required: false
       resources:
@@ -136,6 +156,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF669
       required: false
       resources:
@@ -143,6 +165,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF673
       required: false
       resources:
@@ -157,6 +181,8 @@ spec:
         - GET /id
         - POST
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF674
       required: false
       resources:
@@ -164,6 +190,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF675
       required: false
       resources:
@@ -171,6 +199,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF681
       required: false
       resources:
@@ -178,6 +208,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF697
       required: false
       resources:
@@ -185,6 +217,8 @@ spec:
         - GET
         - GET /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -194,6 +228,8 @@ spec:
         - GET /id
         - PATCH
       version: 4
+      name: _must_be_defined
+      apiType: openapi
     exposedAPIs:
     - id: TMF641
       required: true
@@ -209,6 +245,11 @@ spec:
         - GET /id
         - POST
       version: 4
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
     - id: TMF701
       required: false
       resources:
@@ -222,9 +263,19 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi
+  - email: sylvie.demarest@orange.com
+    name: Sylvie Demarest
+  eventNotification:
     publishedEvents:
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrdeManagement/hub
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrdeManagement/hub
       name: TMF641 Service Ordering Management API
       port: 80
       resources:
@@ -239,8 +290,9 @@ spec:
       - cancelServiceOrderStateChangeEvent
       - cancelServiceOrderInformationRequiredEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF641_Service_Ordering_Management_API_v4.1.0_swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      id: TMF641
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       name: ProcessFlowManagement
       port: 80
       resources:
@@ -254,9 +306,10 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      id: TMF701
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrderManagement/hub
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrderManagement/hub
       name: ResourceOrderManagement
       port: 80
       resources:
@@ -266,30 +319,30 @@ spec:
       - cancelResourceOrderStateChange
       - cancelResourceOrderInformationRequiredEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF634_Resource_Catalog_Management_API_v4.1.0_swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/hub
+      id: TMF634
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/hub
       name: ServiceQualification
       port: 80
       resources:
       - checkServiceQualificationStateChangeEvent
       - queryServiceQualificationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF645_Service_Qualification_Management_API_v4.0.0_swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Communication/hub
+      id: TMF645
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Communication/hub
       name: Communication
       port: 80
       resources:
       - communicationMessageStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF681_Communication_Management_API_v4.0.0_swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrder/hub
+      id: TMF681
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrder/hub
       name: WorkOrder
       port: 80
       resources:
       - workOrderStateChange
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/4.0.0/swagger/TMF697_Work_Order_Management_API_v4.0.0_swagger.json
-  owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  - email: sylvie.demarest@orange.com
-    name: Sylvie Demarest
+      id: TMF697
+      apiType: openapi

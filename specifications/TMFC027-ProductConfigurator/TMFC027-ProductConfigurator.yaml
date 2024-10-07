@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -21,6 +21,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF620
       required: true
       resources:
@@ -40,6 +42,8 @@ spec:
         - GET
         - GET /id
       version: 4.1
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF622
       required: true
       resources:
@@ -47,6 +51,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF632
       required: false
       resources:
@@ -57,6 +63,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF666
       required: false
       resources:
@@ -64,6 +72,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF669
       required: false
       resources:
@@ -71,6 +81,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF672
       required: false
       resources:
@@ -81,6 +93,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF673
       required: false
       resources:
@@ -91,6 +105,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF674
       required: false
       resources:
@@ -98,6 +114,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF688
       required: false
       resources:
@@ -105,6 +123,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -118,6 +138,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF662
       required: false
       resources:
@@ -125,6 +147,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     - id: TMF921
       required: false
       resources:
@@ -132,6 +156,8 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      name: _must_be_defined
+      apiType: openapi
     exposedAPIs:
     - id: TMF679
       required: true
@@ -143,6 +169,11 @@ spec:
         - PATCH/id
         - DELETE
       version: 4
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
     - id: TMF760
       required: true
       resources:
@@ -155,6 +186,11 @@ spec:
         - GET/id
         - POST
       version: 5
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
     - id: TMF701
       required: false
       resources:
@@ -168,9 +204,17 @@ spec:
         - get /id
         - PATCH
       version: 4
+      name: _must_be_defined
+      apiType: openapi
+      implementation: _must_be_defined
+      path: _must_be_defined
+      port: 80
+  owners:
+  - email: sylvie.demarest@orange.com
+    name: Sylvie Demarest
+  eventNotification:
     publishedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-ProductConfiguration
+    - implementation: /{{.Release.Name}}-ProductConfiguration
       name: ProductConfiguration
       port: 80
       resources:
@@ -178,20 +222,22 @@ spec:
       - checkProductConfigurationCreateEvent
       - checkProductConfigurationDeleteEvent
       - checkProductConfigurationStateChangeEvent
-      specification: ''
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-ProductOfferingQualification
-      name: ProductOfferingQualification
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF760_ProductConfiguration/master/TMF760-ProductConfiguration-v4.0.0.swagger.json
+      id: TMF760
+      apiType: openapi
+    - implementation: /{{.Release.Name}}-ProductOfferingQualification
+      name: ProductConfiguration
       port: 80
       resources:
       - queryProductConfigurationAttributeValueChangeEvent
       - queryProductConfigurationCreateEvent
       - queryProductConfigurationDeleteEvent
       - queryProductConfigurationStateChangeEvent
-      specification: ''
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-pdtquali
-      name: ProductConfiguration
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF760_ProductConfiguration/master/TMF760-ProductConfiguration-v4.0.0.swagger.json
+      id: TMF760
+      apiType: openapi
+    - implementation: /{{.Release.Name}}-pdtquali
+      name: ProductOfferingQualification
       port: 80
       resources:
       - ProductOfferingQualificationCreateEvent
@@ -199,10 +245,11 @@ spec:
       - ProductOfferingQualificationStateChangeEvent
       - ProductOfferingQualificationDeleteEvent
       - ProductOfferingQualificationInformationRequiredEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF679_ProductOfferingQualificationManagement/master/TMF679-ProductOfferingQualificationManagement-v4.0.0.swagger.json
+      specification: https://github.com/tmforum-apis/TMF679_ProductOfferingQualification/blob/master/TMF679-ProductOfferingQualification-v4.0.0.swagger.json
+      id: TMF679
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      name: ProductCatalogManagement
+    - name: ProductCatalogManagement
       port: 80
       resources:
       - CatalogCreateEvent
@@ -221,6 +268,5 @@ spec:
       - ProductSpecificationStateChangeEvent
       - ProductSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF622-ProductCatalogManagement/blob/master/TMF622-ProductCatalogManagement-v4.0.0.swagger.json
-  owners:
-  - email: sylvie.demarest@orange.com
-    name: Sylvie Demarest
+      id: TMF622
+      apiType: openapi

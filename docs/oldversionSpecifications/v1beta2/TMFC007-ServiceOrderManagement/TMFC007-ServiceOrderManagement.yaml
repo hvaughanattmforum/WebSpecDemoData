@@ -1,0 +1,295 @@
+apiVersion: oda.tmforum.org/v1beta2
+kind: component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  name: ServiceOrderManagement
+  id: TMFC007
+  functionalBlock: Production
+  description: The SOM is the entry point of the Production Domain. It oversees Customer-Facing-Service
+    (CFS) delivery of resources (network and service platforms equipment). The SOM
+    exposes in particular the API ServiceOrder. It is triggered when the Product Order
+    Orchestration Management component calls this API to request CFS delivery. To
+    achieve delivery of a CFS, the SOM orchestrates the CFS delivery process which.
+    Identifies possible RFS and chooses one, using the catalog and technical inventory.
+    Selects the resources (servers, equipment, etc.) and their instances. Requests
+    the ROM to update selected resource instances to deliver CFS. Request sent to
+    the ROM contain the CFS and the list of configured resource instances to update.
+  publicationDate: 2024-02-23
+  status: specified
+  version: 2.0.0
+  coreFunction:
+    dependentAPIs:
+    - id: TMF632
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF633
+      required: true
+      resources:
+      - serviceSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF634
+      required: false
+      resources:
+      - resourceSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF638
+      required: true
+      resources:
+      - service:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF639
+      required: false
+      resources:
+      - resource:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF640
+      required: false
+      resources:
+      - monitor:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF641
+      required: false
+      resources:
+      - serviceOrder:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - cancelServiceOrder:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF645
+      required: false
+      resources:
+      - checkServiceQualification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      - queryServiceQualification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      version: 4
+    - id: TMF646
+      required: false
+      resources:
+      - appointment:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      - searchTimeSlot:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      version: 4
+    - id: TMF652
+      required: false
+      resources:
+      - resourceOrder:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - cancelResourceOrder:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF653
+      required: false
+      resources:
+      - serviceTest:
+        - GET
+        - GET /id
+      - serviceTestSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF669
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF673
+      required: false
+      resources:
+      - geographicAddress:
+        - GET
+        - GET /id
+      - geographicSubAddress:
+        - GET
+        - GET /id
+      - geographicAddressValidation:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF674
+      required: false
+      resources:
+      - geographicLocation:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF675
+      required: false
+      resources:
+      - geographicSite:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF681
+      required: false
+      resources:
+      - communicationMessage:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF697
+      required: false
+      resources:
+      - workOrder:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+      version: 4
+    exposedAPIs:
+    - id: TMF641
+      required: true
+      resources:
+      - serviceOrder:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - cancelServiceOrder:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - GET
+        - GET /id
+        - POST
+        - DELETE /id
+      - taskFlow:
+        - GET
+        - GET /id
+        - PATCH /id
+      version: 4
+    publishedEvents:
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrdeManagement/hub
+      name: TMF641 Service Ordering Management API
+      port: 80
+      resources:
+      - serviceOrderCreateEvent
+      - serviceOrderStateChangeEvent
+      - serviceOrderDeleteEvent
+      - serviceOrderAttributeValueChangeEvent
+      - serviceOrderInformationRequiredEvent
+      - serviceOrderMilestoneEvent
+      - serviceOrderJeopardyEvent
+      - cancelServiceOrderCreateEvent
+      - cancelServiceOrderStateChangeEvent
+      - cancelServiceOrderInformationRequiredEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF641_Service_Ordering_Management_API_v4.1.0_swagger.json
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      name: ProcessFlowManagement
+      port: 80
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+    subscribedEvents:
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrderManagement/hub
+      name: ResourceOrderManagement
+      port: 80
+      resources:
+      - resourceOrderStateChange
+      - resourceOrderAttributeValueChangeEvent
+      - resourceOrderInformationRequiredEvent
+      - cancelResourceOrderStateChange
+      - cancelResourceOrderInformationRequiredEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.1.0/swagger/TMF634_Resource_Catalog_Management_API_v4.1.0_swagger.json
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/hub
+      name: ServiceQualification
+      port: 80
+      resources:
+      - checkServiceQualificationStateChangeEvent
+      - queryServiceQualificationStateChangeEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF645_Service_Qualification_Management_API_v4.0.0_swagger.json
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Communication/hub
+      name: Communication
+      port: 80
+      resources:
+      - communicationMessageStateChangeEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF681_Communication_Management_API_v4.0.0_swagger.json
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrder/hub
+      name: WorkOrder
+      port: 80
+      resources:
+      - workOrderStateChange
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/4.0.0/swagger/TMF697_Work_Order_Management_API_v4.0.0_swagger.json
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi
+  - email: sylvie.demarest@orange.com
+    name: Sylvie Demarest
