@@ -20,7 +20,7 @@ def remove_arrays(component):
             for api in component["spec"][block][edge]:
                 api.pop("name", "")
                 api.pop("specification", "")
-                api.pop("apiType", "")
+                api.pop("apitype", "")
                 api.pop("implementation", "")
                 api.pop("port", "")
                 api.pop("path", "")

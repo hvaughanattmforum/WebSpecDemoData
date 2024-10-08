@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta3
+apiVersion: oda.tmforum.org/v1beta2
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -25,8 +25,6 @@ spec:
         - GET
         - GET/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -40,8 +38,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF672
       required: true
@@ -59,11 +55,6 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF669
       required: true
       resources:
@@ -74,17 +65,9 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: matteo.destino@accenture.com
-    name: Matteo Destino
-  eventNotification:
     publishedEvents:
-    - implementation: /{{.Release.Name}}-userrole&permapi
+    - apitype: openapi
+      implementation: /{{.Release.Name}}-userrole&permapi
       name: userRole
       port: 80
       resources:
@@ -97,9 +80,8 @@ spec:
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRoleAndPermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-      id: TMF672
-      apiType: openapi
-    - implementation: /{{.Release.Name}}-partyroleapi
+    - apitype: openapi
+      implementation: /{{.Release.Name}}-partyroleapi
       name: partyRole
       port: 80
       resources:
@@ -108,10 +90,9 @@ spec:
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRoleManagement/master/TMF672-PartyRoleManagement-v4.0.0.swagger.json
-      id: TMF669
-      apiType: openapi
     subscribedEvents:
-    - implementation: /{{.Release.Name}}-PartyManagement
+    - apitype: openapi
+      implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
       port: 80
       resources:
@@ -122,9 +103,8 @@ spec:
       - organizationAttributeValueChangeEvent
       - organizationStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
-      id: TMF632
-      apiType: openapi
-    - implementation: /{{.Release.Name}}-ProcessFlowManagement
+    - apitype: openapi
+      implementation: /{{.Release.Name}}-ProcessFlowManagement
       name: ProcessFlowManagement
       port: 80
       resources:
@@ -133,5 +113,6 @@ spec:
       - taskFlowCreateEvent
       - taskFlowStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-      id: TMF701
-      apiType: openapi
+  owners:
+  - email: matteo.destino@accenture.com
+    name: Matteo Destino

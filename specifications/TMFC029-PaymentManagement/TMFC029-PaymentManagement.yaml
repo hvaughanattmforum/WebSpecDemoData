@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta3
+apiVersion: oda.tmforum.org/v1beta2
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -24,8 +24,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF666
       required: false
       resources:
@@ -51,8 +49,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF673
       required: false
       resources:
@@ -66,8 +62,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF674
       required: false
       resources:
@@ -75,8 +69,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF675
       required: false
       resources:
@@ -84,8 +76,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF688
       required: false
       resources:
@@ -94,8 +84,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF670
       required: true
@@ -107,11 +95,6 @@ spec:
         - PATCH
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF676
       required: true
       resources:
@@ -124,11 +107,6 @@ spec:
         - GET /id
         - POST
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -142,11 +120,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF688
       required: false
       resources:
@@ -156,17 +129,9 @@ spec:
         - POST
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  eventNotification:
     publishedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentManagement/hub
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentManagement/hub
       implementation: /{{.Release.Name}}-PaymentManagement
       name: PaymentManagement
       port: 80
@@ -179,9 +144,8 @@ spec:
       - RefundCreateEvent
       - RefundStatusChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF676_PaymentManagement/master/TMF676-Payment-v4.0.0.swagger.json
-      id: TMF676
-      apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentMethods/hub
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentMethods/hub
       implementation: /{{.Release.Name}}-PaymentMethods
       name: PaymentMethods
       port: 80
@@ -191,9 +155,8 @@ spec:
       - PaymentMethodDeleteEvent
       - PaymentMethodStatusChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF670_PaymentMethods/master/TMF670-PaymentMethod-v4.0.0.swagger.json
-      id: TMF670
-      apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80
@@ -208,6 +171,7 @@ spec:
       - TaskFlowAttributeValueChangeEvent
       - TaskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-      id: TMF701
-      apiType: openapi
     subscribedEvents: []
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi

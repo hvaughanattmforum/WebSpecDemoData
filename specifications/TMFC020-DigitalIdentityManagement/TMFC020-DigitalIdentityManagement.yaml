@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta3
+apiVersion: oda.tmforum.org/v1beta2
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -23,16 +23,12 @@ spec:
         - GET
         - GET/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF669
       required: true
       resources:
       - partyRole:
         - POST
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -46,8 +42,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF720
       required: true
@@ -65,11 +59,6 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -83,17 +72,9 @@ spec:
         - GET/id
         - PATCH/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: _must_be_defined
-    name: _must_be_defined
-  eventNotification:
     publishedEvents:
-    - implementation: /{{.Release.Name}}-digidemngt
+    - apitype: openapi
+      implementation: /{{.Release.Name}}-digidemngt
       name: digitalIdentity
       port: 80
       resources:
@@ -102,14 +83,12 @@ spec:
       - DigitalIdentityDeleteEvent
       - DigitalIdentityAttributeValueChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF720_DigitalIdentityManagement/master/TMF720-DigitalIdentityManagement-v4.0.0.swagger.json
-      id: TMF720
-      apiType: openapi
     subscribedEvents:
-    - name: PartyRoleManagement
+    - apitype: openapi
+      name: PartyRoleManagement
       port: 80
       resources:
       - UserRoleCreationNotification
       - UserRoleChangeNotification
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-      id: TMF669
-      apiType: openapi
+  owners: []

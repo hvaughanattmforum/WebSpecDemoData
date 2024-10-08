@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta3
+apiVersion: oda.tmforum.org/v1beta2
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -30,8 +30,6 @@ spec:
         - GET /id
         - DELETE /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF688
       required: true
@@ -65,17 +63,9 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: koen.peeters@ciminko.lu
-    name: Loen Peeters
-  eventNotification:
     publishedEvents:
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/call-back
+    - apitype: openapi
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EventManagement/call-back
       implementation: /{{.Release.Name}}-EventManagement
       name: EventManagement
       port: 80
@@ -89,6 +79,7 @@ spec:
       - HubStateChangeEvent
       - HubDeleteEvent
       specification: https://github.com/tmforum-apis/TMF688-EventManagement/blob/master/TMF688-EventManagement-v4.0.0.swagger.json
-      id: TMF688
-      apiType: openapi
     subscribedEvents: []
+  owners:
+  - email: koen.peeters@ciminko.lu
+    name: Loen Peeters

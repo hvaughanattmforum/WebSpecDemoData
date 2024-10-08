@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta3
+apiVersion: oda.tmforum.org/v1beta2
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -26,8 +26,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF669
       required: false
       resources:
@@ -35,8 +33,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF672
       required: true
       resources:
@@ -47,8 +43,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -58,8 +52,6 @@ spec:
         - GET /id
         - PATCH
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF688
       required: false
       resources:
@@ -67,8 +59,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF646
       required: true
@@ -86,11 +76,6 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -104,11 +89,6 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF688
       required: false
       resources:
@@ -118,17 +98,9 @@ spec:
         - POST
         - DELETE /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: milind.2.bhagwat@bt.com
-    name: Milind Bhagwat
-  eventNotification:
     publishedEvents:
-    - implementation: /{{.Release.Name}}-appointmentManagement
+    - apitype: openapi
+      implementation: /{{.Release.Name}}-appointmentManagement
       name: appointmentManagement
       port: 80
       resources:
@@ -141,10 +113,9 @@ spec:
       - searchTimeSlotStateChangeEvent
       - searchTimeSlotDeleteEvent
       specification: https://github.com/tmforum-apis/TMF646_AppointmentManagement/blob/master/TMF646-Appointment-v4.0.0.swagger.json
-      id: TMF646
-      apiType: openapi
     subscribedEvents:
-    - name: PartyRoleManagement
+    - apitype: openapi
+      name: PartyRoleManagement
       port: 80
       resources:
       - partyRoleCreateEvent
@@ -152,9 +123,8 @@ spec:
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-      id: TMF669
-      apiType: openapi
-    - name: UserRolePermissionManagement
+    - apitype: openapi
+      name: UserRolePermissionManagement
       port: 80
       resources:
       - permissionCreateEvent
@@ -166,9 +136,8 @@ spec:
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF672_UserRolesPermissions/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-      id: TMF672
-      apiType: openapi
-    - name: ProcessFlowManagement
+    - apitype: openapi
+      name: ProcessFlowManagement
       port: 80
       resources:
       - processFlowCreateEvent
@@ -181,5 +150,6 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.0.0.swagger.json
-      id: TMF701
-      apiType: openapi
+  owners:
+  - email: milind.2.bhagwat@bt.com
+    name: Milind Bhagwat

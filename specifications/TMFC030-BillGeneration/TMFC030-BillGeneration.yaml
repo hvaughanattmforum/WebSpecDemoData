@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta3
+apiVersion: oda.tmforum.org/v1beta2
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -29,8 +29,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF632
       required: true
       resources:
@@ -41,8 +39,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF676
       required: false
       resources:
@@ -55,8 +51,6 @@ spec:
         - GET /id
         - POST
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF667
       required: false
       resources:
@@ -65,8 +59,6 @@ spec:
         - GET /id
         - POST
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF637
       required: false
       resources:
@@ -74,8 +66,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF669
       required: true
       resources:
@@ -83,8 +73,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF672
       required: false
       resources:
@@ -95,8 +83,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -111,8 +97,6 @@ spec:
         - POST
         - PATCH
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - hub:
       - GET
       - GET /id
@@ -125,8 +109,6 @@ spec:
         - GET /id
         - POST
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF678
       required: true
@@ -140,11 +122,6 @@ spec:
         - GET /id
         - PATCH /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -158,11 +135,6 @@ spec:
         - GET /id
         - PATCH /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF688
       required: false
       resources:
@@ -172,27 +144,18 @@ spec:
         - POST
         - DELETE /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  eventNotification:
     publishedEvents: []
     subscribedEvents:
-    - name: partyRoleManagement
+    - apitype: openapi
+      name: partyRoleManagement
       port: 80
       resources:
       - partyRoleAttributeValueChangeEvent
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-      id: TMF669
-      apiType: openapi
-    - name: userRolePermissionManagement
+    - apitype: openapi
+      name: userRolePermissionManagement
       port: 80
       resources:
       - permissionCreateEvent
@@ -204,5 +167,6 @@ spec:
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRoleandPermission-v4.0.0.swagger.json
-      id: TMF672
-      apiType: openapi
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi
