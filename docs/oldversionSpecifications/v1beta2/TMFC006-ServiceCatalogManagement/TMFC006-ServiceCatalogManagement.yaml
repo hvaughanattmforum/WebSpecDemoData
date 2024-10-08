@@ -1,0 +1,232 @@
+apiVersion: oda.tmforum.org/v1beta2
+kind: component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  name: ServiceCatalogManagement
+  id: TMFC006
+  functionalBlock: Production
+  description: "\tService Catalog Management component is responsible for organizing\
+    \ the collection of service specifications that identify and define all requirements\
+    \ of a service that can be performed. Service Catalog Management component has\
+    \ the functionality that enable present a customer-facing view so users are able\
+    \ to search and select services they need, as well as a technical view to enable\
+    \ define and setup what's needed to deliver service specifications (Customer Facing\
+    \ Service Specifications (CFSSs) and Resource Facing Service Specifications (RFSSs))\
+    \ contained in the service catalog. Service Catalog Management component has functionalities\
+    \ that include creation of new service specifications, managing service specifications,\
+    \ administering the lifecycle of services, describing relationships between service\
+    \ specification attributes, reporting on service specification and their changes,\
+    \ and facilitating easy and systematic indexing and access to services, as well\
+    \ as facilitate automating the service delivery process."
+  publicationDate: 2023-08-18 00:00:00
+  status: specified
+  version: 1.1.1
+  coreFunction:
+    dependentAPIs:
+    - id: TMF634
+      required: false
+      resources:
+      - resourceSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF669
+      required: false
+      resources:
+      - PartyRole:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF632
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF662
+      required: false
+      resources:
+      - entitySpecification:
+        - GET
+        - GET /id
+      - associationSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF672
+      required: false
+      resources:
+      - permission:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF688
+      required: false
+      resources:
+      - event:
+        - GET
+        - GET /id
+      version: 4
+    exposedAPIs:
+    - id: TMF633
+      required: true
+      resources:
+      - catalog:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - category:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - serviceSpecification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - serviceCandidate:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - exportJob:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - importJob:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      version: 4
+    - id: TMF657
+      required: true
+      resources:
+      - serviceLevelSpecification:
+        - GET
+        - GET/id
+        - POST
+        - PATCH
+        - DELETE
+      - serviceLevelObjective:
+        - GET
+        - GET/id
+        - POST
+        - PATCH
+        - DELETE
+      - serviceLevelSpecParameter:
+        - GET
+        - GET/id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF688
+      required: false
+      resources:
+      - listener:
+        - POST
+      - hub:
+        - POST
+        - DELETE
+      version: 4
+    publishedEvents:
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/hub
+      implementation: /{{.Release.Name}}-ServiceCatalog
+      name: ServiceCatalogManagement
+      port: 80
+      resources:
+      - serviceSpecificationCreateEvent
+      - serviceSpecificationChangeEvent
+      - serviceSpecificationDeleteEvent
+      - serviceCategoryCreateEvent
+      - serviceCategoryChangeEvent
+      - serviceCategoryDeleteEvent
+      - serviceCandidateCreateEvent
+      - serviceCandidateChangeEvent
+      - serviceCandidateDeleteEvent
+      - serviceCatalogCreateEvent
+      - serviceCatalogChangeEvent
+      - serviceCatalogDeleteEvent
+      - serviceCatalogBatchEvent
+      specification: https://github.com/tmforum-apis/TMF633_ServiceCatalog/blob/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualityManagement/hub
+      implementation: /{{.Release.Name}}-ServiceQualityManagement
+      name: ServiceQualityManagement
+      port: 80
+      resources:
+      - serviceLevelObjectiveCreateEvent
+      - serviceLevelObjectiveChangeEvent
+      - serviceLevelObjectiveAttributeValueChangeEvent
+      - serviceLevelSpecificationCreateEvent
+      - serviceLevelSpecificationDeleteEvent
+      - serviceLevelSpecificationAttributeValueChangeEvent
+      specification: https://github.com/tmforum-apis/TMF657_ServiceQualityManagement/blob/master/TMF657-ServiceQualityManagement-v4.0.0.swagger.json
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
+      name: ProcessFlowManagement
+      port: 80
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+    subscribedEvents:
+    - apitype: openapi
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/call-back
+      implementation: /{{.Release.Name}}-ResourceCatalog
+      name: ResourceCatalogManagement
+      port: 80
+      resources:
+      - resourceSpecificationCreateEvent
+      - resourceSpecificationChangeEvent
+      - resourceSpecificationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF634_ResourceCatalog/blob/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
+    - apitype: openapi
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/call-back
+      implementation: /{{.Release.Name}}-EntityCatalog
+      name: EntityCatalogManagement
+      port: 80
+      resources:
+      - entitySpecificationCreateEvent
+      - entitySpecificationAttributeValueChangeEvent
+      - entitySpecificationChangeEvent
+      - entitySpecificationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF662_EntityCatalog/blob/master/TMF662-EntityCatalog-v4.0.0.swagger.json
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi

@@ -1,0 +1,172 @@
+apiVersion: oda.tmforum.org/v1beta2
+kind: component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  name: BillGeneration
+  id: TMFC030
+  functionalBlock: PartyManagement
+  description: Bill generation mgmt. manage the party invoice management. It addresses
+    the invoice formatting, presentation and dispatching to the proper means of communication.
+  publicationDate: 2023-12-18
+  status: specified
+  version: 2.0.0
+  coreFunction:
+    dependentAPIs:
+    - id: TMF666
+      required: true
+      resources:
+      - billingAccount:
+        - GET
+        - GET /id
+      - billingCycleSpecification:
+        - GET
+        - GET /id
+      - billFormat:
+        - GET
+        - GET /id
+      - billPresentationMedia:
+        - GET
+        - GET /id
+      version: 4.0
+    - id: TMF632
+      required: true
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4.0
+    - id: TMF676
+      required: false
+      resources:
+      - payment:
+        - GET
+        - GET /id
+        - POST
+      - refund:
+        - GET
+        - GET /id
+        - POST
+      version: 4.0
+    - id: TMF667
+      required: false
+      resources:
+      - document:
+        - GET
+        - GET /id
+        - POST
+      version: 4.0
+    - id: TMF637
+      required: false
+      resources:
+      - product:
+        - GET
+        - GET /id
+      version: 4.0
+    - id: TMF669
+      required: true
+      resources:
+      - PartyRole:
+        - GET
+        - GET /id
+      version: 4.0
+    - id: TMF672
+      required: false
+      resources:
+      - permission:
+        - GET
+        - GET /id
+      - userRole:
+        - GET
+        - GET /id
+      version: 4.0
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+      - taskFlow:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      version: 4.0
+    - hub:
+      - GET
+      - GET /id
+      - POST
+      id: TMF688
+      required: false
+      resources:
+      - event:
+        - GET
+        - GET /id
+        - POST
+      version: 4.0
+    exposedAPIs:
+    - id: TMF678
+      required: true
+      resources:
+      - customerBillOnDemand:
+        - GET
+        - POST
+        - GET /id
+      - customerBill:
+        - GET
+        - GET /id
+        - PATCH /id
+      version: 4.0
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - GET
+        - GET /id
+        - POST
+        - DELETE /id
+      - taskFlow:
+        - GET
+        - GET /id
+        - PATCH /id
+      version: 4.0
+    - id: TMF688
+      required: false
+      resources:
+      - listener:
+        - POST
+      - hub:
+        - POST
+        - DELETE /id
+      version: 4.0
+    publishedEvents: []
+    subscribedEvents:
+    - apitype: openapi
+      name: partyRoleManagement
+      port: 80
+      resources:
+      - partyRoleAttributeValueChangeEvent
+      - partyRoleStateChangeEvent
+      - partyRoleDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
+    - apitype: openapi
+      name: userRolePermissionManagement
+      port: 80
+      resources:
+      - permissionCreateEvent
+      - permissionAttributeValueChangeEvent
+      - permissionStateChangeEvent
+      - permissionDeleteEvent
+      - userRoleCreateEvent
+      - userRoleAttributeValueChangeEvent
+      - userRoleStateChangeEvent
+      - userRoleDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRoleandPermission-v4.0.0.swagger.json
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi
