@@ -16,21 +16,8 @@ def new_Component_yaml_Template(old_yaml):
     new_yaml = old_yaml.copy()
    
     add_v1beta3_event_notification_changes(new_yaml, old_yaml)
-    new_yaml['spec']['securityFunction'] = {}
+    new_yaml['apiVersion'] = "oda.tmforum.org/" + NEW_COMPONENT_VERSION     
 
-    new_yaml['spec']['securityFunction'] = {
-        'secretsManagement': {
-        'type': old_yaml['spec']['securityFunction'].get('secretsManagement', {}).get('secretManagementType', 'sideCar'),
-        'sideCar': old_yaml['spec']['securityFunction'].get('secretsManagement', {}).get('sideCar', None),
-        'podSelector': old_yaml['spec']['securityFunction'].get('secretsManagement', {}).get('podSelector', None)
-        }
-    }
-    new_yaml['spec']['securityFunction']['dependentAPIs'] = old_yaml['spec']['securityFunction'].get('dependentAPIs', [])
-            
-    new_yaml['spec']['securityFunction']['exposedAPIs'] = old_yaml['spec']['securityFunction'].get('exposedAPIs', [])
-            
-    new_yaml['spec']['securityFunction']['controllerRole'] = old_yaml['spec']['securityFunction'].get('controllerRole', None)
-            
     return new_yaml
 
 def extract_tmf_id(spec_url):

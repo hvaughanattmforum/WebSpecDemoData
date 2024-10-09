@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -169,8 +169,7 @@ spec:
         - PATCH
       version: 4
     publishedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-ProductConfiguration
+    - implementation: /{{.Release.Name}}-ProductConfiguration
       name: ProductConfiguration
       port: 80
       resources:
@@ -179,8 +178,8 @@ spec:
       - checkProductConfigurationDeleteEvent
       - checkProductConfigurationStateChangeEvent
       specification: ''
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-ProductOfferingQualification
+      apiType: openapi
+    - implementation: /{{.Release.Name}}-ProductOfferingQualification
       name: ProductOfferingQualification
       port: 80
       resources:
@@ -189,8 +188,8 @@ spec:
       - queryProductConfigurationDeleteEvent
       - queryProductConfigurationStateChangeEvent
       specification: ''
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-pdtquali
+      apiType: openapi
+    - implementation: /{{.Release.Name}}-pdtquali
       name: ProductConfiguration
       port: 80
       resources:
@@ -200,9 +199,9 @@ spec:
       - ProductOfferingQualificationDeleteEvent
       - ProductOfferingQualificationInformationRequiredEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF679_ProductOfferingQualificationManagement/master/TMF679-ProductOfferingQualificationManagement-v4.0.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      name: ProductCatalogManagement
+    - name: ProductCatalogManagement
       port: 80
       resources:
       - CatalogCreateEvent
@@ -221,6 +220,7 @@ spec:
       - ProductSpecificationStateChangeEvent
       - ProductSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF622-ProductCatalogManagement/blob/master/TMF622-ProductCatalogManagement-v4.0.0.swagger.json
+      apiType: openapi
   owners:
   - email: sylvie.demarest@orange.com
     name: Sylvie Demarest

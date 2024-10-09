@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -146,16 +146,15 @@ spec:
       version: 4.0
     publishedEvents: []
     subscribedEvents:
-    - apitype: openapi
-      name: partyRoleManagement
+    - name: partyRoleManagement
       port: 80
       resources:
       - partyRoleAttributeValueChangeEvent
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      name: userRolePermissionManagement
+      apiType: openapi
+    - name: userRolePermissionManagement
       port: 80
       resources:
       - permissionCreateEvent
@@ -167,6 +166,7 @@ spec:
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRoleandPermission-v4.0.0.swagger.json
+      apiType: openapi
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi

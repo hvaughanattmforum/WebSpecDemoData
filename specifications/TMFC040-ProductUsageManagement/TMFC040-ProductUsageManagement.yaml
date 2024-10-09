@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -107,8 +107,7 @@ spec:
         - DELETE /id
       version: 4.0
     publishedEvents:
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UsageConsumption/hub
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UsageConsumption/hub
       name: UsageConsumption
       port: 80
       resources:
@@ -116,8 +115,8 @@ spec:
       - queryUsageConsumptionDeleteEvent
       - queryUsageConsumptionStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF677_UsageConsumption/blob/master/TMF677-UsageConsumption-v4.0.1.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/usageManagement/hub
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/usageManagement/hub
       name: UsageManagement
       port: 80
       resources:
@@ -129,17 +128,17 @@ spec:
       - usageSpecificationAttributeValueChangeEvent
       - usageSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF635_UsageManagement/blob/master/TMF635-UsageManagement-v4.0.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/party/call-back
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/party/call-back
       name: Party
       port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyrole/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyrole/call-back
       name: PartyRoleManagement
       port: 80
       resources:
@@ -148,6 +147,7 @@ spec:
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
+      apiType: openapi
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi

@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -315,11 +315,3 @@ spec:
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  securityFunction:
-    secretsManagement:
-      type: sideCar
-      sideCar: null
-      podSelector: null
-    dependentAPIs: []
-    exposedAPIs: []
-    controllerRole: null
