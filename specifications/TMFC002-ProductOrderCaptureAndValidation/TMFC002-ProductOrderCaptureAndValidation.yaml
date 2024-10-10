@@ -18,14 +18,12 @@ spec:
     closure of the order. It includes update of the Product Inventory (status and
     starting/end date of tariffs and discounts) and potential commercial rules control
     (e.g. receipt of the contract document signed by the customer)
-  publicationDate: 2024-09-18 00:00:00
+  publicationDate: 2023-08-18 00:00:00
   status: specified
   version: 1.1.1
   coreFunction:
     dependentAPIs:
     - id: TMF620
-      name: downstreamproductcatalog
-      apiType: openapi
       required: true
       resources:
       - productCategory:
@@ -42,8 +40,6 @@ spec:
         - GET /id
       version: 4.1
     - id: TMF637
-      name: downstreamproductinventory
-      apiType: openapi
       required: true
       resources:
       - product:
@@ -52,8 +48,6 @@ spec:
         - POST
       version: 4
     - id: TMF679
-      name: downstreamproductofferingqualification
-      apiType: openapi
       required: false
       resources:
       - productOfferingQualification:
@@ -63,8 +57,6 @@ spec:
         - PATCH
       version: 4
     - id: TMF645
-      name: downstreamservicequalification
-      apiType: openapi
       required: false
       resources:
       - checkServiceQualification:
@@ -79,8 +71,6 @@ spec:
         - PATCH
       version: 4
     - id: TMF646
-      name: downstreamappointment
-      apiType: openapi
       required: false
       resources:
       - appointment:
@@ -95,8 +85,6 @@ spec:
         - PATCH
       version: 4
     - id: TMF673
-      name: downstreamgeographicaddress
-      apiType: openapi
       required: false
       resources:
       - geographicAddress:
@@ -111,8 +99,6 @@ spec:
         - POST
       version: 4
     - id: TMF674
-      name: downstreamgeographicsite
-      apiType: openapi
       required: false
       resources:
       - geographicSite:
@@ -120,8 +106,6 @@ spec:
         - GET /id
       version: 4
     - id: TMF685
-      name: downstreamresourcepool
-      apiType: openapi
       required: false
       resources:
       - reservation:
@@ -135,8 +119,6 @@ spec:
         - GET /id
       version: 4
     - id: TMF687
-      name: downstreamproductstock
-      apiType: openapi
       required: false
       resources:
       - checkProductStock:
@@ -162,8 +144,6 @@ spec:
         - GET /id
       version: 4
     - id: TMF632
-      name: downstreampartymngmnt
-      apiType: openapi
       required: false
       resources:
       - individual:
@@ -174,8 +154,6 @@ spec:
         - GET /id
       version: 4
     - id: TMF669
-      name: downstreampartyrolemngmnt
-      apiType: openapi
       required: false
       resources:
       - PartyRoleManagement:
@@ -183,8 +161,6 @@ spec:
         - GET /id
       version: 4
     - id: TMF666
-      name: downstreambillingaccount
-      apiType: openapi
       required: false
       resources:
       - billingAccount:
@@ -192,8 +168,6 @@ spec:
         - GET
       version: 4
     - id: TMF676
-      name: downstreampayment
-      apiType: openapi
       required: false
       resources:
       - payment:
@@ -201,17 +175,13 @@ spec:
         - GET
       version: 4
     - id: TMF683
-      name: downstreampartyinteraction
       required: false
       resources:
       - partyInteraction:
         - GET / id
         - GET
       version: 4
-      apiType: openapi
     - id: TMF638
-      name: downstreamserviceinventory
-      apiType: openapi
       required: false
       resources:
       - service:
@@ -219,8 +189,6 @@ spec:
         - GET
       version: 4
     - id: TMF639
-      name: downstreamresourceinventory
-      apiType: openapi
       required: false
       resources:
       - resource:
@@ -228,8 +196,6 @@ spec:
         - GET
       version: 4
     - id: TMF672
-      name: downstreamuserrolepermission
-      apiType: openapi
       required: false
       resources:
       - permission:
@@ -237,8 +203,6 @@ spec:
         - GET
       version: 4
     - id: TMF701
-      name: downstreamprocessflow
-      apiType: openapi
       required: false
       resources:
       - processFlow:
@@ -253,8 +217,6 @@ spec:
         - GET /id
       version: 4
     - id: TMF688
-      name: downstreameventmngmt
-      apiType: openapi
       required: false
       resources:
       - event:
@@ -263,8 +225,6 @@ spec:
         - GET /id
       version: 4
     - id: TMF629
-      name: downstreamcustomermngmt
-      apiType: openapi
       required: false
       resources:
       - customer:
@@ -286,11 +246,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF648
       required: false
       resources:
@@ -301,11 +256,6 @@ spec:
         - PATCH
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF663
       required: false
       resources:
@@ -316,11 +266,6 @@ spec:
         - PATCH
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -334,11 +279,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF688
       required: false
       resources:
@@ -348,15 +288,6 @@ spec:
         - POST
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  eventNotification:
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrder/hub
       implementation: /{{.Release.Name}}-ProductOrderEvent
@@ -372,7 +303,6 @@ spec:
       - cancelProductOrderStateChange
       - cancelProductOrderInformationRequired
       specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/master/TMF622-ProductOrder-v4.0.0.swagger.json
-      id: TMF622
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Quote/hub
       implementation: /{{.Release.Name}}-QuoteEvent
@@ -385,7 +315,6 @@ spec:
       - quoteDelete
       - quoteInformationRequired
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF648_QuoteManagement/master/TMF648-QuoteManagement-v4.0.0.swagger.json
-      id: TMF648
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ShoppingCart/hub
       implementation: /{{.Release.Name}}-ShoppingCartEvent
@@ -396,7 +325,6 @@ spec:
       - shoppingCartAttributeValueChange
       - shoppingCartDelete
       specification: https://github.com/tmforum-apis/TMF663_ShoppingCart/blob/master/TMF663-ShoppingCart-v4.0.0.swagger.json
-      id: TMF663
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -413,7 +341,6 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-      id: TMF701
       apiType: openapi
     subscribedEvents:
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOfferingQualification/call-back
@@ -423,7 +350,6 @@ spec:
       resources:
       - productOfferingQualificationStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF679_ProductOfferingQualification/blob/master/TMF679-ProductOfferingQualification-v4.0.0.swagger.json
-      id: TMF679
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/call-back
       implementation: /{{.Release.Name}}-ServiceQualificationEvent
@@ -433,7 +359,6 @@ spec:
       - checkServiceQualificationStateChangeEvent
       - queryServiceQualificationStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF645_ServiceQualification/blob/master/TMF645-ServiceQualification-v4.0.0.swagger.json
-      id: TMF645
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/call-back
       implementation: /{{.Release.Name}}-GeographicAddressManagementEvent
@@ -442,7 +367,6 @@ spec:
       resources:
       - geographicAddressValidationStateChange
       specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
-      id: TMF673
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourcePoolManagementEvent/call-back
       implementation: /{{.Release.Name}}-ResourcePoolManagementEvent
@@ -451,7 +375,6 @@ spec:
       resources:
       - reservationStateChangeNotification
       specification: https://github.com/tmforum-apis/TMF685_ResourcePool/blob/master/Resource_Pool_Management.regular.swagger.json
-      id: TMF685
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/StockManagementEvent/call-back
       implementation: /{{.Release.Name}}-StockManagementEvent
@@ -462,7 +385,6 @@ spec:
       - queryProductStockStateChange
       - reserveProductStockStateChange
       specification: https://github.com/tmforum-apis/TMF685_ResourcePool/blob/master/Resource_Pool_Management.regular.swagger.json
-      id: TMF685
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentManagementEvent/call-back
       implementation: /{{.Release.Name}}-PaymentManagementEvent
@@ -472,7 +394,6 @@ spec:
       - paymentCreate
       - paymentStateChange
       specification: https://github.com/tmforum-apis/TMF676_PaymentManagement/blob/master/TMF676-Payment-v4.0.0.swagger.json
-      id: TMF676
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -484,5 +405,7 @@ spec:
       - taskFlowCreateEvent
       - taskFlowStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-      id: TMF701
       apiType: openapi
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi

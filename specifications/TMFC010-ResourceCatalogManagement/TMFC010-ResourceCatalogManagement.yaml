@@ -55,8 +55,6 @@ spec:
         - POST
         - DELETE
       version: 4.1
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF669
       required: false
       resources:
@@ -64,8 +62,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF632
       required: false
       resources:
@@ -76,8 +72,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF662
       required: false
       resources:
@@ -88,8 +82,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF672
       required: false
       resources:
@@ -97,8 +89,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF688
       required: false
       resources:
@@ -108,8 +98,6 @@ spec:
         - POST
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF634
       required: true
@@ -149,11 +137,6 @@ spec:
         - POST
         - DELETE
       version: 4.1
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -167,11 +150,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF688
       required: false
       resources:
@@ -181,15 +159,6 @@ spec:
         - POST
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  eventNotification:
     publishedEvents:
     - hub: /{{.Release.Name}}-ResourceCatalog/hub
       implementation: /{{.Release.Name}}-ResourceCatalogEvent
@@ -213,7 +182,6 @@ spec:
       - exportJobStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
       version: 4.1
-      id: TMF634
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
@@ -230,11 +198,10 @@ spec:
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       version: 4
-      id: TMF701
       apiType: openapi
     subscribedEvents:
     - call-back: /{{.Release.Name}}-EntityCatalog/call-back
-      id: TMF662
+      id: TMF632
       name: EntityCatalogManagement
       port: 80
       resources:
@@ -269,3 +236,6 @@ spec:
       - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
       version: 4
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi

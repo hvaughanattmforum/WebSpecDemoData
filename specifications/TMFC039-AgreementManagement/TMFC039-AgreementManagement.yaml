@@ -30,8 +30,6 @@ spec:
         - GET
         - GET/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF669
       required: false
       resources:
@@ -39,8 +37,6 @@ spec:
         - GET
         - GET/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF620
       required: false
       resources:
@@ -51,8 +47,6 @@ spec:
         - GET
         - GET/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF637
       required: false
       resources:
@@ -60,8 +54,6 @@ spec:
         - GET
         - GET/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF667
       required: false
       resources:
@@ -69,8 +61,6 @@ spec:
         - GET
         - GET/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -84,8 +74,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF651
       required: true
@@ -103,11 +91,6 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -121,15 +104,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  eventNotification:
     publishedEvents:
     - implementation: /{{.Release.Name}}-agreemngtapi
       name: userRole
@@ -141,7 +115,6 @@ spec:
       - agreementSpecificationCreateEvent
       - agreementSpecificationAttributeValueChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF651_AgreementManagement/master/TMF651-AgreementManagement-v4.0.0.swagger.json
-      id: TMF651
       apiType: openapi
     subscribedEvents:
     - implementation: /{{.Release.Name}}-PartyManagement
@@ -151,5 +124,7 @@ spec:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
-      id: TMF632
       apiType: openapi
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi

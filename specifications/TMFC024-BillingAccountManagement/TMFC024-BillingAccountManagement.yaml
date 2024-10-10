@@ -29,8 +29,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF669
       required: true
       resources:
@@ -38,8 +36,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF672
       required: true
       resources:
@@ -50,8 +46,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF670
       required: false
       resources:
@@ -59,8 +53,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF676
       required: false
       resources:
@@ -68,8 +60,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -79,8 +69,6 @@ spec:
         - GET /id
         - PATCH
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF688
       required: false
       resources:
@@ -88,8 +76,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF666
       required: true
@@ -119,11 +105,6 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -137,11 +118,6 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF688
       required: false
       resources:
@@ -151,15 +127,6 @@ spec:
         - POST
         - DELETE /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  eventNotification:
     publishedEvents:
     - implementation: /{{.Release.Name}}-accmngt
       name: AccountManagement
@@ -168,7 +135,6 @@ spec:
       - billingAccountAttributeValueChangeEvent
       - billingAccountStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF666_AccountManagement/master/TMF666-AccountManagement-v4.0.0.swagger.json
-      id: TMF666
       apiType: openapi
     subscribedEvents:
     - name: PartyRoleManagement
@@ -179,7 +145,6 @@ spec:
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-      id: TMF669
       apiType: openapi
     - name: UserRolePermissionManagement
       port: 80
@@ -193,5 +158,7 @@ spec:
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-      id: TMF672
       apiType: openapi
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi

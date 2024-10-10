@@ -30,8 +30,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF669
       required: false
       resources:
@@ -39,8 +37,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF639
       required: false
       resources:
@@ -48,8 +44,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF651
       required: false
       resources:
@@ -57,8 +51,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF673
       required: false
       resources:
@@ -69,8 +61,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF674
       required: false
       resources:
@@ -78,8 +68,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF675
       required: false
       resources:
@@ -87,8 +75,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF666
       required: false
       resources:
@@ -96,8 +82,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF632
       required: false
       resources:
@@ -108,8 +92,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF637
       required: false
       resources:
@@ -120,8 +102,6 @@ spec:
         - PATCH
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF638
       required: false
       resources:
@@ -129,8 +109,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF622
       required: false
       resources:
@@ -138,8 +116,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF637
       required: true
@@ -151,11 +127,6 @@ spec:
         - PATCH
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -169,15 +140,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  eventNotification:
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productinventory/hub
       implementation: /{{.Release.Name}}-ProductinventoryEvent
@@ -190,7 +152,6 @@ spec:
       - productDeleteEvent
       - productBatchEvent
       specification: https://github.com/tmforum-apis/TMF637_ProducInventory/blob/master/TMF637-ProducInventory-v4.0.0.swagger.json
-      id: TMF637
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -207,7 +168,6 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-      id: TMF701
       apiType: openapi
     subscribedEvents:
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Resource/call-back
@@ -216,8 +176,7 @@ spec:
       port: 80
       resources:
       - resourceDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF639_ResourceInventory/blob/master/TMF639-ResourceInventory-v4.0.0.swagger.json
-      id: TMF639
+      specification: https://open-api.tmforum.org20-ResourceInventory-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/call-back
       implementation: /{{.Release.Name}}-ServiceInventoryManagement
@@ -225,8 +184,7 @@ spec:
       port: 80
       resources:
       - serviceDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF638_ServiceInventory/blob/master/TMF638-ServiceInventory-v4.0.0.swagger.json
-      id: TMF638
+      specification: https://open-api.tmforum.org20-ServiceInventory-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalog/call-back
       implementation: /{{.Release.Name}}-ProductCatalogManagement
@@ -236,8 +194,7 @@ spec:
       - productSpecificationDeleteEvent
       - productOfferingDeleteEvent
       - productOfferingPriceDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
-      id: TMF620
+      specification: https://open-api.tmforum.org20-ProductCatalog-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/call-back
       implementation: /{{.Release.Name}}-PartyRoleManagement
@@ -245,8 +202,7 @@ spec:
       port: 80
       resources:
       - partyRoleDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.0.swagger.json
-      id: TMF669
+      specification: https://open-api.tmforum.org20-PartyRole-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Agreement/call-back
       implementation: /{{.Release.Name}}-AgreementManagement
@@ -254,8 +210,7 @@ spec:
       port: 80
       resources:
       - agreementDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF651_AgreementManagement/blob/master/TMF651-Agreement-v4.0.0.swagger.json
-      id: TMF651
+      specification: https://open-api.tmforum.org20-Agreement-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Account/call-back
       implementation: /{{.Release.Name}}-AccountManagement
@@ -263,8 +218,7 @@ spec:
       port: 80
       resources:
       - billingAccountDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF666_Account/blob/master/TMF666-Account-v4.0.0.swagger.json
-      id: TMF666
+      specification: https://open-api.tmforum.org20-Account-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolePermission/call-back
       implementation: /{{.Release.Name}}-UserRolePermissionManagement
@@ -272,8 +226,7 @@ spec:
       port: 80
       resources:
       - permissionDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF672_UserRolesPermissions/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-      id: TMF672
+      specification: https://open-api.tmforum.org20-UserRolePermission-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
       implementation: /{{.Release.Name}}-GeographicSiteManagement
@@ -281,8 +234,7 @@ spec:
       port: 80
       resources:
       - geographicSiteDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF674_GeographicSite/blob/master/TMF674-GeographicSite-v4.0.0.swagger.json
-      id: TMF674
+      specification: https://open-api.tmforum.org20-GeographicSite-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
       implementation: /{{.Release.Name}}-GeographicLocation
@@ -290,8 +242,7 @@ spec:
       port: 80
       resources:
       - geographicLocationDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF675_GeographicLocation/blob/master/TMF675-GeographicLocation-v4.0.0.swagger.json
-      id: TMF675
+      specification: https://open-api.tmforum.org20-GeographicLocatin-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
       implementation: /{{.Release.Name}}-PartyManagement
@@ -300,8 +251,7 @@ spec:
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
-      id: TMF632
+      specification: https://open-api.tmforum.org20-Party-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrdering/call-back
       implementation: /{{.Release.Name}}-ProductOrderingManagement
@@ -309,8 +259,7 @@ spec:
       port: 80
       resources:
       - productOrderDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF622_Product_Ordering/master/TMF622-ProductOrdering-v4.0.0.swagger.json
-      id: TMF622
+      specification: https://open-api.tmforum.org20-ProductOrdering-v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductInventory/call-back
       implementation: /{{.Release.Name}}-ProductInventoryManagement
@@ -321,6 +270,8 @@ spec:
       - productDeleteEvent
       - productAttributeValueChangeEvent
       - productStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF637_ProducInventory/blob/master/TMF637-ProducInventory-v4.0.0.swagger.json
-      id: TMF637
+      specification: https://open-api.tmforum.org20-ProductInventory-v4.0.0.swagger.json
       apiType: openapi
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi

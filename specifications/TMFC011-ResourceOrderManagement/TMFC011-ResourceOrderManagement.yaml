@@ -29,8 +29,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF634
       required: true
       resources:
@@ -41,8 +39,6 @@ spec:
         - PATCH
         - DELETE
       version: 4.1
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF639
       required: true
       resources:
@@ -53,8 +49,6 @@ spec:
         - PATCH
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF664
       monitor:
       - GET
@@ -68,8 +62,6 @@ spec:
         - PATCH
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF632
       required: false
       resources:
@@ -80,8 +72,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF646
       required: false
       resources:
@@ -92,8 +82,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF673
       required: false
       resources:
@@ -101,8 +89,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF674
       required: false
       resources:
@@ -110,8 +96,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF675
       required: false
       resources:
@@ -119,8 +103,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF688
       required: false
       resources:
@@ -128,8 +110,6 @@ spec:
         - POST
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF652
       required: true
@@ -145,11 +125,6 @@ spec:
         - GET /id
         - POST
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -163,11 +138,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF688
       required: false
       resources:
@@ -177,15 +147,6 @@ spec:
         - POST
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: anastasios.sarantis@cityfibre.com
-    name: Tassos Sarantis
-  eventNotification:
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/resourceOrderingManagement/hub
       implementation: /{{.Release.Name}}-ResourceOrderingManagementEvent
@@ -207,7 +168,6 @@ spec:
       - ResourceOrderStateChangeEvent
       - ResourceOrderStateChangeEventPayload
       specification: https://tmforum-rand.github.io/TMForum-ODA-Asset-Build/swaggers/TMF652-ResourceOrder-v4.0.0.swagger.json
-      id: TMF652
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -224,7 +184,6 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-      id: TMF701
       apiType: openapi
     subscribedEvents:
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationConfiguration/call-back
@@ -239,7 +198,6 @@ spec:
       - scaleStatechangeEvent
       - migrateStatechangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF664_ResourceFunctionActivationConfiguration/master/TMF664-ResourceFunctionActivationConfiguration-v4.0.0.swagger.json
-      id: TMF664
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationAndConfiguration/call-back
       implementation: /{{.Release.Name}}-ResourceActivationAndConfiguration
@@ -250,5 +208,7 @@ spec:
       - monitorCreateEvent
       - monitorStatechangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF702_ResourceActivation/master/TMF702-ResourceActivation-v4.0.0.swagger.json
-      id: TMF702
       apiType: openapi
+  owners:
+  - email: anastasios.sarantis@cityfibre.com
+    name: Tassos Sarantis

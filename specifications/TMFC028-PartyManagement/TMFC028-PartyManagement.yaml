@@ -26,8 +26,6 @@ spec:
         - GET
         - GET/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF669
       required: true
       resources:
@@ -35,15 +33,13 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF673
       required: false
       resources:
       - GeographicAddress:
         - GET
         - GET /id
-      - apitype: openapi
+      - apiType: openapi
         id: TMF674
         isRequired: 'no'
         name: GeographicSiteManagement
@@ -53,7 +49,7 @@ spec:
       - GeographicSite:
         - GET
         - GET /id
-      - apitype: openapi
+      - apiType: openapi
         id: TMF675
         isRequired: 'no'
         name: GeographicLocationManagement
@@ -64,8 +60,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -79,8 +73,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF688
       required: false
       resources:
@@ -88,8 +80,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF668
       required: false
@@ -101,11 +91,6 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF632
       required: true
       resources:
@@ -122,11 +107,6 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF629
       required: false
       resources:
@@ -137,11 +117,6 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -155,11 +130,6 @@ spec:
         - GET/id
         - PATCH/id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF688
       required: false
       resources:
@@ -167,15 +137,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: matteo.destino@accenture.com
-    name: Matteo Destino
-  eventNotification:
     publishedEvents:
     - implementation: /{{.Release.Name}}-partnermngtapi
       name: PartnershipTypeMaagement
@@ -188,7 +149,6 @@ spec:
       - PartnershipSpecificationChangeEvent
       - PartnershipSpecificationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF668_PartnershipTypeManagement/master/TMF668-PartnershipTypeManagement-v4.0.0.swagger.json
-      id: TMF668
       apiType: openapi
     - implementation: /{{.Release.Name}}-partymngtapi
       name: partyManagement
@@ -203,7 +163,6 @@ spec:
       - OrganizationStateChangeEvent
       - OrganizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
-      id: TMF632
       apiType: openapi
     - implementation: /{{.Release.Name}}-custmngtapi
       name: CustomerManagement
@@ -214,7 +173,6 @@ spec:
       - CustomerStateChangeEvent
       - CustomerDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF629_CustomerManagement/master/TMF629-CustomerManagement-v4.0.0.swagger.json
-      id: TMF629
       apiType: openapi
     subscribedEvents:
     - name: UserRolesandPermissions
@@ -223,7 +181,6 @@ spec:
       - UserRoleCreationNotification
       - UserRoleChangeNotification
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRolesandPermissions/master/TMF672-UserRolesandPermissions-v4.0.0.swagger.json
-      id: TMF672
       apiType: openapi
     - name: PartyRoleManagement
       port: 80
@@ -233,5 +190,7 @@ spec:
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-      id: TMF669
       apiType: openapi
+  owners:
+  - email: matteo.destino@accenture.com
+    name: Matteo Destino

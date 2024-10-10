@@ -27,8 +27,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF669
       required: true
       resources:
@@ -36,8 +34,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF667
       required: false
       resources:
@@ -46,8 +42,6 @@ spec:
         - GET /id
         - POST
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF620
       required: false
       resources:
@@ -55,8 +49,6 @@ spec:
         - GET
         - GET /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF644
       required: true
@@ -80,11 +72,6 @@ spec:
         - PATCH /id
         - DELETE
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -98,11 +85,6 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF688
       required: false
       resources:
@@ -112,11 +94,6 @@ spec:
         - POST
         - DELETE /id
       version: 4
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - name: PartyManagement
       port: 80
       version: 4
@@ -125,11 +102,7 @@ spec:
       resources:
       - IndividualDeleteEvent: {}
       - OrganizationDeleteEvent: {}
-      specification:
-      - https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
     - name: ProductCatalogManagement
       port: 80
       version: 4
@@ -137,14 +110,12 @@ spec:
       required: false
       resources:
       - ProductOfferingDeleteEvent: {}
-      specification:
-      - https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-  maintainers:
+      specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
+    publishedEvents: []
+    subscribedEvents: []
+  owners:
   - email: sylvie.demarest@orange.com
     name: sylvie Demarest
-  owners:
+  maintainers:
   - email: sylvie.demarest@orange.com
     name: sylvie Demarest

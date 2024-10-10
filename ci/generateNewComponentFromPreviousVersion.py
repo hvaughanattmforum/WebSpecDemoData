@@ -13,76 +13,11 @@ specifications_folder = Path(__file__).parents[1] / "specifications"  # Replace 
 schema_file = 'component.schema.json'  # Replace with your component.schema.json file path
 
 def new_Component_yaml_Template(old_yaml):
-    new_yaml = {
-        'apiVersion': "oda.tmforum.org/" + NEW_COMPONENT_VERSION,
-        'kind': old_yaml.get('kind'),
-        'metadata': {
-            'name': old_yaml['metadata'].get('name')
-        },
-        'spec': {
-            'name': old_yaml['spec'].get('name'),
-            'id': old_yaml['spec'].get('id'),
-            'functionalBlock': old_yaml['spec'].get('functionalBlock'),
-            'description': old_yaml['spec'].get('description'),
-            'publicationDate': old_yaml['spec'].get('publicationDate', None),
-            'status': old_yaml['spec'].get('status', None),
-            'version': old_yaml['spec'].get('version'),
-            'coreFunction': {
-                'dependentAPIs': old_yaml['spec']['coreFunction'].get('dependentAPIs', []),
-                'exposedAPIs': old_yaml['spec']['coreFunction'].get('exposedAPIs', [])
-            }
-        }
-    }
-    
-    # Add 'maintainers' and 'owners' if they exist in old YAML
-    if old_yaml['spec'].get('maintainers'):
-        new_yaml['spec']['maintainers'] = old_yaml['spec'].get('maintainers')
-    
-    if old_yaml['spec'].get('owners'):
-        new_yaml['spec']['owners'] = old_yaml['spec'].get('owners')
+    new_yaml = old_yaml.copy()
+   
+    add_v1beta3_event_notification_changes(new_yaml, old_yaml)
+    new_yaml['apiVersion'] = "oda.tmforum.org/" + NEW_COMPONENT_VERSION     
 
-    # Add 'eventNotification' only if published or subscribed events are in the old YAML
-    if old_yaml['spec'].get('eventNotification'):
-        new_yaml['spec']['eventNotification'] = {
-            'publishedEvents': old_yaml['spec']['eventNotification'].get('publishedEvents', []),
-            'subscribedEvents': old_yaml['spec']['eventNotification'].get('subscribedEvents', [])
-        }
-        add_v1beta3_event_notification_changes(new_yaml, old_yaml)
-    elif old_yaml['spec']['coreFunction'].get('publishedEvents') or old_yaml['spec']['coreFunction'].get('subscribedEvents'):
-        # Adding published and subscribed events data from old YAML
-        new_yaml['spec']['eventNotification'] = {
-            'publishedEvents': old_yaml['spec']['coreFunction'].get('publishedEvents', []),
-            'subscribedEvents': old_yaml['spec']['coreFunction'].get('subscribedEvents', [])
-        }
-        add_v1beta3_event_notification_changes(new_yaml, old_yaml)
-
-    # Add 'managementFunction' only if it exists in old YAML
-    if old_yaml['spec'].get('managementFunction'):
-        new_yaml['spec']['managementFunction'] = {
-            'dependentAPIs': old_yaml['spec']['managementFunction'].get('dependentAPIs', []),
-            'exposedAPIs': old_yaml['spec']['managementFunction'].get('exposedAPIs', [])
-        }
-
-    # Add 'securityFunction' only if it exists in old YAML
-    if old_yaml['spec'].get('securityFunction'):
-        new_yaml['spec']['securityFunction'] = {}
-        if old_yaml['spec']['securityFunction'].get('secretsManagement'):
-            new_yaml['spec']['securityFunction'] = {
-                 'secretsManagement': {
-                'type': old_yaml['spec']['securityFunction'].get('secretsManagement', {}).get('secretManagementType', 'sideCar'),
-                'sideCar': old_yaml['spec']['securityFunction'].get('secretsManagement', {}).get('sideCar', None),
-                'podSelector': old_yaml['spec']['securityFunction'].get('secretsManagement', {}).get('podSelector', None)
-                }
-            }
-        if old_yaml['spec']['securityFunction'].get('dependentAPIs'):
-            new_yaml['spec']['securityFunction']['dependentAPIs'] = old_yaml['spec']['securityFunction'].get('dependentAPIs', [])
-            
-        if old_yaml['spec']['securityFunction'].get('exposedAPIs'):
-            new_yaml['spec']['securityFunction']['exposedAPIs'] = old_yaml['spec']['securityFunction'].get('exposedAPIs', [])
-            
-        if old_yaml['spec']['securityFunction'].get('controllerRole'):
-            new_yaml['spec']['securityFunction']['controllerRole'] = old_yaml['spec']['securityFunction'].get('controllerRole', None)
-            
     return new_yaml
 
 def extract_tmf_id(spec_url):
@@ -107,15 +42,14 @@ def save_yaml(data, file_path):
 
 def add_v1beta3_event_notification_changes(new_yaml, old_yaml):
     
-    # Extract and Add the publishedEvents and subscribedEvents IDs
+    # Extract and Add the publishedEvents
     for event_type in ['publishedEvents', 'subscribedEvents']:
-        if event_type in new_yaml['spec']['eventNotification']:
-            for event in new_yaml['spec']['eventNotification'][event_type]:
-                spec_url = event.get('specification', '')
-                event_id = extract_tmf_id(spec_url)
-                event['id'] = event_id
+        if event_type in new_yaml['spec']['coreFunction']:
+            for event in new_yaml['spec']['coreFunction'][event_type]:
                 if 'apitype' in event:
                     event['apiType'] = event.pop('apitype')
+    
+
     
 def apply_new_version_property_changes(new_yaml):
     changes_collection = get_newVersion_property_change_collection()
@@ -140,83 +74,6 @@ def get_propertyList_with_Apis(yaml_data):
     return properties_with_apis
 
 
-def add_requiredFields_to_functionSection(new_yaml, old_yaml, schema):
-    #functionNamesWithAPIs = ["coreFunction", "managementFunction", "securityFunction"]
-    functionNamesWithAPIs= get_propertyList_with_Apis(new_yaml)
-    # Handle the `functions` section based on the required fields in the schema definition
-    for functionName in functionNamesWithAPIs:
-        exposedAPIs_schema = schema['definitions'].get('apiSchemaExposed', {}).get('required', [])
-        print("exposedAPIs_schema before", exposedAPIs_schema)
-        if(exposedAPIs_schema == None):
-            exposedAPIs_schema = schema['properties'].get('spec', {}).get('properties', {}).get(functionName, {}).get('properties', {}).get('exposedAPIs', []).get('required', [])
-
-        print("exposedAPIs_schema after", exposedAPIs_schema)
-        exposed_apis_oldyaml = old_yaml['spec'].get(functionName, {}).get('exposedAPIs', [])
-
-        dependentAPIs_schema = schema['definitions'].get('apiSchemaDependent', {}).get('required', [])
-        print("dependentAPIs_schema before", dependentAPIs_schema)
-        if(dependentAPIs_schema == None):
-            dependentAPIs_schema = schema['properties'].get('spec', {}).get('properties', {}).get(functionName, {}).get('properties', {}).get('dependentAPIs', []).get('required', [])
-        print("dependentAPIs_schema after", dependentAPIs_schema)
-
-        dependent_apis_oldyaml = old_yaml['spec'].get(functionName, {}).get('dependentAPIs', [])
-    
-        for required_prop in exposedAPIs_schema:
-            for index, api in enumerate(exposed_apis_oldyaml):
-                print(f"! index  {index}, API  {api}")
-                # Ensure required properties are checked inside each API in 'exposedAPIs'
-                if required_prop not in api:
-                    print(f"! spec missing required field {required_prop} in {functionName} -> exposedAPIs[{index}]")
-                    if(required_prop == "apiType"):
-                        new_yaml['spec'][functionName]['exposedAPIs'][index][required_prop] = 'openapi'
-                    elif(required_prop == "port"):
-                        new_yaml['spec'][functionName]['exposedAPIs'][index][required_prop] = 80
-                    else:
-                        new_yaml['spec'][functionName]['exposedAPIs'][index][required_prop] = '_must_be_defined'
-       
-        for required_prop in dependentAPIs_schema:
-            for index, api in enumerate(dependent_apis_oldyaml):
-                # Ensure required properties are checked inside each API in 'dependentAPIs'
-                if required_prop not in api:
-                    print(f"! spec missing required field {required_prop} in {functionName} -> dependentAPIs[{index}]")
-                    if(required_prop == "apiType"):
-                        new_yaml['spec'][functionName]['dependentAPIs'][index][required_prop] = 'openapi'
-                    elif(required_prop == "port"):
-                        new_yaml['spec'][functionName]['dependentAPIs'][index][required_prop] = 80
-                    else:
-                        new_yaml['spec'][functionName]['dependentAPIs'][index][required_prop] = '_must_be_defined'
-
-def add_requiredFields_to_specSection(new_yaml,old_yaml, schema):
-    # Handle the `spec` section based on the schema definition
-    spec_required_fields = schema['properties'].get('spec', {}).get('required', [])
-    for required_prop in spec_required_fields:
-        if required_prop not in old_yaml['spec']:
-            print("! spec missing required field", required_prop)
-            if(required_prop == "apiType"):
-                new_yaml['spec'][required_prop] = old_yaml['spec'].get(required_prop, 'openapi')
-            elif(required_prop == "port"):
-                new_yaml['spec'][required_prop] = old_yaml['spec'].get(required_prop, 80)
-            else:
-                new_yaml['spec'][required_prop] = old_yaml['spec'].get(required_prop, '_must_be_defined')
-            
-
-def add_requiredFields_to_metadataSection(new_yaml, old_yaml, schema):
-    metadata_required_fields = schema['properties'].get('metadata', {}).get('required', [])
-    for field in metadata_required_fields:
-        if field not in new_yaml['metadata']:
-            print("! metadata missing field", field)
-            new_yaml['metadata'][field] = old_yaml['metadata'].get(required_prop, '_must_be_defined')
-
-def add_requiredFields_to_topLevelSection(new_yaml, old_yaml, schema):
-    # Handling required top-level required fields
-    top_level_required_fields = schema.get('required', [])
-    for field in top_level_required_fields:
-        if field not in new_yaml:
-            print("! top level missing field", field)
-            new_yaml[field] = old_yaml.get(field, '_must_be_defined')
-
-
-
 def fill_template_with_values(schema, old_yaml):
     component_name = old_yaml['spec'].get('name')
     id = old_yaml['spec'].get('id')
@@ -225,14 +82,7 @@ def fill_template_with_values(schema, old_yaml):
     # Step 1: Create a new YAML template based on new version component schema and old component specification YAML
     new_yaml = new_Component_yaml_Template(old_yaml)
 
-
-    # Step 2: Apply the required fileds if they are missing to the new YAML template
-    add_requiredFields_to_functionSection(new_yaml, old_yaml, schema)
-    add_requiredFields_to_specSection(new_yaml, old_yaml, schema)
-    add_requiredFields_to_metadataSection(new_yaml, old_yaml, schema)
-    add_requiredFields_to_topLevelSection(new_yaml, old_yaml, schema)
-
-    # Step 3: Return the new YAML file
+    # Step 2: Return the new YAML file
     return new_yaml
 
 

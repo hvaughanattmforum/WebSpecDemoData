@@ -26,8 +26,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF669
       required: false
       resources:
@@ -35,8 +33,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF637
       required: false
       resources:
@@ -44,8 +40,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF672
       required: true
       resources:
@@ -56,8 +50,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF688
       required: false
       resources:
@@ -65,8 +57,6 @@ spec:
         - GET
         - GET /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     - id: TMF701
       required: false
       resources:
@@ -76,8 +66,6 @@ spec:
         - GET /id
         - PATCH
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
     exposedAPIs:
     - id: TMF635
       required: true
@@ -88,11 +76,6 @@ spec:
         - POST
         - PATCH/id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF677
       required: true
       resources:
@@ -101,11 +84,6 @@ spec:
         - GET/id
         - POST
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF701
       required: false
       resources:
@@ -119,11 +97,6 @@ spec:
         - GET /id
         - PATCH /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
     - id: TMF688
       required: false
       resources:
@@ -133,17 +106,6 @@ spec:
         - POST
         - DELETE /id
       version: 4.0
-      name: _must_be_defined
-      apiType: openapi
-      implementation: _must_be_defined
-      path: _must_be_defined
-      port: 80
-  owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  - email: elisabeth.andersson@matrixx.com
-    name: Elisabeth Andersson
-  eventNotification:
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UsageConsumption/hub
       name: UsageConsumption
@@ -153,7 +115,6 @@ spec:
       - queryUsageConsumptionDeleteEvent
       - queryUsageConsumptionStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF677_UsageConsumption/blob/master/TMF677-UsageConsumption-v4.0.1.swagger.json
-      id: TMF677
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/usageManagement/hub
       name: UsageManagement
@@ -167,7 +128,6 @@ spec:
       - usageSpecificationAttributeValueChangeEvent
       - usageSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF635_UsageManagement/blob/master/TMF635-UsageManagement-v4.0.0.swagger.json
-      id: TMF635
       apiType: openapi
     subscribedEvents:
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/party/call-back
@@ -177,7 +137,6 @@ spec:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
-      id: TMF632
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyrole/call-back
       name: PartyRoleManagement
@@ -188,5 +147,9 @@ spec:
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-      id: TMF669
       apiType: openapi
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi
+  - email: elisabeth.andersson@matrixx.com
+    name: Elisabeth Andersson

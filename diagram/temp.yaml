@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta3
+apiVersion: oda.tmforum.org/v1beta2
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -100,7 +100,7 @@ spec:
         - GET /id
       version: 4
     publishedEvents:
-    - apiType: openapi
+    - apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/SalesManagement/hub
       implementation: /{{.Release.Name}}-SalesManagement
       name: SalesManagement
@@ -115,7 +115,7 @@ spec:
       - SalesOpportunityStateChangeEvent
       - SalesOpportunityDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF699_SalesManagement/master/TMF699-SalesManagement-v4.0.0.swagger.json
-    - apiType: openapi
+    - apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
@@ -140,7 +140,7 @@ spec:
       - taskFlowSpecificationStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
     subscribedEvents:
-    - apiType: openapi
+    - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/call-back
       implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
@@ -155,7 +155,7 @@ spec:
       - OrganizationStateChangeEvent
       - OrganizationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF632_PartyManagement/blob/master/TMF632-Party-v4.0.0.swagger.json
-    - apiType: openapi
+    - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
       implementation: /{{.Release.Name}}-ProductCatalogManagement
       name: ProductCatalogManagement
@@ -174,7 +174,7 @@ spec:
       - ProductOfferingPriceStateChangeEvent
       - ProductOfferingPriceDeleteEvent
       specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
-    - apiType: openapi
+    - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
       implementation: /{{.Release.Name}}-ProductOrder
       name: ProductOrder
@@ -186,7 +186,7 @@ spec:
       - ProductOrderStateChangeEvent
       - ProductOrderInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/ProductOrder/TMF622-ProductOrder-v4.0.0.swagger.json
-    - apiType: openapi
+    - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Agreement/call-back
       implementation: /{{.Release.Name}}-Agreement
       name: AgreementManagement
@@ -201,7 +201,7 @@ spec:
       - AgreementSpecificationStateChangeEvent
       - AgreementSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF651_AgreementManagement/blob/master/TMF651-Agreement-v4.0.0.swagger.json
-    - apiType: openapi
+    - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/QuoteManagement/call-back
       implementation: /{{.Release.Name}}-QuoteManagement
       name: QuoteManagement
@@ -213,7 +213,7 @@ spec:
       - QuoteInformationRequiredEvent
       - QuoteAttributeValueChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF648_QuoteManagement/master/TMF648-QuoteManagement-v4.0.0.swagger.json
-    - apiType: openapi
+    - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/call-back
       implementation: /{{.Release.Name}}-PartyRoleManagement
       name: PartyRoleManagement
