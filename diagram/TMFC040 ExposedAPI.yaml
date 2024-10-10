@@ -1,0 +1,36 @@
+@startyaml
+exposedAPIs:
+    - id: TMF635
+      name: Usage ManagementAPI
+      required: true
+      resources:
+      - usage:
+        - GET
+        - GET/id
+        - POST
+        - PATCH/id
+      version: 4
+    - id: TMF677
+      name: Usage Consumption Management API
+      required: true
+      resources:
+      - queryUsageConsumption:
+        - GET
+        - GET/id
+        - POST
+      version: 4
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - GET
+        - GET /id
+        - POST
+        - DELETE /id
+      - taskFlow:
+        - GET
+        - GET /id
+        - PATCH /id
+      version: 4
+@endyaml

@@ -13,7 +13,7 @@ dependentAPIs:
       - productOfferingPrice:
         - GET
         - GET /id
-      - productSpecification:
+      - productSpecification:d
         - GET
         - GET /id
       version: 4.1
@@ -25,7 +25,6 @@ dependentAPIs:
         - GET
         - GET /id
         - POST
-        - PATCH
       version: 4
     - id: TMF679
       name: Product Offering Qualification Management API
@@ -61,13 +60,11 @@ dependentAPIs:
         - GET /id
         - POST
         - PATCH
-        - DELETE
       - searchTimeSlot:
         - GET
         - GET /id
         - POST
         - PATCH
-        - DELETE
       version: 4
     - id: TMF673
       name: Geographic Address Management API
@@ -83,7 +80,6 @@ dependentAPIs:
         - GET
         - GET /id
         - POST
-        - PATCH
       version: 4
     - id: TMF674
       name: Geographic Site Management API
@@ -103,10 +99,9 @@ dependentAPIs:
         - POST
         - PATCH
         - DELETE
-      - cancelResourceReservation:
+      - resourcePool:
         - GET
         - GET /id
-        - POST
       version: 4
     - id: TMF687
       name: Stock Management API
@@ -149,7 +144,7 @@ dependentAPIs:
       name: Party Role Management API
       required: false
       resources:
-      - partyRole:
+      - PartyRoleManagement:
         - GET
         - GET /id
       version: 4
@@ -209,7 +204,6 @@ dependentAPIs:
         - GET /id
       version: 4
     - id: TMF760
-      name: Product Configuration Management API
       required: false
       resources:
       - checkProductConfiguration:
@@ -220,13 +214,3 @@ dependentAPIs:
         - GET
         - GET /id
         - POST        
-      version: 5 
-    - id: TMF651
-      name: Agreement Management API
-      required: false
-      resources:
-      - agreement:
-        - GET
-        - GET /id
-      version: 4             
-@endyaml    
