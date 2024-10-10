@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -33,7 +33,6 @@ spec:
       - partyRole:
         - GET
         - GET /id
-
       version: 4.0
     - id: TMF667
       required: false
@@ -119,4 +118,4 @@ spec:
     name: sylvie Demarest
   maintainers:
   - email: sylvie.demarest@orange.com
-    name: sylvie Demarest    
+    name: sylvie Demarest
