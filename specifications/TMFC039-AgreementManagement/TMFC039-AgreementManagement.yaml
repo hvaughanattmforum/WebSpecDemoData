@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -105,8 +105,7 @@ spec:
         - GET /id
       version: 4
     publishedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-agreemngtapi
+    - implementation: /{{.Release.Name}}-agreemngtapi
       name: userRole
       port: 80
       resources:
@@ -116,15 +115,16 @@ spec:
       - agreementSpecificationCreateEvent
       - agreementSpecificationAttributeValueChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF651_AgreementManagement/master/TMF651-AgreementManagement-v4.0.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-PartyManagement
+    - implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
       port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
+      apiType: openapi
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi

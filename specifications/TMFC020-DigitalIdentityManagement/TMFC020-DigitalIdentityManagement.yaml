@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -73,8 +73,7 @@ spec:
         - PATCH/id
       version: 4
     publishedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-digidemngt
+    - implementation: /{{.Release.Name}}-digidemngt
       name: digitalIdentity
       port: 80
       resources:
@@ -83,12 +82,13 @@ spec:
       - DigitalIdentityDeleteEvent
       - DigitalIdentityAttributeValueChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF720_DigitalIdentityManagement/master/TMF720-DigitalIdentityManagement-v4.0.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      name: PartyRoleManagement
+    - name: PartyRoleManagement
       port: 80
       resources:
       - UserRoleCreationNotification
       - UserRoleChangeNotification
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
+      apiType: openapi
   owners: []
