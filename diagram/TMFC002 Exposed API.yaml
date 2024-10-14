@@ -1,0 +1,54 @@
+@startyaml
+exposedAPIs:
+    - id: TMF622
+      name: Product Ordering Management	API
+      required: true
+      resources:
+      - productOrder:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+        - DELETE
+      - cancelProductOrder:
+        - POST
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF648
+      name: Quote Management API
+      required: false
+      resources:
+      - quote:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+        - DELETE
+      version: 4 
+    - id: TMF663
+      name: Shopping Cart Management API
+      required: false
+      resources:
+      - shoppingCart:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+@endyaml    

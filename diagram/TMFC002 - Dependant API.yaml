@@ -1,0 +1,216 @@
+@startyaml
+dependentAPIs:
+    - id: TMF620
+      name: Product Catalog Management API
+      required: true
+      resources:
+      - productCategory:
+        - GET
+        - GET /id
+      - productOffering:
+        - GET
+        - GET /id
+      - productOfferingPrice:
+        - GET
+        - GET /id
+      - productSpecification:d
+        - GET
+        - GET /id
+      version: 4.1
+    - id: TMF637
+      name: Product Inventory Management API
+      required: true
+      resources:
+      - product:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF679
+      name: Product Offering Qualification Management API
+      required: false
+      resources:
+      - productOfferingQualification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      version: 4
+    - id: TMF645
+      name: Service Qualification Management API
+      required: false
+      resources:
+      - checkServiceQualification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      - queryServiceQualification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      version: 4
+    - id: TMF646
+      name: Appointment Management API
+      required: false
+      resources:
+      - appointment:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      - searchTimeSlot:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      version: 4
+    - id: TMF673
+      name: Geographic Address Management API
+      required: false
+      resources:
+      - geographicAddress:
+        - GET
+        - GET /id
+      - geographicSubAddress:
+        - GET
+        - GET /id
+      - geographicAddressValidation:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF674
+      name: Geographic Site Management API
+      required: false
+      resources:
+      - geographicSite:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF716
+      name: Resource Reservation API
+      required: false
+      resources:
+      - resourceReservation:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - resourcePool:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF687
+      name: Stock Management API
+      required: false
+      resources:
+      - checkProductStock:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - queryProductStock:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - reserveProductStock:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - productStock:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF632
+      name: Party Management API
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF669
+      name: Party Role Management API
+      required: false
+      resources:
+      - PartyRoleManagement:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF666
+      name: Account Management	API
+      required: false
+      resources:
+      - billingAccount:
+        - GET /id
+        - GET
+      version: 4
+    - id: TMF676
+      name: Payment Management	
+      required: false
+      resources:
+      - payment:
+        - GET / id
+        - GET
+      version: 4
+    - id: TMF683
+      name: Party Interaction Management API
+      required: false
+      resources:
+      - partyInteraction:
+        - GET / id
+        - GET
+      version: 4
+    - id: TMF638
+      name: Service Inventory Management API
+      required: false
+      resources:
+      - service:
+        - GET / id
+        - GET
+      version: 4
+    - id: TMF639
+      name: Resource Inventory Management API
+      required: false
+      resources:
+      - resource:
+        - GET / id
+        - GET
+      version: 4
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - PATCH
+        - GET
+        - GET /id
+      - taskFlow:
+        - POST
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF760
+      required: false
+      resources:
+      - checkProductConfiguration:
+        - GET
+        - GET /id
+        - POST
+      - queryProductConfiguration:
+        - GET
+        - GET /id
+        - POST        
