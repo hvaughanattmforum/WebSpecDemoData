@@ -119,7 +119,8 @@ spec:
         - GET /id
       - customerBill:
         - GET
-        - GET /id
+        - GET /
+        - POST
         - PATCH /id
       version: 4.0
     - id: TMF701

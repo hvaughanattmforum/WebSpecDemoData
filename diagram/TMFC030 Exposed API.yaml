@@ -11,6 +11,7 @@ exposedAPIs:
       - customerBill:
         - GET
         - GET /id
+        - POST
         - PATCH /id
       version: 4.0
     - id: TMF701
@@ -26,15 +27,5 @@ exposedAPIs:
         - GET
         - GET /id
         - PATCH /id
-      version: 4.0
-    - id: TMF688
-      name: Event Management API
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE /id
       version: 4.0
 @endyaml
