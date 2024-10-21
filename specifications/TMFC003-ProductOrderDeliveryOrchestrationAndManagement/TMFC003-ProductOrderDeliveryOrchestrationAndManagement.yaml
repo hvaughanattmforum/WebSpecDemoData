@@ -23,7 +23,7 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF620
-      required: false
+      required: true
       resources:
       - productSpecification:
         - GET
@@ -37,13 +37,27 @@ spec:
         - PATCH
       version: 4
     - id: TMF637
-      required: false
+      required: true
       resources:
       - product:
         - GET
         - GET /id
         - PATCH
       version: 4
+    - id: TMF633
+      required: false
+      resources:
+      - serviceSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF638
+      required: false
+      resources:
+      - service:
+        - GET / id
+        - GET
+      version: 4   
     - id: TMF641
       required: true
       resources:
@@ -58,13 +72,6 @@ spec:
         - GET /id
         - POST
       version: 4
-    - id: TMF633
-      required: false
-      resources:
-      - serviceSpecification:
-        - GET
-        - GET /id
-      version: 4
     - id: TMF634
       required: false
       resources:
@@ -72,34 +79,33 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF641
-      required: true
-      resources:
-      - serviceOrder:
-        - GET /id
-        - POST
-      version: 4
-    - id: TMF638
-      required: false
-      resources:
-      - service:
-        - GET / id
-        - GET
-      version: 4
     - id: TMF639
       required: false
       resources:
       - resource:
         - GET
         - GET /id
-      version: 4
+      version: 4           
     - id: TMF652
       required: false
       resources:
       - resourceOrder:
         - GET /id
         - POST
-      version: 4
+      version: 4      
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - GET
+        - GET /id
+        - POST
+        - DELETE /id
+      - taskFlow:
+        - GET
+        - GET /id
+        - PATCH /id        
+      version: 4            
     exposedAPIs:
     - id: TMF701
       required: false
