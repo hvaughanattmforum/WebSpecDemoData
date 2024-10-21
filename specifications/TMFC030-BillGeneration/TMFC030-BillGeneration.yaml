@@ -119,7 +119,7 @@ spec:
         - GET /id
       - customerBill:
         - GET
-        - GET /
+        - GET / id
         - POST
         - PATCH /id
       version: 4.0
