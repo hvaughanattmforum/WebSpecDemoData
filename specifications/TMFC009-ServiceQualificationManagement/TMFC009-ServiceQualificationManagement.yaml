@@ -113,8 +113,8 @@ spec:
         - DELETE
       version: 4
     publishedEvents:
-    - developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ServiceQualification/v4/docs
-      hub: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ServiceQualification/hub
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/v4/docs
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/hub
       implementation: /{{.Release.Name}}-ServiceQualification
       name: ServiceQualification
       port: 80
