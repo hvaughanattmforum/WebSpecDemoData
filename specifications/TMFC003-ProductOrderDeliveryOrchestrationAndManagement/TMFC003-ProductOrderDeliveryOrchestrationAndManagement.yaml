@@ -147,8 +147,8 @@ spec:
       - cancelProductOrderStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/master/TMF622-ProductOrder-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/call-back
-      developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/call-back
+      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
       implementation: /{{.Release.Name}}-serviceOrderingManagementEvent
       name: ServiceOrder
       port: 80
@@ -162,8 +162,8 @@ spec:
       - cancelServiceOrderInformationRequiredEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF641_ServiceOrdering/master/TMF641-ServiceOrdering-v4.1.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ResourceOrder/call-back
-      developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ResourceOrder/v4/docs
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrder/call-back
+      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrder/v4/docs
       implementation: /{{.Release.Name}}-ResourceOrder
       name: ResourceOrder
       port: 80
