@@ -222,5 +222,8 @@ spec:
       specification: https://github.com/tmforum-apis/TMF622-ProductCatalogManagement/blob/master/TMF622-ProductCatalogManagement-v4.0.0.swagger.json
       apiType: openapi
   owners:
-  - email: sylvie.demarest@orange.com
-    name: Sylvie Demarest
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

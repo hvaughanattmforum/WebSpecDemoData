@@ -114,5 +114,8 @@ spec:
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       apiType: openapi
   owners:
-  - email: matteo.destino@accenture.com
-    name: Matteo Destino
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

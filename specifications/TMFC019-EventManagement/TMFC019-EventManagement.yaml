@@ -81,5 +81,8 @@ spec:
       apiType: openapi
     subscribedEvents: []
   owners:
-  - email: koen.peeters@ciminko.lu
-    name: Loen Peeters
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

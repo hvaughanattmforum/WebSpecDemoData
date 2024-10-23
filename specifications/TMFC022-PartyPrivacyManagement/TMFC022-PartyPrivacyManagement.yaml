@@ -114,8 +114,8 @@ spec:
     publishedEvents: []
     subscribedEvents: []
   owners:
-  - email: sylvie.demarest@orange.com
-    name: sylvie Demarest
+  - email: Redacted
+    name: Redacted
   maintainers:
-  - email: sylvie.demarest@orange.com
-    name: sylvie Demarest
+  - name: Redacted
+    email: components@tmforum.org
