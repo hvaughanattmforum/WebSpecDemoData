@@ -250,17 +250,12 @@ spec:
   componentVersion: 1.1.0
   functionalBlock: Production
   id: TMFC061
-  maintainers:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  - email: milind.2.bhagwat@bt.com
-    name: Milind Bhagwat
-  name: Work Order Management
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  - email: milind.2.bhagwat@bt.com
-    name: Milind Bhagwat
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org
   publicationDate: 2024-06-25
   status: specified
   version: 1.0.0

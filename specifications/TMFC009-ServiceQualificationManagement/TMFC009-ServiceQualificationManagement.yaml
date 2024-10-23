@@ -131,7 +131,8 @@ spec:
       apiType: openapi
     subscribedEvents: []
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  - email: Anastasios.sarantis@cityfibre.com
-    name: Tassos Sarantis
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

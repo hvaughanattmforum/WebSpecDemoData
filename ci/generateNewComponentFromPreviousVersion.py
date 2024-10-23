@@ -16,9 +16,33 @@ def new_Component_yaml_Template(old_yaml):
     new_yaml = old_yaml.copy()
    
     add_v1beta3_event_notification_changes(new_yaml, old_yaml)
-    new_yaml['apiVersion'] = "oda.tmforum.org/" + NEW_COMPONENT_VERSION     
+    new_yaml['apiVersion'] = "oda.tmforum.org/" + NEW_COMPONENT_VERSION
+    #Modify owners data
+    modify_owners_info(new_yaml)
+    modify_maintainers_info(new_yaml)
 
     return new_yaml
+
+# Function to modify the owners' name and email in the yaml data
+def modify_owners_info(yaml_data):
+    # Check if 'owners' exists and is a list (array)
+     if 'spec' in yaml_data and 'owners' in yaml_data['spec'] and isinstance(yaml_data['spec']['owners'], list):
+        for owner in yaml_data['spec']['owners']:
+            if 'name' in owner:
+                owner['name'] = 'Redacted'
+            if 'email' in owner:
+                owner['email'] = 'Redacted'
+
+def modify_maintainers_info(yaml_data):
+    # Check if 'maintainers' exists and is a list (array)
+    if 'spec' in yaml_data and 'maintainers' in yaml_data['spec'] and isinstance(yaml_data['spec']['maintainers'], list):
+        for maintainer in yaml_data['spec']['maintainers']:
+            if 'name' in maintainer:
+                maintainer['name'] = 'Redacted'
+            if 'email' in maintainer:
+                maintainer['email'] = 'components@tmforum.org'
+    else:
+        yaml_data['spec']['maintainers'] = [{'name': 'Redacted', 'email': 'components@tmforum.org'}]
 
 def extract_tmf_id(spec_url):
     """Extracts the TMF ID from the specification URL."""

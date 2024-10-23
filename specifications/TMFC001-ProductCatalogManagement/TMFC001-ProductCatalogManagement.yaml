@@ -313,5 +313,8 @@ spec:
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
       apiType: openapi
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

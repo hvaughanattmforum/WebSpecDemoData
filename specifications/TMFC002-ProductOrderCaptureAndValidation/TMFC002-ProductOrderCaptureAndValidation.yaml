@@ -387,5 +387,8 @@ spec:
       - cancelResourceReservationInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF716_ResourceReservation/blob/master/TMF716-ResourceReservation-v4.1.0.swagger.json
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org
