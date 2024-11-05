@@ -13,7 +13,7 @@ spec:
     follow-up purposes.
   publicationDate: 2024-01-22
   status: specified
-  version: 1.0.0
+  version: 1.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -25,38 +25,21 @@ spec:
       - organization:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF669
       required: false
       resources:
       - PartyRole:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF637
       required: false
       resources:
       - product:
         - GET
         - GET /id
-      version: 4.0
-    - id: TMF672
-      required: true
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      - userRole:
-        - GET
-        - GET /id
-      version: 4.0
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-      version: 4.0
+      version: 4
     - id: TMF701
       required: false
       resources:
@@ -65,7 +48,7 @@ spec:
         - GET
         - GET /id
         - PATCH
-      version: 4.0
+      version: 4
     exposedAPIs:
     - id: TMF635
       required: true
@@ -75,7 +58,7 @@ spec:
         - GET/id
         - POST
         - PATCH/id
-      version: 4.0
+      version: 4
     - id: TMF677
       required: true
       resources:
@@ -83,7 +66,7 @@ spec:
         - GET
         - GET/id
         - POST
-      version: 4.0
+      version: 4
     - id: TMF701
       required: false
       resources:
@@ -96,16 +79,7 @@ spec:
         - GET
         - GET /id
         - PATCH /id
-      version: 4.0
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE /id
-      version: 4.0
+      version: 4
     publishedEvents:
     - apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UsageConsumption/hub

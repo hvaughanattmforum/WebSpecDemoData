@@ -59,24 +59,21 @@ dependentAPIs:
         - GET /id
       version: 4.0
     - id: TMF669
-      name: Party Role Management API
+      name: Party Role Management
       required: true
       resources:
       - PartyRole:
         - GET
         - GET /id
-      version: 4.0
-    - id: TMF672
-      name: User Role Permission Management API
+      version: 4.0      
+    - id: TMF678
+      name: Customer Bill Management API
       required: true
       resources:
-      - permission:
+      - appliedCustomerBillingRate:
         - GET
         - GET /id
-      - userRole:
-        - GET
-        - GET /id
-      version: 4.0
+      version: 4        
     - id: TMF701
       name: Process Flow Management API
       required: false
@@ -92,17 +89,6 @@ dependentAPIs:
         - POST
         - PATCH        
       version: 4.0
-    - id: TMF688
-      name: Event Management API
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-        - POST
-      hub:
-        - GET
-        - GET /id
-        - POST
-      version: 4.0
+  
+
 @endyaml

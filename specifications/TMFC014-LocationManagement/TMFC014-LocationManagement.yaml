@@ -55,7 +55,7 @@ spec:
         - GET
         - GET /id
         - POST
-        - PATCH
+        - PATCH   
         - DELETE
       version: 4
     - id: TMF675

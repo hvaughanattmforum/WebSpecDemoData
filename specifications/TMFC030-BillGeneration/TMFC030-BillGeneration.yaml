@@ -73,16 +73,7 @@ spec:
         - GET
         - GET /id
       version: 4.0
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      - userRole:
-        - GET
-        - GET /id
-      version: 4.0
+
     - id: TMF701
       required: false
       resources:
@@ -96,18 +87,6 @@ spec:
         - GET /id
         - POST
         - PATCH
-      version: 4.0
-    - hub:
-      - GET
-      - GET /id
-      - POST
-      id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-        - POST
       version: 4.0
     exposedAPIs:
     - id: TMF678
