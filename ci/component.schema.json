@@ -48,7 +48,7 @@
                       "type": "string"
                     }
                   },
-                  "apitype": {
+                  "apiType": {
                     "type": "string"
                   },
                   "hub": {
@@ -80,7 +80,7 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "apitype": {
+                  "apiType": {
                     "type": "string"
                   },
                   "call-back": {
@@ -209,7 +209,7 @@
     "api": {
       "type": "object",
       "properties": {
-        "apitype": {
+        "apiType": {
           "type": "string"
         },
         "id": {

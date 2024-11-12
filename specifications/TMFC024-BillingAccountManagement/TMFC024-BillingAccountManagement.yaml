@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -128,17 +128,16 @@ spec:
         - DELETE /id
       version: 4
     publishedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-accmngt
+    - implementation: /{{.Release.Name}}-accmngt
       name: AccountManagement
       port: 80
       resources:
       - billingAccountAttributeValueChangeEvent
       - billingAccountStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF666_AccountManagement/master/TMF666-AccountManagement-v4.0.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      name: PartyRoleManagement
+    - name: PartyRoleManagement
       port: 80
       resources:
       - partyRoleCreateEvent
@@ -146,8 +145,8 @@ spec:
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      name: UserRolePermissionManagement
+      apiType: openapi
+    - name: UserRolePermissionManagement
       port: 80
       resources:
       - permissionCreateEvent
@@ -159,6 +158,10 @@ spec:
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
+      apiType: openapi
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

@@ -1,0 +1,54 @@
+@startyaml
+dependentAPIs:
+    - id: TMF632
+      name: Party Management API
+      required: true
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF669
+      name: Party Role Management API
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF620
+      name: Product Catalog Management API
+      required: false
+      resources:
+      - productOffering:
+        - GET
+        - GET /id
+      - productOfferingPrice:
+        - GET
+        - GET /id
+      - productSpecification:
+        - GET
+        - GET /id              
+      version: 4
+    - id: TMF637
+      name: Product Inventory API
+      required: false
+      resources:
+      - product:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+      version: 4
+@endyaml   

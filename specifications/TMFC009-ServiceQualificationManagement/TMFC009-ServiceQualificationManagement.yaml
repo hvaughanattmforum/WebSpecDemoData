@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -113,9 +113,8 @@ spec:
         - DELETE
       version: 4
     publishedEvents:
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ServiceQualification/v4/docs
-      hub: /{{.Release.Name}}-{{.Values.oda.component.type}}/tmf-api/ServiceQualification/hub
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/v4/docs
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/hub
       implementation: /{{.Release.Name}}-ServiceQualification
       name: ServiceQualification
       port: 80
@@ -129,9 +128,11 @@ spec:
       - queryServiceQualificationCreateEvent
       - queryServiceQualificationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF645_ServiceQualification/master/TMF645-ServiceQualification-v4.0.0.swagger.json
+      apiType: openapi
     subscribedEvents: []
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  - email: Anastasios.sarantis@cityfibre.com
-    name: Tassos Sarantis
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org
