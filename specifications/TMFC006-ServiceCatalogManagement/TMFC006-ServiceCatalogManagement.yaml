@@ -19,9 +19,9 @@ spec:
     \ specification attributes, reporting on service specification and their changes,\
     \ and facilitating easy and systematic indexing and access to services, as well\
     \ as facilitate automating the service delivery process."
-  publicationDate: 2023-08-18 00:00:00
+  publicationDate: 2024-11-12 00:00:00
   status: specified
-  version: 1.1.1
+  version: 1.2.0
   coreFunction:
     dependentAPIs:
     - id: TMF634
@@ -34,7 +34,7 @@ spec:
     - id: TMF669
       required: false
       resources:
-      - PartyRole:
+      - partyRole:
         - GET
         - GET /id
       version: 4
@@ -55,20 +55,6 @@ spec:
         - GET
         - GET /id
       - associationSpecification:
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
         - GET
         - GET /id
       version: 4
@@ -145,15 +131,6 @@ spec:
         - PATCH
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
       version: 4
     publishedEvents:
     - apitype: openapi

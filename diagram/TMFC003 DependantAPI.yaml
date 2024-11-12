@@ -1,4 +1,4 @@
-@styartyaml
+@startyaml
 dependentAPIs:
     - id: TMF620
       name: Birbanete
