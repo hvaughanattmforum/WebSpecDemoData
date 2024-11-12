@@ -1,0 +1,130 @@
+@startyaml
+   dependentAPIs:
+    - id: TMF633
+      name: Service Catalog Management API 
+      required: false
+      resources:
+      - serviceSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF669
+      name: Party Role Management API
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF632
+      name: Party Management API
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organisation:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF634
+      name: Resource Catalog Management API
+      required: false
+      resources:
+      - resourceSpecification:
+        - GET
+        - GET /id
+      version: 4.1
+    - id: TMF651
+      name: Agreement Management API
+      required: false
+      resources:
+      - agreement:
+        - GET
+        - GET /id
+      - agreementSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF673
+      name: Geographic Address Management API
+      required: false
+      resources:
+      - geographicAddress:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF674
+      name: Geographic Site Management API    
+      required: false
+      resources:
+      - geographicSite:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF675
+      name: Geographic Location Management API    
+      required: false
+      resources:
+      - geographicLocation:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF662
+      name: Entity Catalog Management API
+      required: false
+      resources:
+      - entitySpecification:
+        - GET
+        - GET /id
+      - associationSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF620
+      name: Product Catalog Management API
+      required: false
+      resources:
+      - catalog:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - category:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - productOffering:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - productSpecification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - productOfferingPrice:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - importJob:
+        - GET
+        - GET /id
+        - POST
+        - DELETE
+      - exportJob:
+        - GET
+        - GET /id
+        - POST
+        - DELETE
+      version: 4
+    
+@endyaml
