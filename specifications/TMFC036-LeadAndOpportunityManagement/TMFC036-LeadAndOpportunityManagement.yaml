@@ -9,6 +9,7 @@ spec:
   description: 'Lead and Opportunity Management provides the necessary functionality
     during pre-sales stage in terms of: lead and opportunity capture, qualification,
     reporting, support.'
+  publicationDate: 2023-11-18 00:00:00
   status: specified
   version: 1.2.0
   coreFunction:
@@ -233,6 +234,6 @@ spec:
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       apiType: openapi
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+  - email: Redacted
+    name: Redacted
 
