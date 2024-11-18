@@ -1,0 +1,47 @@
+@startyaml
+exposedAPIs:
+    - id: TMF666
+      name: Account Management API     
+      required: true
+      resources:
+      - billingAccount:
+        - GET
+        - GET /id
+        - POST
+        - PATCH /id
+        - DELETE /id
+      - billingCycleSpecification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH /id
+        - DELETE /id
+      - billFormat:
+        - GET
+        - GET /id
+        - POST
+        - PATCH /id
+        - DELETE /id
+      - billPresentationMedia:
+        - GET
+        - GET /id
+        - POST
+        - PATCH /id
+        - DELETE /id
+      version: 4
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - GET
+        - GET /id
+        - POST
+        - DELETE /id
+      - taskFlow:
+        - GET
+        - GET /id
+        - PATCH /id
+      version: 4
+   
+@endyaml
