@@ -12,10 +12,26 @@ dependentAPIs:
         - GET /id
       version: 4
     - id: TMF669
-      name: Party Role Management API
+      name: Party Role Management
       required: true
       resources:
-      - partyRole:
+      - PartyRole:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF670
+      name: Payment Method Management API 
+      required: false
+      resources:
+      - paymentMethod:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF676
+      name: Payment Management API
+      required: false
+      resources:
+      - payment:
         - GET
         - GET /id
       version: 4
@@ -29,21 +45,6 @@ dependentAPIs:
         - GET /id
         - PATCH
       version: 4
-    - id: TMF667
-      name: Document Management API
-      required: false
-      resources:
-      - document:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-    - id: TMF620
-      name: Product Catalog Management API
-      required: false
-      resources:
-      - productOffering:
-        - GET
-        - GET /id
-      version: 4
-@endyaml    
+    
+
+@endyaml

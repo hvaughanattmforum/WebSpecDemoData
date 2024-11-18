@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -19,9 +19,9 @@ spec:
     \ specification attributes, reporting on service specification and their changes,\
     \ and facilitating easy and systematic indexing and access to services, as well\
     \ as facilitate automating the service delivery process."
-  publicationDate: 2023-08-18 00:00:00
+  publicationDate: 2024-11-12 00:00:00
   status: specified
-  version: 1.1.1
+  version: 1.2.0
   coreFunction:
     dependentAPIs:
     - id: TMF634
@@ -34,7 +34,7 @@ spec:
     - id: TMF669
       required: false
       resources:
-      - PartyRole:
+      - partyRole:
         - GET
         - GET /id
       version: 4
@@ -55,20 +55,6 @@ spec:
         - GET
         - GET /id
       - associationSpecification:
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
         - GET
         - GET /id
       version: 4
@@ -146,18 +132,8 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE
-      version: 4
     publishedEvents:
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/hub
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/hub
       implementation: /{{.Release.Name}}-ServiceCatalog
       name: ServiceCatalogManagement
       port: 80
@@ -176,8 +152,8 @@ spec:
       - serviceCatalogDeleteEvent
       - serviceCatalogBatchEvent
       specification: https://github.com/tmforum-apis/TMF633_ServiceCatalog/blob/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualityManagement/hub
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualityManagement/hub
       implementation: /{{.Release.Name}}-ServiceQualityManagement
       name: ServiceQualityManagement
       port: 80
@@ -189,8 +165,8 @@ spec:
       - serviceLevelSpecificationDeleteEvent
       - serviceLevelSpecificationAttributeValueChangeEvent
       specification: https://github.com/tmforum-apis/TMF657_ServiceQualityManagement/blob/master/TMF657-ServiceQualityManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80
@@ -205,9 +181,9 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/call-back
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/call-back
       implementation: /{{.Release.Name}}-ResourceCatalog
       name: ResourceCatalogManagement
       port: 80
@@ -216,8 +192,8 @@ spec:
       - resourceSpecificationChangeEvent
       - resourceSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF634_ResourceCatalog/blob/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/call-back
       implementation: /{{.Release.Name}}-EntityCatalog
       name: EntityCatalogManagement
       port: 80
@@ -227,6 +203,10 @@ spec:
       - entitySpecificationChangeEvent
       - entitySpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF662_EntityCatalog/blob/master/TMF662-EntityCatalog-v4.0.0.swagger.json
+      apiType: openapi
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

@@ -68,7 +68,7 @@ dependentAPIs:
       version: 4.0      
     - id: TMF678
       name: Customer Bill Management API
-      required: true
+      required: false
       resources:
       - appliedCustomerBillingRate:
         - GET
