@@ -1,0 +1,42 @@
+@startyaml
+exposedAPIs:
+    - id: TMF670
+      name: Payment Methods Management API
+      required: true
+      resources:
+      - paymentMethod:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+    - id: TMF676
+      name: Payment Management API
+      required: true
+      resources:
+      - payment:
+        - GET
+        - GET /id
+        - POST
+      - refund:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+ 
+@endyaml

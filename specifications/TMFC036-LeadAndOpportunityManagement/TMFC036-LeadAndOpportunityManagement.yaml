@@ -9,9 +9,9 @@ spec:
   description: 'Lead and Opportunity Management provides the necessary functionality
     during pre-sales stage in terms of: lead and opportunity capture, qualification,
     reporting, support.'
-  publicationDate: 2023-08-18 00:00:00
+  publicationDate: 2023-11-18 00:00:00
   status: specified
-  version: 1.1.0
+  version: 1.2.0
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -40,7 +40,7 @@ spec:
       - productOfferingPrice:
         - GET
         - GET/id
-      version: 4.1
+      version: 4
     - id: TMF651
       required: false
       resources:
@@ -236,7 +236,4 @@ spec:
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi
-  publicationDate: 2024-08-05 00:00:00
-  status: specified
-  version: 1.1.0
 
