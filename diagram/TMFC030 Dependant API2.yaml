@@ -58,6 +58,14 @@ dependentAPIs:
         - GET
         - GET /id
       version: 4.0
+    - id: TMF669
+      name: Party Role Management
+      required: true
+      resources:
+      - PartyRole:
+        - GET
+        - GET /id
+      version: 4.0      
     - id: TMF678
       name: Customer Bill Management API
       required: false
