@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -99,8 +99,7 @@ spec:
         - DELETE /id
       version: 4
     publishedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-appointmentManagement
+    - implementation: /{{.Release.Name}}-appointmentManagement
       name: appointmentManagement
       port: 80
       resources:
@@ -113,9 +112,9 @@ spec:
       - searchTimeSlotStateChangeEvent
       - searchTimeSlotDeleteEvent
       specification: https://github.com/tmforum-apis/TMF646_AppointmentManagement/blob/master/TMF646-Appointment-v4.0.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      name: PartyRoleManagement
+    - name: PartyRoleManagement
       port: 80
       resources:
       - partyRoleCreateEvent
@@ -123,8 +122,8 @@ spec:
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      name: UserRolePermissionManagement
+      apiType: openapi
+    - name: UserRolePermissionManagement
       port: 80
       resources:
       - permissionCreateEvent
@@ -136,8 +135,8 @@ spec:
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF672_UserRolesPermissions/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-    - apitype: openapi
-      name: ProcessFlowManagement
+      apiType: openapi
+    - name: ProcessFlowManagement
       port: 80
       resources:
       - processFlowCreateEvent
@@ -150,6 +149,10 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      apiType: openapi
   owners:
-  - email: milind.2.bhagwat@bt.com
-    name: Milind Bhagwat
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

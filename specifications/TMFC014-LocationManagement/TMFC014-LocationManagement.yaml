@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -82,8 +82,7 @@ spec:
         - GET /id
       version: 4
     publishedEvents:
-    - apitype: openapi
-      hub: /{{.Release.Name}}-GeographicAddressManagement/hub
+    - hub: /{{.Release.Name}}-GeographicAddressManagement/hub
       id: TMF673
       implementation: /{{.Release.Name}}-GeographicAddressManagement
       name: GeographicAddressManagement
@@ -91,8 +90,8 @@ spec:
       resources:
       - geographicAddressValidationStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF673_GeographicAddress/master/TMF673-GeographicAddress-v4.0.1.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/hub
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/hub
       implementation: /{{.Release.Name}}-GeographicSiteManagementEvent
       name: GeographicSiteManagement
       port: 8080
@@ -102,8 +101,8 @@ spec:
       - geographicSiteDeleteEvent
       - geographicSiteStatusChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF674_GeographicSite/master/TMF674-GeographicSite-v4.0.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/hub
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/hub
       implementation: /{{.Release.Name}}-GeographicLocationEvent
       name: GeographicLocation
       port: 80
@@ -112,9 +111,10 @@ spec:
       - geographicLocationCreateEvent
       - geographicLocationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF675_GeographicLocation/master/TMF675-GeographicLocation-v4.0.0.swagger.json
+      apiType: openapi
     subscribedEvents: []
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  - email: Anastasios.sarantis@cityfibre.com
-    name: Tassos Sarantis 
+
+  - email: Redacted
+    name: Redacted
+

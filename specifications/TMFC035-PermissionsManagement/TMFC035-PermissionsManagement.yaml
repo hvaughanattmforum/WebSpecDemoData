@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -66,8 +66,7 @@ spec:
         - DELETE/id
       version: 4
     publishedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-userrole&permapi
+    - implementation: /{{.Release.Name}}-userrole&permapi
       name: userRole
       port: 80
       resources:
@@ -80,8 +79,8 @@ spec:
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRoleAndPermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-partyroleapi
+      apiType: openapi
+    - implementation: /{{.Release.Name}}-partyroleapi
       name: partyRole
       port: 80
       resources:
@@ -90,9 +89,9 @@ spec:
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRoleManagement/master/TMF672-PartyRoleManagement-v4.0.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-PartyManagement
+    - implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
       port: 80
       resources:
@@ -103,8 +102,8 @@ spec:
       - organizationAttributeValueChangeEvent
       - organizationStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
+      apiType: openapi
+    - implementation: /{{.Release.Name}}-ProcessFlowManagement
       name: ProcessFlowManagement
       port: 80
       resources:
@@ -113,6 +112,10 @@ spec:
       - taskFlowCreateEvent
       - taskFlowStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      apiType: openapi
   owners:
-  - email: matteo.destino@accenture.com
-    name: Matteo Destino
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org
