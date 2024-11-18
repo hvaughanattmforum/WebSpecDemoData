@@ -1,7 +1,7 @@
 @startyaml
 exposedAPIs:
     - id: TMF620
-      name: Product Catalog Management API 
+      name: PRoduct Catalog Management API
       required: true
       resources:
       - catalog:

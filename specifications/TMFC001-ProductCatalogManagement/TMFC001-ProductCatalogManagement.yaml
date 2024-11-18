@@ -9,9 +9,9 @@ spec:
   description: The Product Catalog Management ODA Component is responsible for organizing
     the collection of Products and Product Offerings specifications that identify
     and define all requirements of a product or a product offering that can be commercialized.
-  publicationDate: 2023-04-23 00:00:00
+  publicationDate: 2024-11-12 00:00:00
   status: specified
-  version: 2.0.0
+  version: 2.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF633
@@ -76,13 +76,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      version: 4
     - id: TMF662
       required: false
       resources:
@@ -136,13 +129,6 @@ spec:
         - GET /id
         - POST
         - DELETE
-      version: 4.1
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
       version: 4
     exposedAPIs:
     - id: TMF620
@@ -188,7 +174,7 @@ spec:
         - GET
         - GET /id
         - DELETE
-      version: 4.1
+      version: 4
     - id: TMF701
       required: false
       resources:
@@ -201,7 +187,7 @@ spec:
         - PATCH
         - GET
         - GET /id
-      version: 4.1
+      version: 4
     - id: TMF671
       required: false
       resources:
@@ -210,15 +196,6 @@ spec:
         - GET /id
         - POST
         - PATCH
-        - DELETE
-      version: 4.1
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
         - DELETE
       version: 4
     publishedEvents:
@@ -294,16 +271,6 @@ spec:
       resources:
       - partyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-      apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
-      implementation: /{{.Release.Name}}-UserRolePermission
-      name: UserRolePermission
-      port: 80
-      resources:
-      - permissionDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF672_UserRolesPermissions/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-      apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
       implementation: /{{.Release.Name}}-Party
       name: Party
       port: 80
