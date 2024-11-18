@@ -1,21 +1,26 @@
 @startyaml
 exposedAPIs:
-    - id: TMF678
-      name: Customer Bill Management API
+    - id: TMF635
+      name: Usage ManagementAPI
       required: true
       resources:
-      - customerBillOnDemand:
+      - usage:
         - GET
+        - GET/id
         - POST
-        - GET /id
-      - customerBill:
+        - PATCH/id
+      version: 4
+    - id: TMF677
+      name: Usage Consumption Management API
+      required: true
+      resources:
+      - queryUsageConsumption:
         - GET
-        - GET /id
+        - GET/id
         - POST
-        - PATCH /id
-      version: 4.0
+      version: 4
     - id: TMF701
-      name: Process Flow Management
+      name: Process Flow Management API
       required: false
       resources:
       - processFlow:
@@ -27,5 +32,5 @@ exposedAPIs:
         - GET
         - GET /id
         - PATCH /id
-      version: 4.0
+      version: 4
 @endyaml

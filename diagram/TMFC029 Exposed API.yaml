@@ -1,7 +1,7 @@
 @startyaml
 exposedAPIs:
     - id: TMF670
-      name:  Payment Methods Management API
+      name: Payment Methods Management API
       required: true
       resources:
       - paymentMethod:

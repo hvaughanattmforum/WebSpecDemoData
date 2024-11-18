@@ -1,15 +1,15 @@
 @startyaml
 dependentAPIs:
     - id: TMF632
-      name: Party Management API 
-      required: false
+      name: Party Management API
+      required: true
       resources:
       - individual:
         - GET
-        - GET/id
+        - GET /id
       - organization:
         - GET
-        - GET/id
+        - GET /id
       version: 4
     - id: TMF669
       name: Party Role Management API
@@ -17,7 +17,7 @@ dependentAPIs:
       resources:
       - partyRole:
         - GET
-        - GET/id
+        - GET /id
       version: 4
     - id: TMF620
       name: Product Catalog Management API
@@ -25,35 +25,19 @@ dependentAPIs:
       resources:
       - productOffering:
         - GET
-        - GET/id
+        - GET /id
       - productOfferingPrice:
         - GET
-        - GET/id
-      version: 4
-    - id: TMF651
-      name: Agreement Management API
-      required: false
-      resources:
-      - agreement:
-        - GET
-        - GET/id
-      - agreementSpecification:
-        - GET
-        - GET/id
-      version: 4
-    - id: TMF648
-      name: Quote Management API
-      required: false
-      resources:
-      - quote:
-        - GET
         - GET /id
+      - productSpecification:
+        - GET
+        - GET /id              
       version: 4
-    - id: TMF622
-      name: Product Order Management API
+    - id: TMF637
+      name: Product Inventory API
       required: false
       resources:
-      - productOrder:
+      - product:
         - GET
         - GET /id
       version: 4
@@ -65,10 +49,6 @@ dependentAPIs:
         - POST
         - GET
         - GET /id
-        - DELETE
-      - taskFlow:
         - PATCH
-        - GET
-        - GET /id
       version: 4
-@endyaml
+@endyaml   
