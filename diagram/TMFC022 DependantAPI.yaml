@@ -37,9 +37,9 @@ dependentAPIs:
         - GET
         - GET /id
         - POST
-      version: 4.0
+      version: 4
     - id: TMF620
-      name: Product catalog Management API
+      name: Product Catalog Management API
       required: false
       resources:
       - productOffering:

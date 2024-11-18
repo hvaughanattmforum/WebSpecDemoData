@@ -38,7 +38,7 @@ spec:
         - POST
         - PATCH
         - DELETE
-      version: 4.1
+      version: 4
     - id: TMF639
       required: true
       resources:
