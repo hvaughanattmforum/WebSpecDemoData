@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -139,6 +139,6 @@ spec:
       - alarmDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF642_AlarmManagement/master/TMF642-Alarm-v4.0.0.swagger.json
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+  - email: Redacted
+    name: Redacted
 
