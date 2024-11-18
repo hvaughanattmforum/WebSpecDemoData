@@ -1,0 +1,47 @@
+@startyaml
+publishedEvents:
+    - id: TMF676
+      
+      
+      name: Payment Management API
+      
+      resources:
+      - PaymentAttributeValueChangeEvent
+      - PaymentCreateEvent
+      - PaymentDeleteEvent
+      - PaymentStatusChangeEvent
+      - RefundAttributeValueChangeEvent
+      - RefundCreateEvent
+      - RefundStatusChangeEvent
+      
+    - id: TMF670
+      
+      
+      name: Payment Methods Management API
+      
+      resources:
+      - PaymentMethodAttributeValueChangeEvent
+      - PaymentMethodCreateEvent
+      - PaymentMethodDeleteEvent
+      - PaymentMethodStatusChangeEvent
+      
+    - id: TMF701
+      
+      
+      name: Process Flow Management API
+      
+      resources:
+      - ProcessFlowCreateEvent
+      - ProcessFlowStateChangeEvent
+      - ProcessFlowStateDeleteEvent
+      - ProcessFlowStateAttributeValueChangeEvent
+      - TaskFlowCreateEvent
+      - TaskFlowStateChangeEvent
+      - TaskFlowDeleteEvent
+      - TaskFlowAttributeValueChangeEvent
+      - TaskFlowInformationRequiredEvent
+      
+subscribedEvents: []
+  
+
+@endyaml
