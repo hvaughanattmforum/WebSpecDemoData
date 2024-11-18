@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -102,8 +102,7 @@ spec:
         - GET /id
       version: 4
     publishedEvents:
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
       implementation: /{{.Release.Name}}-ResourceInventory
       name: ResourceInventory
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
@@ -115,8 +114,8 @@ spec:
       - resourceAttributeValueChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF639-ResourceInventory/master/TMF639-ResourceInventory-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80
@@ -131,9 +130,9 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
       implementation: /{{.Release.Name}}-ResourceCatalog
       name: ResourceCatalogManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
@@ -156,8 +155,8 @@ spec:
       - exportJobStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
       version: 4.1
-    - apitype: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
+      apiType: openapi
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
       implementation: /{{.Release.Name}}-ResourceInventory
       name: ResourceInventory
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
@@ -169,8 +168,8 @@ spec:
       - resourceAttributeValueChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF639-ResourceInventory/master/TMF639-ResourceInventory-v4.0.0.swagger.json
       version: 4
-    - apitype: openapi
-      name: PartyRoleManagement
+      apiType: openapi
+    - name: PartyRoleManagement
       port: 80
       resources:
       - PartyRoleCreateEvent
@@ -178,24 +177,24 @@ spec:
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
       implementation: /{{.Release.Name}}-GeographicSiteManagement
       name: GeographicSiteManagement
       port: 80
       resources:
       - geographicSiteDeleteEvent
       specification: https://open-api.tmforum.org20-GeographicSite-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
       implementation: /{{.Release.Name}}-GeographicLocation
       name: GeographicLocation
       port: 80
       resources:
       - geographicLocationDeleteEvent
       specification: https://open-api.tmforum.org20-GeographicLocatin-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
       implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
       port: 80
@@ -203,6 +202,10 @@ spec:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://open-api.tmforum.org20-Party-v4.0.0.swagger.json
+      apiType: openapi
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

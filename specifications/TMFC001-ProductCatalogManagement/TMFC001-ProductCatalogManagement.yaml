@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -222,8 +222,7 @@ spec:
         - DELETE
       version: 4
     publishedEvents:
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productspecification/hub
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productspecification/hub
       implementation: /{{.Release.Name}}-ProductCatalogManagementEvent
       name: ProductCatalogManagement
       port: 80
@@ -244,8 +243,8 @@ spec:
       - catalogDeleteEvent
       - catalogBatchEvent
       specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
       implementation: /{{.Release.Name}}-PromotionManagementEvent
       name: PromotionManagement
       port: 80
@@ -256,8 +255,8 @@ spec:
       - promotionStateChangeEvent
       - promotionInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF671_Promotion/blob/master/TMF671-Promotion-v4.1.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80
@@ -272,9 +271,9 @@ spec:
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
       implementation: /{{.Release.Name}}-ServiceCatalogManagement
       name: ServiceCatalogManagement
       port: 80
@@ -287,24 +286,24 @@ spec:
       - resourceSpecificationChangeEvent
       - resourceSpecificationDeleteEvent
       specification: https://open-api.tmforum.org/TMF633-Servicecatalog-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
       implementation: /{{.Release.Name}}-PartyRoleManagement
       name: PartyRoleManagement
       port: 80
       resources:
       - partyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
       implementation: /{{.Release.Name}}-UserRolePermission
       name: UserRolePermission
       port: 80
       resources:
       - permissionDeleteEvent
       specification: https://github.com/tmforum-apis/TMF672_UserRolesPermissions/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
       implementation: /{{.Release.Name}}-Party
       name: Party
       port: 80
@@ -312,6 +311,10 @@ spec:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
+      apiType: openapi
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

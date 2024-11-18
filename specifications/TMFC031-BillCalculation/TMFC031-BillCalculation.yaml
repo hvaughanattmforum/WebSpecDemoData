@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -107,5 +107,8 @@ spec:
       - UsageSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF635_UsageManagement/blob/master/TMF635-UsageManagement-v4.0.0.swagger.json
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org
