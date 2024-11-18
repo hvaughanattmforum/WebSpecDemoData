@@ -6,9 +6,7 @@ spec:
   name: ResourceConfigurationandActivation
   id: TMFC062
   functionalBlock: Production
-  description: 'Lead and Opportunity Management provides the necessary functionality
-    during pre-sales stage in terms of: lead and opportunity capture, qualification,
-    reporting, support.'
+  description: 'The Resource Configuration and Activation component is responsible to configure and activate the resource instances and as well to provide query on resource instances to acquire the resource activation states and attributes.'
   publicationDate: 2024-11-18 00:00:00
   status: specified
   version: 1.0.0
