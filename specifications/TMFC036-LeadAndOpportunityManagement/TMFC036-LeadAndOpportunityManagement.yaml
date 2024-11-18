@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -9,7 +9,7 @@ spec:
   description: 'Lead and Opportunity Management provides the necessary functionality
     during pre-sales stage in terms of: lead and opportunity capture, qualification,
     reporting, support.'
-  publicationDate: 2023-08-18 00:00:00
+  publicationDate: 2024-08-05 00:00:00
   status: specified
   version: 1.1.0
   coreFunction:
@@ -109,8 +109,7 @@ spec:
         - GET /id
       version: 4
     publishedEvents:
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/SalesManagement/hub
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/SalesManagement/hub
       implementation: /{{.Release.Name}}-SalesManagement
       name: SalesManagement
       port: 80
@@ -124,8 +123,8 @@ spec:
       - SalesOpportunityStateChangeEvent
       - SalesOpportunityDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF699_SalesManagement/master/TMF699-SalesManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80
@@ -148,9 +147,9 @@ spec:
       - taskFlowSpecificationDeleteEvent
       - taskFlowSpecificationStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/call-back
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/call-back
       implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
       port: 80
@@ -164,8 +163,8 @@ spec:
       - OrganizationStateChangeEvent
       - OrganizationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF632_PartyManagement/blob/master/TMF632-Party-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
       implementation: /{{.Release.Name}}-ProductCatalogManagement
       name: ProductCatalogManagement
       port: 80
@@ -183,8 +182,8 @@ spec:
       - ProductOfferingPriceStateChangeEvent
       - ProductOfferingPriceDeleteEvent
       specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
       implementation: /{{.Release.Name}}-ProductOrder
       name: ProductOrder
       port: 80
@@ -195,8 +194,8 @@ spec:
       - ProductOrderStateChangeEvent
       - ProductOrderInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/ProductOrder/TMF622-ProductOrder-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Agreement/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Agreement/call-back
       implementation: /{{.Release.Name}}-Agreement
       name: AgreementManagement
       port: 80
@@ -210,8 +209,8 @@ spec:
       - AgreementSpecificationStateChangeEvent
       - AgreementSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF651_AgreementManagement/blob/master/TMF651-Agreement-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/QuoteManagement/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/QuoteManagement/call-back
       implementation: /{{.Release.Name}}-QuoteManagement
       name: QuoteManagement
       port: 80
@@ -222,8 +221,8 @@ spec:
       - QuoteInformationRequiredEvent
       - QuoteAttributeValueChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF648_QuoteManagement/master/TMF648-QuoteManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/call-back
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/call-back
       implementation: /{{.Release.Name}}-PartyRoleManagement
       name: PartyRoleManagement
       port: 80
@@ -233,10 +232,10 @@ spec:
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      apiType: openapi
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
-  publicationDate: 2024-08-05 00:00:00
-  status: specified
-  version: 1.1.0
-
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

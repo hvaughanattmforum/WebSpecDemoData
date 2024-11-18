@@ -1,14 +1,15 @@
-@styartyaml
+@startyaml
 dependentAPIs:
     - id: TMF620
-      name: Birbanete
-      required: false
+      name: Product Catalog Management API
+      required: true
       resources:
       - productSpecification:
         - GET
         - GET /id
       version: 4
     - id: TMF622
+      name: Product Ordering Management API
       required: true
       resources:
       - productOrder:
@@ -16,14 +17,32 @@ dependentAPIs:
         - PATCH
       version: 4
     - id: TMF637
-      required: false
+      name: Product Inventory Management API
+      required: true
       resources:
       - product:
         - GET
         - GET /id
         - PATCH
       version: 4
+    - id: TMF633
+      name: Service Catalog Management API
+      required: false
+      resources:
+      - serviceSpecification:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF638
+      name: Service Inventory Management API
+      required: false
+      resources:
+      - service:
+        - GET / id
+        - GET
+      version: 4   
     - id: TMF641
+      name: Service Ordering Management API
       required: true
       resources:
       - serviceOrder:
@@ -37,46 +56,46 @@ dependentAPIs:
         - GET /id
         - POST
       version: 4
-    - id: TMF633
-      required: false
-      resources:
-      - serviceSpecification:
-        - GET
-        - GET /id
-      version: 4
     - id: TMF634
+      name: Resource Catalog Management API
       required: false
       resources:
       - resourceSpecification:
         - GET
         - GET /id
       version: 4
-    - id: TMF641
-      required: true
-      resources:
-      - serviceOrder:
-        - GET /id
-        - POST
-      version: 4
-    - id: TMF638
-      required: false
-      resources:
-      - service:
-        - GET / id
-        - GET
-      version: 4
     - id: TMF639
+      name: Resource Inventory Management API
       required: false
       resources:
       - resource:
         - GET
         - GET /id
-      version: 4
+      version: 4           
     - id: TMF652
+      name: Resource Ordering Management API
       required: false
       resources:
       - resourceOrder:
         - GET /id
         - POST
-      version: 4
+      version: 4      
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - GET
+        - GET /id
+        - POST
+        - DELETE /id
+      - taskFlow:
+        - GET
+        - GET /id
+        - PATCH /id        
+      version: 4            
+ 
+
+
+
 @endyaml
