@@ -17,6 +17,13 @@ spec:
   version: 1.1.0
   coreFunction:
     dependentAPIs:
+    - id: TMF620
+      required: false
+      resources:
+      - productOffering:
+        - GET
+        - GET /id
+      version: 4    
     - id: TMF632
       required: true
       resources:
@@ -27,13 +34,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF669
-      required: true
-      resources:
-      - partyRole:
-        - GET
-        - GET /id
-      version: 4.0
     - id: TMF667
       required: false
       resources:
@@ -42,10 +42,10 @@ spec:
         - GET /id
         - POST
       version: 4
-    - id: TMF620
-      required: false
+    - id: TMF669
+      required: true
       resources:
-      - productOffering:
+      - partyRole:
         - GET
         - GET /id
       version: 4
@@ -85,37 +85,9 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE /id
-      version: 4
-    - name: PartyManagement
-      port: 80
-      version: 4
-      id: TMFxxx
-      required: false
-      resources:
-      - IndividualDeleteEvent: {}
-      - OrganizationDeleteEvent: {}
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
-    - name: ProductCatalogManagement
-      port: 80
-      version: 4
-      id: TMF620
-      required: false
-      resources:
-      - ProductOfferingDeleteEvent: {}
-      specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
     publishedEvents: []
     subscribedEvents: []
   owners:
-  - email: Redacted
+  - email: components@tmforum.org
     name: Redacted
-  maintainers:
-  - name: Redacted
-    email: components@tmforum.org
+

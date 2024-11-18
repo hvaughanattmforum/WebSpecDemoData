@@ -14,9 +14,9 @@ spec:
     inventory control (organization, re-stock management etc.) and inventory auditing.
     The minimum check to be performed at inventory items creation or update is the
     global consistency with related Resource Catalog information.
-  publicationDate: 2024-04-30 00:00:00
+  publicationDate: 2024-11-18 00:00:00
   status: specified
-  version: 2.0.0
+  version: 2.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF634
@@ -25,7 +25,7 @@ spec:
       - resourceSpecification:
         - GET
         - GET /id
-      version: 4.1
+      version: 4
     - id: TMF669
       required: false
       resources:

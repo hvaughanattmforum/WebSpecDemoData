@@ -33,7 +33,7 @@ dependentAPIs:
         - GET
         - POST
         - DELETE
-      version: 4.1
+      version: 4
     - id: TMF669
       name: Party Role Management API
       required: false
