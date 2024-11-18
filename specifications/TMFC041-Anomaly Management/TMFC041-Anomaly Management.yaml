@@ -1,0 +1,144 @@
+apiVersion: oda.tmforum.org/v1beta3
+kind: component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  name: Anomaly Management 
+  id: TMFC041
+  functionalBlock: Intelligence Management
+  description: "The Anomaly Management ODA Component is responsible for predicting, detecting and managing anomalous patterns 
+    in the usage and behavior of products, services and resources in order to avoid occurence of problems. Anomaly Management ODA component has fuctionality to 
+    predict, detect and flag unusual patterns or outliers for products, services and resource entities, and initiating mitigatory actions to prevent outlier 
+    patterns in usage or behavior to become problems. In the event of failure to predict or detect an early warning signt to a possible problem occurence, 
+    the component hands of mitigatory actions to the ODA problem management component."
+  publicationDate: 2024-10-30 00:00:00
+  status: specified
+  version: 1.0.0
+  coreFunction:
+    dependentAPIs:
+    - id: TMF688
+      required: false
+      resources:
+      - event:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF642
+      required: false
+      resources:
+      - alarm:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF723
+      required: false
+      resources:
+      - managedPolicy:
+        - GET
+        - GET /id
+        - PATCH /id
+      version: 5
+
+    - id: TMF632
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF669
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF915
+      required: false
+      resources:
+      - aiModelSpecification:
+        - GET
+        - GET /id
+      - aiModelContractSpecification:
+        - GET
+        - GET /id
+      - aiModelContract:
+        - GET
+        - GET /id
+      version: 4      
+    exposedAPIs:
+    - id: TMF751
+      required: true
+      resources:
+      - anomalySpecification:
+        - GET
+        - GET /id
+        - POST 
+        - PATCH /id
+        - DELETE /id
+      - anomaly:
+        - GET
+        - GET /id
+        - POST
+        - PATCH /id
+        - DELETE /id
+      version: 4          
+    publishedEvents:
+    - apitype: openapi
+      hub: /{{.Release.Name}}-AnomalyManagementEvent/hub
+      id: TMF651
+      implementation: /{{.Release.Name}}-AnomalyManagementEvent
+      name: AnomalyManagementEvent
+      port: 8080
+      resources:
+      - anomalyCreateEvent
+      - anomalyDeleteEvent
+      - anomalyAttributeValueChangeEvent
+      - anomalyStateChangeEvent
+      - anomalySpecificationStatusChangeEvent
+      - anomalySpecificationAttributeValueChangeEvent
+      - anomalySpecificationCreateEvent
+      - anomalySpecificationDeleteEvent
+      specification: https://github.com/tmforum-rand/Open_API_And_Data_Model/blob/v4.0-Sprint-2020-03/apis/TMF751_AnomalyManagement/swaggers/TMF751-AnomalyManagement-v4.0.0.swagger.json
+
+    subscribedEvents:
+    - apitype: openapi
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AIManagement/call-back
+      implementation: /{{.Release.Name}}-AIManagement
+      name: AIManagement
+      port: 80
+      resources:
+      - aiContractSpecificationCreateEvent
+      - aiContractSpecificationDeleteEvent
+      - aiContractSpecificationAttributeValueChangeEvent
+      - aiModelSpecificationCreateEvent
+      - aiModelSpecificationDeleteEvent
+      - aiModelSpecificationAttributeValueChangeEvent
+      - aiModelCreateEvent
+      - aiModelStateChangeEvent
+      - aiModelDeleteEvent
+      - aiModelAttributeValueChangeEvent
+      - aiContractCreateEvent
+      - aiContractDeleteEvent
+      - aiContractAttributeValueChangeEvent
+      - aiContractStateChangeEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF915_AIManagementSuite/master/TMF915-AIManagement-v4.0.0.swagger.json
+    - apitype: openapi
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/call-back
+      implementation: /{{.Release.Name}}-AlarmManagement
+      name: AlarmManagement
+      port: 80
+      resources:
+      - alarmCreateEvent
+      - alarmStateChangeEvent
+      - alarmDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF642_AlarmManagement/master/TMF642-Alarm-v4.0.0.swagger.json
+  owners:
+  - email: Redacted
+    name: Redacted
+
