@@ -114,8 +114,7 @@ spec:
       apiType: openapi
     subscribedEvents: []
   owners:
+
   - email: Redacted
     name: Redacted
-  maintainers:
-  - name: Redacted
-    email: components@tmforum.org
+

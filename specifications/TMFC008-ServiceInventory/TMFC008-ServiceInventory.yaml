@@ -14,9 +14,9 @@ spec:
     inventory search or filter, inventory monitoring and tracking, inventory control
     and inventory auditing.The minimum check to be performed at inventory items creation
     or update is the global consistency with related Service Catalog information.
-  publicationDate: 2023-08-18 00:00:00
+  publicationDate: 2024-11-12 00:00:00
   status: specified
-  version: 1.1.0
+  version: 1.2.0
   coreFunction:
     dependentAPIs:
     - id: TMF633
@@ -71,13 +71,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF672
-      required: false
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      version: 4
     - id: TMF641
       required: false
       resources:
@@ -94,14 +87,6 @@ spec:
       - organization:
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-        - POST
       version: 4
     exposedAPIs:
     - id: TMF638
@@ -126,18 +111,6 @@ spec:
         - PATCH
         - GET
         - GET /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - listener:
-        - POST
       version: 4
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/hub
@@ -202,16 +175,6 @@ spec:
       resources:
       - partyRoleDeleteEvent
       specification: https://open-api.tmforum.org20-PartyRole-v4.0.0.swagger.json
-      apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolePermission/call-back
-      implementation: /{{.Release.Name}}-UserRolePermissionManagement
-      name: UserRolePermissionManagement
-      port: 80
-      resources:
-      - permissionDeleteEvent
-      specification: https://open-api.tmforum.org20-UserRolePermission-v4.0.0.swagger.json
-      apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
       implementation: /{{.Release.Name}}-GeographicSiteManagement
       name: GeographicSiteManagement
       port: 80

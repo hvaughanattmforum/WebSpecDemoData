@@ -1,7 +1,7 @@
 @startyaml
 exposedAPIs:
-    - id: TMF620
-      name: PRoduct Catalog Management API
+    - id: TMF633
+      name: Service Catalog Management API
       required: true
       resources:
       - catalog:
@@ -16,19 +16,13 @@ exposedAPIs:
         - POST
         - PATCH
         - DELETE
-      - productSpecification:
+      - serviceSpecification:
         - GET
         - GET /id
         - POST
         - PATCH
         - DELETE
-      - productOffering:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - productOfferingPrice:
+      - serviceCandidate:
         - GET
         - GET /id
         - POST
@@ -45,13 +39,25 @@ exposedAPIs:
         - GET /id
         - DELETE
       version: 4
-    - id: TMF671
-      name: Promotion Management API 
-      required: false
+    - id: TMF657
+      name: Service Quality Management API
+      required: true
       resources:
-      - promotion:
+      - serviceLevelSpecification:
         - GET
-        - GET /id
+        - GET/id
+        - POST
+        - PATCH
+        - DELETE
+      - serviceLevelObjective:
+        - GET
+        - GET/id
+        - POST
+        - PATCH
+        - DELETE
+      - serviceLevelSpecParameter:
+        - GET
+        - GET/id
         - POST
         - PATCH
         - DELETE
@@ -69,6 +75,5 @@ exposedAPIs:
         - PATCH
         - GET
         - GET /id
-      version: 4
-
+      version: 4  
 @endyaml
