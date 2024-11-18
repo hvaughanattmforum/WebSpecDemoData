@@ -14,7 +14,7 @@ spec:
     associations. Provide account balance details. Set-up Billing contacts. Set-up
     Billing preferences (e.g., bill cycle frequency, invoice media type, invoice template
     option, etc.)
-  publicationDate: 2024-04-16 00:00:00
+  publicationDate: 2024-11-18 00:00:00
   status: specified
   version: 2.0.0
   coreFunction:
@@ -33,16 +33,6 @@ spec:
       required: true
       resources:
       - PartyRole:
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF672
-      required: true
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      - userRole:
         - GET
         - GET /id
       version: 4
@@ -69,36 +59,29 @@ spec:
         - GET /id
         - PATCH
       version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-      version: 4
     exposedAPIs:
     - id: TMF666
       required: true
       resources:
-      - BillingAccount:
+      - billingAccount:
         - GET
         - GET /id
         - POST
         - PATCH /id
         - DELETE /id
-      - BillingCycleSpecification:
+      - billingCycleSpecification:
         - GET
         - GET /id
         - POST
         - PATCH /id
         - DELETE /id
-      - BillFormat:
+      - billFormat:
         - GET
         - GET /id
         - POST
         - PATCH /id
         - DELETE /id
-      - BillPresentationMedia:
+      - billPresentationMedia:
         - GET
         - GET /id
         - POST
@@ -117,15 +100,6 @@ spec:
         - GET
         - GET /id
         - PATCH /id
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE /id
       version: 4
     publishedEvents:
     - apitype: openapi
@@ -146,19 +120,6 @@ spec:
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-    - apitype: openapi
-      name: UserRolePermissionManagement
-      port: 80
-      resources:
-      - permissionCreateEvent
-      - permissionAttributeValueChangeEvent
-      - permissionStateChangeEvent
-      - permissionDeleteEvent
-      - userRoleCreateEvent
-      - userRoleAttributeValueChangeEvent
-      - userRoleStateChangeEvent
-      - userRoleDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
   owners:
   - email: gaetano.biancardi@accenture.com
     name: Gaetano Biancardi

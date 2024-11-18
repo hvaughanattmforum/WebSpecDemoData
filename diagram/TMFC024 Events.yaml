@@ -1,0 +1,22 @@
+@startyaml
+publishedEvents:
+    - id: TMF666
+      
+      name: Account Management API
+      
+      resources:
+      - billingAccountAttributeValueChangeEvent
+      - billingAccountStateChangeEvent
+      
+subscribedEvents:
+    - id: TMF669
+      name: Party Role Management
+      
+      resources:
+      - partyRoleCreateEvent
+      - partyRoleAttributeValueChangeEvent
+      - partyRoleStateChangeEvent
+      - partyRoleDeleteEvent
+      
+  
+@endyaml

@@ -1,0 +1,50 @@
+@startyaml
+dependentAPIs:
+    - id: TMF632
+      name: Party Management API
+      required: true
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF669
+      name: Party Role Management
+      required: true
+      resources:
+      - PartyRole:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF670
+      name: Payment Method Management API 
+      required: false
+      resources:
+      - paymentMethod:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF676
+      name: Payment Management API
+      required: false
+      resources:
+      - payment:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+      version: 4
+    
+
+@endyaml
