@@ -1,0 +1,116 @@
+apiVersion: oda.tmforum.org/v1beta2
+kind: component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  name: ResourceConfigurationandActivation
+  id: TMFC062
+  functionalBlock: Production
+  description: 'Lead and Opportunity Management provides the necessary functionality
+    during pre-sales stage in terms of: lead and opportunity capture, qualification,
+    reporting, support.'
+  publicationDate: 2024-11-18 00:00:00
+  status: specified
+  version: 1.0.0
+  coreFunction:
+    dependentAPIs:
+    - id: TMF634
+      required: false
+      resources:
+      - resourceSpecification:
+        - GET
+        - GET/id
+      version: 4
+    - id: TMF639
+      required: false
+      resources:
+      - resource:
+        - GET
+        - GET/id
+        - POST
+        - PATCH /id
+        - DELETE /id
+      version: 4
+    exposedAPIs:
+    - id: TMF702
+      required: true
+      resources:
+      - resource:
+        - GET
+        - GET /id
+        - POST /id
+        - PATCH
+        - DELETE /id
+      version: 4
+    - id: TMF664
+      required: false
+      resources:
+      - resourceFunction:
+        - GET
+        - GET /id
+        - POST
+        - PATCH /id
+        - DELETE /id
+      - heal:
+        - GET
+        - GET /id
+        - POST
+      - scale:
+        - GET
+        - GET /id
+        - POST
+      - migrate:
+        - GET
+        - GET /id
+        - POST        
+      version: 4
+    publishedEvents:
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationManagement/hub
+      implementation: /{{.Release.Name}}-ResourceActivationManagement
+      name: ResourceActivationManagement
+      port: 80
+      resources:
+      - ResourceCreateEvent
+      - ResourceAttributeValueChangeEvent
+      - ResourceStateChangeEvent
+      - ResourceDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF702_Resource_Activation_Management/master/TMF702_Resource_Activation_Management_API_v4.0.0_swagger.json
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationManagement/hub
+      implementation: /{{.Release.Name}}-ResourceFunctionActivationManagement
+      name: ResourceFunctionActivationManagement
+      port: 80
+      resources:
+      - ResourceFunctionCreateEvent
+      - ResourceFunctionAttributeValueChangeEvent
+      - ResourceFunctionChangeEvent
+      - ResourceFunctionDeleteEvent
+      - HealCreateEvent
+      - HealAttributeValueChangeEvent
+      - HealChangeEvent
+      - HealDeleteEvent
+      - ScaleCreateEvent
+      - ScaleAttributeValueChangeEvent
+      - ScaleChangeEvent
+      - ScaleDeleteEvent
+      - MigrateCreateEvent
+      - MigrateAttributeValueChangeEvent
+      - MigrateChangeEvent
+      - MigrateDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF664_Resource_Function_Activation_Management/blob/master/TMF664_Resource_Function_Activation_Management_API_v4.0.0_swagger.json
+    subscribedEvents:
+    - apitype: openapi
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalogManagement/call-back
+      implementation: /{{.Release.Name}}-ResourceCatalogManagement
+      name: ResourceCatalogManagement
+      port: 80
+      resources:
+      - ResourceSpecificationCreateEvent
+      - ResourceSpecificationChangeEvent
+      - ResourceSpecificationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF634_Resource_Catalog_Management/blob/master/TMF634_Resource_Catalog_Management_API_v4.1.0_swagger.json
+  owners:
+  - email: gaetano.biancardi@accenture.com
+    name: Gaetano Biancardi
+
