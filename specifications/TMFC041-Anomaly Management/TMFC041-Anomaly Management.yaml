@@ -11,9 +11,9 @@ spec:
     predict, detect and flag unusual patterns or outliers for products, services and resource entities, and initiating mitigatory actions to prevent outlier 
     patterns in usage or behavior to become problems. In the event of failure to predict or detect an early warning signt to a possible problem occurence, 
     the component hands of mitigatory actions to the ODA problem management component."
-  publicationDate: 2024-10-30 00:00:00
+  publicationDate: 2024-11-19 00:00:00
   status: specified
-  version: 1.0.0
+  version: 1.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF688
