@@ -1,11 +1,11 @@
-apiVersion: oda.tmforum.org/v1beta2
+apiVersion: oda.tmforum.org/v1beta3
 kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
   name: AgreementManagement
   id: TMFC039
-  functionalBlock: CoreCommerce
+  functionalBlock: Party Management
   description: Agreement Management component is responsible for creating, storing,
     editing, and tracking agreed  arrangements with related terms and conditions over
     a lifecycle. The component manages offers, records acceptance, and associated
@@ -105,8 +105,7 @@ spec:
         - GET /id
       version: 4
     publishedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-agreemngtapi
+    - implementation: /{{.Release.Name}}-agreemngtapi
       name: userRole
       port: 80
       resources:
@@ -116,15 +115,19 @@ spec:
       - agreementSpecificationCreateEvent
       - agreementSpecificationAttributeValueChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF651_AgreementManagement/master/TMF651-AgreementManagement-v4.0.0.swagger.json
+      apiType: openapi
     subscribedEvents:
-    - apitype: openapi
-      implementation: /{{.Release.Name}}-PartyManagement
+    - implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
       port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
+      apiType: openapi
   owners:
-  - email: gaetano.biancardi@accenture.com
-    name: Gaetano Biancardi
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org

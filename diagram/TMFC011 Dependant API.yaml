@@ -1,7 +1,7 @@
 @startyaml
 dependentAPIs:
     - id: TMF702
-      name:  Resource Activation Management API
+      name: Resource Activation Management API
       required: true
       resources:
       - resource:
@@ -24,7 +24,7 @@ dependentAPIs:
         - POST
         - PATCH
         - DELETE
-      version: 4.1
+      version: 4
     - id: TMF639
       name: Resource Inventory Management API
       required: true

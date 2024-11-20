@@ -1,5 +1,5 @@
 @startyaml
-dependentAPIs:
+ dependentAPIs:
     - id: TMF620
       name: Product Catalog Management API
       required: true
@@ -13,10 +13,10 @@ dependentAPIs:
       - productOfferingPrice:
         - GET
         - GET /id
-      - productSpecification:d
+      - productSpecification:
         - GET
         - GET /id
-      version: 4.1
+      version: 4
     - id: TMF637
       name: Product Inventory Management API
       required: true
@@ -25,6 +25,7 @@ dependentAPIs:
         - GET
         - GET /id
         - POST
+        - PATCH
       version: 4
     - id: TMF679
       name: Product Offering Qualification Management API
@@ -60,11 +61,13 @@ dependentAPIs:
         - GET /id
         - POST
         - PATCH
+        - DELETE
       - searchTimeSlot:
         - GET
         - GET /id
         - POST
         - PATCH
+        - DELETE
       version: 4
     - id: TMF673
       name: Geographic Address Management API
@@ -80,6 +83,7 @@ dependentAPIs:
         - GET
         - GET /id
         - POST
+        - PATCH
       version: 4
     - id: TMF674
       name: Geographic Site Management API
@@ -99,9 +103,10 @@ dependentAPIs:
         - POST
         - PATCH
         - DELETE
-      - resourcePool:
+      - cancelResourceReservation:
         - GET
         - GET /id
+        - POST
       version: 4
     - id: TMF687
       name: Stock Management API
@@ -141,15 +146,15 @@ dependentAPIs:
         - GET /id
       version: 4
     - id: TMF669
-      name: Party Role Management API
+      name: Party Role Management
       required: false
       resources:
-      - PartyRoleManagement:
+      - partyRole:
         - GET
         - GET /id
       version: 4
     - id: TMF666
-      name: Account Management	API
+      name: Account Management API
       required: false
       resources:
       - billingAccount:
@@ -157,7 +162,7 @@ dependentAPIs:
         - GET
       version: 4
     - id: TMF676
-      name: Payment Management	
+      name: Payment Management API
       required: false
       resources:
       - payment:
@@ -204,6 +209,7 @@ dependentAPIs:
         - GET /id
       version: 4
     - id: TMF760
+      name: Product Configuration Management API
       required: false
       resources:
       - checkProductConfiguration:
@@ -214,3 +220,13 @@ dependentAPIs:
         - GET
         - GET /id
         - POST        
+      version: 5      
+    - id: TMF651
+      name: Agreement Management API 
+      required: false
+      resources:
+      - agreement:
+        - GET
+        - GET /id
+      version: 4         
+@endyaml    
