@@ -1,0 +1,55 @@
+@staryaml
+dependentAPIs:
+    - id: TMF642
+      name: Alarm Management API
+      required: false
+      resources:
+      - alarm:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF723
+      name: Policy Management API
+      required: false
+      resources:
+      - managedPolicy:
+        - GET
+        - GET /id
+        - PATCH /id
+      version: 5
+
+    - id: TMF632
+      name: Party Management API
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF669
+      name: Party Role Management API
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF915
+      name: AI Management API
+      required: false
+      resources:
+      - aiModelSpecification:
+        - GET
+        - GET /id
+      - aiModelContractSpecification:
+        - GET
+        - GET /id
+      - aiModelContract:
+        - GET
+        - GET /id
+      version: 4      
+@endyaml
