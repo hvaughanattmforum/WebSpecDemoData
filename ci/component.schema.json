@@ -255,7 +255,7 @@
           "type": "number"
         }
       },
-      "required": ["id", "required", "apiType"]
+      "required": ["id", "required"]
     },
     "dependentAPI": {
       "type": "object",
@@ -282,7 +282,7 @@
           "type": "number"
         }
       },
-      "required": ["id","required", "apiType"]
+      "required": ["id","required"]
     }
   }
 }
