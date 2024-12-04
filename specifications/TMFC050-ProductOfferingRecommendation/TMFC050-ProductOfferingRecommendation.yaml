@@ -1,0 +1,109 @@
+apiVersion: oda.tmforum.org/v1beta3
+kind: component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  name: RecommendationManagement
+  id: TMFC050
+  functionalBlock: IntelligenceManagement
+  description: BRecommendation component is responsible for evaluating and providing party recommendations offerings based on the history and real-time context of a party.
+  publicationDate: 2024-12-03
+  status: specified
+  version: 1.0.0
+  coreFunction:
+    dependentAPIs:
+     - id: TMF620
+       required: true
+       resources:
+       - catalog:
+         - GET
+         - GET /id
+       - category:
+         - GET
+         - GET /id
+       - productSpecification:
+         - GET
+         - GET /id
+       - productOffering:
+         - GET
+         - GET /id
+       - productOfferingPrice:
+         - GET
+         - GET /id
+       version: 4
+     - id: TMF637
+       required: false
+       resources:
+       - product:
+         - GET
+         - GET /id
+       version: 4     
+     - id: TMF622
+       required: false
+       resources:
+       - productOrder:
+         - GET
+         - GET /id
+       version: 4        
+     - id: TMF679
+       required: false
+       resources:
+       - productOfferingQualification:
+         - GET
+         - GET /id
+       version: 4         
+    exposedAPIs:
+    - id: TMF680
+      required: true
+      resources:
+      - queryProductRecommendation:
+        - GET
+        - GET /id
+        - POST
+      version: 4
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - GET
+        - GET /id
+        - POST
+        - DELETE /id
+      - taskFlow:
+        - GET
+        - GET /id
+        - PATCH /id
+      version: 4
+    publishedEvents:
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/queryProductRecommendation/hub
+      implementation: /{{.Release.Name}}-QueryProductRecommendation
+      name: queryProductRecommendation
+      port: 80
+      resources:
+      - queryProductRecommendationCreateEvent
+      - queryProductRecommendationStateChangeEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF680_Recommendation/4.0.0/swagger/TMF680_Recommendation_Management_API_v4.0.0_swagger.json
+      apiType: openapi
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+      implementation: /{{.Release.Name}}-ProcessFlowManagement
+      name: processFlowManagement
+      port: 80
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.0.0.swagger.json
+      apiType: openapi
+    subscribedEvents: []
+  owners:
+  - email: Redacted
+    name: Redacted
+  maintainers:
+  - name: Redacted
+    email: components@tmforum.org
