@@ -196,14 +196,6 @@ spec:
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.swagger.json
       version: 4
     - call-back: /{{.Release.Name}}-EntityCatalog/call-back
-      id: TMF672
-      name: UserRolePermission
-      port: 80
-      resources:
-      - permissionDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF672-UserRolePermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
-      version: 4
-    - call-back: /{{.Release.Name}}-EntityCatalog/call-back
       id: TMF632
       name: Party
       port: 80
