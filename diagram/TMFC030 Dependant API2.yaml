@@ -16,7 +16,7 @@ dependentAPIs:
       - billPresentationMedia:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF632
       name: Party Management API
       required: true
@@ -27,7 +27,7 @@ dependentAPIs:
       - organization:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF676
       name: Payment Management API
       required: false
@@ -40,7 +40,7 @@ dependentAPIs:
         - GET
         - GET /id
         - POST
-      version: 4.0
+      version: 4
     - id: TMF667
       name: Document Management API
       required: false
@@ -49,7 +49,7 @@ dependentAPIs:
         - GET
         - GET /id
         - POST
-      version: 4.0
+      version: 4
     - id: TMF637
       name: Product Inventory Management API
       required: false
@@ -57,7 +57,7 @@ dependentAPIs:
       - product:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF669
       name: Party Role Management
       required: true
@@ -65,7 +65,7 @@ dependentAPIs:
       - PartyRole:
         - GET
         - GET /id
-      version: 4.0      
+      version: 4    
     - id: TMF678
       name: Customer Bill Management API
       required: false
@@ -88,7 +88,7 @@ dependentAPIs:
         - GET /id
         - POST
         - PATCH        
-      version: 4.0
+      version: 4
   
 
 @endyaml

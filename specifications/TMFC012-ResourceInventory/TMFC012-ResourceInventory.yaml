@@ -44,7 +44,7 @@ spec:
         - GET /id
       version: 4
     - id: TMF673
-      required: true
+      required: false
       resources:
       - geographicAddress:
         - GET
@@ -54,21 +54,21 @@ spec:
         - GET /id
       version: 4
     - id: TMF674
-      required: true
+      required: false
       resources:
       - geographicSite:
         - GET
         - GET /id
       version: 4
     - id: TMF675
-      required: true
+      required: false
       resources:
       - geographicLocation:
         - GET
         - GET /id
       version: 4
     - id: TMF639
-      required: true
+      required: false
       resources:
       - resource:
         - GET
