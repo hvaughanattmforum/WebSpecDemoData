@@ -6,7 +6,7 @@ on:
       ref_name:
         description: 'Branch name'
         required: true
-        default: 'v1beta3'
+        default: 'v1beta4'
 
   push:
     branches:

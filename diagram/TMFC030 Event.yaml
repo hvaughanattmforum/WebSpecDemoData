@@ -10,17 +10,5 @@ subscribedEvents:
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       
-    - id: TMF672
-      name: User Role Permission Management API
-      
-      resources:
-      - permissionCreateEvent
-      - permissionAttributeValueChangeEvent
-      - permissionStateChangeEvent
-      - permissionDeleteEvent
-      - userRoleCreateEvent
-      - userRoleAttributeValueChangeEvent
-      - userRoleStateChangeEvent
-      - userRoleDeleteEvent
      
 @endyaml

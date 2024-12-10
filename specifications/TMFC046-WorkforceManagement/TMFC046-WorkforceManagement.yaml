@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta3
+apiVersion: oda.tmforum.org/v1beta4
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -13,7 +13,7 @@ spec:
     interventions. option, etc.)
   publicationDate: 2024-04-18 00:00:00
   status: specified
-  version: 1.0.0
+  version: 1.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -33,16 +33,6 @@ spec:
         - GET
         - GET /id
       version: 4
-    - id: TMF672
-      required: true
-      resources:
-      - permission:
-        - GET
-        - GET /id
-      - userRole:
-        - GET
-        - GET /id
-      version: 4
     - id: TMF701
       required: false
       resources:
@@ -51,13 +41,6 @@ spec:
         - GET
         - GET /id
         - PATCH
-      version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
       version: 4
     exposedAPIs:
     - id: TMF646
@@ -89,15 +72,6 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE /id
-      version: 4
     publishedEvents:
     - implementation: /{{.Release.Name}}-appointmentManagement
       name: appointmentManagement
@@ -122,19 +96,6 @@ spec:
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
-      apiType: openapi
-    - name: UserRolePermissionManagement
-      port: 80
-      resources:
-      - permissionCreateEvent
-      - permissionAttributeValueChangeEvent
-      - permissionStateChangeEvent
-      - permissionDeleteEvent
-      - userRoleCreateEvent
-      - userRoleAttributeValueChangeEvent
-      - userRoleStateChangeEvent
-      - userRoleDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF672_UserRolesPermissions/blob/master/TMF672-UserRolePermission-v4.0.0.swagger.json
       apiType: openapi
     - name: ProcessFlowManagement
       port: 80

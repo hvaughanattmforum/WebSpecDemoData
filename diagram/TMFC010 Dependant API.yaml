@@ -2,7 +2,7 @@
 dependentAPIs:
     - id: TMF634
       name: Resource Catalog Management API
-      required: true
+      required: false
       resources:
       - resourceCatalog:
         - GET
@@ -38,12 +38,12 @@ dependentAPIs:
       name: Party Role Management API
       required: false
       resources:
-      - partyRole: 
-        - GET 
+      - partyRole:
+        - GET
         - GET /id
       version: 4
     - id: TMF632
-      name: Party Management API 
+      name: Party Management API
       required: false
       resources:
       - individual:
@@ -53,42 +53,15 @@ dependentAPIs:
         - GET
         - GET /id
       version: 4
-    - id: TMF673
-      name: Geographic Address Management API 
+    - id: TMF662
+      name: Entity Catalog Management API
       required: false
       resources:
-      - geographicAddress:
+      - entitySpecification:
         - GET
         - GET /id
-      - geographicSubAddress:
+      - associationSpecification:
         - GET
         - GET /id
       version: 4
-    - id: TMF674
-      name: Geographic Site Management API
-      required: false
-      resources:
-      - geographicSite:
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF675
-      name: Geographic Location Management API
-      required: false
-      resources:
-      - geographicLocation:
-        - GET
-        - GET /id
-      version: 4
-    - id: TMF639
-      name: Resource Inventory Management API
-      required: false
-      resources:
-      - resource:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
-@endyaml
+@endyaml   

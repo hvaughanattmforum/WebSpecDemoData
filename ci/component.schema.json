@@ -28,13 +28,13 @@
             "dependentAPIs": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/api"
+                "$ref": "#/definitions/dependentAPI"
               }
             },
             "exposedAPIs": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/api"
+                "$ref": "#/definitions/exposedAPI"
               }
             },
             "publishedEvents": {
@@ -60,19 +60,19 @@
                   "name": {
                     "type": "string"
                   },
+                  "description": {
+                    "type": "string"
+                  },
                   "port": {
                     "type": "number"
                   },
                   "specification": {
                     "type": "string"
+                  },
+                  "developerUI": {
+                    "type": "string"
                   }
-                },
-                "required": [
-                  "resources",
-                  "name",
-                  "port",
-                  "specification"
-                ]
+                }
               }
             },
             "subscribedEvents": {
@@ -103,22 +103,20 @@
                   },
                   "specification": {
                     "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "developerUI": {
+                    "type": "string"
                   }
-                },
-                "required": [
-                  "name",
-                  "port",
-                  "resources",
-                  "specification"
-                ]
+                }
               }
             }
           },
           "required": [
             "dependentAPIs",
-            "exposedAPIs",
-            "publishedEvents",
-            "subscribedEvents"
+            "exposedAPIs"
           ]
         },
         "description": {
@@ -139,6 +137,9 @@
                 "type": "string"
               },
               "name": {
+                "type": "string"
+              },
+              "url": {
                 "type": "string"
               }
             },
@@ -163,6 +164,9 @@
                 "type": "string"
               },
               "name": {
+                "type": "string"
+              },
+              "url": {
                 "type": "string"
               }
             },
@@ -192,7 +196,6 @@
         "functionalBlock",
         "id",
         "name",
-        "owners",
         "publicationDate",
         "status",
         "version"
@@ -206,7 +209,7 @@
     "spec"
   ],
   "definitions": {
-    "api": {
+    "exposedAPI": {
       "type": "object",
       "properties": {
         "apiType": {
@@ -227,14 +230,47 @@
             "type": "object"
           }
         },
-        "specification": {
+        "implementation": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "developerUI": {
           "type": "string"
         },
         "version": {
           "type": "number"
         }
       },
-      "required": ["id", "version", "resources", "required"]
+      "required": ["id", "required"]
+    },
+    "dependentAPI": {
+      "type": "object",
+      "properties": {
+        "apiType": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "version": {
+          "type": "number"
+        }
+      },
+      "required": ["id","required"]
     }
   }
 }

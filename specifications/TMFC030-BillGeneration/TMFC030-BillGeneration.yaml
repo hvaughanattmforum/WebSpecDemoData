@@ -1,4 +1,4 @@
-apiVersion: oda.tmforum.org/v1beta3
+apiVersion: oda.tmforum.org/v1beta4
 kind: component
 metadata:
   name: components.oda.tmforum.org
@@ -8,7 +8,7 @@ spec:
   functionalBlock: PartyManagement
   description: Bill generation mgmt. manage the party invoice management. It addresses
     the invoice formatting, presentation and dispatching to the proper means of communication.
-  publicationDate: 2023-12-18
+  publicationDate: 2024-12-03
   status: specified
   version: 2.0.0
   coreFunction:
@@ -28,7 +28,7 @@ spec:
       - billPresentationMedia:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF632
       required: true
       resources:
@@ -38,7 +38,7 @@ spec:
       - organization:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF676
       required: false
       resources:
@@ -50,7 +50,7 @@ spec:
         - GET
         - GET /id
         - POST
-      version: 4.0
+      version: 4
     - id: TMF667
       required: false
       resources:
@@ -58,21 +58,21 @@ spec:
         - GET
         - GET /id
         - POST
-      version: 4.0
+      version: 4
     - id: TMF637
       required: false
       resources:
       - product:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
     - id: TMF669
       required: true
       resources:
       - PartyRole:
         - GET
         - GET /id
-      version: 4.0
+      version: 4
 
     - id: TMF701
       required: false
@@ -87,7 +87,7 @@ spec:
         - GET /id
         - POST
         - PATCH
-      version: 4.0
+      version: 4
     exposedAPIs:
     - id: TMF678
       required: true
@@ -114,16 +114,7 @@ spec:
         - GET
         - GET /id
         - PATCH /id
-      version: 4.0
-    - id: TMF688
-      required: false
-      resources:
-      - listener:
-        - POST
-      - hub:
-        - POST
-        - DELETE /id
-      version: 4.0
+      version: 4
     publishedEvents: []
     subscribedEvents:
     - name: partyRoleManagement
@@ -134,19 +125,7 @@ spec:
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
       apiType: openapi
-    - name: userRolePermissionManagement
-      port: 80
-      resources:
-      - permissionCreateEvent
-      - permissionAttributeValueChangeEvent
-      - permissionStateChangeEvent
-      - permissionDeleteEvent
-      - userRoleCreateEvent
-      - userRoleAttributeValueChangeEvent
-      - userRoleStateChangeEvent
-      - userRoleDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF672-UserRolePermission/blob/master/TMF672-UserRoleandPermission-v4.0.0.swagger.json
-      apiType: openapi
+
   owners:
   - email: Redacted
     name: Redacted
