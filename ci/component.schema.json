@@ -72,10 +72,7 @@
                   "developerUI": {
                     "type": "string"
                   }
-                },
-                "required": [
-                  "name"
-                ]
+                }
               }
             },
             "subscribedEvents": {
@@ -113,21 +110,13 @@
                   "developerUI": {
                     "type": "string"
                   }
-                },
-                "required": [
-                  "name",
-                  "port",
-                  "resources",
-                  "specification"
-                ]
+                }
               }
             }
           },
           "required": [
             "dependentAPIs",
-            "exposedAPIs",
-            "publishedEvents",
-            "subscribedEvents"
+            "exposedAPIs"
           ]
         },
         "description": {
@@ -207,7 +196,6 @@
         "functionalBlock",
         "id",
         "name",
-        "owners",
         "publicationDate",
         "status",
         "version"
