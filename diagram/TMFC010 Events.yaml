@@ -1,0 +1,70 @@
+@startyaml
+publishedEvents:
+    - id: TMF634
+      
+      name: Resource Catalog Management API
+      
+      resources:
+      - resourceCatalogCreateEvent
+      - resourceCatalogChangeEvent
+      - resourceCatalogDeleteEvent
+      - resourceCategoryCreateEvent
+      - resourceCategoryChangeEvent
+      - resourceCategoryDeleteEvent
+      - resourceCandidateCreateEvent
+      - resourceCandidateChangeEvent
+      - resourceCandidateDeleteEvent
+      - resourceSpecificationCreateEvent
+      - resourceSpecificationChangeEvent
+      - resourceSpecificationDeleteEvent
+      - importJobCreateEvent
+      - exportJobCreateEvent
+      - exportJobStateChangeEvent
+      
+      version: 4
+    
+    - id: TMF701
+      
+      name: Process Flow Management API
+      
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+      
+      version: 4
+      
+subscribedEvents:
+    - id: TMF632
+      name: Entity Catalog Management API
+      
+      resources:
+      - entitySpecificationCreateEvent
+      - entitySpecificationAttributeValueChangeEvent
+      - entitySpecificationStateChangeEvent
+      - entitySpecificationDeleteEvent
+      
+      version: 4
+    - id: TMF669
+      name: Party Role Management
+      
+      resources:
+      - partyRoleDeleteEvent
+      
+      version: 4
+
+    - id: TMF632
+      name: Party Management API
+      
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+      
+      version: 4
+@endyaml  

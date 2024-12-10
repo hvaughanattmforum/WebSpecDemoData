@@ -1,0 +1,67 @@
+@startyaml
+dependentAPIs:
+    - id: TMF634
+      name: Resource Catalog Management API
+      required: false
+      resources:
+      - resourceCatalog:
+        - GET
+        - GET /id
+      - resourceCategory:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - resourceSpecification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - resourceCandidate:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - exportJob:
+        - GET
+        - POST
+        - DELETE
+      - importJob:
+        - GET
+        - POST
+        - DELETE
+      version: 4
+    - id: TMF669
+      name: Party Role Management API
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF632
+      name: Party Management API
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+    - id: TMF662
+      name: Entity Catalog Management API
+      required: false
+      resources:
+      - entitySpecification:
+        - GET
+        - GET /id
+      - associationSpecification:
+        - GET
+        - GET /id
+      version: 4
+@endyaml   
