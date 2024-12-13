@@ -3,7 +3,7 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: Anomaly Management 
+  name: AnomalyManagement 
   id: TMFC041
   functionalBlock: Intelligence Management
   description: "The Anomaly Management ODA Component is responsible for predicting, detecting and managing anomalous patterns 
