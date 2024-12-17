@@ -32,6 +32,8 @@ def modify_owners_info(yaml_data):
                 owner['name'] = 'Redacted'
             if 'email' in owner:
                 owner['email'] = 'Redacted'
+            if 'url' not in owner:
+                owner['url'] = 'Redacted'
 
 def modify_maintainers_info(yaml_data):
     # Check if 'maintainers' exists and is a list (array)
@@ -41,6 +43,8 @@ def modify_maintainers_info(yaml_data):
                 maintainer['name'] = 'Redacted'
             if 'email' in maintainer:
                 maintainer['email'] = 'components@tmforum.org'
+            if 'url' not in maintainer:
+                maintainer['url'] = 'Redacted'
     else:
         yaml_data['spec']['maintainers'] = [{'name': 'Redacted', 'email': 'components@tmforum.org'}]
 
