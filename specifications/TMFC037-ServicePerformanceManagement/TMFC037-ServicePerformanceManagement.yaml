@@ -12,7 +12,7 @@ spec:
     These functions build on the Resource Performance data and active end-end service
     performance test data to provide a view of a service. The component provides a
     key input to determine the Quality of Service.
-  publicationDate: 2023-08-18 00:00:00
+  publicationDate: 2024-12-17 00:00:00
   status: specified
   version: 1.2.0
   coreFunction:
