@@ -87,7 +87,7 @@ spec:
          - GET
          - GET /id
        version: 4
-     - id: TMF674
+     - id: TMF675
        required: false
        resources:
        - geographicLocationManagement:
