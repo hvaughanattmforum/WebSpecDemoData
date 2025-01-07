@@ -5,7 +5,7 @@ metadata:
 spec:
   name: AgreementManagement
   id: TMFC039
-  functionalBlock: Party Management
+  functionalBlock: PartyManagement
   description: Agreement Management component is responsible for creating, storing,
     editing, and tracking agreed  arrangements with related terms and conditions over
     a lifecycle. The component manages offers, records acceptance, and associated
