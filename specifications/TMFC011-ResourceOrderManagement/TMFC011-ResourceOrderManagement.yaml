@@ -17,7 +17,7 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF702
-      required: true
+      required: false
       resources:
       - resource:
         - GET
@@ -50,7 +50,7 @@ spec:
         - DELETE
       version: 4
     - id: TMF664
-      required: true
+      required: false
       resources:
       - resourceFunction:
         - GET
