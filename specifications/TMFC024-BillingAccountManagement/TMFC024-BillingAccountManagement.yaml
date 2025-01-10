@@ -125,3 +125,12 @@ spec:
   maintainers:
   - name: Redacted
     email: components@tmforum.org
+  eTOMs:
+  - 1.3.10_Customer_Bill_Payments_&_Receivables_Management_v23.0
+  - 1.3.10.1_Manage_Customer_Billing_Account_v23.0
+  functionalFrameworkFunctions:
+  - 77_Billing_Account_Information_Configuration_v23.0
+  - 73_Billing_Account_Reporting_v23.0
+  - 76_Billing_Account_Structure_Configuration_v23.0
+  - 75_Billing_Accounts_Creation_v23.0
+  - 248_Customer_Billing_Hierarchies_Management_v23.0

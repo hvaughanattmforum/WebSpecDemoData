@@ -236,4 +236,26 @@ spec:
   owners:
   - email: Redacted
     name: Redacted
+  maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+  eTOMs:
+  - 1.1.11_Contact/Lead/Prospect_Management_v23.0
+  - 1.1.11.1_Manage_Sales_Contact_v23.0
+  - 1.1.11.2_Manage_Sales_Lead_v23.0
+  - 1.1.11.3_Manage_Sales_Prospect_v23.0
+  - 1.1.9_Selling_v23.0
+  - 1.1.9.1_Qualify_Selling_Opportunity_v23.0
+  - 1.1.9.3_Acquire_Sales_Prospect_Data_v23.0
+  - 1.1.7_Market_Sales_Support_&_Readiness_v23.0
+  - 1.1.7.2_Support_Selling_v23.0
+  - 1.1.7.5_Manage_Sales_Accounts_v23.0
+  functionalFrameworkFunctions:
+  - 394_Sales_Aids_Support_v23.0
+  - 372_Sales_Opportunity_Management_v23.0
+  - 375_Funnel_Assigning_v23.0
+  - 374_Funnel_Creation_v23.0
+  - 376_Funnel_Leads_Tracking_v23.0
+  - 726_Sales_Lead_Capturing_v23.0
 

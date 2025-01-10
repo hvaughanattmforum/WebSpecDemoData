@@ -213,3 +213,15 @@ spec:
   maintainers:
   - name: Redacted
     email: components@tmforum.org
+  eTOMs:
+  - 1.4.4_Service_Support_Readiness_v23.0
+  - 1.4.4.1_Manage_Service_Inventory_v23.0
+  functionalFrameworkFunctions:
+  - 576_Service_Data_Retrieval_v23.0
+  - 593_Service_Inventory_Repository_Updating_v23.0
+  - 628_Service_to_Resource_Relationship_Management_v23.0
+  - 629_Service_to_Resource_Relationship_Synchronization_v23.0
+  - 630_Service-Resource_Relationship_Management_Notifications_v23.0
+  - 964_Onboarded_Service_Integration_Configuration_v23.0
+  - 965_Service_Instance_Lifecycle_Management_v23.0
+  - 1344_Service_Topology_Discovery_v23.0  

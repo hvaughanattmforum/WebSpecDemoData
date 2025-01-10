@@ -131,3 +131,22 @@ spec:
   maintainers:
   - name: Redacted
     email: components@tmforum.org
+  eTOMs:
+  - 1.6.5_Party_Agreement_Management_v23.0
+  - 1.7.14_Enterprise_Governance_v23.0
+  - 1.7.14.5_Manage_Contract_v23.0
+  functionalFrameworkFunctions:
+  - 1026_Partner_Collaboration_Constraints_Collection_v23.0
+  - 1045_Partner_Agreement_Tracking_v23.0
+  - 1043_Partner_Agreement_Storage_and_Searching_v23.0
+  - 1044_Partner_Agreement_Implementation_v23.0
+  - 1042_Partner_Agreement_Creation_v23.0
+  - 1180_Customer_Framework_Agreement_Approval_v23.0
+  - 1179_Customer_Framework_Agreement_Definition_v23.0
+  - 363_Product_Agreement_Storage_v23.0
+  - 361_Product_Agreement_Implementation_v23.0
+  - 653_Contract_Management_v23.0
+  - 1042_Partner_Agreement_Creation_v23.0
+  - 1043_Partner_Agreement_Storage_and_Searching_v23.0
+  - 1044_Partner_Agreement_Implementation_v23.0
+  - 1045_Partner_Agreement_Tracking_v23.0

@@ -278,3 +278,17 @@ spec:
   maintainers:
   - name: Redacted
     email: components@tmforum.org
+  eTOMs:
+  - 1.2.11_Product_Inventory_Management_v23.0
+  - 1.1.19_Loyalty_Program_Management_v23.0
+  - 1.1.19.2_Loyalty_Program_Operation_v23.0
+  - 1.1.19.2.5_Manage_Loyalty_Program_Account_v23.0
+  - 1.1.19.2.7_Provide_Loyalty_Program_Operation_Report_v23.0
+  functionalFrameworkFunctions:
+  - 180_Assigned_Products_Maintenance_v23.0
+  - 197_Customer_Product_Storage_v23.0
+  - 198_Customer_Loyalty_Score_Balance_Management_v23.0
+  - 237_Customer_Loyalty_Communication_v23.0
+  - 361_Contract_Implementation_v23.0
+  - 362_Contract_Searching_v23.0
+  - 363_Contract_Storage_v23.0
