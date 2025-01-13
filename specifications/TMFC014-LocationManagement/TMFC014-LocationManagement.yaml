@@ -114,7 +114,13 @@ spec:
       apiType: openapi
     subscribedEvents: []
   owners:
-
   - email: Redacted
     name: Redacted
+  maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+  eTOMs: []
+  functionalFrameworkFunctions:
+  - 429_Location_Change_History_Management_v23
 

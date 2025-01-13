@@ -138,3 +138,37 @@ spec:
   maintainers:
   - name: Redacted
     email: components@tmforum.org
+  eTOMs:
+  - 1.2.16_Product_Usage_Management_v23.0
+  - 1.2.16.1_Product_Usages_v23.0
+  - 1.2.16.1.1_Add_Product_Usage_Data_v23.0
+  - 1.2.16.1.2_Assign_Product_Usage_Price_v23.0
+  - 1.2.16.2_Guide_and_Assign_Product_Usages_v23.0
+  - 1.2.16.2.1_Assign_Product_Usages_v23.0
+  - 1.2.16.2.2_Distribute_Product_Usage_v23.0
+  - 1.2.16.2.3_Guide_Product_Usages_v23.0
+  - 1.2.16.3_Mediate_Product_Usages_v23.0
+  - 1.2.16.3.1_Edit_Product_Usages_v23.0
+  - 1.2.16.3.2_Reformat_Product_Usages_v23.0
+  - 1.2.16.4_Report_Product_Usage_Records_v23.0
+  - 1.2.16.4.1_Generate_Product_Usage_Report_v23.0
+  - 1.2.16.4.2_Investigate_Product_Usage_Related_Problem_v23.0
+  - 1.2.16.4.3_Support_Product_Usage_Related_Process_v23.0
+  - 1.2.17_Product_Rating_&_Rate_Assignment_v23.0
+  - 1.2.17.1_Perform_Rating_v23.0
+  - 1.2.17.2_Aggregate_Items_For_Rate_Assignment_v23.0
+  - 1.2.17.3_"Manage_Customer_Assignment_Hierarchy_v23.0
+  - 1.2.17.4_Provide_Advice_of_Rate_v23.0
+  - 1.2.17.5_Apply_Rate_Level_Discounts_v23.0
+  functionalFrameworkFunctions:
+  - 253_Customer_Usage_and_Charges_Report_Access_v23.0
+  - 55_Price_and_Discount_Calculation_v23.0
+  - 125_Charging_Event_Accumulation_v23.0
+  - 126_Event_Charge/Credit_Calculation_v23.0
+  - 127_Calculated_Charges/Credits_Proration_v23.0
+  - 128_Late_Arrival_Usage_Charges/Credits_Recalculation_v23.0
+  - 186_Charging/Rating_Recalculation_v23.0
+  - 300_Discounts_Calculation_v23.0
+  - 67_Usage_Summary_and_Details_Presentation_v23.0
+  - 85_Billing_Event_Processing_Distribution_v23.0
+  - 86_Billing_Event_Processing_Enrichment_v23.0

@@ -181,3 +181,31 @@ spec:
   maintainers:
   - name: Redacted
     email: components@tmforum.org
+  eTOMs:
+  - 1.3.3_Customer_Order_Handling_v23.0
+  - 1.3.3.8_Manage_Order_Fallout_v23.0
+  - 1.3.3.9_Customer_Order_Orchestration_v23.0
+  - 1.2.9_Product_Offering_Purchasing_v23.0
+  - 1.2.9.5_Complete_Product_Offering_Purchase_v23.0
+  - 1.4.5_Service_Configuration_&_Activation_v23.0
+  - 1.4.5.6_Issue_Service_Order_v23.0
+  - 1.5.6_Resource_Provisioning_v23.0
+  - 1.5.6.7_Issue_Resource_Order_v23.0
+  functionalFrameworkFunctions:
+  - 16_Fallout_Automated_Correction_vv23.0
+  - 17_Fallout_Correction_Information_Collection_vv23.0
+  - 18_Fallout_Management_to_Fulfillment_Application_Accessing_vv23.0
+  - 19_Fallout_Manual_Correction_Queuing_vv23.0
+  - 20_Fallout_Notification_vv23.0
+  - 21_Fallout_Orchestration_vv23.0
+  - 22_Fallout_Reporting_vv23.0
+  - 23_Fallout_Dashboard_System_Log-in_Accessing_vv23.0
+  - 24_Pre-populated_Fallout_Information_Presentation_vv23.0
+  - 175_Customer_Support_Jeopardy_Notification_vv23.0
+  - 174_Customer_Order_Error_Resolution_Support_vv23.0
+  - 723_Customer_Order_Item_Decomposition_vv23.0
+  - 214_Customer_Order_Orchestration_vv23.0
+  - 215_Retro-active_order_orchestration_vv23.0
+  - 342_Mass_Service/product_pre-activation_vv23.0
+  - 743_Number_Portability_Orchestration_vv23.0
+  - 756_Fallout_Rule_Based_Error_Correction_vv23.0

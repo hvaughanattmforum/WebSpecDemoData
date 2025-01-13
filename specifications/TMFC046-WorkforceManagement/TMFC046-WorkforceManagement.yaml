@@ -117,3 +117,21 @@ spec:
   maintainers:
   - name: Redacted
     email: components@tmforum.org
+  eTOMs:
+  - 1.5.4_Resource_Readiness_&_Support_v23.0
+  - 1.5.4.8_Manage_Field_Workforce_v23.0
+  functionalFrameworkFunctions:
+  - 119_Center_Time_Management_v23.0
+  - 1326_Work_List_Management_v23.0
+  - 113_Care-center_Compliance_Management_v23.0
+  - 116_Center_Activity_Management_v23.0
+  - 449_Resource_Change_Project_Collaboration_v23.0
+  - 1184_Workforce_Agenda_Booking_v23.0
+  - 1183_Workforce_Availability_Check_v23.0
+  - 114_Care-center_Case_Queing_v23.0
+  - 554_Workforce_Appointment_Schedule_Configuration_v23.0
+  - 555_Workload_Forecasting_v23.0
+  - 556_Workforce_Availability_Management_v23.0
+  - 558_Workforce_Dispatchability_Management_v23.0
+  - 482_Workforce_Management_v23.0
+  - 561_Workforce_Scheduling_v23.0

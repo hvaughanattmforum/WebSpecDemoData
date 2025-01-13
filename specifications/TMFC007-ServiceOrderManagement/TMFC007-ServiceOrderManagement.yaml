@@ -294,3 +294,41 @@ spec:
   maintainers:
   - name: Redacted
     email: components@tmforum.org
+  eTOMs:
+  - 1.4.5_Service_Configuration_&_Activation_v21.5
+  - 1.4.5.1_Design_Solution_v21.5
+  - 1.4.5.2_"Allocate_Specific_Service_Parameters_to_Services_v21.5
+  - 1.4.5.3_Track_&_Manage_Service_Provisioning_v21.5
+  - 1.4.5.4_Implement,_configure_&_activate_service_v21.5
+  - 1.4.5.6_"Issue_Service_Order_v21.5
+  - 1.4.5.7_Report_service_provisioning_v21.5
+  - 1.4.5.8_Close_Service_Order_v21.5
+  - 1.5.6_Resource_Provisioning_v21.5
+  - 1.5.6.7_"Issue_Resource_Order_v21.5
+  functionalFrameworkFunctions:
+  - 584_Service_Activation_Planning_v21.5
+  - 588_Service_Orchestration_Configuration_v21.5
+  - 591_Service_Parameters_Allocation_v21.5
+  - 596_Service_Order_Transfer_Supervision_v21.5
+  - 598_Service_Order_Orchestration_v21.5
+  - 733_Service_Order_Decomposition_v21.5
+  - 734_Service_Data_Collection_v21.5
+  - 963_Service_Task_Item_Decomposition_v21.5
+  - 968_Service_Work_Item_Sequence_Execution_v21.5
+  - 969_Service_Work_Item_Sequence_Execution_Configuration_v21.5
+  - 571_Service_Delivery_Due_Date_Calculation_v21.5
+  - 1061_Service_Order_Initiation_v21.5
+  - 595_Service_Order_Completion_v21.5
+  - 600_Service_Order_Validation_v21.5
+  - 583_Activation_Notification_v21.5
+  - 594_Service_Order_Storage_v21.5
+  - 597_Service_Order_Exposure_v21.5
+  - 599_Service_Order_Tracking_v21.5
+  - 735_Access_Provider_Selection_v21.5
+  - 341_Service_Activation_v21.5
+  - 342_Mass_Service_Pre-activation_v21.5
+  - 570_Solution_Services_Design_Management_v21.5
+  - 589_Cross_Services_Dependencies_Configuration_v21.5
+  - 590_Service_Configuration_v21.5
+  - 585_Service_Configuration_Activation_v21.5
+  - 592_Service_Parameters_Reservation_v21.5

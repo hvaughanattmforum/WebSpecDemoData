@@ -210,3 +210,22 @@ spec:
   maintainers:
   - name: Redacted
     email: components@tmforum.org
+  eTOMs:
+  - 1.5.15_Resource_Catalog_Lifecycle_Management_v23.0
+  - 1.5.16_Resource_Catalog_Operational_Readiness_Management_v23.0
+  - 1.5.17_Resource_Catalog_Content_Management_v23.0
+  - 1.5.18_Resource_Catalog_Planning_Management_v23.0
+  - 1.5.19_Resource_Specification_Management_v23.0
+  - 1.5.3_Resource_Specification_Development_&_Retirement_v23.0
+  - 1.5.3.4_Develop_Detailed_Resource_Specifications_v23.0
+  functionalFrameworkFunctions:
+  - 737_Resource_Capability_Specification_Management_v23.0
+  - 467_Resource_Data_Transformation/Parsing_Rules_Configuration_v23.0
+  - 951_Resource_Catalog_Entities_Management_v23.0
+  - 996_Resource_Task_Item_Policy_Control_Configuration_v23.0
+  - 1083_Resource_Specification_Repository_Management_v23.0
+  - 1088_Resource_Specification_to_Supplier_Product_Specification_Relationship_Design_v23.0
+  - 1089_Resource_Specification_Action_Skill_Design_v23.0
+  - 1082_Resource_Specification_Change_Auditing_v23.0
+  - 1064_Logical_and_Software_Resources_Designing_v23.0
+  - 1087_Resource_Specification_Design_v23.0
