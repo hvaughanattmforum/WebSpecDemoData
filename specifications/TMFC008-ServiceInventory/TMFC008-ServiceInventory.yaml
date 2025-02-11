@@ -175,6 +175,7 @@ spec:
       resources:
       - partyRoleDeleteEvent
       specification: https://open-api.tmforum.org20-PartyRole-v4.0.0.swagger.json
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
       implementation: /{{.Release.Name}}-GeographicSiteManagement
       name: GeographicSiteManagement
       port: 80
