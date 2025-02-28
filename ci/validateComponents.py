@@ -10,11 +10,35 @@ CI = Path(__file__).parents[1] / "ci"
 def str_constructor(loader, node):
     return loader.construct_scalar(node)
 
+def validate_component_file_names_and_content():
+    for spec in COMPONENTS.glob("TMFC*/*"):
+        if not spec.name.startswith("TMFC") or not spec.name.endswith(".yaml"):
+            print(f"::group::TMFC File Naming is invalid")
+            print(f"::error::{spec.name}")
+            print("::endgroup::")
+            return 1
+
+        try:
+            with spec.open("r") as f:
+                yaml.load(f, Loader=yaml.SafeLoader)
+                print(f"{spec.name} content is valid")
+        except yaml.parser.ParserError as e:
+            print(f"::group::Error while parsing {spec.name}  .yaml; Content is invalid")
+            print(f"::error::{e}")
+            print("::endgroup::")
+            return 1
+        except Exception as e:
+            print(f"::group::{spec.name} Content is invalid")
+            print(f"::error::{e}")
+            print("::endgroup::")
+            return 1
+
+    return 0
+
 def load_components():
     for spec in COMPONENTS.glob("TMFC*/*.yaml"):
         with spec.open("r") as f:
             yield spec, yaml.load(f, Loader=yaml.SafeLoader)
-
 
 def load_json_schema():
     with CI.joinpath("component.schema.json").open("r") as f:
@@ -42,6 +66,7 @@ def main():
     component_schema = load_json_schema()
     yaml.SafeLoader.add_constructor('tag:yaml.org,2002:timestamp', str_constructor)
     return_code = 0
+    return_code |= validate_component_file_names_and_content()
     for file_path, component in load_components():
         return_code |= validate_component(component_schema, component, file_path.parent.name)
 
