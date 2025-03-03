@@ -1,0 +1,35 @@
+@startyaml
+   exposedAPIs:
+    - id: TMF769
+      name: Product Test Management API 
+      required: true
+      resources: 
+      - productTestSpecification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - productTest:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 5
+    - id: TMF701
+      name: Process Flow Management API
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+
+@endyaml 
