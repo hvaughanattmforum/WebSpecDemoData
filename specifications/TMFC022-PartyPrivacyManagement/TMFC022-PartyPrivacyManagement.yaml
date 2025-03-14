@@ -3,18 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: PartyPrivacyManagement
-  id: TMFC022
-  functionalBlock: PartyManagement
-  description: 'The Party Privacy Management component aims to: define the Privacy
-    Policy rules established by the CSP, according to applicable regulations, such
-    as GDPR in Europe, apply these rules to each Party interacting with the CSP and
-    to all of their personnal information and personally identifiable information
-    (PII); register explicit opt-in and opt-out given by Parties regarding the usage
-    of some of their personal information for dedicated purpose, such as marketing.'
-  publicationDate: 2024-08-08
-  status: specified
-  version: 1.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF620
@@ -23,7 +11,8 @@ spec:
       - productOffering:
         - GET
         - GET /id
-      version: 4    
+      version: 4
+      apiSDO: tmForum
     - id: TMF632
       required: true
       resources:
@@ -34,6 +23,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF667
       required: false
       resources:
@@ -42,6 +32,7 @@ spec:
         - GET /id
         - POST
       version: 4
+      apiSDO: tmForum
     - id: TMF669
       required: true
       resources:
@@ -49,6 +40,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF644
       required: true
@@ -72,6 +64,7 @@ spec:
         - PATCH /id
         - DELETE
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -85,9 +78,25 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
+      apiSDO: tmForum
     publishedEvents: []
     subscribedEvents: []
-  owners:
-  - email: components@tmforum.org
-    name: Redacted
-
+  componentMetadata:
+    id: TMFC022
+    name: PartyPrivacyManagement
+    version: 1.1.0
+    description: 'The Party Privacy Management component aims to: define the Privacy
+      Policy rules established by the CSP, according to applicable regulations, such
+      as GDPR in Europe, apply these rules to each Party interacting with the CSP
+      and to all of their personnal information and personally identifiable information
+      (PII); register explicit opt-in and opt-out given by Parties regarding the usage
+      of some of their personal information for dedicated purpose, such as marketing.'
+    publicationDate: 2024-08-08
+    status: specified
+    functionalBlock: PartyManagement
+    owners:
+    - email: components@tmforum.org
+      name: Redacted
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []

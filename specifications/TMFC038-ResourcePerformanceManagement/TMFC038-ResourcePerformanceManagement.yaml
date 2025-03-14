@@ -3,14 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: ResourcePerformanceManagement
-  id: TMFC038
-  functionalBlock: IntelligenceManagement
-  description: Resource Performance Management will monitor, analyze, and report on
-    the performance of the service provider's resources.
-  publicationDate: 2024-12-17 00:00:00
-  status: specified
-  version: 1.2.0
   coreFunction:
     dependentAPIs:
     - id: TMF628
@@ -44,6 +36,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF639
       required: false
       resources:
@@ -51,6 +44,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF673
       required: false
       resources:
@@ -61,6 +55,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF674
       required: false
       resources:
@@ -68,6 +63,7 @@ spec:
         - GET
         - GET/id
       version: 4
+      apiSDO: tmForum
     - id: TMF675
       required: false
       resources:
@@ -75,6 +71,7 @@ spec:
         - GET
         - GET/id
       version: 4
+      apiSDO: tmForum
     - id: TMF688
       required: false
       resources:
@@ -82,6 +79,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -95,6 +93,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF628
       required: true
@@ -127,6 +126,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF649
       required: true
       resources:
@@ -143,6 +143,7 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
+      apiSDO: tmForum
     - id: TMF642
       required: false
       resources:
@@ -153,6 +154,7 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -166,6 +168,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -271,9 +274,22 @@ spec:
       - taskFlowAttributeValueChangeEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       apiType: openapi
-  owners:
-  - email: Redacted
-    name: Redacted
-  maintainers:
-  - name: Redacted
-    email: components@tmforum.org
+  componentMetadata:
+    id: TMFC038
+    name: ResourcePerformanceManagement
+    version: 1.2.0
+    description: Resource Performance Management will monitor, analyze, and report
+      on the performance of the service provider's resources.
+    publicationDate: 2024-12-17 00:00:00
+    status: specified
+    functionalBlock: IntelligenceManagement
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []

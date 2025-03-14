@@ -3,14 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: BillCalculation
-  id: TMFC031
-  functionalBlock: PartyManagement
-  description: Bill generation mgmt. manage the party invoice management. It addresses
-    the invoice formatting, presentation and dispatching to the proper means of communication.
-  publicationDate: 2023-06-25
-  status: specified
-  version: 2.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF666
@@ -23,6 +15,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF632
       required: false
       resources:
@@ -33,6 +26,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF637
       required: true
       resources:
@@ -40,6 +34,7 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      apiSDO: tmForum
     - id: TMF620
       required: false
       resources:
@@ -53,6 +48,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -62,6 +58,7 @@ spec:
         - GET /id
         - PATCH
       version: 4.0
+      apiSDO: tmForum
     - id: TMF635
       required: false
       resources:
@@ -72,6 +69,7 @@ spec:
         - GET
         - GET /id
       version: 4.0
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF678
       required: true
@@ -80,6 +78,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -93,6 +92,7 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
+      apiSDO: tmForum
     publishedEvents: []
     subscribedEvents:
     - name: usageManagement
@@ -106,9 +106,23 @@ spec:
       - UsageSpecificationAttributeValueChangeEvent
       - UsageSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF635_UsageManagement/blob/master/TMF635-UsageManagement-v4.0.0.swagger.json
-  owners:
-  - email: Redacted
-    name: Redacted
-  maintainers:
-  - name: Redacted
-    email: components@tmforum.org
+  componentMetadata:
+    id: TMFC031
+    name: BillCalculation
+    version: 2.0.0
+    description: Bill generation mgmt. manage the party invoice management. It addresses
+      the invoice formatting, presentation and dispatching to the proper means of
+      communication.
+    publicationDate: 2023-06-25
+    status: specified
+    functionalBlock: PartyManagement
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []

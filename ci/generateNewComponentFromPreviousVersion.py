@@ -15,38 +15,61 @@ schema_file = 'component.schema.json'  # Replace with your component.schema.json
 def new_Component_yaml_Template(old_yaml):
     new_yaml = old_yaml.copy()
    
-    add_v1beta3_event_notification_changes(new_yaml, old_yaml)
+    #add_v1beta3_event_notification_changes(new_yaml, old_yaml)
     new_yaml['apiVersion'] = "oda.tmforum.org/" + NEW_COMPONENT_VERSION
-    #Modify owners data
-    modify_owners_info(new_yaml)
-    modify_maintainers_info(new_yaml)
+    #Modify componentMetadata data
+    addComponentMetadata(new_yaml)
+    #ConvertDelimitersinETOMandFF
+    convertDelimitersofETOMsFFs(new_yaml)
+    #addAPISDO
+    add_v1_api_SDO_changes(new_yaml)
 
     return new_yaml
 
-# Function to modify the owners' name and email in the yaml data
-def modify_owners_info(yaml_data):
-    # Check if 'owners' exists and is a list (array)
-     if 'spec' in yaml_data and 'owners' in yaml_data['spec'] and isinstance(yaml_data['spec']['owners'], list):
-        for owner in yaml_data['spec']['owners']:
-            if 'name' in owner:
-                owner['name'] = 'Redacted'
-            if 'email' in owner:
-                owner['email'] = 'Redacted'
-            if 'url' not in owner:
+def addComponentMetadata(spec):
+    print("spec", spec)
+    if 'componentMetadata' not in spec['spec']:
+        spec['spec']['componentMetadata'] = {}
+    spec_name=spec['spec']['name']
+    spec_id=spec['spec']['id']
+    spec['spec']['componentMetadata']['id'] = spec['spec'].pop('id')
+    spec['spec']['componentMetadata']['name'] = spec['spec'].pop('name')
+    spec['spec']['componentMetadata']['version'] = spec['spec'].pop('version')
+    spec['spec']['componentMetadata']['description'] = spec['spec'].pop('description')
+    spec['spec']['componentMetadata']['publicationDate'] = spec['spec'].pop('publicationDate')
+    spec['spec']['componentMetadata']['status'] = spec['spec'].pop('status')
+    spec['spec']['componentMetadata']['functionalBlock'] = spec['spec'].pop('functionalBlock')
+    if 'owners' in spec['spec'] and isinstance(spec['spec']['owners'], list):
+        spec['spec']['componentMetadata']['owners'] = spec['spec'].pop('owners')
+        for owner in spec['spec']['componentMetadata']['owners']:
+            if isinstance(owner, dict) and 'url' not in owner:
                 owner['url'] = 'Redacted'
-
-def modify_maintainers_info(yaml_data):
-    # Check if 'maintainers' exists and is a list (array)
-    if 'spec' in yaml_data and 'maintainers' in yaml_data['spec'] and isinstance(yaml_data['spec']['maintainers'], list):
-        for maintainer in yaml_data['spec']['maintainers']:
-            if 'name' in maintainer:
-                maintainer['name'] = 'Redacted'
-            if 'email' in maintainer:
-                maintainer['email'] = 'components@tmforum.org'
-            if 'url' not in maintainer:
+    if 'maintainers' in spec['spec'] and isinstance(spec['spec']['maintainers'], list):
+        spec['spec']['componentMetadata']['maintainers'] = spec['spec'].pop('maintainers')
+        for maintainer in spec['spec']['componentMetadata']['maintainers']:
+            if isinstance(maintainer, dict) and 'url' not in maintainer:
                 maintainer['url'] = 'Redacted'
-    else:
-        yaml_data['spec']['maintainers'] = [{'name': 'Redacted', 'email': 'components@tmforum.org'}]
+    if 'eTOMs'in spec['spec'] and isinstance(spec['spec']['eTOMs'], list):
+        spec['spec']['componentMetadata']['eTOMs'] = spec['spec'].pop('eTOMs')
+    if 'functionalFrameworkFunctions'in spec['spec'] and isinstance(spec['spec']['functionalFrameworkFunctions'], list):
+        spec['spec']['componentMetadata']['functionalFrameworkFunctions'] = spec['spec'].pop('functionalFrameworkFunctions')
+
+def convertDelimitersofETOMsFFs(new_yaml):
+    eTOMs = new_yaml['spec']['componentMetadata'].get("eTOMs",[])
+    new_yaml['spec']['componentMetadata']['eTOMs'] = convert_etoms_format(eTOMs)
+    functionalFrameworks = new_yaml['spec']['componentMetadata'].get("functionalFrameworkFunctions",[])
+    new_yaml['spec']['componentMetadata']['functionalFrameworkFunctions'] = convert_etoms_format(functionalFrameworks)
+
+
+def convert_etoms_format(etoms_list):
+    converted_list = []
+    for etom in etoms_list:
+        # Replace the first underscore with a hyphen
+        etom = re.sub(r'_', '-', etom, count=1)
+        # Replace the last underscore before 'v' with a hyphen
+        etom = re.sub(r'_(?=v\d+\.\d+$)', '-', etom)
+        converted_list.append(etom)
+    return converted_list
 
 def extract_tmf_id(spec_url):
     """Extracts the TMF ID from the specification URL."""
@@ -67,6 +90,14 @@ def save_yaml(data, file_path):
     """Saves a Python dictionary to a YAML file."""
     with open(file_path, 'w') as file:
         yaml.safe_dump(data, file, sort_keys=False)
+
+def add_v1_api_SDO_changes(new_yaml):
+    # Add the apiSDO in exposedAPIs and DependentAPIs 
+    for apis in ['dependentAPIs','exposedAPIs']:
+        if apis in new_yaml['spec']['coreFunction']:
+            for api in new_yaml['spec']['coreFunction'][apis]:
+                if api.get("id", "").startswith("TMF"):
+                    api["apiSDO"] = "tmForum"
 
 def add_v1beta3_event_notification_changes(new_yaml, old_yaml):
     
@@ -142,8 +173,11 @@ def process_all_yaml_files(specifications_folder, schema_file):
     schema = load_json(schema_file)
     new_api_version = NEW_COMPONENT_VERSION
 
+    
+    # Get the parent directory of `specifications_folder`
+    parent_dir = os.path.dirname(specifications_folder)
     # Define the new output folder based on the apiVersion
-    output_folder = os.path.join(specifications_folder, new_api_version)
+    output_folder = os.path.join(parent_dir, new_api_version)
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 

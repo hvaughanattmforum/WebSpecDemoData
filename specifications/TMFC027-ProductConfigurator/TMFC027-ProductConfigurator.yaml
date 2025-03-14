@@ -3,15 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: ProductConfigurator
-  id: TMFC027
-  functionalBlock: CoreCommerceManagement
-  description: The Product Configurator ODA Component is empowering sales by offering
-    the right product combinations, controlling discounting, and automating approvals
-    through support of configuration, pricing and quote generation activities.
-  publicationDate: 2023-11-27
-  status: specified
-  version: 2.1.1
   coreFunction:
     dependentAPIs:
     - id: TMF637
@@ -21,6 +12,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF620
       required: true
       resources:
@@ -40,6 +32,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF622
       required: true
       resources:
@@ -47,6 +40,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF632
       required: false
       resources:
@@ -57,6 +51,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF666
       required: false
       resources:
@@ -64,6 +59,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF669
       required: false
       resources:
@@ -71,6 +67,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF673
       required: false
       resources:
@@ -81,6 +78,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF674
       required: false
       resources:
@@ -88,6 +86,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -101,6 +100,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF662
       required: false
       resources:
@@ -108,6 +108,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF921
       required: false
       resources:
@@ -115,6 +116,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF679
       required: true
@@ -126,6 +128,7 @@ spec:
         - PATCH/id
         - DELETE
       version: 4
+      apiSDO: tmForum
     - id: TMF760
       required: true
       resources:
@@ -138,6 +141,7 @@ spec:
         - GET/id
         - POST
       version: 5
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -151,6 +155,7 @@ spec:
         - get /id
         - PATCH
       version: 4
+      apiSDO: tmForum
     publishedEvents:
     - implementation: /{{.Release.Name}}-ProductConfiguration
       name: ProductConfiguration
@@ -204,9 +209,23 @@ spec:
       - ProductSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF622-ProductCatalogManagement/blob/master/TMF622-ProductCatalogManagement-v4.0.0.swagger.json
       apiType: openapi
-  owners:
-  - email: Redacted
-    name: Redacted
-  maintainers:
-  - name: Redacted
-    email: components@tmforum.org
+  componentMetadata:
+    id: TMFC027
+    name: ProductConfigurator
+    version: 2.1.1
+    description: The Product Configurator ODA Component is empowering sales by offering
+      the right product combinations, controlling discounting, and automating approvals
+      through support of configuration, pricing and quote generation activities.
+    publicationDate: 2023-11-27
+    status: specified
+    functionalBlock: CoreCommerceManagement
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []

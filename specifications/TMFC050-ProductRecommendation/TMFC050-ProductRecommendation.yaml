@@ -3,135 +3,143 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: ProductRecommendationManagement
-  id: TMFC050
-  functionalBlock: IntelligenceManagement
-  description: Product Recommendation Management component is responsible for evaluating and providing party recommendations offerings based on the history and real-time context of a party.
-  publicationDate: 2024-12-03
-  status: specified
-  version: 1.0.0
   coreFunction:
     dependentAPIs:
-     - id: TMF620
-       required: true
-       resources:
-       - catalog:
-         - GET
-         - GET /id
-       - category:
-         - GET
-         - GET /id
-       - productSpecification:
-         - GET
-         - GET /id
-       - productOffering:
-         - GET
-         - GET /id
-       - productOfferingPrice:
-         - GET
-         - GET /id
-       version: 4
-     - id: TMF637
-       required: false
-       resources:
-       - product:
-         - GET
-         - GET /id
-       version: 4     
-     - id: TMF622
-       required: false
-       resources:
-       - productOrder:
-         - GET
-         - GET /id
-       version: 4        
-     - id: TMF679
-       required: false
-       resources:
-       - productOfferingQualification:
-         - GET
-         - GET /id
-       version: 4
-     - id: TMF666
-       required: false
-       resources:
-       - billingAccount:
-         - GET
-         - GET /id
-       version: 4      
-     - id: TMF629
-       required: false
-       resources:
-       - customer:
-         - GET
-         - GET /id
-       version: 4
-     - id: TMF663
-       required: false
-       resources:
-       - shoppingCart:
-         - GET
-         - GET /id
-       version: 4
-     - id: TMF671
-       required: false
-       resources:
-       - promotion:
-         - GET
-         - GET /id
-       version: 4         
-     - id: TMF673
-       required: false
-       resources:
-       - geographicAddressManagement:
-         - GET
-         - GET /id
-       version: 4
-     - id: TMF675
-       required: false
-       resources:
-       - geographicLocationManagement:
-         - GET
-         - GET /id
-       version: 4          
-     - id: TMF632
-       required: false
-       resources:
-       - individual:
-         - GET
-         - GET /id
-       - organization:
-         - GET
-         - GET /id         
-       version: 4     
-     - id: TMF669
-       required: false
-       resources:
-       - partyRole:
-         - GET
-         - GET /id         
-       version: 4   
-     - id: TMF678
-       required: false
-       resources:
-       - customerBill:
-         - GET
-         - GET /id         
-       version: 4   
-     - id: TMF621
-       required: false
-       resources:
-       - troubleTicket:
-         - GET
-         - GET /id         
-       version: 4
-     - id: TMF635
-       required: false
-       resources:
-       - usage:
-         - GET
-         - GET /id         
-       version: 4                                                                                 
+    - id: TMF620
+      required: true
+      resources:
+      - catalog:
+        - GET
+        - GET /id
+      - category:
+        - GET
+        - GET /id
+      - productSpecification:
+        - GET
+        - GET /id
+      - productOffering:
+        - GET
+        - GET /id
+      - productOfferingPrice:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF637
+      required: false
+      resources:
+      - product:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF622
+      required: false
+      resources:
+      - productOrder:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF679
+      required: false
+      resources:
+      - productOfferingQualification:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF666
+      required: false
+      resources:
+      - billingAccount:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF629
+      required: false
+      resources:
+      - customer:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF663
+      required: false
+      resources:
+      - shoppingCart:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF671
+      required: false
+      resources:
+      - promotion:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF673
+      required: false
+      resources:
+      - geographicAddressManagement:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF675
+      required: false
+      resources:
+      - geographicLocationManagement:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF632
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organization:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF669
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF678
+      required: false
+      resources:
+      - customerBill:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF621
+      required: false
+      resources:
+      - troubleTicket:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF635
+      required: false
+      resources:
+      - usage:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF680
       required: true
@@ -141,6 +149,7 @@ spec:
         - GET /id
         - POST
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -154,6 +163,7 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
+      apiSDO: tmForum
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/queryProductRecommendation/hub
       implementation: /{{.Release.Name}}-QueryProductRecommendation
@@ -200,9 +210,23 @@ spec:
       - productOfferingPriceDeleteEvent
       specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
       apiType: openapi
-  owners:
-  - email: Redacted
-    name: Redacted
-  maintainers:
-  - name: Redacted
-    email: components@tmforum.org
+  componentMetadata:
+    id: TMFC050
+    name: ProductRecommendationManagement
+    version: 1.0.0
+    description: Product Recommendation Management component is responsible for evaluating
+      and providing party recommendations offerings based on the history and real-time
+      context of a party.
+    publicationDate: 2024-12-03
+    status: specified
+    functionalBlock: IntelligenceManagement
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []

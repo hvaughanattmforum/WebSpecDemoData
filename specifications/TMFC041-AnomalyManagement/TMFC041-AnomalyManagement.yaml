@@ -3,17 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: AnomalyManagement 
-  id: TMFC041
-  functionalBlock: Intelligence Management
-  description: "The Anomaly Management ODA Component is responsible for predicting, detecting and managing anomalous patterns 
-    in the usage and behavior of products, services and resources in order to avoid occurence of problems. Anomaly Management ODA component has fuctionality to 
-    predict, detect and flag unusual patterns or outliers for products, services and resource entities, and initiating mitigatory actions to prevent outlier 
-    patterns in usage or behavior to become problems. In the event of failure to predict or detect an early warning signt to a possible problem occurence, 
-    the component hands of mitigatory actions to the ODA problem management component."
-  publicationDate: 2024-11-19 00:00:00
-  status: specified
-  version: 1.1.0
   coreFunction:
     dependentAPIs:
     - id: TMF688
@@ -24,6 +13,7 @@ spec:
         - GET /id
         - POST
       version: 4
+      apiSDO: tmForum
     - id: TMF642
       required: false
       resources:
@@ -32,6 +22,7 @@ spec:
         - GET /id
         - POST
       version: 4
+      apiSDO: tmForum
     - id: TMF723
       required: false
       resources:
@@ -40,7 +31,7 @@ spec:
         - GET /id
         - PATCH /id
       version: 5
-
+      apiSDO: tmForum
     - id: TMF632
       required: false
       resources:
@@ -51,6 +42,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF669
       required: false
       resources:
@@ -58,6 +50,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF915
       required: false
       resources:
@@ -70,7 +63,8 @@ spec:
       - aiModelContract:
         - GET
         - GET /id
-      version: 4      
+      version: 4
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF751
       required: true
@@ -78,7 +72,7 @@ spec:
       - anomalySpecification:
         - GET
         - GET /id
-        - POST 
+        - POST
         - PATCH /id
         - DELETE /id
       - anomaly:
@@ -87,7 +81,8 @@ spec:
         - POST
         - PATCH /id
         - DELETE /id
-      version: 4          
+      version: 4
+      apiSDO: tmForum
     publishedEvents:
     - apitype: openapi
       hub: /{{.Release.Name}}-AnomalyManagementEvent/hub
@@ -105,7 +100,6 @@ spec:
       - anomalySpecificationCreateEvent
       - anomalySpecificationDeleteEvent
       specification: https://github.com/tmforum-rand/Open_API_And_Data_Model/blob/v4.0-Sprint-2020-03/apis/TMF751_AnomalyManagement/swaggers/TMF751-AnomalyManagement-v4.0.0.swagger.json
-
     subscribedEvents:
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AIManagement/call-back
@@ -138,7 +132,25 @@ spec:
       - alarmStateChangeEvent
       - alarmDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF642_AlarmManagement/master/TMF642-Alarm-v4.0.0.swagger.json
-  owners:
-  - email: Redacted
-    name: Redacted
-
+  componentMetadata:
+    id: TMFC041
+    name: AnomalyManagement
+    version: 1.1.0
+    description: The Anomaly Management ODA Component is responsible for predicting,
+      detecting and managing anomalous patterns in the usage and behavior of products,
+      services and resources in order to avoid occurence of problems. Anomaly Management
+      ODA component has fuctionality to predict, detect and flag unusual patterns
+      or outliers for products, services and resource entities, and initiating mitigatory
+      actions to prevent outlier patterns in usage or behavior to become problems.
+      In the event of failure to predict or detect an early warning signt to a possible
+      problem occurence, the component hands of mitigatory actions to the ODA problem
+      management component.
+    publicationDate: 2024-11-19 00:00:00
+    status: specified
+    functionalBlock: Intelligence Management
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []
