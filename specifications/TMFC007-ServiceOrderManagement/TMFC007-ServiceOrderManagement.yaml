@@ -3,21 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: ServiceOrderManagement
-  id: TMFC007
-  functionalBlock: Production
-  description: The SOM is the entry point of the Production Domain. It oversees Customer-Facing-Service
-    (CFS) delivery of resources (network and service platforms equipment). The SOM
-    exposes in particular the API ServiceOrder. It is triggered when the Product Order
-    Orchestration Management component calls this API to request CFS delivery. To
-    achieve delivery of a CFS, the SOM orchestrates the CFS delivery process which.
-    Identifies possible RFS and chooses one, using the catalog and technical inventory.
-    Selects the resources (servers, equipment, etc.) and their instances. Requests
-    the ROM to update selected resource instances to deliver CFS. Request sent to
-    the ROM contain the CFS and the list of configured resource instances to update.
-  publicationDate: 2024-02-23
-  status: specified
-  version: 2.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -30,6 +15,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF633
       required: true
       resources:
@@ -37,6 +23,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF634
       required: false
       resources:
@@ -44,6 +31,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF638
       required: true
       resources:
@@ -54,6 +42,7 @@ spec:
         - PATCH
         - DELETE
       version: 4
+      apiSDO: tmForum
     - id: TMF639
       required: false
       resources:
@@ -61,6 +50,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF640
       required: false
       resources:
@@ -68,6 +58,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF641
       required: false
       resources:
@@ -82,6 +73,7 @@ spec:
         - GET /id
         - POST
       version: 4
+      apiSDO: tmForum
     - id: TMF645
       required: false
       resources:
@@ -96,6 +88,7 @@ spec:
         - POST
         - PATCH
       version: 4
+      apiSDO: tmForum
     - id: TMF646
       required: false
       resources:
@@ -110,6 +103,7 @@ spec:
         - POST
         - PATCH
       version: 4
+      apiSDO: tmForum
     - id: TMF652
       required: false
       resources:
@@ -126,6 +120,7 @@ spec:
         - PATCH
         - DELETE
       version: 4
+      apiSDO: tmForum
     - id: TMF653
       required: false
       resources:
@@ -136,6 +131,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF669
       required: false
       resources:
@@ -143,6 +139,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF673
       required: false
       resources:
@@ -157,6 +154,7 @@ spec:
         - GET /id
         - POST
       version: 4
+      apiSDO: tmForum
     - id: TMF674
       required: false
       resources:
@@ -164,6 +162,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF675
       required: false
       resources:
@@ -171,6 +170,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF681
       required: false
       resources:
@@ -178,6 +178,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF697
       required: false
       resources:
@@ -185,6 +186,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -194,6 +196,7 @@ spec:
         - GET /id
         - PATCH
       version: 4
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF641
       required: true
@@ -209,6 +212,7 @@ spec:
         - GET /id
         - POST
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -222,6 +226,7 @@ spec:
         - GET /id
         - PATCH /id
       version: 4
+      apiSDO: tmForum
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrdeManagement/hub
       name: TMF641 Service Ordering Management API
@@ -288,47 +293,66 @@ spec:
       - workOrderStateChange
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/4.0.0/swagger/TMF697_Work_Order_Management_API_v4.0.0_swagger.json
       apiType: openapi
-  owners:
-  - email: Redacted
-    name: Redacted
-  maintainers:
-  - name: Redacted
-    email: components@tmforum.org
-  eTOMs:
-  - 1.4.5_Service_Configuration_&_Activation_v21.5
-  - 1.4.5.1_Design_Solution_v21.5
-  - 1.4.5.2_Allocate_Specific_Service_Parameters_to_Services_v21.5
-  - 1.4.5.3_Track_&_Manage_Service_Provisioning_v21.5
-  - 1.4.5.4_Implement,_configure_&_activate_service_v21.5
-  - 1.4.5.6_Issue_Service_Order_v21.5
-  - 1.4.5.7_Report_service_provisioning_v21.5
-  - 1.4.5.8_Close_Service_Order_v21.5
-  - 1.5.6_Resource_Provisioning_v21.5
-  - 1.5.6.7_Issue_Resource_Order_v21.5
-  functionalFrameworkFunctions:
-  - 584_Service_Activation_Planning_v21.5
-  - 588_Service_Orchestration_Configuration_v21.5
-  - 591_Service_Parameters_Allocation_v21.5
-  - 596_Service_Order_Transfer_Supervision_v21.5
-  - 598_Service_Order_Orchestration_v21.5
-  - 733_Service_Order_Decomposition_v21.5
-  - 734_Service_Data_Collection_v21.5
-  - 963_Service_Task_Item_Decomposition_v21.5
-  - 968_Service_Work_Item_Sequence_Execution_v21.5
-  - 969_Service_Work_Item_Sequence_Execution_Configuration_v21.5
-  - 571_Service_Delivery_Due_Date_Calculation_v21.5
-  - 1061_Service_Order_Initiation_v21.5
-  - 595_Service_Order_Completion_v21.5
-  - 600_Service_Order_Validation_v21.5
-  - 583_Activation_Notification_v21.5
-  - 594_Service_Order_Storage_v21.5
-  - 597_Service_Order_Exposure_v21.5
-  - 599_Service_Order_Tracking_v21.5
-  - 735_Access_Provider_Selection_v21.5
-  - 341_Service_Activation_v21.5
-  - 342_Mass_Service_Pre-activation_v21.5
-  - 570_Solution_Services_Design_Management_v21.5
-  - 589_Cross_Services_Dependencies_Configuration_v21.5
-  - 590_Service_Configuration_v21.5
-  - 585_Service_Configuration_Activation_v21.5
-  - 592_Service_Parameters_Reservation_v21.5
+  componentMetadata:
+    id: TMFC007
+    name: ServiceOrderManagement
+    version: 2.0.0
+    description: The SOM is the entry point of the Production Domain. It oversees
+      Customer-Facing-Service (CFS) delivery of resources (network and service platforms
+      equipment). The SOM exposes in particular the API ServiceOrder. It is triggered
+      when the Product Order Orchestration Management component calls this API to
+      request CFS delivery. To achieve delivery of a CFS, the SOM orchestrates the
+      CFS delivery process which. Identifies possible RFS and chooses one, using the
+      catalog and technical inventory. Selects the resources (servers, equipment,
+      etc.) and their instances. Requests the ROM to update selected resource instances
+      to deliver CFS. Request sent to the ROM contain the CFS and the list of configured
+      resource instances to update.
+    publicationDate: 2024-02-23
+    status: specified
+    functionalBlock: Production
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs:
+    - 1.4.5-Service_Configuration_&_Activation-v21.5
+    - 1.4.5.1-Design_Solution-v21.5
+    - 1.4.5.2-Allocate_Specific_Service_Parameters_to_Services-v21.5
+    - 1.4.5.3-Track_&_Manage_Service_Provisioning-v21.5
+    - 1.4.5.4-Implement,_configure_&_activate_service-v21.5
+    - 1.4.5.6-Issue_Service_Order-v21.5
+    - 1.4.5.7-Report_service_provisioning-v21.5
+    - 1.4.5.8-Close_Service_Order-v21.5
+    - 1.5.6-Resource_Provisioning-v21.5
+    - 1.5.6.7-Issue_Resource_Order-v21.5
+    functionalFrameworkFunctions:
+    - 584-Service_Activation_Planning-v21.5
+    - 588-Service_Orchestration_Configuration-v21.5
+    - 591-Service_Parameters_Allocation-v21.5
+    - 596-Service_Order_Transfer_Supervision-v21.5
+    - 598-Service_Order_Orchestration-v21.5
+    - 733-Service_Order_Decomposition-v21.5
+    - 734-Service_Data_Collection-v21.5
+    - 963-Service_Task_Item_Decomposition-v21.5
+    - 968-Service_Work_Item_Sequence_Execution-v21.5
+    - 969-Service_Work_Item_Sequence_Execution_Configuration-v21.5
+    - 571-Service_Delivery_Due_Date_Calculation-v21.5
+    - 1061-Service_Order_Initiation-v21.5
+    - 595-Service_Order_Completion-v21.5
+    - 600-Service_Order_Validation-v21.5
+    - 583-Activation_Notification-v21.5
+    - 594-Service_Order_Storage-v21.5
+    - 597-Service_Order_Exposure-v21.5
+    - 599-Service_Order_Tracking-v21.5
+    - 735-Access_Provider_Selection-v21.5
+    - 341-Service_Activation-v21.5
+    - 342-Mass_Service_Pre-activation-v21.5
+    - 570-Solution_Services_Design_Management-v21.5
+    - 589-Cross_Services_Dependencies_Configuration-v21.5
+    - 590-Service_Configuration-v21.5
+    - 585-Service_Configuration_Activation-v21.5
+    - 592-Service_Parameters_Reservation-v21.5

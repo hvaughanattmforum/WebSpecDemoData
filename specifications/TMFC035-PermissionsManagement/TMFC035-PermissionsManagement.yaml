@@ -3,16 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: PermissionsManagement
-  id: TMFC035
-  functionalBlock: PartyManagement
-  description: 'Party Roles & Permissions Management component aims to manage and
-    expose, roles and related permissions. Permissions Management component allows
-    to: create, modify and delete permissions. delegate permissions. When a specific
-    role is assigned, a set of permissions is inherited.'
-  publicationDate: 2023-08-18 00:00:00
-  status: specified
-  version: 1.1.1
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -25,6 +15,7 @@ spec:
         - GET
         - GET/id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -38,6 +29,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF672
       required: true
@@ -55,6 +47,7 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
+      apiSDO: tmForum
     - id: TMF669
       required: true
       resources:
@@ -65,6 +58,7 @@ spec:
         - PATCH/id
         - DELETE/id
       version: 4
+      apiSDO: tmForum
     publishedEvents:
     - implementation: /{{.Release.Name}}-userrole&permapi
       name: userRole
@@ -113,9 +107,24 @@ spec:
       - taskFlowStateChangeEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       apiType: openapi
-  owners:
-  - email: Redacted
-    name: Redacted
-  maintainers:
-  - name: Redacted
-    email: components@tmforum.org
+  componentMetadata:
+    id: TMFC035
+    name: PermissionsManagement
+    version: 1.1.1
+    description: 'Party Roles & Permissions Management component aims to manage and
+      expose, roles and related permissions. Permissions Management component allows
+      to: create, modify and delete permissions. delegate permissions. When a specific
+      role is assigned, a set of permissions is inherited.'
+    publicationDate: 2023-08-18 00:00:00
+    status: specified
+    functionalBlock: PartyManagement
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []

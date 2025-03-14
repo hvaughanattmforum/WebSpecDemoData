@@ -3,18 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: ServicePerformanceManagement
-  id: TMFC037
-  functionalBlock: IntelligenceManagement
-  description: Service Performance Management will monitor, analyze, and report on
-    the end-end service performance. This can include a real-time, end-to-end view
-    to ensure that each service is functioning correctly as well as a historical view.
-    These functions build on the Resource Performance data and active end-end service
-    performance test data to provide a view of a service. The component provides a
-    key input to determine the Quality of Service.
-  publicationDate: 2024-12-17 00:00:00
-  status: specified
-  version: 1.2.0
   coreFunction:
     dependentAPIs:
     - id: TMF628
@@ -48,6 +36,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF639
       required: false
       resources:
@@ -55,6 +44,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF638
       required: false
       resources:
@@ -62,6 +52,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF673
       required: false
       resources:
@@ -72,6 +63,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF674
       required: false
       resources:
@@ -79,6 +71,7 @@ spec:
         - GET
         - GET/id
       version: 4
+      apiSDO: tmForum
     - id: TMF657
       required: false
       resources:
@@ -89,6 +82,7 @@ spec:
         - GET
         - GET/id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -102,6 +96,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF628
       required: true
@@ -134,6 +129,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF649
       required: true
       resources:
@@ -150,6 +146,7 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
+      apiSDO: tmForum
     - id: TMF642
       required: false
       resources:
@@ -160,6 +157,7 @@ spec:
         - PATCH /id
         - DELETE /id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -173,6 +171,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-processFlowEvent
@@ -270,9 +269,26 @@ spec:
       - taskFlowStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF701-ProcessFlowManagement/blob/master/TMF701-ProcessFlowManagement-v4.0.0.swagger.json
       apiType: openapi
-  owners:
-  - email: Redacted
-    name: Redacted
-  maintainers:
-  - name: Redacted
-    email: components@tmforum.org
+  componentMetadata:
+    id: TMFC037
+    name: ServicePerformanceManagement
+    version: 1.2.0
+    description: Service Performance Management will monitor, analyze, and report
+      on the end-end service performance. This can include a real-time, end-to-end
+      view to ensure that each service is functioning correctly as well as a historical
+      view. These functions build on the Resource Performance data and active end-end
+      service performance test data to provide a view of a service. The component
+      provides a key input to determine the Quality of Service.
+    publicationDate: 2024-12-17 00:00:00
+    status: specified
+    functionalBlock: IntelligenceManagement
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []

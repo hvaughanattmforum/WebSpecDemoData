@@ -3,15 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: LeadAndOpportunityManagement
-  id: TMFC036
-  functionalBlock: PartyManagement
-  description: 'Lead and Opportunity Management provides the necessary functionality
-    during pre-sales stage in terms of: lead and opportunity capture, qualification,
-    reporting, support.'
-  publicationDate: 2023-11-18 00:00:00
-  status: specified
-  version: 1.2.0
   coreFunction:
     dependentAPIs:
     - id: TMF632
@@ -24,6 +15,7 @@ spec:
         - GET
         - GET/id
       version: 4
+      apiSDO: tmForum
     - id: TMF669
       required: false
       resources:
@@ -31,6 +23,7 @@ spec:
         - GET
         - GET/id
       version: 4
+      apiSDO: tmForum
     - id: TMF620
       required: false
       resources:
@@ -41,6 +34,7 @@ spec:
         - GET
         - GET/id
       version: 4
+      apiSDO: tmForum
     - id: TMF651
       required: false
       resources:
@@ -51,6 +45,7 @@ spec:
         - GET
         - GET/id
       version: 4
+      apiSDO: tmForum
     - id: TMF648
       required: false
       resources:
@@ -58,6 +53,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF622
       required: false
       resources:
@@ -65,6 +61,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -78,6 +75,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF699
       required: true
@@ -95,6 +93,7 @@ spec:
         - PATCH
         - DELETE
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -108,6 +107,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/SalesManagement/hub
       implementation: /{{.Release.Name}}-SalesManagement
@@ -233,29 +233,39 @@ spec:
       - PartyRoleDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       apiType: openapi
-  owners:
-  - email: Redacted
-    name: Redacted
-  maintainers:
+  componentMetadata:
+    id: TMFC036
+    name: LeadAndOpportunityManagement
+    version: 1.2.0
+    description: 'Lead and Opportunity Management provides the necessary functionality
+      during pre-sales stage in terms of: lead and opportunity capture, qualification,
+      reporting, support.'
+    publicationDate: 2023-11-18 00:00:00
+    status: specified
+    functionalBlock: PartyManagement
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
     - name: Redacted
       email: components@tmforum.org
       url: Redacted
-  eTOMs:
-  - 1.1.11_Contact/Lead/Prospect_Management_v23.0
-  - 1.1.11.1_Manage_Sales_Contact_v23.0
-  - 1.1.11.2_Manage_Sales_Lead_v23.0
-  - 1.1.11.3_Manage_Sales_Prospect_v23.0
-  - 1.1.9_Selling_v23.0
-  - 1.1.9.1_Qualify_Selling_Opportunity_v23.0
-  - 1.1.9.3_Acquire_Sales_Prospect_Data_v23.0
-  - 1.1.7_Market_Sales_Support_&_Readiness_v23.0
-  - 1.1.7.2_Support_Selling_v23.0
-  - 1.1.7.5_Manage_Sales_Accounts_v23.0
-  functionalFrameworkFunctions:
-  - 394_Sales_Aids_Support_v23.0
-  - 372_Sales_Opportunity_Management_v23.0
-  - 375_Funnel_Assigning_v23.0
-  - 374_Funnel_Creation_v23.0
-  - 376_Funnel_Leads_Tracking_v23.0
-  - 726_Sales_Lead_Capturing_v23.0
-
+    eTOMs:
+    - 1.1.11-Contact/Lead/Prospect_Management-v23.0
+    - 1.1.11.1-Manage_Sales_Contact-v23.0
+    - 1.1.11.2-Manage_Sales_Lead-v23.0
+    - 1.1.11.3-Manage_Sales_Prospect-v23.0
+    - 1.1.9-Selling-v23.0
+    - 1.1.9.1-Qualify_Selling_Opportunity-v23.0
+    - 1.1.9.3-Acquire_Sales_Prospect_Data-v23.0
+    - 1.1.7-Market_Sales_Support_&_Readiness-v23.0
+    - 1.1.7.2-Support_Selling-v23.0
+    - 1.1.7.5-Manage_Sales_Accounts-v23.0
+    functionalFrameworkFunctions:
+    - 394-Sales_Aids_Support-v23.0
+    - 372-Sales_Opportunity_Management-v23.0
+    - 375-Funnel_Assigning-v23.0
+    - 374-Funnel_Creation-v23.0
+    - 376-Funnel_Leads_Tracking-v23.0
+    - 726-Sales_Lead_Capturing-v23.0

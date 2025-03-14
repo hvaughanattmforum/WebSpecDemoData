@@ -3,13 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: ProductTestManagement
-  id: TMFC054
-  functionalBlock: CoreCommerce
-  description: 'Product Test Management is responsible for: Product Test Specification: for each Product Specification, identification of the possible tests to launch automatically, by the delivery or assurance processes, or manually by the customer or user, or by a CSR, to test a product functioning. They are based on tests available at service specification level (or resource specification level for a tangible product).Product Test end-to-end execution and reporting according to the context and/or the actor'
-  publicationDate: 2025-02-25 00:00:00
-  status: specified
-  version: 1.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF620
@@ -19,6 +12,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF637
       required: true
       resources:
@@ -26,6 +20,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF632
       required: false
       resources:
@@ -36,6 +31,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF669
       required: false
       resources:
@@ -43,6 +39,7 @@ spec:
         - GET
         - GET /id
       version: 4.1
+      apiSDO: tmForum
     - id: TMF653
       required: false
       resources:
@@ -56,6 +53,7 @@ spec:
         - PATCH
         - DELETE
       version: 4
+      apiSDO: tmForum
     - id: TMF638
       required: false
       resources:
@@ -63,6 +61,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF724
       required: false
       resources:
@@ -70,6 +69,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -84,6 +84,7 @@ spec:
         - POST
         - PATCH
       version: 4
+      apiSDO: tmForum
     exposedAPIs:
     - id: TMF769
       required: true
@@ -101,6 +102,7 @@ spec:
         - PATCH
         - DELETE
       version: 5
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -114,6 +116,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productTestManagement/hub
       implementation: /{{.Release.Name}}-productTestManagement
@@ -157,11 +160,27 @@ spec:
       - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
       apiType: openapi
-  owners:
-  - email: Redacted
-    name: Redacted
-  maintainers:
-  - name: Redacted
-    email: components@tmforum.org
-  eTOMs: ''  
-  functionalFrameworkFunctions: ''
+  componentMetadata:
+    id: TMFC054
+    name: ProductTestManagement
+    version: 1.0.0
+    description: 'Product Test Management is responsible for: Product Test Specification:
+      for each Product Specification, identification of the possible tests to launch
+      automatically, by the delivery or assurance processes, or manually by the customer
+      or user, or by a CSR, to test a product functioning. They are based on tests
+      available at service specification level (or resource specification level for
+      a tangible product).Product Test end-to-end execution and reporting according
+      to the context and/or the actor'
+    publicationDate: 2025-02-25 00:00:00
+    status: specified
+    functionalBlock: CoreCommerce
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []

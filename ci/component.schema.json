@@ -51,6 +51,9 @@
                   "apiType": {
                     "type": "string"
                   },
+                  "apiSDO": {
+                    "type": "string"
+                  },
                   "hub": {
                     "type": "string"
                   },
@@ -81,6 +84,9 @@
                 "type": "object",
                 "properties": {
                   "apiType": {
+                    "type": "string"
+                  },
+                  "apiSDO": {
                     "type": "string"
                   },
                   "call-back": {
@@ -119,86 +125,100 @@
             "exposedAPIs"
           ]
         },
-        "description": {
-          "type": "string"
-        },
-        "functionalBlock": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "maintainers": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "email": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "url": {
-                "type": "string"
+        "componentMetadata":{
+          "type": "object",
+          "properties" : {
+
+            "id": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "publicationDate": {
+              "type": ["string", "null"],
+              "format": "date"
+            },
+            "status": {
+              "type": "string"
+            },
+            "functionalBlock": {
+              "type": "string"
+            },
+            "owners": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "name"
+                ]
               }
             },
-            "required": [
-              "email",
-              "name"
+            "maintainers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "name"
+                ]
+              }
+            },
+            "eTOMs":{
+              "type" : "array"
+            },
+            "functionalFrameworkFunctions":{
+              "type" : "array"
+            }
+          },
+          "required": [
+              "name",
+              "id",
+              "description",
+              "functionalBlock",
+              "publicationDate",
+              "version"
             ]
-          }
         },
         "managementFunction": {
           "type": "array"
         },
-        "name": {
-          "type": "string"
-        },
-        "owners": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "email": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "url": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "email",
-              "name"
-            ]
-          }
-        },
-        "publicationDate": {
-          "type": ["string", "null"],
-          "format": "date"
-        },
         "securityFunction": {
           "type": "array"
-        },
-        "status": {
-          "type": "string"
-        },
-        "version": {
-          "type": "string"
         }
       },
       "required": [
         "coreFunction",
-        "description",
-        "functionalBlock",
-        "id",
-        "name",
-        "publicationDate",
-        "status",
-        "version"
+        "componentMetadata"
       ]
     }
   },
@@ -219,6 +239,9 @@
           "type": "string"
         },
         "name": {
+          "type": "string"
+        },
+        "apiSDO": {
           "type": "string"
         },
         "required": {
@@ -255,6 +278,9 @@
           "type": "string"
         },
         "name": {
+          "type": "string"
+        },
+        "apiSDO": {
           "type": "string"
         },
         "required": {
