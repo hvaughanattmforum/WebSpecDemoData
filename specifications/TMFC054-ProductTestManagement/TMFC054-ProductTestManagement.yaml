@@ -1,0 +1,186 @@
+apiVersion: oda.tmforum.org/v1beta4
+kind: component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  coreFunction:
+    dependentAPIs:
+    - id: TMF620
+      required: true
+      resources:
+      - productSpecification:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF637
+      required: true
+      resources:
+      - product:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF632
+      required: false
+      resources:
+      - individual:
+        - GET
+        - GET /id
+      - organisation:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF669
+      required: false
+      resources:
+      - partyRole:
+        - GET
+        - GET /id
+      version: 4.1
+      apiSDO: tmForum
+    - id: TMF653
+      required: false
+      resources:
+      - serviceTestSpecification:
+        - GET
+        - GET /id
+      - serviceTest:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 4
+      apiSDO: tmForum
+    - id: TMF638
+      required: false
+      resources:
+      - service:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF724
+      required: false
+      resources:
+      - incident:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      - taskFlow:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      version: 4
+      apiSDO: tmForum
+    exposedAPIs:
+    - id: TMF769
+      required: true
+      resources:
+      - productTestSpecification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - productTest:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      version: 5
+      apiSDO: tmForum
+    - id: TMF701
+      required: false
+      resources:
+      - processFlow:
+        - POST
+        - GET
+        - GET /id
+        - DELETE
+      - taskFlow:
+        - PATCH
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
+    publishedEvents:
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productTestManagement/hub
+      implementation: /{{.Release.Name}}-productTestManagement
+      name: productTestManagement
+      port: 80
+      resources:
+      - ProductTestSpecificationCreateEvent
+      - ProductTestSpecificationDeleteEvent
+      - ProductTestSpecificationAttributeValueChangeEvent
+      - ProductTestSpecificationStateChangeEvent
+      - ProductTestCreateEvent
+      - ProductTestAttributeValueChangeEvent
+      - ProductTestStateChangeEvent
+      specification: ''
+      apiType: openapi
+    subscribedEvents:
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productCatalogManagement/call-back
+      implementation: /{{.Release.Name}}-productCatalogManagement
+      name: productCatalogManagement
+      port: 80
+      resources:
+      - productSpecificationCreateEvent
+      - productSpecificationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.1.0.swagger.json
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceTestManagement/call-back
+      implementation: /{{.Release.Name}}-serviceTestManagement
+      name: serviceTestManagement
+      port: 80
+      resources:
+      - serviceTestSpecificationCreateEvent
+      - serviceTestSpecificationAttributeValueChangeEvent
+      - serviceTestSpecificationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF653_ServiceTestManagement/blob/master/TMF653-ServiceTest-v4.1.0.swagger.json
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyManagement/call-back
+      implementation: /{{.Release.Name}}-Party
+      name: Party
+      port: 80
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
+      apiType: openapi
+  componentMetadata:
+    id: TMFC054
+    name: ProductTestManagement
+    version: 1.0.0
+    description: 'Product Test Management is responsible for: Product Test Specification:
+      for each Product Specification, identification of the possible tests to launch
+      automatically, by the delivery or assurance processes, or manually by the customer
+      or user, or by a CSR, to test a product functioning. They are based on tests
+      available at service specification level (or resource specification level for
+      a tangible product).Product Test end-to-end execution and reporting according
+      to the context and/or the actor'
+    publicationDate: 2025-02-25 00:00:00
+    status: specified
+    functionalBlock: CoreCommerce
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []
