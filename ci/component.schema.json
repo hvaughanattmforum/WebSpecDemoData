@@ -139,7 +139,7 @@
               "type": "string"
             },
             "version": {
-              "type": "number"
+              "type": "string"
             },
             "publicationDate": {
               "type": ["string", "null"],
@@ -198,8 +198,9 @@
             },
             "functionalFrameworkFunctions":{
               "type" : "array"
-            },
-            "required": [
+            }
+          },
+          "required": [
               "name",
               "id",
               "description",
@@ -207,8 +208,6 @@
               "publicationDate",
               "version"
             ]
-
-          }
         },
         "managementFunction": {
           "type": "array"
