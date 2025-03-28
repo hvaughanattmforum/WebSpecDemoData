@@ -3,21 +3,6 @@ kind: component
 metadata:
   name: components.oda.tmforum.org
 spec:
-  name: FaultManagement
-  id: TMFC043
-  functionalBlock: Production
-  description: Fault management involves identifying, diagnosing, and resolving issues that
-   prevent the communication resources and their overlaying services from functioning correctly. 
-   It s scope covers this functionality at the ODA Production layer while Buiness related 
-   resolutions are not part of its scope. The Fault Management component manages the currently
-   active alarms or problem candidates. potentially modifying or enhancing their data to make the
-   persistent alarms more actionable. It may apply logic to preserve alarms that reflect actual problems,
-   eliminating those that are merely symptoms. Various actions can be taken using the alarm/problem 
-   information as part of the resolution process, such asProduction applying automated corrective actions
-    or opening trouble tickets.
-  publicationDate: 2025-03-11 00:00:00
-  status: specified
-  version: 1.0.0
   coreFunction:
     dependentAPIs:
     - id: TMF633
@@ -427,9 +412,28 @@ spec:
       - associationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF662_EntityCatalogue/blob/master/TMF662-EntityCatalogue-v4.0.0.swagger.json
       apiType: openapi
+  componentMetadata:
+  
+  id: TMFC043
+  name: FaultManagement
+  version: 1.0.0 
+  description: Fault management involves identifying, diagnosing, and resolving issues that
+   prevent the communication resources and their overlaying services from functioning correctly. 
+   It s scope covers this functionality at the ODA Production layer while Buiness related 
+   resolutions are not part of its scope. The Fault Management component manages the currently
+   active alarms or problem candidates. potentially modifying or enhancing their data to make the
+   persistent alarms more actionable. It may apply logic to preserve alarms that reflect actual problems,
+   eliminating those that are merely symptoms. Various actions can be taken using the alarm/problem 
+   information as part of the resolution process, such asProduction applying automated corrective actions
+    or opening trouble tickets.
+  publicationDate: 2025-03-11 00:00:00
+  status: specified
+  functionalBlock: Production       
   owners:
   - email: Redacted
     name: Redacted
   maintainers:
   - name: Redacted
     email: components@tmforum.org
+  eTOMs: []
+  functionalFrameworkFunctions: []
