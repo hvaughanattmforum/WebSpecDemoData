@@ -21,6 +21,7 @@ spec:
         - GET
         - GET /id        
       version: 4
+      apiSDO: tmForum      
     - id: TMF634
       required: false
       resources:
@@ -36,7 +37,8 @@ spec:
       - resourceSpecification:
         - GET
         - GET /id        
-      version: 4      
+      version: 4     
+      apiSDO: tmForum       
     - id: TMF638
       required: false
       resources:
@@ -44,6 +46,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum      
     - id: TMF639
       required: false
       resources:
@@ -51,6 +54,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum      
     - id: TMF673
       required: false
       resources:
@@ -61,6 +65,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum      
     - id: TMF675
       required: false
       resources:
@@ -68,6 +73,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum      
     - id: TMF642
       required: false
       resources:
@@ -75,6 +81,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum      
     - id: TMF656
       required: false
       resources:
@@ -82,6 +89,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum      
     - id: TMF621
       required: false
       resources:
@@ -89,6 +97,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum      
     - id: TMF632
       required: false
       resources:
@@ -99,6 +108,7 @@ spec:
         - GET
         - GET /id        
       version: 4
+      apiSDO: tmForum      
     - id: TMF669
       required: false
       resources:
@@ -106,6 +116,7 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum      
     - id: TMF662
       required: false
       resources:
@@ -121,7 +132,8 @@ spec:
       - entitySpecification:
         - GET
         - GET /id           
-      version: 4      
+      version: 4     
+      apiSDO: tmForum       
     exposedAPIs:
     - id: TMF642
       required: true
@@ -157,6 +169,7 @@ spec:
         - GET /id
         - POST             
       version: 4
+      apiSDO: tmForum      
     - id: TMF656
       required: false
       resources:
@@ -169,7 +182,8 @@ spec:
         - POST
       - problemUnGroup:
         - POST      
-      version: 4      
+      version: 4     
+      apiSDO: tmForum       
     - id: TMF701
       required: false
       resources:
@@ -183,10 +197,9 @@ spec:
         - GET
         - GET /id
       version: 4
+      apiSDO: tmForum      
     publishedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/alarmmanagement/hub
-      implementation: /{{.Release.Name}}-alarmmanagement
-      name: Alarm Management API
+    - name: Alarm Management API
       port: 80
       resources:
       - alarmCreateEvent
@@ -207,9 +220,7 @@ spec:
       - unGroupAlarmsStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642_AlarmManagement-v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagementEvent/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
-      name: ProcessFlowManagement
+    - name: ProcessFlowManagement
       port: 80
       resources:
       - processFlowCreateEvent
@@ -223,9 +234,7 @@ spec:
       - taskFlowInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceProblemManagement/hub
-      implementation: /{{.Release.Name}}-ServiceProblemManagementEvent
-      name: ServiceProblemManagement
+    - name: ServiceProblemManagement
       port: 80
       resources:
       - problemAcknowledgementCreateEvent
@@ -248,9 +257,7 @@ spec:
       specification: https://github.com/tmforum-rand/TMF656_Service_Problem/blob/master/swaggers-gen/TMF656-ServiceProblem-v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/call-back
-      implementation: /{{.Release.Name}}-ServiceCatalogManagement
-      name: ServiceCatalogManagement
+    - name: ServiceCatalogManagement
       port: 80
       resources:
       - serviceCatalogCreateEvent
@@ -266,9 +273,7 @@ spec:
       - serviceSpecificationChangeEvent
       - serviceSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF633_ServiceCatalog/blob/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/call-back
-      implementation: /{{.Release.Name}}-ServiceInventoryManagement
-      name: ServiceInventoryManagement
+    - name: ServiceInventoryManagement
       port: 80
       resources:
       - serviceCreateEvent
@@ -277,9 +282,7 @@ spec:
       - serviceStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF638_ServiceInventory/blob/master/TMF638-ServiceInventory-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/call-back
-      implementation: /{{.Release.Name}}-ResourceInventoryManagement
-      name: ResourceInventoryManagement
+    - name: ResourceInventoryManagement
       port: 80
       resources:
       - resourceCreateEvent
@@ -288,17 +291,13 @@ spec:
       - resourceStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF639_ResourceInventory/blob/master/TMF639-ResourceInventory-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddress/call-back
-      implementation: /{{.Release.Name}}-GeographicAddressManagement
-      name: GeographicAddressManagement
+    - name: GeographicAddressManagement
       port: 80
       resources:
       - geographicAddressValidationStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
-      implementation: /{{.Release.Name}}-GeographicSiteManagement
-      name: GeographicSiteManagement
+    - name: GeographicSiteManagement
       port: 80
       resources:
       - geographicSiteCreateEvent
@@ -307,9 +306,7 @@ spec:
       - geographicSiteDeleteEvent
       specification: https://github.com/tmforum-apis/TMF674_GeographicSite/blob/master/TMF674-GeographicSite-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
-      implementation: /{{.Release.Name}}-GeographicLocationManagement
-      name: GeographicLocationManagement
+    - name: GeographicLocationManagement
       port: 80
       resources:
       geographicLocation:
@@ -318,9 +315,7 @@ spec:
       - geographicLocationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF675_GeographicLocation/blob/master/TMF675-GeographicLocation-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/call-back
-      implementation: /{{.Release.Name}}-AlarmManagement
-      name: AlarmManagement
+    - name: AlarmManagement
       port: 80
       resources:
       - alarmCreateEvent
@@ -341,9 +336,7 @@ spec:
       - unGroupAlarmsStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642_AlarmManagement-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceProblemManagement/call-back
-      implementation: /{{.Release.Name}}-ServiceProblemManagement
-      name: ServiceProblemManagement
+    - name: ServiceProblemManagement
       port: 80
       resources:
       - problemAcknowledgementCreateEvent
@@ -365,9 +358,7 @@ spec:
       - serviceProblemStateChangeEvent
       specification: https://github.com/tmforum-rand/TMF656_Service_Problem/blob/master/swaggers-gen/TMF656-ServiceProblem-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/TroubleTicketManagement/call-back
-      implementation: /{{.Release.Name}}-TroubleTicketManagement
-      name: TroubleTicketManagement
+    - name: TroubleTicketManagement
       port: 80
       resources:
       - troubleTicketCreateEvent
@@ -378,26 +369,20 @@ spec:
       - troubleTicketInformationRequiredEvent
       specification: https://github.com/tmforum-apis/TMF621_TroubleTicket/blob/master/TMF621-TroubleTicket-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
-      implementation: /{{.Release.Name}}-PartyManagement
-      name: PartyManagement
+    - name: PartyManagement
       port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF632_Party/blob/master/TMF632-Party-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/call-back
-      implementation: /{{.Release.Name}}-PartyRoleManagement
-      name: PartyRoleManagement
+    - name: PartyRoleManagement
       port: 80
       resources:
       - partyRoleDeleteEvent
       specification: https://github.com/tmforum-apis/TMF669_PartyRole/blob/master/TMF669-PartyRole-v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalogue/call-back
-      implementation: /{{.Release.Name}}-EntityCatalogueManagement  
-      name: EntityCatalogueManagement
+    - name: EntityCatalogueManagement
       port: 80
       resources:
       - entityCatalogCreateEvent
@@ -417,10 +402,9 @@ spec:
     id: TMFC043
     name: FaultManagement
     version: 1.0.0 
-    description: >
-      Fault management involves identifying, diagnosing, and resolving issues that
-      prevent the communication resources and their overlaying services from functioning correctly.
-      Its scope covers this functionality at the ODA Production layer while Business-related 
+    description: Fault management involves identifying, diagnosing, and resolving issues that
+      prevent the communication resources and their overlaying services from functioning correctly
+       It s scope covers this functionality at the ODA Production layer while Buiness related 
       resolutions are not part of its scope. The Fault Management component manages the currently
       active alarms or problem candidates. potentially modifying or enhancing their data to make the
       persistent alarms more actionable. It may apply logic to preserve alarms that reflect actual problems,
