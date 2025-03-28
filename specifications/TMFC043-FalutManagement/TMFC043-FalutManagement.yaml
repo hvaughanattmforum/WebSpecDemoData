@@ -309,7 +309,6 @@ spec:
     - name: GeographicLocationManagement
       port: 80
       resources:
-      geographicLocation:
       - geographicLocationCreateEvent
       - geographicLocationAttributeValueChangeEvent
       - geographicLocationDeleteEvent
