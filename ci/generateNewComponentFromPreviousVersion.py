@@ -6,7 +6,7 @@ import re
 import os
 
 ##Enter the new version here
-NEW_COMPONENT_VERSION= "v1beta4"
+NEW_COMPONENT_VERSION= "v1.0.0"
 
 # Example usage:
 specifications_folder = Path(__file__).parents[1] / "specifications"  # Replace with your specifications folder path
