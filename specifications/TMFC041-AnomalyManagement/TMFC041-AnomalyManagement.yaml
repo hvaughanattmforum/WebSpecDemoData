@@ -144,7 +144,7 @@ spec:
       the component hands off mitigatory actions to the Party Problem Management component.
     publicationDate: 2024-11-19 00:00:00
     status: specified
-    functionalBlock: Intelligence Management
+    functionalBlock: IntelligenceManagement
     owners:
     - email: Redacted
       name: Redacted
