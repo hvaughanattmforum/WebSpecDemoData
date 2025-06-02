@@ -4,26 +4,6 @@ metadata:
   name: components.oda.tmforum.org
 spec:
   coreFunction:
-    dependentAPIs:
-    - id: TMF632
-      required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
-    - id: TMF674
-      required: false
-      resources:
-      - geographicSite:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
     exposedAPIs:
     - id: TMF673
       required: true
