@@ -12,7 +12,7 @@ spec:
     name: {{.Values.component.name}}
     version: {{.Values.component.version}}
     description: >-
-      Simple Resource Catalog ODA-Component from Open-API reference
+      Simple Resource Inventory ODA-Component from Open-API reference
       implementation.
     functionalBlock: {{.Values.component.functionalBlock}}
     publicationDate: {{.Values.component.publicationDate}}
@@ -25,21 +25,25 @@ spec:
         email: components@tmforum.org
   coreFunction:
     exposedAPIs:
-      - name: resourcecatalogmanagement
-        id: TMF634
+      - name: APIresourceinventorymanagement
+        id: TMF639
         specification:
           - url: >-
-              https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF634_Resource_Catalog/4.1.0/swagger/TMF634_Resource_Catalog_Management_API_v4.1.0_swagger.json
-        implementation: {{.Release.Name}}-resourcecatalogapi
+              https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF639_Resource_Inventory/4.0.0/swagger/TMF639_Resource_Inventory_Management_API_v4.0.0_swagger.json
+        implementation: {{.Release.Name}}-resourceinventoryapi
         apiType: openapi
         path: >-
-          /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/resourceCatalog/v4
+          /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/resourceInventoryManagement/v4
         developerUI: >-
-          /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/resourceCatalog/v4/docs
+          /{{.Release.Name}}-{{.Values.component.name}}/tmf-api/resourceInventoryManagement/v4/docs
         port: 8080
         gatewayConfiguration: {}
     dependentAPIs:
-      []
+      - name: resourcecatalogmanagement
+        id: TMF634
+        apiType: openapi
+        specification:
+        - url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF634_Resource_Catalog/4.1.0/swagger/TMF634_Resource_Catalog_Management_API_v4.1.0_swagger.json
   eventNotification:
     publishedEvents: []
     subscribedEvents: []
