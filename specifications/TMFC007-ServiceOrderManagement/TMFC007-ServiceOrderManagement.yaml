@@ -297,7 +297,7 @@ spec:
     id: TMFC007
     name: ServiceOrderManagement
     version: 2.0.0
-    description: Service Order Management (SOM) is the entry point to the Production Domain. 
+    description: Service Order Management (SOM) component is the entry point to the Production Domain. 
       It oversees delivery of Customer-Facing-Service (CFS) resources (network and service platform equipment). 
       The SOM exposes the API ServiceOrder. It is triggered when the Product Order Delivery Orchestration And Management 
       component calls this API to request CFS delivery. To achieve delivery of a CFS, the SOM orchestrates the CFS delivery 

@@ -274,7 +274,7 @@ spec:
     name: ServicePerformanceManagement
 
     version: 1.2.0
-    description: Service Performance Management monitors, analyzes, and reports on end-to-end service performance. 
+    description: Service Performance Management component monitors, analyzes, and reports on end-to-end service performance. 
       This can include a real-time, end-to-end view to ensure that each service is functioning correctly as well as a historical view. 
       These functions build on the Resource Performance data and active end-to-end service performance test data to provide 
       a view of a service. The component provides a key input to determine Quality of Service.
