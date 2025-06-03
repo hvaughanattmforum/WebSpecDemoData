@@ -8,8 +8,7 @@ exposedAPIs:
         - GET
         - GET/id
         - POST
-        - PATCH/id
-      version: 4
+
     - id: TMF677
       name: Usage Consumption Management API
       required: true
@@ -18,7 +17,7 @@ exposedAPIs:
         - GET
         - GET/id
         - POST
-      version: 4
+
     - id: TMF701
       name: Process Flow Management API
       required: false
@@ -32,5 +31,5 @@ exposedAPIs:
         - GET
         - GET /id
         - PATCH /id
-      version: 4
+
 @endyaml
