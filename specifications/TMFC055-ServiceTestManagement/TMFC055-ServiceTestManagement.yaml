@@ -22,6 +22,20 @@ spec:
               - GET /id
               - PATCH /id
               - DELETE /id
+      - id: TMF701
+        required: false
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
+        version: 4
+        apiSDO: tmForum              
     dependentAPIs:
       - id: TMF632
         apiSDO: tmForum
@@ -66,6 +80,21 @@ spec:
           - resource:
               - GET
               - GET /id
+      - id: TMF701
+        required: false
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        - taskFlow:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        version: 4
+        apiSDO: tmForum              
     publishedEvents:
       - hub: ServiceTestManagement.com
         name: ServiceTestManagement
