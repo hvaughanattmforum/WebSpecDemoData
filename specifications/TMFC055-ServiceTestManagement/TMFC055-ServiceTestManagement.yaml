@@ -147,7 +147,7 @@ spec:
       the service operates correctly.
 
 
-      Service Test Specification involves capturing potential tests for each
+      Service test specification involves capturing potential tests for each
       Service Specification that can be initiated either automatically or
       manually by the service user. These tests are derived from those available
       at the service specification or resource specification level.
