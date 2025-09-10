@@ -15,6 +15,8 @@ def validate_component_file_names_and_content():
         if not spec.name.startswith("TMFC") or not spec.name.endswith(".yaml"):
             if spec.suffix.lower() == ".pdf":
                 continue  # skip PDF files
+            if "BDD" in spec.parts or "ComponentRI" in spec.parts or "ComponentConformanceProfile" in spec.parts:
+                continue
             print(f"::group::TMFC File Naming is invalid")
             print(f"::error::{spec.name}")
             print("::endgroup::")
