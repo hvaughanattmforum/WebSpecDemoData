@@ -13,6 +13,8 @@ def str_constructor(loader, node):
 def validate_component_file_names_and_content():
     for spec in COMPONENTS.glob("TMFC*/*"):
         if not spec.name.startswith("TMFC") or not spec.name.endswith(".yaml"):
+            if spec.suffix.lower() == ".pdf":
+                continue  # skip PDF files
             print(f"::group::TMFC File Naming is invalid")
             print(f"::error::{spec.name}")
             print("::endgroup::")
