@@ -6,7 +6,7 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF702
-      required: true
+      required: false
       resources:
       - resource:
         - GET
@@ -42,7 +42,7 @@ spec:
       version: 4
       apiSDO: tmForum
     - id: TMF664
-      required: true
+      required: false
       resources:
       - resourceFunction:
         - GET
