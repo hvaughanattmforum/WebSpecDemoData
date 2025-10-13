@@ -2,7 +2,7 @@
 dependentAPIs:
     - id: TMF702
       name: Resource Activation Management API
-      required: true
+      required: false
       resources:
       - resource:
         - GET
@@ -38,7 +38,7 @@ dependentAPIs:
       version: 4
     - id: TMF664
       name: Resource Function Activation Management API
-      required: true
+      required: false
       resources:
       - resourceFunction:
         - GET
