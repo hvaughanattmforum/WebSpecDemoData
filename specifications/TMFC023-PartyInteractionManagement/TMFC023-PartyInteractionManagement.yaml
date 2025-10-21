@@ -58,6 +58,7 @@ spec:
       version: 4
       apiSDO: tmForum
     - id: TMF701
+      name: ProcessFlowManagementAPI
       required: false
       resources:
       - processFlow:
