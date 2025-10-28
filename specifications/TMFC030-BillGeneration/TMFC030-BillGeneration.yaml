@@ -99,6 +99,9 @@ spec:
         - GET / id
         - POST
         - PATCH /id
+      - billCycle:
+        - GET
+        - GET /id
       version: 4.0
       apiSDO: tmForum
     - id: TMF701
