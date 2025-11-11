@@ -19,7 +19,7 @@ dependentAPIs:
       version: 4
     - id: TMF632
       name: Party Management API
-      required: true
+      required: false
       resources:
       - individual:
         - GET
@@ -60,7 +60,7 @@ dependentAPIs:
       version: 4
     - id: TMF669
       name: Party Role Management
-      required: true
+      required: false
       resources:
       - PartyRole:
         - GET
