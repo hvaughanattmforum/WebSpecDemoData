@@ -13,6 +13,9 @@ exposedAPIs:
         - GET /id
         - POST
         - PATCH /id
+      - billCycle:
+        - GET
+        - GET /id
       version: 4
     - id: TMF701
       name: Process Flow Management
