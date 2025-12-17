@@ -275,3 +275,6 @@ spec:
       url: Redacted
     eTOMs: []
     functionalFrameworkFunctions: []
+    SIDs:
+    - Enterprise Domain | Workforce ABE | Work Specification ABE | v25.0
+    - Product Domain | Project ABE | Work Order ABE | v25.0

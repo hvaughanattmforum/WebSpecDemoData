@@ -119,3 +119,5 @@ spec:
       url: Redacted
     eTOMs: []
     functionalFrameworkFunctions: []
+    SIDs:
+    - Resource Domain | Resource Configuration ABE | v25.0

@@ -182,3 +182,5 @@ spec:
       url: Redacted
     eTOMs: []
     functionalFrameworkFunctions: []
+    SIDs:
+    - Product Domain | Product Test ABE | v25.0
