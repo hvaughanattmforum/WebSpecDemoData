@@ -181,6 +181,6 @@ spec:
       email: components@tmforum.org
       url: Redacted
     eTOMs: []
-    functionalFrameworkFunctions: 
+    functionalFrameworkFunctions: []
     SIDs:
     - Product Domain | Product Test ABE | v25.0
