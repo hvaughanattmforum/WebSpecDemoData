@@ -89,7 +89,7 @@ spec:
       name: Redacted
       url: Redacted
     eTOMs: []
-    functionalFrameworkFunctions: 
+    functionalFrameworkFunctions: []
     SIDs:
     - Patterns Domain | Anomaly ABE | Anomaly Entity ABE | v25.0
     - Patterns Domain | Anomaly ABE | Anomaly Management Plan ABE | v25.0
