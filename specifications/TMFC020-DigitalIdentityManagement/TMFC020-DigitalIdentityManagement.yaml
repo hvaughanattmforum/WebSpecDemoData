@@ -107,3 +107,5 @@ spec:
       url: Redacted
     eTOMs: []
     functionalFrameworkFunctions: []
+    SIDs:
+    - Shared Domain | Digital Identity ABE | v25.0
