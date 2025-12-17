@@ -228,3 +228,5 @@ spec:
       url: Redacted
     eTOMs: []
     functionalFrameworkFunctions: []
+    SIDs:
+    - Product Domain | Product Configuration ABE | ProductConfiguration BE | v25.0
