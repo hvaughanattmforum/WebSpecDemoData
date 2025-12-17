@@ -99,3 +99,5 @@ spec:
       url: Redacted
     eTOMs: []
     functionalFrameworkFunctions: []
+    SIDs:
+    - Party Domain | Party Privacy ABE | Party Privacy Profile ABE | v25.0
