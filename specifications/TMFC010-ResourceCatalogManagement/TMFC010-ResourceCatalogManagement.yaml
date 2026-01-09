@@ -232,7 +232,7 @@ spec:
     - 1064-Logical_and_Software_Resources_Designing-v23.0
     - 1087-Resource_Specification_Design-v23.0
     SIDs:
-    - Resource_Domain | Resource Specification_ABE |  v25.0
-    - Resource_Domain | Resource Performance_ABE | ResourcePerformanceSpecification_BE |  v25.0
-    - Resource_Domain | Resource Usage_ABE | ResourceUsageSpec_BE |  v25.0
-    - Resource_Domain | Resource Configuration_ABE | ResourceConfigSpec_BE |  v25.0
+    - Resource_Domain | Resource_Specification_ABE |  v25.0
+    - Resource_Domain | Resource_Performance_ABE | ResourcePerformanceSpecification_BE |  v25.0
+    - Resource_Domain | Resource_Usage_ABE | ResourceUsageSpec_BE |  v25.0
+    - Resource_Domain | Resource_Configuration_ABE | ResourceConfigSpec_BE |  v25.0
