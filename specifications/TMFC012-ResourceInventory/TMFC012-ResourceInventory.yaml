@@ -96,6 +96,62 @@ spec:
         - GET /id
       version: 4
       apiSDO: tmForum
+    - id: TMF685
+      required: false
+      resources:
+      - capacitySpecification:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+        - DELETE
+      - resourcePoolSpecification:
+        - POST 
+        - PATCH
+        - GET
+        - GET /id
+        - DELETE
+      - resourcePool:
+        - POST
+        - PATCH
+        - GET
+        - GET /id 
+        - DELETE
+      - resourcePoolSpecification:
+        - POST
+        - PATCH
+        - GET
+        - GET /id
+        - DELETE
+      - availabilityCheck:
+        - POST
+        - GET
+        - GET /id
+      - push:
+        - POST
+        - GET
+        - GET /id
+      - extract:
+        - POST
+        - GET
+        - GET /id
+      version: 5
+      apiSDO: tmForum
+    - id: TMF716
+      required: false
+      resources:
+      - resourceReservation:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+        - DELETE
+      - cancelResourceReservation:
+        - POST
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
     publishedEvents:
     - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
       implementation: /{{.Release.Name}}-ResourceInventory
@@ -201,7 +257,7 @@ spec:
   componentMetadata:
     id: TMFC012
     name: ResourceInventory
-    version: 2.1.0
+    version: 2.2.0
     description: The Resource Inventory component owns accounting for resources (all inputs - including stock, parts, assets, production components etc.) 
       that are owned and/or held for allocation and/or use by the organization. The Resource Inventory component has functionality 
       that includes inventory item creation, inventory organization, inventory search or filter, inventory monitoring and tracking, 
@@ -224,14 +280,13 @@ spec:
     functionalFrameworkFunctions:
     - 426-Physical_Implementation_Information_Capturing-v23.0
     - 442-Network_Overviews_Presentation-v23.0
-    - 471-Resource_Repository_Updating-v23.0
     - 453-Resource_Configuration_Change_Logging-v23.0
     - 454-Resource_Configuration_Management-v23.0
     - 456-Resource_Topology_Verification-v23.0
     - 468-Resource_Information_Model_Creation-v23.0
-    - 470-Resource_Inventory_Retrieval-v23.0
-    - 471-Resource_Inventory_Updating-v23.0
-    - 472-Resource_Inventory_Update_Notification-v23.0
+    - 470-Resource_Repository_Retrieval-v23.0
+    - 471-Resource_Repository_Updating-v23.0
+    - 472-Resource_Repository_Update_Notification-v23.0
     - 562-Voucher_Reporting-v23.0
     - 564-Voucher_Life_Cycle_Management-v23.0
     - 738-Resource_Data_Inventory_Synchronization-v23.0
