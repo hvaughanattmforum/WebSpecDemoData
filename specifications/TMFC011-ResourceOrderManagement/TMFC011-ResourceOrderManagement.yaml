@@ -19,6 +19,20 @@ spec:
         - GET /id
       version: 4
       apiSDO: tmForum
+    - id: TMF685
+      required: false
+      resources:
+      - resourcePool:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+        - DELETE
+      - availabilityCheck:
+        - GET
+        - GET /id
+      version: 5
+      apiSDO: tmForum
     - id: TMF634
       required: true
       resources:
@@ -215,9 +229,6 @@ spec:
     - 1.5.5.12-Manage_Resource_Order_Tracking_v23
     - 1.5.5.13-Manage_Resource_Order_Closure_v23
     functionalFrameworkFunctions:
-    - 448-Resource_Availability_Validation_v23
-    - 568-Resource_Availability_Checking_v23
-    - 569-Network_Facility_Selection_v23
     - 490-Resource_Order_Data_Collection_v23
     - 491-Resource_Order_Initiation_v23
     - 495-Resource_Order_Completion_v23
