@@ -1,17 +1,53 @@
 @startyaml
-exposedAPIs:
+publishedEvents:
+    - id: TMF622
+      name: Product Ordering API
+
+      resources:
+      - productOrderStateChange
+      - productOrderCreateEvent
+      - productOrderAttributeValueChange
+      - productOrderDelete
+      - productOrderInformationRequired
+      - cancelProductOrderCreateEvent
+      - cancelProductOrderStateChange
+      - cancelProductOrderInformationRequired
+   
     - id: TMF701
       name: Process Flow Management API
-      required: false
+
       resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+subscribedEvents:
+   
+    - id: TMF641
+      
+      name: Service Order Management API
+
+      resources:
+      - serviceOrderStateChangeEvent
+      - serviceOrderAttributeValueChangeEvent
+      - serviceOrderInformationRequiredEvent
+      - serviceOrderMilestoneEvent
+      - serviceOrderJeopardyEvent
+      - cancelServiceOrderStateChangeEvent
+      - cancelServiceOrderInformationRequiredEvent
+    - id: TMF652
+      name: Resource Order Management API
+
+      resources:
+      - resourceOrderStateChange
+      - resourceOrderAttributeValueChangeEvent
+      - resourceOrderInformationRequiredEvent
+      - cancelResourceOrderStateChange
+      - cancelResourceOrderInformationRequiredEvent
+  
 @endyaml

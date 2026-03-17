@@ -36,21 +36,7 @@ dependentAPIs:
         - POST
         - PATCH
       version: 4
-    - id: TMF645
-      name: Service Qualification Management API
-      required: false
-      resources:
-      - checkServiceQualification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      - queryServiceQualification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      version: 4
+
     - id: TMF646
       name: Appointment Management API
       required: false
@@ -204,6 +190,7 @@ dependentAPIs:
         - GET /id
       version: 4
     - id: TMF760
+      name: Product Configuration Management API
       required: false
       resources:
       - checkProductConfiguration:
@@ -214,3 +201,5 @@ dependentAPIs:
         - GET
         - GET /id
         - POST        
+
+@endyaml
