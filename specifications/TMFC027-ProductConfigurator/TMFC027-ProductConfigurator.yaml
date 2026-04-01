@@ -117,6 +117,29 @@ spec:
         - GET /id
       version: 4
       apiSDO: tmForum
+    - id: TMF645
+      required: false
+      resources:
+      - checkServiceQualification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      - queryServiceQualification:
+        - GET
+        - GET /id
+        - POST
+        - PATCH
+      version: 4
+      apiSDO: tmForum    
+    - id: TMF651
+      required: false
+      resources:
+      - agreement:
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum            
     exposedAPIs:
     - id: TMF679
       required: true
@@ -155,7 +178,7 @@ spec:
         - get /id
         - PATCH
       version: 4
-      apiSDO: tmForum
+      apiSDO: tmForum  
     publishedEvents:
     - implementation: /{{.Release.Name}}-ProductConfiguration
       name: ProductConfiguration
@@ -165,12 +188,6 @@ spec:
       - checkProductConfigurationCreateEvent
       - checkProductConfigurationDeleteEvent
       - checkProductConfigurationStateChangeEvent
-      specification: ''
-      apiType: openapi
-    - implementation: /{{.Release.Name}}-ProductOfferingQualification
-      name: ProductOfferingQualification
-      port: 80
-      resources:
       - queryProductConfigurationAttributeValueChangeEvent
       - queryProductConfigurationCreateEvent
       - queryProductConfigurationDeleteEvent
@@ -209,6 +226,15 @@ spec:
       - ProductSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF622-ProductCatalogManagement/blob/master/TMF622-ProductCatalogManagement-v4.0.0.swagger.json
       apiType: openapi
+    - apiType: openapi
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/call-back
+      implementation: /{{.Release.Name}}-ServiceQualificationEvent
+      name: ServiceQualification
+      port: 80
+      resources:
+      - checkServiceQualificationStateChangeEvent
+      - queryServiceQualificationStateChangeEvent
+      specification: https://github.com/tmforum-apis/TMF645_ServiceQualification/blob/master/TMF645-ServiceQualification-v4.0.0.swagger.json      
   componentMetadata:
     id: TMFC027
     name: ProductConfigurator

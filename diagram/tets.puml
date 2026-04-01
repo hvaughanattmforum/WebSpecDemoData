@@ -1,0 +1,34 @@
+@startuml 
+left to right direction
+together{
+package Capabilities {
+
+  component "Capabilities" as CAP
+  component "Analytics" as AN
+  component "Experiences" as EXP
+  component "Data Objects" as DO
+  component "Integrations" as INT
+  component "Rules" as RULE
+  component "Policies" as POL
+
+  CAP --> DO   : implements
+  CAP --> EXP  : implements
+  CAP --> POL  : implements
+  CAP --> RULE : implements
+  CAP --> INT  : implements
+  CAP --> AN   : implements
+
+}
+
+package Process {
+
+component "Process" as PRO
+
+PRO --> DO: uses
+PRO --> EXP: is exposed by
+
+}
+}
+
+
+@enduml

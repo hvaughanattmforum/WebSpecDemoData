@@ -1,5 +1,21 @@
 @startyaml
 exposedAPIs:
+    - id: TMF622
+      name: Product Ordering API
+      required: true
+      resources:
+      - productOrder:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+        - DELETE
+      - cancelProductOrder:
+        - POST
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
     - id: TMF701
       name: Process Flow Management API
       required: false

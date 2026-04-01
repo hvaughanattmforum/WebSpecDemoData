@@ -8,22 +8,17 @@ dependentAPIs:
         - GET
         - GET /id
       version: 4
-    - id: TMF622
-      name: Product Ordering Management API
-      required: true
-      resources:
-      - productOrder:
-        - GET /id
-        - PATCH
-      version: 4
+
     - id: TMF637
       name: Product Inventory Management API
       required: true
       resources:
       - product:
+        - POST
         - GET
         - GET /id
         - PATCH
+        - DELETE
       version: 4
     - id: TMF633
       name: Service Catalog Management API

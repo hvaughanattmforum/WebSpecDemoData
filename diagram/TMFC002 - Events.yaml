@@ -1,16 +1,5 @@
 @startyaml
 publishedEvents:
-    - id: TMF622
-      name: Product Order Management API    
-      resources:
-      - productOrderStateChange
-      - productOrderCreateEvent
-      - productOrderAttributeValueChange
-      - productOrderDelete
-      - productOrderInformationRequired
-      - cancelProductOrderCreateEvent
-      - cancelProductOrderStateChange
-      - cancelProductOrderInformationRequired    
     - id: TMF648            
       name: Quote Management API      
       resources:

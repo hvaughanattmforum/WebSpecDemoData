@@ -25,9 +25,11 @@ spec:
       required: true
       resources:
       - product:
+        - POST
         - GET
         - GET /id
         - PATCH
+        - DELETE
       version: 4
       apiSDO: tmForum
     - id: TMF633
@@ -100,6 +102,21 @@ spec:
       version: 4
       apiSDO: tmForum
     exposedAPIs:
+    - id: TMF622
+      required: true
+      resources:
+      - productOrder:
+        - POST
+        - GET
+        - GET /id
+        - PATCH
+        - DELETE
+      - cancelProductOrder:
+        - POST
+        - GET
+        - GET /id
+      version: 4
+      apiSDO: tmForum
     - id: TMF701
       required: false
       resources:
@@ -115,6 +132,21 @@ spec:
       version: 4
       apiSDO: tmForum
     publishedEvents:
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrder/hub
+      implementation: /{{.Release.Name}}-ProductOrderEvent
+      name: ProductOrder
+      port: 80
+      resources:
+      - productOrderStateChange
+      - productOrderCreateEvent
+      - productOrderAttributeValueChange
+      - productOrderDelete
+      - productOrderInformationRequired
+      - cancelProductOrderCreateEvent
+      - cancelProductOrderStateChange
+      - cancelProductOrderInformationRequired
+      specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/master/TMF622-ProductOrder-v4.0.0.swagger.json
+   
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
@@ -132,15 +164,7 @@ spec:
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       apiType: openapi
     subscribedEvents:
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrder/call-back
-      implementation: /{{.Release.Name}}-ProductOrderEvent
-      name: ProductOrder
-      port: 80
-      resources:
-      - productOrderStateChangeEvent
-      - cancelProductOrderStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/master/TMF622-ProductOrder-v4.0.0.swagger.json
-      apiType: openapi
+
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/call-back
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
       implementation: /{{.Release.Name}}-serviceOrderingManagementEvent

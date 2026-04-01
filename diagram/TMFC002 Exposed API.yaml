@@ -1,20 +1,6 @@
 @startyaml
 exposedAPIs:
-    - id: TMF622
-      name: Product Ordering Management	API
-      required: true
-      resources:
-      - productOrder:
-        - POST
-        - GET
-        - GET /id
-        - PATCH
-        - DELETE
-      - cancelProductOrder:
-        - POST
-        - GET
-        - GET /id
-      version: 4
+
     - id: TMF648
       name: Quote Management API
       required: false
