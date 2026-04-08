@@ -217,15 +217,30 @@ spec:
       email: components@tmforum.org
       url: Redacted
     eTOMs:
-    - 1.3.3|Customer_Order_Handling|v23.0
-    - 1.3.3.8|Manage_Order_Fallout|v23.0
-    - 1.3.3.9|Customer_Order_Orchestration|v23.0
-    - 1.2.9|Product_Offering_Purchasing|v23.0
-    - 1.2.9.5|Complete_Product_Offering_Purchase|v23.0
+    - 1.3.3|Customer_Order_Processing_Management|v23.0
+    - 1.3.3.12|Customer_Order_Fulfilment|v23.0
+    - 1.3.3.12.1|Manage_Customer_Order_Fallout|v23.0
+    - 1.3.3.12.1|Manage_Customer_Order_Delivery|v23.0
+    #- 1.3.3.9|Customer_Order_Orchestration|v23.0
+    #- 1.2.9|Product_Offering_Purchasing|v23.0
+    #- 1.2.9.5|Complete_Product_Offering_Purchase|v23.0
+    - 1.3.3.15|Manage_Customer_Order_Completion|v23.0
+    - 1.3.3.16|Manage Customer_Order_Management_Reporting|v23.0
+    - 1.3.3.17|Manage_Customer_Order_Closure|v23.0
+
+    - 1.2.27.2|Manage Product_Order_Fulfilment|v23.0
+    - 1.2.27.3|Manage Product_Order_Delivery|v23.0       
+    - 1.2.27.4|Manage Product_Order_Cancellation|v23.0
+    - 1.2.27.5|Manage Product_Order_Management_Reports|v23.0
+
     - 1.4.5|Service_Configuration_&_Activation|v23.0
     - 1.4.5.6|Issue_Service_Order|v23.0
+
+
     - 1.5.6|Resource_Provisioning|v23.0
     - 1.5.6.7|Issue_Resource_Order|v23.0
+    - 1.6.8|Business_Partner_Order_Managemenrt|v23.0
+    - 1.6.8.1|Issue_Business_Partner|v23.0
     functionalFrameworkFunctions:
     - 16|Fallout_Automated_Correction|v23.0
     - 17|Fallout_Correction_Information_Collection|v23.0
@@ -236,11 +251,36 @@ spec:
     - 22|Fallout_Reporting|v23.0
     - 23|Fallout_Dashboard_System_Log-in_Accessing|v23.0
     - 24|Pre-populated_Fallout_Information_Presentation|v23.0
+    - 172|Customer_Order_Reporting|v23.0
     - 175|Customer_Support_Jeopardy_Notification|v23.0
     - 174|Customer_Order_Error_Resolution_Support|v23.0
-    - 723|Customer_Order_Item_Decomposition|v23.0
+    - 178|Customer_Order_Administration|v23.0
+    - 208|Customer_Order_Change_Management|v23.0
+    - 209|Customer_Order_Cancellation|v23.0
+    - 211|Customer_Order_Activity_Supervision|v23.0
+    - 212|Customer_Order_Versioning|v23.0
+    - 213|Pending_Customer_Order_Manteinance|v23.0
     - 214|Customer_Order_Orchestration|v23.0
     - 215|Retro-active_order_orchestration|v23.0
-    - 342|Mass_Service/product_pre-activation|v23.0
-    - 743|Number_Portability_Orchestration|v23.0
+    - 217Customer_Order_Establishment_Tracking|v23.0
+
+
+    #- 342|Mass_Service/product_pre-activation|v23.0
+    - 716|Order_Data_Enrichment|v23.0
+    - 716|Order-Data_Enrichment|v23.0
+    - 717|Calculated-Order-Data_Enrichment|v23.0
+    - 718|Customer_Order_Validation|v23.0
+    - 719|Customer_Order_Storage|v23.0
+    - 720|Customer_Order_Searching|v23.0
+
     - 756|Fallout_Rule_Based_Error_Correction|v23.0
+    - 1070|Orchestration_Customer_Order_Error_Resolution|v23.0
+    - 1202|Delivery_Items_Identification|v23.0
+    - 1203|Order_Preparation|v23.0
+    - 1325|Customer_Order_Distribution|v23.0
+
+    #- 723|Customer_Order_Item_Decomposition|v23.0
+    #- 743|Number_Portability_Orchestration|v23.0
+
+    SIDs:
+    #- Customer_Domain|Customer_Product_Order_ABE|CustomerProductOrder|v25.0/
