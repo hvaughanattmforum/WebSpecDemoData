@@ -276,7 +276,7 @@ spec:
       alarms or problem candidates, potentially modifying or enhancing their data to make persistent alarms more actionable. 
       It may apply logic to preserve alarms that reflect actual problems, eliminating those that are merely symptoms. 
       Various actions can be taken using the alarm/problem information as part of the resolution process, such as applying 
-      automated corrective actions or opening trouble tickets.
+      automated/automonous corrective actions or opening trouble tickets.
     publicationDate: 2025-03-11 00:00:00
     status: specified
     functionalBlock: Production       
