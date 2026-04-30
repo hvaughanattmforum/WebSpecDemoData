@@ -7,178 +7,259 @@ spec:
     dependentAPIs:
     - id: TMF637
       required: true
-      resources:
-      - product:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - product:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - product:
+          - GET
+          - GET /id
     - id: TMF620
       required: true
-      resources:
-      - catalog:
-        - GET
-        - GET /id
-      - category:
-        - GET
-        - GET /id
-      - productOffering:
-        - GET
-        - GET /id
-      - productOfferingPrice:
-        - GET
-        - GET /id
-      - productSpecification:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - category:
+          - GET
+          - GET /id
+        - productOffering:
+          - GET
+          - GET /id
+        - productOfferingPrice:
+          - GET
+          - GET /id
+        - productSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - catalog:
+          - GET
+          - GET /id
+        - category:
+          - GET
+          - GET /id
+        - productOffering:
+          - GET
+          - GET /id
+        - productOfferingPrice:
+          - GET
+          - GET /id
+        - productSpecification:
+          - GET
+          - GET /id
     - id: TMF622
       required: true
-      resources:
-      - productOrder:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - productOrder:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - productOrder:
+          - GET
+          - GET /id
     - id: TMF632
       required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF666
       required: false
-      resources:
-      - billingAccount:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - billingAccount:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - billingAccount:
+          - GET
+          - GET /id
     - id: TMF669
       required: false
-      resources:
-      - partyRole:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
     - id: TMF673
       required: false
-      resources:
-      - geographicAddress:
-        - GET
-        - GET /id
-      - geographicSubAddress:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicAddress:
+          - GET
+          - GET /id
+        - geographicSubAddress:
+          - GET
+          - GET /id
     - id: TMF674
       required: false
-      resources:
-      - geographicSite:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicSite:
+          - GET
+          - GET /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     - id: TMF662
       required: false
-      resources:
-      - entityCatalog:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - entityCatalog:
+          - GET
+          - GET /id
     - id: TMF921
       required: false
-      resources:
-      - intent:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - intent:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - intent:
+          - GET
+          - GET /id
     - id: TMF645
       required: false
-      resources:
-      - checkServiceQualification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      - queryServiceQualification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      version: 4
-      apiSDO: tmForum    
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
     - id: TMF651
       required: false
-      resources:
-      - agreement:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum            
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - agreement:
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF679
       required: true
-      resources:
-      - productOfferingQualification:
-        - GET
-        - GET/id
-        - POST
-        - PATCH/id
-        - DELETE
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - productOfferingQualification:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE
     - id: TMF760
       required: true
-      resources:
-      - checkProductConfiguration:
-        - GET
-        - GET/id
-        - POST
-      - queryProductConfiguration:
-        - GET
-        - GET/id
-        - POST
-      version: 5
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - checkProductConfiguration:
+          - GET
+          - POST
+        - queryProductConfiguration:
+          - GET
+          - POST
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - GET
-        - get /id
-        - PATCH
-      version: 4
-      apiSDO: tmForum  
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - GET
+          - get /id
+          - PATCH
     publishedEvents:
     - implementation: /{{.Release.Name}}-ProductConfiguration
       name: ProductConfiguration
@@ -234,15 +315,14 @@ spec:
       resources:
       - checkServiceQualificationStateChangeEvent
       - queryServiceQualificationStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF645_ServiceQualification/blob/master/TMF645-ServiceQualification-v4.0.0.swagger.json      
+      specification: https://github.com/tmforum-apis/TMF645_ServiceQualification/blob/master/TMF645-ServiceQualification-v4.0.0.swagger.json
   componentMetadata:
     id: TMFC027
     name: ProductConfigurator
-    version: 2.1.1
-    description: The Product Configurator component empowers sales by offering the right product combinations, 
-      controlling discounting, and automating approvals through support of configuration, pricing and quote generation activities.
+    version: 2.2.1
+    description: The Product Configurator component empowers sales by offering the right product combinations, controlling discounting, and automating approvals through support of configuration, pricing and quote generation activities.
     publicationDate: 2023-11-27
-    status: specified
+    status: Preview
     functionalBlock: CoreCommerce
     owners:
     - email: Redacted
@@ -274,3 +354,4 @@ spec:
     - 933|Price/Cost_Optimization_|v25.0
     SIDs:
     - Product_Domain|Product_Configuration_ABE|ProductConfiguration_BE|v25.0
+  apiSDO: tmForum

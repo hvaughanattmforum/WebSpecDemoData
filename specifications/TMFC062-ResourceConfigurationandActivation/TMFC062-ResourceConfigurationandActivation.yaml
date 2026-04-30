@@ -7,58 +7,67 @@ spec:
     dependentAPIs:
     - id: TMF634
       required: false
-      resources:
-      - resourceSpecification:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - resourceSpecification:
+          - GET
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET/id
     - id: TMF639
       required: false
-      resources:
-      - resource:
-        - GET
-        - GET/id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - resource:
+          - GET
+          - GET/id
+          - POST
+          - PATCH /id
+          - DELETE /id
     exposedAPIs:
     - id: TMF702
       required: true
-      resources:
-      - resource:
-        - GET
-        - GET /id
-        - POST /id
-        - PATCH
-        - DELETE /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - resource:
+          - GET
+          - GET /id
+          - POST /id
+          - PATCH
+          - DELETE /id
     - id: TMF664
       required: false
-      resources:
-      - resourceFunction:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      - heal:
-        - GET
-        - GET /id
-        - POST
-      - scale:
-        - GET
-        - GET /id
-        - POST
-      - migrate:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - resourceFunction:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - heal:
+          - GET
+          - GET /id
+          - POST
+        - scale:
+          - GET
+          - GET /id
+          - POST
+        - migrate:
+          - GET
+          - GET /id
+          - POST
     publishedEvents:
     - apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationManagement/hub
@@ -108,10 +117,10 @@ spec:
   componentMetadata:
     id: TMFC062
     name: ResourceConfigurationandActivation
-    version: 1.0.0
+    version: 1.1.0
     description: The Resource Configuration and Activation component configures and activates resource instances and enables querying of resource instances to acquire the resource activation states and attributes.
     publicationDate: 2024-11-18 00:00:00
-    status: specified
+    status: Preview
     functionalBlock: Production
     owners:
     - email: gaetano.biancardi@accenture.com
@@ -121,3 +130,4 @@ spec:
     functionalFrameworkFunctions: []
     SIDs:
     - Resource_Domain|Resource_Configuration_ABE|v25.0
+  apiSDO: tmForum

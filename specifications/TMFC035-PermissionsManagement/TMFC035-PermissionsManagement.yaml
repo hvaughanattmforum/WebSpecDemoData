@@ -7,58 +7,75 @@ spec:
     dependentAPIs:
     - id: TMF632
       required: true
-      resources:
-      - individual:
-        - GET
-        - GET/id
-      - organization:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+        - organization:
+          - GET
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET/id
+        - organization:
+          - GET
+          - GET/id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF672
       required: true
-      resources:
-      - permission:
-        - GET
-        - GET/id
-        - POST
-        - PATCH/id
-        - DELETE/id
-      - userRole:
-        - GET
-        - GET/id
-        - POST
-        - PATCH/id
-        - DELETE/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - permission:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
+        - userRole:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
     - id: TMF669
       required: true
-      resources:
-      - partyRole:
-        - GET
-        - GET/id
-        - POST
-        - PATCH/id
-        - DELETE/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - POST
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
     publishedEvents:
     - implementation: /{{.Release.Name}}-userrole&permapi
       name: userRole
@@ -110,12 +127,10 @@ spec:
   componentMetadata:
     id: TMFC035
     name: PermissionsManagement
-    version: 1.1.1
-    description: 'The Permissions Management component manages and exposes roles and related permissions. 
-      This component enables creation, modification and deletion of permissions and delegate permissions. 
-      When a specific role is assigned, a set of permissions is inherited.'
+    version: 1.2.1
+    description: The Permissions Management component manages and exposes roles and related permissions. This component enables creation, modification and deletion of permissions and delegate permissions. When a specific role is assigned, a set of permissions is inherited.
     publicationDate: 2023-08-18 00:00:00
-    status: specified
+    status: Preview
     functionalBlock: PartyManagement
     owners:
     - email: Redacted
@@ -137,3 +152,4 @@ spec:
     - Market_&_Sales_Domain|Market_Sales_Party_Roles_ABE|v25.0
     - Service_Domain|Service_Party_Roles_ABE|v25.0
     - Resource_Domain|Resource_Party_Roles_ABE|v25.0
+  apiSDO: tmForum

@@ -7,90 +7,113 @@ spec:
     dependentAPIs:
     - id: TMF669
       required: true
-      resources:
-      - partyRole:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
     - id: TMF673
       required: false
-      resources:
-      - geographicAddress:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicAddress:
+          - GET
+          - GET /id
     - id: TMF674
       required: false
-      resources:
-      - geographicSite:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicSite:
+          - GET
+          - GET /id
     - id: TMF675
       required: false
-      resources:
-      - geographicLocation:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicLocation:
+          - GET
+          - GET /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     - id: TMF688
       required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - event:
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF632
       required: true
-      resources:
-      - individual:
-        - GET
-        - GET/id
-        - POST
-        - PATCH/id
-        - DELETE/id
-      - organization:
-        - GET
-        - GET/id
-        - POST
-        - PATCH/id
-        - DELETE/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - POST
+        - organization:
+          - GET
+          - POST
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
+        - organization:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - GET
-        - GET/id
-        - POST
-        - DELETE/id
-      - taskFlow:
-        - GET
-        - GET/id
-        - PATCH/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - GET
+          - GET/id
+          - POST
+          - DELETE/id
+        - taskFlow:
+          - GET
+          - GET/id
+          - PATCH/id
     publishedEvents:
     - apiType: openapi
       implementation: /{{.Release.Name}}-partymngtapi
@@ -110,13 +133,10 @@ spec:
   componentMetadata:
     id: TMFC028
     name: PartyManagement
-    version: 2.1.0
-    description: 'The Party Management component is responsible for the capture, validation and management of Parties. 
-      A Party may be an individual or organization that has a relationship with an enterprise. 
-      In this context it is responsible for the end-to-end lifecycle of: Individual, Organization and its related sub-entities, 
-      Contact Medium, Currency and tax exemption certificates, Identification, and Community.'
+    version: 2.2.0
+    description: 'The Party Management component is responsible for the capture, validation and management of Parties. A Party may be an individual or organization that has a relationship with an enterprise. In this context it is responsible for the end-to-end lifecycle of: Individual, Organization and its related sub-entities, Contact Medium, Currency and tax exemption certificates, Identification, and Community.'
     publicationDate: 2024-10-14 00:00:00
-    status: specified
+    status: Preview
     functionalBlock: PartyManagement
     owners:
     - email: Redacted
@@ -166,3 +186,4 @@ spec:
     - Shared_Domain|Party_ABE|TaxExemptionCertificate_BE|v25.0
     - Shared_Domain|Party_ABE|Party_Identification_ABE|v25.0
     - Shared_Domain|Party_ABE|Party_Community_ABE|v25.0
+  apiSDO: tmForum

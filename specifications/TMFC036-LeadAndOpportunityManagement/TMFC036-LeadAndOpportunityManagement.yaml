@@ -7,107 +7,141 @@ spec:
     dependentAPIs:
     - id: TMF632
       required: false
-      resources:
-      - individual:
-        - GET
-        - GET/id
-      - organization:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+        - organization:
+          - GET
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET/id
+        - organization:
+          - GET
+          - GET/id
     - id: TMF669
       required: false
-      resources:
-      - partyRole:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET/id
     - id: TMF620
       required: false
-      resources:
-      - productOffering:
-        - GET
-        - GET/id
-      - productOfferingPrice:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - productOffering:
+          - GET
+        - productOfferingPrice:
+          - GET
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - productOffering:
+          - GET
+          - GET/id
+        - productOfferingPrice:
+          - GET
+          - GET/id
     - id: TMF651
       required: false
-      resources:
-      - agreement:
-        - GET
-        - GET/id
-      - agreementSpecification:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - agreement:
+          - GET
+          - GET/id
+        - agreementSpecification:
+          - GET
+          - GET/id
     - id: TMF648
       required: false
-      resources:
-      - quote:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - quote:
+          - GET
+          - GET /id
     - id: TMF622
       required: false
-      resources:
-      - productOrder:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - productOrder:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - productOrder:
+          - GET
+          - GET /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF699
       required: true
-      resources:
-      - salesLead:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - salesOpportunity:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - salesLead:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - salesOpportunity:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/SalesManagement/hub
       implementation: /{{.Release.Name}}-SalesManagement
@@ -236,11 +270,10 @@ spec:
   componentMetadata:
     id: TMFC036
     name: LeadAndOpportunityManagement
-    version: 1.2.0
-    description: 'Lead and Opportunity Management component provides the functionality for lead and opportunity capture, 
-      qualification, reporting, and support during the pre-sales stage.'
+    version: 1.3.0
+    description: Lead and Opportunity Management component provides the functionality for lead and opportunity capture, qualification, reporting, and support during the pre-sales stage.
     publicationDate: 2023-11-18 00:00:00
-    status: specified
+    status: Preview
     functionalBlock: PartyManagement
     owners:
     - email: Redacted
@@ -271,3 +304,4 @@ spec:
     SIDs:
     - Market_&_Sales_Domain|Sales_Lead_and_Opportunity_ABE|Sales_Lead_ABE|v25.0
     - Market_&_Sales_Domain|Sales_Lead_and_Opportunity_ABE|Sales_Opportunity_ABE|v25.0
+  apiSDO: tmForum

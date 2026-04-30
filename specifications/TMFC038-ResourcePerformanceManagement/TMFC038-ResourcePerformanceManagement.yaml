@@ -7,168 +7,186 @@ spec:
     dependentAPIs:
     - id: TMF628
       required: false
-      resources:
-      - measurementCollectionJob*:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      - onDemandCollection*:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      - performanceIndicatorGroupSpecification*:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      - performanceIndicatorSpecification*:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      - trackingRecord*:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - measurementCollectionJob*:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - onDemandCollection*:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - performanceIndicatorGroupSpecification*:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - performanceIndicatorSpecification*:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - trackingRecord*:
+          - GET
+          - GET /id
     - id: TMF639
       required: true
-      resources:
-      - resource:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - resource:
+          - GET
+          - GET /id
     - id: TMF673
       required: false
-      resources:
-      - geographicAddress:
-        - GET
-        - GET/id
-      - geographicSubAddress:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicAddress:
+          - GET
+          - GET/id
+        - geographicSubAddress:
+          - GET
+          - GET /id
     - id: TMF674
       required: false
-      resources:
-      - geographicSite:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicSite:
+          - GET
+          - GET/id
     - id: TMF675
       required: false
-      resources:
-      - geographicLocation:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicLocation:
+          - GET
+          - GET/id
     - id: TMF688
       required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - event:
+          - GET
+          - GET /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF628
       required: true
-      resources:
-      - measurementCollectionJob*:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      - onDemandCollection*:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      - performanceIndicatorGroupSpecification*:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      - performanceIndicatorSpecification*:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      - trackingRecord*:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - measurementCollectionJob*:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - onDemandCollection*:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - performanceIndicatorGroupSpecification*:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - performanceIndicatorSpecification*:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - trackingRecord*:
+          - GET
+          - GET /id
     - id: TMF649
       required: true
-      resources:
-      - threshold:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      - thresholdJob:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - threshold:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - thresholdJob:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
     - id: TMF642
       required: false
-      resources:
-      - alarm:
-        - POST
-        - GET
-        - GET /id
-        - PATCH /id
-        - DELETE /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - alarm:
+          - GET
+          - GET /id
+          - POST
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - alarm:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -277,12 +295,10 @@ spec:
   componentMetadata:
     id: TMFC038
     name: ResourcePerformanceManagement
-
-    version: 1.2.0
+    version: 1.3.0
     description: Resource Performance Management component monitors, analyzes, and reports on the performance of the service provider's resources.
-
     publicationDate: 2024-12-17 00:00:00
-    status: specified
+    status: Preview
     functionalBlock: IntelligenceManagement
     owners:
     - email: Redacted
@@ -301,6 +317,4 @@ spec:
     - Patterns_Domain|Performance_ABE|Performance_Monitoring ABE|Performance_Collection ABE|MeasurementCollectionJob_BE|v25.0
     - Patterns_Domain|Performance_ABE|Performance_Threshold ABE|v25.0
     - Resource_Domain|Resource_Trouble_ABE|Alarm_ABE|v25.0
-
-
-    
+  apiSDO: tmForum
