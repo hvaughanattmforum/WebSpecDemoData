@@ -40,83 +40,13 @@
             "publishedEvents": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "resources": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "apiType": {
-                    "type": "string"
-                  },
-                  "apiSDO": {
-                    "type": "string"
-                  },
-                  "hub": {
-                    "type": "string"
-                  },
-                  "implementation": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  },
-                  "port": {
-                    "type": "number"
-                  },
-                  "specification": {
-                    "type": "string"
-                  },
-                  "developerUI": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/definitions/eventAPI"
               }
             },
             "subscribedEvents": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "apiType": {
-                    "type": "string"
-                  },
-                  "apiSDO": {
-                    "type": "string"
-                  },
-                  "call-back": {
-                    "type": "string"
-                  },
-                  "implementation": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "port": {
-                    "type": "number"
-                  },
-                  "resources": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "specification": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  },
-                  "developerUI": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/definitions/eventAPI"
               }
             }
           },
@@ -153,43 +83,13 @@
             "owners": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "email": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "email",
-                  "name"
-                ]
+                "$ref": "#/definitions/contact"
               }
             },
             "maintainers": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "email": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "email",
-                  "name"
-                ]
+                "$ref": "#/definitions/contact"
               }
             },
             "eTOMs":{
@@ -209,10 +109,10 @@
             ]
         },
         "managementFunction": {
-          "type": "array"
+          "type": ["array", "object"]
         },
         "securityFunction": {
-          "type": "array"
+          "type": ["array", "object"]
         }
       },
       "required": [
@@ -228,12 +128,42 @@
     "spec"
   ],
   "definitions": {
-    "exposedAPI": {
+    "apiSpecification": {
       "type": "object",
       "properties": {
+        "version": {
+          "type": ["number", "string"]
+        },
         "apiType": {
           "type": "string"
         },
+        "url": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "developerUI": {
+          "type": "string"
+        },
+        "implementation": {
+          "type": "string"
+        },
+        "port": {
+          "type": "number"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": ["version"]
+    },
+    "exposedAPI": {
+      "type": "object",
+      "properties": {
         "id": {
           "type": "string"
         },
@@ -245,6 +175,16 @@
         },
         "required": {
           "type": "boolean"
+        },
+        "specification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiSpecification"
+          }
+        },
+
+        "apiType": {
+          "type": "string"
         },
         "resources": {
           "type": "array",
@@ -262,7 +202,7 @@
           "type": "string"
         },
         "version": {
-          "type": "number"
+          "type": ["number", "string"]
         }
       },
       "required": ["id", "required"]
@@ -270,9 +210,6 @@
     "dependentAPI": {
       "type": "object",
       "properties": {
-        "apiType": {
-          "type": "string"
-        },
         "id": {
           "type": "string"
         },
@@ -285,6 +222,16 @@
         "required": {
           "type": "boolean"
         },
+        "specification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiSpecification"
+          }
+        },
+
+        "apiType": {
+          "type": "string"
+        },
         "resources": {
           "type": "array",
           "items": {
@@ -292,10 +239,72 @@
           }
         },
         "version": {
-          "type": "number"
+          "type": ["number", "string"]
         }
       },
       "required": ["id","required"]
+    },
+    "eventAPI": {
+      "type": "object",
+      "properties": {
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "apiType": {
+          "type": "string"
+        },
+        "apitype": {
+          "type": "string"
+        },
+        "apiSDO": {
+          "type": "string"
+        },
+        "hub": {
+          "type": "string"
+        },
+        "implementation": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "port": {
+          "type": "number"
+        },
+        "specification": {
+          "type": "string"
+        },
+        "developerUI": {
+          "type": "string"
+        },
+        "call-back": {
+          "type": "string"
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "name"
+      ]
     }
   }
 }
