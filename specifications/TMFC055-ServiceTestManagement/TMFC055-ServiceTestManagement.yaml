@@ -168,7 +168,7 @@ spec:
     - url: Redacted
       name: Redacted
       email: Redacted
-    status: Preview
+    status: preview
     version: 1.1.0
     description: 'Service Test Management is responsible for managing the service test specification and executing tests based on this specification to ensure the service operates correctly.
 

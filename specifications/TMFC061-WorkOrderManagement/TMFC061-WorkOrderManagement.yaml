@@ -281,7 +281,7 @@ spec:
     version: 1.1.0
     description: Work Order Management component is responsible of the setup and maintenance requests from initiation to completion.Work Order is a formal request that outlines essential details related to necessary setup/maintenance tasks. These details typically include Nature of the task A description of the work that needs to be done. Location Where the maintenance or repair is required. Required materials The items or resources needed for the job. Assigned personnel The technician or contractor responsible for executing the work. Timeline for completion The expected timeframe within which the task should be finished.
     publicationDate: 2024-06-25
-    status: Preview
+    status: preview
     functionalBlock: Production
     owners:
     - email: Redacted
