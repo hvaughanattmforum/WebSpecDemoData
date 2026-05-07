@@ -7,93 +7,124 @@ spec:
     dependentAPIs:
     - id: TMF632
       required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF669
       required: false
-      resources:
-      - partyRole:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
     - id: TMF662
       required: false
-      resources:
-      - entitySpecification:
-        - GET
-        - GET /id
-      - entityCategory:
-        - GET
-        - GET /id
-      - entityCatalog:
-        - GET
-        - GET /id
-      - entityCatalogItem:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - entitySpecification:
+          - GET
+          - GET /id
+        - entityCategory:
+          - GET
+          - GET /id
+        - entityCatalog:
+          - GET
+          - GET /id
+        - entityCatalogItem:
+          - GET
+          - GET /id
     - id: TMF667
       required: false
-      resources:
-      - document:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - document:
+          - GET
+          - GET /id
     - id: TMF681
       required: false
-      resources:
-      - communicationMessage:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - communicationMessage:
+          - GET
+          - GET /id
     - id: TMF701
-      name: ProcessFlowManagementAPI
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - PATCH
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
     exposedAPIs:
     - id: TMF683
       required: true
-      resources:
-      - partyInteraction:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyInteraction:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - partyInteraction:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyInteractionManagement/hub
       implementation: /{{.Release.Name}}-PartyInteractionManagementEvent
@@ -169,14 +200,10 @@ spec:
   componentMetadata:
     id: TMFC023
     name: PartyInteractionManagement
-    version: 1.1.2
-    description: Party Interaction deals with the initial greeting and welcoming of a new contact. 
-      This will typically be the first component in a customer experience journey, 
-      shared by unassisted (self-service, retail kiosk) or assisted (call center, retail store) channels. 
-      It will identify known Parties or new Parties and react appropriately to propose available actions. 
-      It records all the interactions for the Parties from all channels.
+    version: 1.2.2
+    description: Party Interaction deals with the initial greeting and welcoming of a new contact. This will typically be the first component in a customer experience journey, shared by unassisted (self-service, retail kiosk) or assisted (call center, retail store) channels. It will identify known Parties or new Parties and react appropriately to propose available actions. It records all the interactions for the Parties from all channels.
     publicationDate: 2025-10-21 00:00:00
-    status: specified
+    status: preview
     functionalBlock: PartyManagement
     owners:
     - email: Redacted
@@ -210,3 +237,4 @@ spec:
     - 1041|Partner_Interaction_Journalizing|v24.0
     SIDs:
     - Shared_Domain|Communication_Interaction_ABE|v25.0
+  apiSDO: tmForum

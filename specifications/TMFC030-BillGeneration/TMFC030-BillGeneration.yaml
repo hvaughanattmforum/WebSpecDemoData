@@ -7,117 +7,174 @@ spec:
     dependentAPIs:
     - id: TMF666
       required: true
-      resources:
-      - billingAccount:
-        - GET
-        - GET /id
-      - billingCycleSpecification:
-        - GET
-        - GET /id
-      - billFormat:
-        - GET
-        - GET /id
-      - billPresentationMedia:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - billFormat:
+          - GET
+          - GET /id
+        - billPresentationMedia:
+          - GET
+          - GET /id
+        - billingAccount:
+          - GET
+          - GET /id
+        - billingCycleSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - billingAccount:
+          - GET
+          - GET /id
+        - billingCycleSpecification:
+          - GET
+          - GET /id
+        - billFormat:
+          - GET
+          - GET /id
+        - billPresentationMedia:
+          - GET
+          - GET /id
     - id: TMF632
       required: true
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF676
       required: false
-      resources:
-      - payment:
-        - GET
-        - GET /id
-        - POST
-      - refund:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - payment:
+          - GET
+          - GET /id
+          - POST
+        - refund:
+          - GET
+          - GET /id
+          - POST
     - id: TMF667
       required: false
-      resources:
-      - document:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - document:
+          - GET
+          - GET /id
+          - POST
     - id: TMF637
       required: false
-      resources:
-      - product:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - product:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - product:
+          - GET
+          - GET /id
     - id: TMF669
       required: true
-      resources:
-      - PartyRole:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - PartyRole:
+          - GET
+          - GET /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - PATCH
-      - taskFlow:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
+        - taskFlow:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
     exposedAPIs:
     - id: TMF678
       required: true
-      resources:
-      - customerBillOnDemand:
-        - GET
-        - POST
-        - GET /id
-      - customerBill:
-        - GET
-        - GET / id
-        - POST
-        - PATCH /id
-      - billCycle:
-        - GET
-        - GET /id
-      version: 4.0
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - billCycle:
+          - GET
+          - GET /id
+        - customerBill:
+          - GET
+        - customerBillOnDemand:
+          - GET
+          - GET /id
+          - POST
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - customerBillOnDemand:
+          - GET
+          - POST
+          - GET /id
+        - customerBill:
+          - GET
+          - GET / id
+          - POST
+          - PATCH /id
+        - billCycle:
+          - GET
+          - GET /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - GET
-        - GET /id
-        - POST
-        - DELETE /id
-      - taskFlow:
-        - GET
-        - GET /id
-        - PATCH /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
     publishedEvents: []
     subscribedEvents:
     - name: partyRoleManagement
@@ -131,11 +188,10 @@ spec:
   componentMetadata:
     id: TMFC030
     name: BillGenerationManagement
-    version: 2.0.0
-    description: The Bill Generation component is responsible for Party invoice management. 
-      It addresses the invoice formatting, presentation and dispatching via the appropriate means of communication.
+    version: 2.1.0
+    description: The Bill Generation component is responsible for Party invoice management. It addresses the invoice formatting, presentation and dispatching via the appropriate means of communication.
     publicationDate: 2024-12-03
-    status: specified
+    status: preview
     functionalBlock: PartyManagement
     owners:
     - email: Redacted
@@ -180,3 +236,4 @@ spec:
     - 311|Invoice_Totals_Calculation|v23.0
     SIDs:
     - Customer_Domain|Customer_Bill_ABE|v25.0
+  apiSDO: tmForum

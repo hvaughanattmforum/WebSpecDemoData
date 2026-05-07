@@ -7,67 +7,111 @@ spec:
     exposedAPIs:
     - id: TMF642
       required: true
-      resources:
-      - alarm:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - ackAlarm:
-        - GET
-        - GET /id
-        - POST
-      - unAckAlarm:
-        - GET
-        - GET /id
-        - POST       
-      - clearAlarm:
-        - GET
-        - GET /id
-        - POST     
-      - commentAlarmlarm:
-        - GET
-        - GET /id
-        - POST    
-      - groupAlarm:
-        - GET
-        - GET /id
-        - POST        
-      - unGroupAlarm:
-        - GET
-        - GET /id
-        - POST             
-      version: 4
-      apiSDO: tmForum      
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - ackAlarm:
+          - GET
+          - GET /id
+          - POST
+        - alarm:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - clearAlarm:
+          - GET
+          - GET /id
+          - POST
+        - groupAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unAckAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unGroupAlarm:
+          - GET
+          - GET /id
+          - POST
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - alarm:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - ackAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unAckAlarm:
+          - GET
+          - GET /id
+          - POST
+        - clearAlarm:
+          - GET
+          - GET /id
+          - POST
+        - commentAlarmlarm:
+          - GET
+          - GET /id
+          - POST
+        - groupAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unGroupAlarm:
+          - GET
+          - GET /id
+          - POST
     - id: TMF656
       required: false
-      resources:
-      - serviceProblem:
-        - GET
-        - GET /id
-        - POST
-        - DELETE
-      - problemGroup:
-        - POST
-      - problemUnGroup:
-        - POST      
-      version: 4     
-      apiSDO: tmForum       
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - problemGroup:
+          - POST
+        - problemUngroup:
+          - POST
+        - serviceProblem:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - serviceProblem:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - problemGroup:
+          - POST
+        - problemUnGroup:
+          - POST
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum      
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     publishedEvents:
     - name: Alarm Management API
       port: 80
@@ -269,17 +313,11 @@ spec:
   componentMetadata:
     id: TMFC043
     name: FaultManagement
-    version: 1.0.0 
-    description: Fault Management component involves identifying, diagnosing, and resolving issues that prevent the communication resources 
-      and their overlaying services from functioning correctly. Its scope covers this functionality at the ODA Production layer 
-      while business related resolutions are not part of its scope. The Fault Management component manages the currently active 
-      alarms or problem candidates, potentially modifying or enhancing their data to make persistent alarms more actionable. 
-      It may apply logic to preserve alarms that reflect actual problems, eliminating those that are merely symptoms. 
-      Various actions can be taken using the alarm/problem information as part of the resolution process, such as applying 
-      automated/automonous corrective actions or opening trouble tickets.
+    version: 1.1.0
+    description: Fault Management component involves identifying, diagnosing, and resolving issues that prevent the communication resources and their overlaying services from functioning correctly. Its scope covers this functionality at the ODA Production layer while business related resolutions are not part of its scope. The Fault Management component manages the currently active alarms or problem candidates, potentially modifying or enhancing their data to make persistent alarms more actionable. It may apply logic to preserve alarms that reflect actual problems, eliminating those that are merely symptoms. Various actions can be taken using the alarm/problem information as part of the resolution process, such as applying automated/automonous corrective actions or opening trouble tickets.
     publicationDate: 2025-03-11 00:00:00
-    status: specified
-    functionalBlock: Production       
+    status: preview
+    functionalBlock: Production
     owners:
     - email: Redacted
       name: Redacted
@@ -290,3 +328,4 @@ spec:
     functionalFrameworkFunctions: []
     SIDs:
     - Resource_Domain|Resource_Trouble_ABE|Resource_Alarm_ABE|v25.0
+  apiSDO: tmForum

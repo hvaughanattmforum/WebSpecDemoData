@@ -7,116 +7,159 @@ spec:
     dependentAPIs:
     - id: TMF620
       required: true
-      resources:
-      - productSpecification:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - productSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - productSpecification:
+          - GET
+          - GET /id
     - id: TMF637
       required: true
-      resources:
-      - product:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - product:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - product:
+          - GET
+          - GET /id
     - id: TMF632
       required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organisation:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organisation:
+          - GET
+          - GET /id
     - id: TMF669
       required: false
-      resources:
-      - partyRole:
-        - GET
-        - GET /id
-      version: 4.1
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
     - id: TMF653
       required: false
-      resources:
-      - serviceTestSpecification:
-        - GET
-        - GET /id
-      - serviceTest:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - serviceTestSpecification:
+          - GET
+          - GET /id
+        - serviceTest:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF638
       required: false
-      resources:
-      - service:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - service:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - service:
+          - GET
+          - GET /id
     - id: TMF724
       required: false
-      resources:
-      - incident:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - incident:
+          - GET
+          - GET /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      - taskFlow:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        - taskFlow:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
     exposedAPIs:
     - id: TMF769
       required: true
-      resources:
-      - productTestSpecification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - productTest:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 5
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - productTestSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productTest:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productTestManagement/hub
       implementation: /{{.Release.Name}}-productTestManagement
@@ -163,14 +206,10 @@ spec:
   componentMetadata:
     id: TMFC054
     name: ProductTestManagement
-    version: 1.0.0
-    description: 'Product Test Management component is responsible for product test specification for each Product Specification, and identification 
-      of the possible tests to be launched automatically by the delivery or assurance processes, or manually by the customer or user 
-      or by a CSR, to test that a product is functioning correctly. It utilizes tests available at the service specification level 
-      (or resource specification level for a tangible product). Product Test Management owns end-to-end execution and reporting of 
-      product tests according to the context and/or the actor.'
+    version: 1.1.0
+    description: Product Test Management component is responsible for product test specification for each Product Specification, and identification of the possible tests to be launched automatically by the delivery or assurance processes, or manually by the customer or user or by a CSR, to test that a product is functioning correctly. It utilizes tests available at the service specification level (or resource specification level for a tangible product). Product Test Management owns end-to-end execution and reporting of product tests according to the context and/or the actor.
     publicationDate: 2025-02-25 00:00:00
-    status: specified
+    status: preview
     functionalBlock: CoreCommerce
     owners:
     - email: Redacted
@@ -184,3 +223,4 @@ spec:
     functionalFrameworkFunctions: []
     SIDs:
     - Product_Domain|Product_Test_ABE|v25.0
+  apiSDO: tmForum

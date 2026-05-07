@@ -7,21 +7,22 @@ spec:
     exposedAPIs:
     - id: TMF751
       required: true
-      resources:
-      - anomalySpecification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      - anomaly:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - anomalySpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - anomaly:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
     publishedEvents:
     - apitype: openapi
       hub: /{{.Release.Name}}-AnomalyManagementEvent/hub
@@ -74,15 +75,10 @@ spec:
   componentMetadata:
     id: TMFC041
     name: AnomalyManagement
-    version: 1.1.0
-    description: The Anomaly Management component is responsible for predicting, detecting and managing anomalous patterns 
-      in the usage and behavior of products, services and resources in order to avoid occurrence of problems. 
-      Anomaly Management has functionality for predicting, detecting and flagging unusual patterns or outliers for products, 
-      services and resource entities, and initiating mitigatory actions to prevent outlier patterns in usage or behavior becoming problems. 
-      In the event of failure to predict or detect an early warning sign of a possible problem occurrence, 
-      the component hands off mitigatory actions to the Party Problem Management component.
+    version: 1.2.0
+    description: The Anomaly Management component is responsible for predicting, detecting and managing anomalous patterns in the usage and behavior of products, services and resources in order to avoid occurrence of problems. Anomaly Management has functionality for predicting, detecting and flagging unusual patterns or outliers for products, services and resource entities, and initiating mitigatory actions to prevent outlier patterns in usage or behavior becoming problems. In the event of failure to predict or detect an early warning sign of a possible problem occurrence, the component hands off mitigatory actions to the Party Problem Management component.
     publicationDate: 2024-11-19 00:00:00
-    status: specified
+    status: preview
     functionalBlock: IntelligenceManagement
     owners:
     - email: Redacted
@@ -94,5 +90,4 @@ spec:
     - Patterns_Domain|Anomaly_ABE|Anomaly_Entity_ABE|v25.0
     - Patterns_Domain|Anomaly_ABE|Anomaly_Management_Plan_ABE|v25.0
     - Patterns_Domain|Anomaly_ABE|Anomaly_Specification_ABE|v25.0
-
-    
+  apiSDO: tmForum

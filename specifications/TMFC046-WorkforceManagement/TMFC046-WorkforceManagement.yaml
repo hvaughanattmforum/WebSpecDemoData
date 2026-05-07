@@ -7,65 +7,85 @@ spec:
     dependentAPIs:
     - id: TMF632
       required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF669
       required: false
-      resources:
-      - PartyRole:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - PartyRole:
+          - GET
+          - GET /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - PATCH
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
     exposedAPIs:
     - id: TMF646
       required: true
-      resources:
-      - appointment:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      - searchTimeSlot:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - appointment:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - searchTimeSlot:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - GET
-        - GET /id
-        - POST
-        - DELETE /id
-      - taskFlow:
-        - GET
-        - GET /id
-        - PATCH /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
     publishedEvents:
     - implementation: /{{.Release.Name}}-appointmentManagement
       name: appointmentManagement
@@ -108,13 +128,10 @@ spec:
   componentMetadata:
     id: TMFC046
     name: WorkforceManagement
-    version: 1.1.0
-    description: Workforce Management component provides capabilities to describe teams, organizations, skills 
-      and availability of sales / technical experts. It provides the ability to reserve time slots 
-      to carry out assigned tasks (internal or customer facing). It allows the reservation 
-      (and updates/rescheduling) of appointments and interventions.
+    version: 1.2.0
+    description: Workforce Management component provides capabilities to describe teams, organizations, skills and availability of sales / technical experts. It provides the ability to reserve time slots to carry out assigned tasks (internal or customer facing). It allows the reservation (and updates/rescheduling) of appointments and interventions.
     publicationDate: 2024-04-18 00:00:00
-    status: specified
+    status: preview
     functionalBlock: Production
     owners:
     - email: Redacted
@@ -144,3 +161,4 @@ spec:
     - 561|Workforce_Scheduling|v23.0
     SIDs:
     - Enterprise_Domain|Workforce_ABE|v25.0
+  apiSDO: tmForum

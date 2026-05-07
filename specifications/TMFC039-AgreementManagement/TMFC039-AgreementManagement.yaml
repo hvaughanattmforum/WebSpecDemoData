@@ -7,96 +7,128 @@ spec:
     dependentAPIs:
     - id: TMF632
       required: true
-      resources:
-      - individual:
-        - GET
-        - GET/id
-      - organization:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+        - organization:
+          - GET
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET/id
+        - organization:
+          - GET
+          - GET/id
     - id: TMF669
       required: false
-      resources:
-      - partyRole:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET/id
     - id: TMF620
       required: false
-      resources:
-      - productOffering:
-        - GET
-        - GET/id
-      - productOfferingPrice:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - productOffering:
+          - GET
+        - productOfferingPrice:
+          - GET
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - productOffering:
+          - GET
+          - GET/id
+        - productOfferingPrice:
+          - GET
+          - GET/id
     - id: TMF637
       required: false
-      resources:
-      - product:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - product:
+          - GET
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - product:
+          - GET
+          - GET/id
     - id: TMF667
       required: false
-      resources:
-      - document:
-        - GET
-        - GET/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - document:
+          - GET
+          - GET/id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF651
       required: true
-      resources:
-      - agreement:
-        - GET
-        - GET/id
-        - POST
-        - PATCH/id
-        - DELETE/id
-      - agreementSpecification:
-        - GET
-        - GET/id
-        - POST
-        - PATCH/id
-        - DELETE/id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - agreement:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
+        - agreementSpecification:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     publishedEvents:
     - implementation: /{{.Release.Name}}-agreemngtapi
       name: userRole
@@ -121,15 +153,10 @@ spec:
   componentMetadata:
     id: TMFC039
     name: AgreementManagement
-    version: 1.1.0
-    description: The Agreement Management component is responsible for creating, storing, editing, and tracking agreed arrangements 
-      with related terms and conditions over a lifecycle. The component manages offers, records acceptance, and associated considerations 
-      and intentions to establish agreements as legally binding. This component also provides workflows and templates 
-      that facilitate collaboration, communication and negotiation of agreements between parties, and administers 
-      the translation of agreements into contracts, when required. It provides secure storage, version control, compliance management, 
-      and renewal notifications for agreements.
+    version: 1.2.0
+    description: The Agreement Management component is responsible for creating, storing, editing, and tracking agreed arrangements with related terms and conditions over a lifecycle. The component manages offers, records acceptance, and associated considerations and intentions to establish agreements as legally binding. This component also provides workflows and templates that facilitate collaboration, communication and negotiation of agreements between parties, and administers the translation of agreements into contracts, when required. It provides secure storage, version control, compliance management, and renewal notifications for agreements.
     publicationDate: 2024-08-19 00:00:00
-    status: specified
+    status: preview
     functionalBlock: PartyManagement
     owners:
     - email: Redacted
@@ -164,6 +191,4 @@ spec:
     - Patterns_Domain|Agreement_ABE|AgreementTermOrCondition_BE|v25.0
     - Patterns_Domain|Agreement_ABE|AgreementAuthorization_BE|v25.0
     - Patterns_Domain|Agreement_ABE|AgreementApproval_BE|v25.0
-    
-    
-    
+  apiSDO: tmForum

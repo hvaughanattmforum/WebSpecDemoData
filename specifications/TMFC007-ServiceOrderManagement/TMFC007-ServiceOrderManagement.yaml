@@ -7,226 +7,289 @@ spec:
     dependentAPIs:
     - id: TMF632
       required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF633
       required: true
-      resources:
-      - serviceSpecification:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - serviceSpecification:
+          - GET
+          - GET /id
     - id: TMF634
       required: false
-      resources:
-      - resourceSpecification:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
     - id: TMF638
       required: true
-      resources:
-      - service:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - service:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - service:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF639
       required: false
-      resources:
-      - resource:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - resource:
+          - GET
+          - GET /id
     - id: TMF640
       required: false
-      resources:
-      - monitor:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - monitor:
+          - GET
+          - GET /id
     - id: TMF641
       required: false
-      resources:
-      - serviceOrder:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - cancelServiceOrder:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - serviceOrder:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - cancelServiceOrder:
+          - GET
+          - GET /id
+          - POST
     - id: TMF645
       required: false
-      resources:
-      - checkServiceQualification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      - queryServiceQualification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
     - id: TMF646
       required: false
-      resources:
-      - appointment:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      - searchTimeSlot:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - appointment:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        - searchTimeSlot:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
     - id: TMF652
       required: false
-      resources:
-      - resourceOrder:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - cancelResourceOrder:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - resourceOrder:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - cancelResourceOrder:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF653
       required: false
-      resources:
-      - serviceTest:
-        - GET
-        - GET /id
-      - serviceTestSpecification:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - serviceTest:
+          - GET
+          - GET /id
+        - serviceTestSpecification:
+          - GET
+          - GET /id
     - id: TMF669
       required: false
-      resources:
-      - partyRole:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
     - id: TMF673
       required: false
-      resources:
-      - geographicAddress:
-        - GET
-        - GET /id
-      - geographicSubAddress:
-        - GET
-        - GET /id
-      - geographicAddressValidation:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicAddress:
+          - GET
+          - GET /id
+        - geographicSubAddress:
+          - GET
+          - GET /id
+        - geographicAddressValidation:
+          - GET
+          - GET /id
+          - POST
     - id: TMF674
       required: false
-      resources:
-      - geographicLocation:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicLocation:
+          - GET
+          - GET /id
     - id: TMF675
       required: false
-      resources:
-      - geographicSite:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicSite:
+          - GET
+          - GET /id
     - id: TMF681
       required: false
-      resources:
-      - communicationMessage:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - communicationMessage:
+          - GET
+          - GET /id
     - id: TMF697
       required: false
-      resources:
-      - workOrder:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - workOrder:
+          - GET
+          - GET /id
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - PATCH
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
     exposedAPIs:
     - id: TMF641
       required: true
-      resources:
-      - serviceOrder:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - cancelServiceOrder:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - serviceOrder:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - cancelServiceOrder:
+          - GET
+          - GET /id
+          - POST
     - id: TMF701
       required: false
-      resources:
-      - processFlow:
-        - GET
-        - GET /id
-        - POST
-        - DELETE /id
-      - taskFlow:
-        - GET
-        - GET /id
-        - PATCH /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrdeManagement/hub
       name: TMF641 Service Ordering Management API
@@ -296,17 +359,10 @@ spec:
   componentMetadata:
     id: TMFC007
     name: ServiceOrderManagement
-    version: 2.0.0
-    description: Service Order Management (SOM) component is the entry point to the Production Domain. 
-      It oversees delivery of Customer-Facing-Service (CFS) resources (network and service platform equipment). 
-      The SOM exposes the API ServiceOrder. It is triggered when the Product Order Delivery Orchestration And Management 
-      component calls this API to request CFS delivery. To achieve delivery of a CFS, the SOM orchestrates the CFS delivery 
-      process which identifies possible RFS and chooses one, using the catalog and technical inventory. 
-      It selects the resources (servers, equipment, etc.) and their instances, and requests the Resource Order Management 
-      (ROM) component to update selected resource instances to deliver CFS. Requests sent to the ROM contain the CFS and 
-      the list of configured resource instances to be updated.
+    version: 2.1.0
+    description: Service Order Management (SOM) component is the entry point to the Production Domain. It oversees delivery of Customer-Facing-Service (CFS) resources (network and service platform equipment). The SOM exposes the API ServiceOrder. It is triggered when the Product Order Delivery Orchestration And Management component calls this API to request CFS delivery. To achieve delivery of a CFS, the SOM orchestrates the CFS delivery process which identifies possible RFS and chooses one, using the catalog and technical inventory. It selects the resources (servers, equipment, etc.) and their instances, and requests the Resource Order Management (ROM) component to update selected resource instances to deliver CFS. Requests sent to the ROM contain the CFS and the list of configured resource instances to be updated.
     publicationDate: 2024-02-23
-    status: specified
+    status: preview
     functionalBlock: Production
     owners:
     - email: Redacted
@@ -356,3 +412,4 @@ spec:
     - 592|Service_Parameters_Reservation|v21.5
     SIDs:
     - Service_Domain|Service_Order_ABE|v25.0
+  apiSDO: tmForum

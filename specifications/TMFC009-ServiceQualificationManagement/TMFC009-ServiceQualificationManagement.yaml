@@ -7,103 +7,155 @@ spec:
     dependentAPIs:
     - id: TMF633
       required: true
-      resources:
-      - serviceSpecification:
-        - GET
-        - GET /id
-      - serviceCategory:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - serviceSpecification:
+          - GET
+          - GET /id
+        - serviceCategory:
+          - GET
+          - GET /id
     - id: TMF638
       required: false
-      resources:
-      - service:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - service:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - service:
+          - GET
+          - GET /id
     - id: TMF634
       required: false
-      resources:
-      - resourceSpecification:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
     - id: TMF639
       required: false
-      resources:
-      - resource:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - resource:
+          - GET
+          - GET /id
     - id: TMF632
       required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF669
       required: false
-      resources:
-      - partyRole:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
     - id: TMF673
       required: false
-      resources:
-      - geographicAddress:
-        - GET
-        - GET /id
-      - geographicSubAddress:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicAddress:
+          - GET
+          - GET /id
+        - geographicSubAddress:
+          - GET
+          - GET /id
     - id: TMF674
       required: false
-      resources:
-      - geographicSite:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicSite:
+          - GET
+          - GET /id
     - id: TMF675
       required: false
-      resources:
-      - geographicLocation:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - geographicLocation:
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF645
       required: true
-      resources:
-      - checkServiceQualification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - queryServiceQualification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        apiSDO: tmForum
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        apiSDO: tmForum
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     publishedEvents:
     - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/v4/docs
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/hub
@@ -125,17 +177,10 @@ spec:
   componentMetadata:
     id: TMFC009
     name: ServiceQualificationManagement
-    version: 1.1.0
-    description: The Service Qualification Management component is responsible for checking and validating the availability of a service 
-      according to specified and configured business rules. It must identify at least one technical solution (RFSspec) available to deliver 
-      the service (CFSspec) and check the availability of all the resources types involved in this technical solution. 
-      No resources are allocated during service qualification. The Service Qualification Management component has functionality 
-      that includes checking service feasibility status and publishing or reporting service qualification results, 
-      but also calculated service delivery due date and identified need of an appointment at the customer site. 
-      Service Qualification Management can also be responsible for the cost calculation of the technical solution identified, 
-      when it cannot be determined at catalog design time (complex B2B services). This information will be used as an input to price calculation.
+    version: 1.2.0
+    description: The Service Qualification Management component is responsible for checking and validating the availability of a service according to specified and configured business rules. It must identify at least one technical solution (RFSspec) available to deliver the service (CFSspec) and check the availability of all the resources types involved in this technical solution. No resources are allocated during service qualification. The Service Qualification Management component has functionality that includes checking service feasibility status and publishing or reporting service qualification results, but also calculated service delivery due date and identified need of an appointment at the customer site. Service Qualification Management can also be responsible for the cost calculation of the technical solution identified, when it cannot be determined at catalog design time (complex B2B services). This information will be used as an input to price calculation.
     publicationDate: 2023-08-18 00:00:00
-    status: specified
+    status: preview
     functionalBlock: Production
     owners:
     - email: Redacted
@@ -151,3 +196,4 @@ spec:
     - 319|Service_Feasibility_Checking|v23.0
     - 586|Service_Availability_Validation|v23.0
     - 571|Service_Delivery_Due_Date_Calculation|v23.0
+  apiSDO: tmForum
