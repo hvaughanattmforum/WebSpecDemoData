@@ -6,10 +6,10 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF632
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -18,7 +18,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -27,25 +26,24 @@ spec:
           - GET
           - GET /id
     - id: TMF669
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
     - id: TMF646
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - appointment:
           - GET
@@ -60,10 +58,10 @@ spec:
           - PATCH /id
           - DELETE /id
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - GET
@@ -75,20 +73,20 @@ spec:
           - GET /id
           - PATCH
     - id: TMF688
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - event:
           - GET
           - GET /id
     exposedAPIs:
     - id: TMF713
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - work:
           - GET
@@ -103,10 +101,10 @@ spec:
           - PATCH
           - DELETE
     - id: TMF697
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - workOrder:
           - GET
@@ -119,10 +117,10 @@ spec:
           - GET /id
           - POST
     - id: TMF714
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - checkWorkQualification:
           - GET
@@ -137,10 +135,10 @@ spec:
           - PATCH /id
           - DELETE /id
     - id: TMF701
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - GET
@@ -152,10 +150,10 @@ spec:
           - GET /id
           - PATCH /id
     - id: TMF688
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - listener:
           - POST

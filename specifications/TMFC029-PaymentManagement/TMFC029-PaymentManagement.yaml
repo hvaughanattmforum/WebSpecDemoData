@@ -6,10 +6,10 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF632
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -18,7 +18,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -27,10 +26,10 @@ spec:
           - GET
           - GET /id
     - id: TMF666
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - billFormat:
           - GET
@@ -54,7 +53,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - partyAccount:
           - GET
@@ -78,10 +76,10 @@ spec:
           - GET
           - GET /id
     - id: TMF673
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicAddressValidation:
           - GET
@@ -93,29 +91,29 @@ spec:
           - GET
           - GET /id
     - id: TMF674
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicSite:
           - GET
           - GET /id
     - id: TMF675
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicLocation:
           - GET
           - GET /id
     exposedAPIs:
     - id: TMF670
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - paymentMethod:
           - GET
@@ -124,10 +122,10 @@ spec:
           - PATCH
           - DELETE
     - id: TMF676
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - payment:
           - GET
@@ -138,10 +136,10 @@ spec:
           - GET /id
           - POST
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST

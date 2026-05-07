@@ -6,17 +6,16 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF632
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
         - organization:
           - GET
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -25,10 +24,10 @@ spec:
           - GET
           - GET/id
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST
@@ -41,10 +40,10 @@ spec:
           - GET /id
     exposedAPIs:
     - id: TMF672
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - permission:
           - GET
@@ -59,16 +58,15 @@ spec:
           - PATCH/id
           - DELETE/id
     - id: TMF669
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - POST
       - version: 4
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET

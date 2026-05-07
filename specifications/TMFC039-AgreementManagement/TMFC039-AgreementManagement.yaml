@@ -6,17 +6,16 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF632
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
         - organization:
           - GET
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -25,31 +24,29 @@ spec:
           - GET
           - GET/id
     - id: TMF669
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
       - version: 4
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET/id
     - id: TMF620
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - productOffering:
           - GET
         - productOfferingPrice:
           - GET
       - version: 4
-        apiSDO: tmForum
         resources:
         - productOffering:
           - GET
@@ -58,33 +55,32 @@ spec:
           - GET
           - GET/id
     - id: TMF637
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - product:
           - GET
       - version: 4
-        apiSDO: tmForum
         resources:
         - product:
           - GET
           - GET/id
     - id: TMF667
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - document:
           - GET
           - GET/id
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST
@@ -97,10 +93,10 @@ spec:
           - GET /id
     exposedAPIs:
     - id: TMF651
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - agreement:
           - GET
@@ -115,10 +111,10 @@ spec:
           - PATCH/id
           - DELETE/id
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST

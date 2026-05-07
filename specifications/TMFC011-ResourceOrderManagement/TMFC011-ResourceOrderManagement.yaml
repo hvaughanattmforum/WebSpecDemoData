@@ -6,10 +6,10 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF702
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - resource:
           - GET
@@ -21,10 +21,10 @@ spec:
           - GET
           - GET /id
     - id: TMF685
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - resourcePool:
           - GET
@@ -36,10 +36,10 @@ spec:
           - GET
           - GET /id
     - id: TMF634
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - resourceSpecification:
           - GET
@@ -48,7 +48,6 @@ spec:
           - PATCH
           - DELETE
       - version: 4
-        apiSDO: tmForum
         resources:
         - resourceSpecification:
           - GET
@@ -57,10 +56,10 @@ spec:
           - PATCH
           - DELETE
     - id: TMF639
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - resource:
           - GET
@@ -69,10 +68,10 @@ spec:
           - PATCH
           - DELETE
     - id: TMF664
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - resourceFunction:
           - GET
@@ -81,10 +80,10 @@ spec:
           - PATCH
           - DELETE
     - id: TMF632
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -93,7 +92,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -102,47 +100,47 @@ spec:
           - GET
           - GET /id
     - id: TMF646
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - workOrder:
           - GET
           - GET /id
     - id: TMF673
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicAddress:
           - GET
           - GET /id
     - id: TMF674
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicSite:
           - GET
           - GET /id
     - id: TMF675
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicLocation:
           - GET
           - GET /id
     exposedAPIs:
     - id: TMF652
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - resourceOrder:
           - GET
@@ -155,10 +153,10 @@ spec:
           - GET /id
           - POST
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST
@@ -236,7 +234,7 @@ spec:
     name: ResourceOrderManagement
     version: 1.3.0
     description: The Resource Order Management Component manages the end-to-end lifecycle of a resource  order request. This includes validating resource availability as well as the resource order request. Other functionality includes resource order assurance,  resource order decomposition and resource order tracking, along with orchestrating  activation and the test and turn-up processes.
-    publicationDate: null
+    publicationDate:
     status: Preview
     functionalBlock: Production
     owners:

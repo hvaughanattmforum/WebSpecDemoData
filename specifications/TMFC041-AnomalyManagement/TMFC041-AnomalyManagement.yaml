@@ -6,10 +6,10 @@ spec:
   coreFunction:
     exposedAPIs:
     - id: TMF751
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - anomalySpecification:
           - GET

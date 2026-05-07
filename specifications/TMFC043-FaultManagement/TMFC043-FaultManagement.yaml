@@ -6,10 +6,10 @@ spec:
   coreFunction:
     exposedAPIs:
     - id: TMF642
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - ackAlarm:
           - GET
@@ -38,7 +38,6 @@ spec:
           - GET /id
           - POST
       - version: 4
-        apiSDO: tmForum
         resources:
         - alarm:
           - GET
@@ -71,10 +70,10 @@ spec:
           - GET /id
           - POST
     - id: TMF656
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - problemGroup:
           - POST
@@ -86,7 +85,6 @@ spec:
           - POST
           - DELETE
       - version: 4
-        apiSDO: tmForum
         resources:
         - serviceProblem:
           - GET
@@ -98,10 +96,10 @@ spec:
         - problemUnGroup:
           - POST
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST
