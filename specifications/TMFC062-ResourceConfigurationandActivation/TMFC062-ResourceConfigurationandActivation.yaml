@@ -6,24 +6,23 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF634
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - resourceSpecification:
           - GET
       - version: 4
-        apiSDO: tmForum
         resources:
         - resourceSpecification:
           - GET
           - GET/id
     - id: TMF639
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - resource:
           - GET
@@ -33,10 +32,10 @@ spec:
           - DELETE /id
     exposedAPIs:
     - id: TMF702
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - resource:
           - GET
@@ -45,10 +44,10 @@ spec:
           - PATCH
           - DELETE /id
     - id: TMF664
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - resourceFunction:
           - GET
@@ -130,4 +129,3 @@ spec:
     functionalFrameworkFunctions: []
     SIDs:
     - Resource_Domain|Resource_Configuration_ABE|v25.0
-  apiSDO: tmForum

@@ -6,25 +6,24 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF620
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - productOffering:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - productOffering:
           - GET
           - GET /id
     - id: TMF632
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -33,7 +32,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -42,36 +40,35 @@ spec:
           - GET
           - GET /id
     - id: TMF667
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - document:
           - GET
           - GET /id
           - POST
     - id: TMF669
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
     exposedAPIs:
     - id: TMF644
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - partyPrivacyAgreement:
           - GET
@@ -89,7 +86,6 @@ spec:
           - POST
           - DELETE
       - version: 4
-        apiSDO: tmForum
         resources:
         - partyPrivacyProfileSpecification:
           - GET
@@ -110,10 +106,10 @@ spec:
           - PATCH /id
           - DELETE
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - GET
@@ -142,4 +138,3 @@ spec:
     functionalFrameworkFunctions: []
     SIDs:
     - Party_Domain|Party_Privacy_ABE|Party_Privacy_Profile_ABE|v25.0
-  apiSDO: tmForum

@@ -6,10 +6,10 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF634
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - exportJob:
           - GET
@@ -41,7 +41,6 @@ spec:
           - PATCH
           - DELETE
       - version: 4
-        apiSDO: tmForum
         resources:
         - resourceCatalog:
           - GET
@@ -73,25 +72,24 @@ spec:
           - POST
           - DELETE
     - id: TMF669
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
     - id: TMF632
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -100,7 +98,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -109,10 +106,10 @@ spec:
           - GET
           - GET /id
     - id: TMF662
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - entitySpecification:
           - GET
@@ -122,10 +119,10 @@ spec:
           - GET /id
     exposedAPIs:
     - id: TMF634
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - exportJob:
           - GET
@@ -162,7 +159,6 @@ spec:
           - PATCH
           - DELETE
       - version: 4
-        apiSDO: tmForum
         resources:
         - resourceCatalog:
           - GET
@@ -199,10 +195,10 @@ spec:
           - POST
           - DELETE
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST
@@ -322,4 +318,3 @@ spec:
     - Resource_Domain|Resource_Performance_ABE|ResourcePerformanceSpecification_BE|v25.0
     - Resource_Domain|Resource_Usage_ABE|ResourceUsageSpec_BE|v25.0
     - Resource_Domain|Resource_Configuration_ABE|ResourceConfigSpec_BE|v25.0
-  apiSDO: tmForum

@@ -6,17 +6,16 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF632
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
         - organization:
           - GET
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -25,23 +24,22 @@ spec:
           - GET
           - GET/id
     - id: TMF669
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - partyRole:
           - POST
       - version: 4
-        apiSDO: tmForum
         resources:
         - partyRole:
           - POST
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST
@@ -54,10 +52,10 @@ spec:
           - GET /id
     exposedAPIs:
     - id: TMF720
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - digitalIdentity:
           - GET
@@ -72,10 +70,10 @@ spec:
           - PATCH/id
           - DELETE/id
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - GET
@@ -125,4 +123,3 @@ spec:
     functionalFrameworkFunctions: []
     SIDs:
     - Shared_Domain|Digital_Identity_ABE|v25.0
-  apiSDO: tmForum

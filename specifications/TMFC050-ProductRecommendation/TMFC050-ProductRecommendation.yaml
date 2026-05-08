@@ -6,10 +6,10 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF620
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - category:
           - GET
@@ -24,7 +24,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - catalog:
           - GET
@@ -42,121 +41,116 @@ spec:
           - GET
           - GET /id
     - id: TMF637
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - product:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - product:
           - GET
           - GET /id
     - id: TMF622
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - productOrder:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - productOrder:
           - GET
           - GET /id
     - id: TMF679
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - productOfferingQualification:
           - GET
           - GET /id
     - id: TMF666
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - billingAccount:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - billingAccount:
           - GET
           - GET /id
     - id: TMF629
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - customer:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - customer:
           - GET
           - GET /id
     - id: TMF663
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - shoppingCart:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - shoppingCart:
           - GET
           - GET /id
     - id: TMF671
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - promotion:
           - GET
           - GET /id
     - id: TMF673
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicAddressManagement:
           - GET
           - GET /id
     - id: TMF675
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicLocationManagement:
           - GET
           - GET /id
     - id: TMF632
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -165,7 +159,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -174,75 +167,72 @@ spec:
           - GET
           - GET /id
     - id: TMF669
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
     - id: TMF678
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - customerBill:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - customerBill:
           - GET
           - GET /id
     - id: TMF621
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - troubleTicket:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - troubleTicket:
           - GET
           - GET /id
     - id: TMF635
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - usage:
           - GET
           - GET /id
     exposedAPIs:
     - id: TMF680
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - queryProductRecommendation:
           - GET
           - GET /id
           - POST
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - GET
@@ -317,4 +307,3 @@ spec:
       url: Redacted
     eTOMs: []
     functionalFrameworkFunctions: []
-  apiSDO: tmForum

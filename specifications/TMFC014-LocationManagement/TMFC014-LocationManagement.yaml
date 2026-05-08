@@ -6,10 +6,10 @@ spec:
   coreFunction:
     exposedAPIs:
     - id: TMF673
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicAddressValidation:
           - GET
@@ -23,10 +23,10 @@ spec:
           - GET
           - GET /id
     - id: TMF674
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicSite:
           - GET
@@ -35,10 +35,10 @@ spec:
           - PATCH
           - DELETE
     - id: TMF675
+      apiSDO: tmForum
       required: true
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicLocation:
           - GET
@@ -47,10 +47,10 @@ spec:
           - PATCH
           - DELETE
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST
@@ -117,4 +117,3 @@ spec:
     - 432|Location_Information_Searching|v23.0
     - 433|Location_Structure_Data_Configuration|v23.0
     - 434|Location_Data_Integrity_Management|v23.0
-  apiSDO: tmForum

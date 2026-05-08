@@ -6,34 +6,33 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF633
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - serviceSpecification:
           - GET
           - GET /id
     - id: TMF669
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
     - id: TMF632
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -42,7 +41,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -51,25 +49,24 @@ spec:
           - GET
           - GET /id
     - id: TMF634
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - resourceSpecification:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - resourceSpecification:
           - GET
           - GET /id
     - id: TMF651
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - agreement:
           - GET
@@ -78,37 +75,37 @@ spec:
           - GET
           - GET /id
     - id: TMF673
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicAddress:
           - GET
           - GET /id
     - id: TMF674
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicSite:
           - GET
           - GET /id
     - id: TMF675
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - geographicLocation:
           - GET
           - GET /id
     - id: TMF662
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - entitySpecification:
           - GET
@@ -117,10 +114,10 @@ spec:
           - GET
           - GET /id
     - id: TMF620
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - category:
           - GET
@@ -157,7 +154,6 @@ spec:
           - PATCH
           - DELETE
       - version: 4
-        apiSDO: tmForum
         resources:
         - catalog:
           - GET
@@ -201,10 +197,10 @@ spec:
           - DELETE
     exposedAPIs:
     - id: TMF620
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - category:
           - GET
@@ -241,7 +237,6 @@ spec:
           - PATCH
           - DELETE
       - version: 4
-        apiSDO: tmForum
         resources:
         - catalog:
           - GET
@@ -284,10 +279,10 @@ spec:
           - GET /id
           - DELETE
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST
@@ -299,10 +294,10 @@ spec:
           - GET
           - GET /id
     - id: TMF671
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - promotion:
           - GET
@@ -460,4 +455,3 @@ spec:
     - Product_Domain|Loyalty_ABE|Product_Usage_Spec_ABE|v25.0
     - Product_Domain|Product_Usage_ABE|Loyalty_Program_Specification_ABE|v25.0
     - Business_Partner_Domain|Party_Product_Specification_and_Offering_ABE|v25.0
-  apiSDO: tmForum

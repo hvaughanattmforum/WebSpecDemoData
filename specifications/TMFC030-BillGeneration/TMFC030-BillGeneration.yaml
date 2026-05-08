@@ -6,10 +6,10 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF666
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - billFormat:
           - GET
@@ -24,7 +24,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - billingAccount:
           - GET
@@ -39,10 +38,10 @@ spec:
           - GET
           - GET /id
     - id: TMF632
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -51,7 +50,6 @@ spec:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - individual:
           - GET
@@ -60,10 +58,10 @@ spec:
           - GET
           - GET /id
     - id: TMF676
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - payment:
           - GET
@@ -74,50 +72,48 @@ spec:
           - GET /id
           - POST
     - id: TMF667
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - document:
           - GET
           - GET /id
           - POST
     - id: TMF637
+      apiSDO: tmForum
       required: false
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - product:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - product:
           - GET
           - GET /id
     - id: TMF669
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - partyRole:
           - GET
           - GET /id
       - version: 4
-        apiSDO: tmForum
         resources:
         - PartyRole:
           - GET
           - GET /id
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - POST
@@ -131,10 +127,10 @@ spec:
           - PATCH
     exposedAPIs:
     - id: TMF678
+      apiSDO: tmForum
       required: true
       specification:
       - version: 5
-        apiSDO: tmForum
         resources:
         - billCycle:
           - GET
@@ -146,7 +142,6 @@ spec:
           - GET /id
           - POST
       - version: 4
-        apiSDO: tmForum
         resources:
         - customerBillOnDemand:
           - GET
@@ -161,10 +156,10 @@ spec:
           - GET
           - GET /id
     - id: TMF701
+      apiSDO: tmForum
       required: false
       specification:
       - version: 4
-        apiSDO: tmForum
         resources:
         - processFlow:
           - GET
@@ -236,4 +231,3 @@ spec:
     - 311|Invoice_Totals_Calculation|v23.0
     SIDs:
     - Customer_Domain|Customer_Bill_ABE|v25.0
-  apiSDO: tmForum
