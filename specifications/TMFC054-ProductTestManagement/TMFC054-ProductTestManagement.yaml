@@ -218,4 +218,3 @@ spec:
     functionalFrameworkFunctions: []
     SIDs:
     - Product_Domain|Product_Test_ABE|v25.0
-  apiSDO: tmForum

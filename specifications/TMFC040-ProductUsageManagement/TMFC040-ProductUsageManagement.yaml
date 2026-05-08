@@ -224,4 +224,3 @@ spec:
     SIDs:
     - Product_Domain|Product_Usage_ABE|v25.0
     - Product_Domain|Product_Offering_Instance_ABE|Product_Price_ABE|v25.0
-  apiSDO: tmForum

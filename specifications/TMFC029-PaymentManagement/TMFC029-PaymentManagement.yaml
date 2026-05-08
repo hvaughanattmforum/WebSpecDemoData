@@ -220,4 +220,3 @@ spec:
     functionalFrameworkFunctions: []
     SIDs:
     - Shared_Domain|Party_Payment_ABE|v25.0
-  apiSDO: tmForum

@@ -259,4 +259,3 @@ spec:
     - Service_Domain|Service_Performance_ABE|Service_Performance_Specification_ABE|v25.0
     - Service_Domain|Service_Usage_ABE|ServiceUsageSpec_BE|v25.0
     - Service_Domain|Service_Configuration_ABE|ServiceConfigSpec_BE|v25.0
-  apiSDO: tmForum

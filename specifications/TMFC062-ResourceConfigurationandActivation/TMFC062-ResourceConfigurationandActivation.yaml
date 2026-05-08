@@ -129,4 +129,3 @@ spec:
     functionalFrameworkFunctions: []
     SIDs:
     - Resource_Domain|Resource_Configuration_ABE|v25.0
-  apiSDO: tmForum

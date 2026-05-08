@@ -177,4 +177,3 @@ spec:
     - 248|Customer_Billing_Hierarchies_Management|v23.0
     SIDs:
     - Customer_Domain|Customer_Billing_Account_ABE|v25.0
-  apiSDO: tmForum

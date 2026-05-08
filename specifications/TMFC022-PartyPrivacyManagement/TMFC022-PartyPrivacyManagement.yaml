@@ -138,4 +138,3 @@ spec:
     functionalFrameworkFunctions: []
     SIDs:
     - Party_Domain|Party_Privacy_ABE|Party_Privacy_Profile_ABE|v25.0
-  apiSDO: tmForum

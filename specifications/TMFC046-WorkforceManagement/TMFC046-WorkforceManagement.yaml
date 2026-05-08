@@ -159,4 +159,3 @@ spec:
     - 561|Workforce_Scheduling|v23.0
     SIDs:
     - Enterprise_Domain|Workforce_ABE|v25.0
-  apiSDO: tmForum

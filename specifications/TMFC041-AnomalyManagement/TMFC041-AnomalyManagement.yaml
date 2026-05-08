@@ -90,4 +90,3 @@ spec:
     - Patterns_Domain|Anomaly_ABE|Anomaly_Entity_ABE|v25.0
     - Patterns_Domain|Anomaly_ABE|Anomaly_Management_Plan_ABE|v25.0
     - Patterns_Domain|Anomaly_ABE|Anomaly_Specification_ABE|v25.0
-  apiSDO: tmForum

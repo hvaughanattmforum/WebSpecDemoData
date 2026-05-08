@@ -460,4 +460,3 @@ spec:
     SIDs:
     - Customer_Domain|Customer_Product_Order_ABE|SalesQuote_BE|v25.0
     - Customer_Domain|Customer_Product_Order_ABE|ShoppingCart_BE|v25.0
-  apiSDO: tmForum

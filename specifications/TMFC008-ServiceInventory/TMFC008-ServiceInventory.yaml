@@ -272,4 +272,3 @@ spec:
     - 1344|Service_Topology_Discovery|v23.0
     SIDs:
     - Service_Domain|Service_ABE|v25.0
-  apiSDO: tmForum

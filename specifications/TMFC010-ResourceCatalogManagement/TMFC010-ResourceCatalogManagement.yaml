@@ -318,4 +318,3 @@ spec:
     - Resource_Domain|Resource_Performance_ABE|ResourcePerformanceSpecification_BE|v25.0
     - Resource_Domain|Resource_Usage_ABE|ResourceUsageSpec_BE|v25.0
     - Resource_Domain|Resource_Configuration_ABE|ResourceConfigSpec_BE|v25.0
-  apiSDO: tmForum

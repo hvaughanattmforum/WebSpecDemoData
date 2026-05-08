@@ -187,4 +187,3 @@ spec:
     - Patterns_Domain|Agreement_ABE|AgreementTermOrCondition_BE|v25.0
     - Patterns_Domain|Agreement_ABE|AgreementAuthorization_BE|v25.0
     - Patterns_Domain|Agreement_ABE|AgreementApproval_BE|v25.0
-  apiSDO: tmForum

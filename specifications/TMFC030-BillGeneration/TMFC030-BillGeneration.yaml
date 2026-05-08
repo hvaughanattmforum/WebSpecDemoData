@@ -231,4 +231,3 @@ spec:
     - 311|Invoice_Totals_Calculation|v23.0
     SIDs:
     - Customer_Domain|Customer_Bill_ABE|v25.0
-  apiSDO: tmForum

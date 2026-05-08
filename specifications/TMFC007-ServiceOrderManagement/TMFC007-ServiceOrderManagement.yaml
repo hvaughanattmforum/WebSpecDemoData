@@ -407,4 +407,3 @@ spec:
     - 592|Service_Parameters_Reservation|v21.5
     SIDs:
     - Service_Domain|Service_Order_ABE|v25.0
-  apiSDO: tmForum

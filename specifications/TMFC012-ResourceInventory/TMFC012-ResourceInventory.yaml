@@ -328,4 +328,3 @@ spec:
     - 435|Number_Inventory_Establishing|v23.0
     SIDs:
     - Resource_Domain|Resource_ABE|v25.0
-  apiSDO: tmForum

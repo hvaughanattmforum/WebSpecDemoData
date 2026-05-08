@@ -184,4 +184,3 @@ spec:
     - Shared_Domain|Party_ABE|TaxExemptionCertificate_BE|v25.0
     - Shared_Domain|Party_ABE|Party_Identification_ABE|v25.0
     - Shared_Domain|Party_ABE|Party_Community_ABE|v25.0
-  apiSDO: tmForum

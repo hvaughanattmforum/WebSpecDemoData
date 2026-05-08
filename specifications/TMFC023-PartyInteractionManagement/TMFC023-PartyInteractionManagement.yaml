@@ -234,4 +234,3 @@ spec:
     - 1041|Partner_Interaction_Journalizing|v24.0
     SIDs:
     - Shared_Domain|Communication_Interaction_ABE|v25.0
-  apiSDO: tmForum

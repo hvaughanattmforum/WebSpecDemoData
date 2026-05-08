@@ -310,4 +310,3 @@ spec:
     - 1203|Order_Preparation|v23.0
     - 1325|Customer_Order_Distribution|v23.0
     SIDs:
-  apiSDO: tmForum
