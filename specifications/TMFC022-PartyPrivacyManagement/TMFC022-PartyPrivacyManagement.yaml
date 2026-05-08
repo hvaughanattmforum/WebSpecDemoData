@@ -128,7 +128,7 @@ spec:
     version: 1.2.0
     description: The Party Privacy Management component defines the privacy policy rules established by the CSP (according to applicable regulations such as GDPR in Europe); applies these rules to each Party interacting with the CSP and to all of their personal information and personally identifiable information; and registers explicit opt-in and opt-out given by Parties regarding the use of their personal information for dedicated purposes, such as marketing.
     publicationDate: 2024-08-08
-    status: Preview
+    status: preview
     functionalBlock: PartyManagement
     owners:
     - email: components@tmforum.org

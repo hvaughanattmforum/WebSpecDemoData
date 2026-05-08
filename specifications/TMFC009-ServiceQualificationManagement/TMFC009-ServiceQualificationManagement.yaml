@@ -175,7 +175,7 @@ spec:
     version: 1.2.0
     description: The Service Qualification Management component is responsible for checking and validating the availability of a service according to specified and configured business rules. It must identify at least one technical solution (RFSspec) available to deliver the service (CFSspec) and check the availability of all the resources types involved in this technical solution. No resources are allocated during service qualification. The Service Qualification Management component has functionality that includes checking service feasibility status and publishing or reporting service qualification results, but also calculated service delivery due date and identified need of an appointment at the customer site. Service Qualification Management can also be responsible for the cost calculation of the technical solution identified, when it cannot be determined at catalog design time (complex B2B services). This information will be used as an input to price calculation.
     publicationDate: 2023-08-18 00:00:00
-    status: Preview
+    status: preview
     functionalBlock: Production
     owners:
     - email: Redacted
