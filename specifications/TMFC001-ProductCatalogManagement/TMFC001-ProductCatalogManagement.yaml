@@ -119,7 +119,7 @@ spec:
       specification:
       - version: 5
         resources:
-       - productCatalog:
+        - productCatalog:
           - GET
           - GET /id
           - POST
