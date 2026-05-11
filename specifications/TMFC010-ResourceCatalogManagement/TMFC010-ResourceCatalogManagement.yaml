@@ -102,7 +102,7 @@ spec:
         - individual:
           - GET
           - GET /id
-        - organization:
+        - organisation:
           - GET
           - GET /id
     - id: TMF662
@@ -283,8 +283,8 @@ spec:
     name: ResourceCatalogManagement
     version: 1.4.2
     description: The Resource Catalog Management component is responsible for organizing the collection of resource specifications that identify and define all requirements for a resource. The Resource Catalog Management component has the functionality that enables presentation of a customer-facing view, so users are able to browse and select resources they need, as well as a technical view to enable definition and setup of resources contained in the resource catalog. Additional functionalities include capturing new resource specifications, managing resources (registering assets and components and identifying and mapping connections/relationships), administering the lifecycle of resources, describing relationships between resources, reporting on resources and changes to their attributes, and facilitating easy access to identify and assign resources.
-    publicationDate: 2024-12-03 00:00:00
-    status: preview
+    publicationDate: 2026-05-11
+    status: production
     functionalBlock: Production
     owners:
     - email: Redacted
