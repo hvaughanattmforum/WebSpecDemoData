@@ -119,6 +119,12 @@ spec:
       specification:
       - version: 5
         resources:
+        - productCatalog:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
         - category:
           - GET
           - GET /id
@@ -202,6 +208,12 @@ spec:
       specification:
       - version: 5
         resources:
+        - productCatalog:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
         - category:
           - GET
           - GET /id
