@@ -74,16 +74,19 @@ spec:
           - GET
           - GET /id
           - POST
+          - Patch /id
           - DELETE
         - partyPrivacyProfile:
           - GET
           - GET /id
           - POST
+          - Patch /id
           - DELETE
         - partyPrivacyProfileSpecification:
           - GET
           - GET /id
           - POST
+          - Patch /id
           - DELETE
       - version: 4
         resources:
