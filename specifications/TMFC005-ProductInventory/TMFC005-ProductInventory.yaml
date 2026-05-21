@@ -35,6 +35,11 @@ spec:
       apiSDO: tmForum
       required: false
       specification:
+      - version: 5
+        resources:
+        - partyRoleManagement:
+          - GET
+          - GET /id
       - version: 4
         resources:
         - PartyRoleManagement:
