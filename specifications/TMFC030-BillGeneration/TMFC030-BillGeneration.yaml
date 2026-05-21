@@ -137,6 +137,9 @@ spec:
           - GET /id
         - customerBill:
           - GET
+          - GET /id
+          - POST
+          - PATCH /id
         - customerBillOnDemand:
           - GET
           - GET /id
