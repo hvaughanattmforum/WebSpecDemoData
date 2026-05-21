@@ -348,7 +348,7 @@ spec:
     name: ProductInventory
     version: 1.1.4
     description: The Product  Inventory component is responsible for storage and exposure of products that are assigned to and used by Parties. This component has functionality that enables creation of inventory items, inventory organization, inventory search or filter, inventory monitoring and tracking, inventory control and inventory auditing. The minimum check to be performed upon inventory item creation or update is for global consistency with related Product Catalog information.
-    publicationDate: 2026-05-11
+    publicationDate: 2026-05-21
     status: production
     functionalBlock: CoreCommerce
     owners:
