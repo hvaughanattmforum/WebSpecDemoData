@@ -215,6 +215,7 @@ spec:
         resources:
         - partyInteraction:
           - GET
+          - GET /id
       - version: 4
         resources:
         - partyInteraction:
