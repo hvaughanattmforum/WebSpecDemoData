@@ -31,6 +31,7 @@ spec:
         resources:
         - partyRole:
           - GET
+          - GET /id
       - version: 4
         resources:
         - partyRole:
