@@ -110,6 +110,7 @@ spec:
         resources:
         - queryUsageConsumption:
           - GET
+          - GET /id
           - POST
       - version: 4
         resources:
