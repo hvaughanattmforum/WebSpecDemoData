@@ -11,6 +11,9 @@ spec:
       specification:
       - version: 5
         resources:
+        - productCatalog:
+          - GET
+          - GET /id
         - category:
           - GET
           - GET /id
