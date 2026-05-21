@@ -270,7 +270,7 @@ spec:
     version: 1.3.0
     description: Lead and Opportunity Management component provides the functionality for lead and opportunity capture, qualification, reporting, and support during the pre-sales stage.
     publicationDate: 2026-05-21
-    status: preview
+    status: production
     functionalBlock: PartyManagement
     owners:
     - email: Redacted
