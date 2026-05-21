@@ -65,7 +65,10 @@ spec:
         resources:
         - partyRole:
           - GET
+          - GET /id
           - POST
+          - PATCH /id
+          - DELETE /id
       - version: 4
         resources:
         - partyRole:
