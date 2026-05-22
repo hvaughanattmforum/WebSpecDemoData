@@ -31,6 +31,7 @@ spec:
         resources:
         - partyRole:
           - GET
+          - GET /id
       - version: 4
         resources:
         - partyRole:
@@ -268,8 +269,8 @@ spec:
     name: LeadAndOpportunityManagement
     version: 1.3.0
     description: Lead and Opportunity Management component provides the functionality for lead and opportunity capture, qualification, reporting, and support during the pre-sales stage.
-    publicationDate: 2023-11-18 00:00:00
-    status: preview
+    publicationDate: 2026-05-21
+    status: production
     functionalBlock: PartyManagement
     owners:
     - email: Redacted
