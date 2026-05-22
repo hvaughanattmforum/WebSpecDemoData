@@ -13,8 +13,10 @@ spec:
         resources:
         - individual:
           - GET
+          - GET /id
         - organization:
           - GET
+          - GET /id
       - version: 4
         resources:
         - individual:
