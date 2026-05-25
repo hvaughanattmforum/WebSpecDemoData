@@ -21,7 +21,7 @@ spec:
         resources:
         - individual:
           - GET
-          - GE T/id
+          - GET /id
         - organization:
           - GET
           - GET /id
