@@ -1,0 +1,85 @@
+@startyaml
+publishedEvents:
+    - id: TMF620
+      
+      
+      name: Product Catalog Management API
+
+      resources:
+      - productSpecificationCreate
+      - productSpecificationDeleteEvent
+      - categoryCreateEvent
+      - categoryDeleteEvent
+      - productOfferingCreateEvent
+      - productOfferingAttributeValueChangeEvent
+      - productOfferingStateChangeEvent
+      - productOfferingDeleteEvent
+      - productOfferingPriceCreateEvent
+      - productOfferingPriceAttributeValueChangeEvent
+      - productOfferingPriceStateChangeEvent
+      - productOfferingPriceDeleteEvent
+      - catalogCreateEvent
+      - catalogDeleteEvent
+      - catalogBatchEvent
+
+    - id: TMF671
+      
+      
+      name: Promotion Management API
+      
+      resources:
+      - promotionCreateEvent
+      - promotionDeleteEvent
+      - promotionAttributeValueChangeEvent
+      - promotionStateChangeEvent
+      - promotionInformationRequiredEvent
+      
+    - id: TMF701
+      
+      
+      name: Process Flow Management API
+
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+
+subscribedEvents:
+    - id: TMF633
+      
+      
+      name: Service Catalog Management
+
+      resources:
+      - serviceSpecificationStateChange
+      - serviceSpecificationAttributeValueChangeEvent
+      - serviceSpecificationCreateEvent
+      - serviceSpecificationDeleteEvent
+      - resourceSpecificationCreateEvent
+      - resourceSpecificationChangeEvent
+      - resourceSpecificationDeleteEvent
+
+    - id: TMF669
+      
+      
+      name: Party Role Management API
+      
+      resources:
+      - partyRoleDeleteEvent
+      
+    - id: TMF632
+      
+      
+      name: Party Management API
+      
+      
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+@endyaml
