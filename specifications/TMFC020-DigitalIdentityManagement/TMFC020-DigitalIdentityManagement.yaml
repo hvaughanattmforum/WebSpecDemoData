@@ -13,16 +13,18 @@ spec:
         resources:
         - individual:
           - GET
+          - GET /id
         - organization:
           - GET
+          - GET /id
       - version: 4
         resources:
         - individual:
           - GET
-          - GET/id
+          - GET /id
         - organization:
           - GET
-          - GET/id
+          - GET /id
     - id: TMF669
       apiSDO: tmForum
       required: true
