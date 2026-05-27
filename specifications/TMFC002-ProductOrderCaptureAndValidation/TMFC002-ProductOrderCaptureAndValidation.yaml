@@ -297,7 +297,7 @@ spec:
           - DELETE
     - id: TMF663
       apiSDO: tmForum
-      required: false
+      required: true
       specification:
       - version: 5
         resources:
