@@ -220,6 +220,34 @@ spec:
         - usage:
           - GET
           - GET /id
+    - id: TMF645
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+      - version: 4
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
     exposedAPIs:
     - id: TMF680
       apiSDO: tmForum
