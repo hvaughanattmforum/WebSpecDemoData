@@ -133,19 +133,16 @@ spec:
           - GET
           - GET /id
           - POST
-          - PATCH
           - DELETE
         - queryProductStock:
           - GET
           - GET /id
           - POST
-          - PATCH
           - DELETE
         - reserveProductStock:
           - GET
           - GET /id
           - POST
-          - PATCH
           - DELETE
         - productStock:
           - GET
@@ -337,11 +334,11 @@ spec:
       name: Quote
       port: 80
       resources:
-      - quoteStateChange
+      - quoteStateChangeEvent
       - quoteCreateEvent
-      - quoteAttributeValueChange
-      - quoteDelete
-      - quoteInformationRequired
+      - quoteAttributeValueChangeEvent
+      - quoteDeleteEvent
+      - quoteInformationRequiredEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF648_QuoteManagement/master/TMF648-QuoteManagement-v4.0.0.swagger.json
     - apiType: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ShoppingCart/hub
@@ -350,8 +347,8 @@ spec:
       port: 80
       resources:
       - shoppingCartCreateEvent
-      - shoppingCartAttributeValueChange
-      - shoppingCartDelete
+      - shoppingCartAttributeValueChangeEvent
+      - shoppingCartDeleteEvent
       specification: https://github.com/tmforum-apis/TMF663_ShoppingCart/blob/master/TMF663-ShoppingCart-v4.0.0.swagger.json
     - apiType: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
@@ -384,7 +381,7 @@ spec:
       name: GeographicAddressManagement
       port: 80
       resources:
-      - geographicAddressValidationStateChange
+      - geographicAddressValidationStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
     - apiType: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentManagementEvent/call-back
@@ -392,8 +389,8 @@ spec:
       name: PaymentManagement
       port: 80
       resources:
-      - paymentCreate
-      - paymentStateChange
+      - paymentCreateEvent
+      - paymentStateChangeEvent
       specification: https://github.com/tmforum-apis/TMF676_PaymentManagement/blob/master/TMF676-Payment-v4.0.0.swagger.json
     - apiType: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceReservationEvent/call-back
