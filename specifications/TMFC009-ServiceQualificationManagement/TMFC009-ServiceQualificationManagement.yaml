@@ -88,6 +88,20 @@ spec:
         - partyRole:
           - GET
           - GET /id
+    - id: TMF672
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - permission:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - permission:
+          - GET
+          - GET /id
     - id: TMF673
       apiSDO: tmForum
       required: false

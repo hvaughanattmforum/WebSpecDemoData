@@ -7,20 +7,21 @@ spec:
     dependentAPIs:
     - id: TMF634
       apiSDO: tmForum
-      required: false
+      required: true
       specification:
       - version: 5
         resources:
         - resourceSpecification:
           - GET
+          - GET /id
       - version: 4
         resources:
         - resourceSpecification:
           - GET
-          - GET/id
+          - GET /id
     - id: TMF639
       apiSDO: tmForum
-      required: false
+      required: true
       specification:
       - version: 4
         resources:
@@ -118,7 +119,7 @@ spec:
     name: ResourceConfigurationandActivation
     version: 1.1.0
     description: The Resource Configuration and Activation component configures and activates resource instances and enables querying of resource instances to acquire the resource activation states and attributes.
-    publicationDate: 2024-11-18 00:00:00
+    publicationDate: 2026-06-02
     status: preview
     functionalBlock: Production
     owners:

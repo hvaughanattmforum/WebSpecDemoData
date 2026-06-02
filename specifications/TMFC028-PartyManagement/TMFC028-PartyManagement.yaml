@@ -61,15 +61,6 @@ spec:
           - PATCH
           - GET
           - GET /id
-    - id: TMF688
-      apiSDO: tmForum
-      required: false
-      specification:
-      - version: 4
-        resources:
-        - event:
-          - GET
-          - GET /id
     exposedAPIs:
     - id: TMF632
       apiSDO: tmForum

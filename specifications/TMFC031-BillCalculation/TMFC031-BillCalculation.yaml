@@ -14,15 +14,18 @@ spec:
         - billingAccount:
           - GET
           - GET /id
-        - billingCycleSpecification:
-          - GET
-          - GET /id
       - version: 4
         resources:
         - BillingAccount:
           - GET
           - GET /id
-        - BillingCycleSpecification:
+    - id: TMF678
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - billingCycle:
           - GET
           - GET /id
     - id: TMF632
