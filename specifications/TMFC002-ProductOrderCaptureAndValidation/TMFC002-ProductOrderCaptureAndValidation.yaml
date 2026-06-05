@@ -329,17 +329,14 @@ spec:
           - GET /id
     publishedEvents:
     - apiType: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Quote/hub
-      implementation: /{{.Release.Name}}-QuoteEvent
-      name: Quote
-      port: 80
+      apiId: TMF648
+      hubResource: /hub
       resources:
       - quoteStateChangeEvent
       - quoteCreateEvent
       - quoteAttributeValueChangeEvent
       - quoteDeleteEvent
       - quoteInformationRequiredEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF648_QuoteManagement/master/TMF648-QuoteManagement-v4.0.0.swagger.json
     - apiType: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ShoppingCart/hub
       implementation: /{{.Release.Name}}-ShoppingCartEvent
