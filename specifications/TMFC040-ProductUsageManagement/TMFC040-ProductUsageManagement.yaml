@@ -99,9 +99,9 @@ spec:
         resources:
         - usage:
           - GET
-          - GET/id
+          - GET /id
           - POST
-          - PATCH/id
+          - PATCH /id
     - id: TMF677
       apiSDO: tmForum
       required: true
@@ -116,7 +116,7 @@ spec:
         resources:
         - queryUsageConsumption:
           - GET
-          - GET/id
+          - GET /id
           - POST
     - id: TMF701
       apiSDO: tmForum
