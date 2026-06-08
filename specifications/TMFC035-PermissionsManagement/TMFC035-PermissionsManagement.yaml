@@ -49,16 +49,16 @@ spec:
         resources:
         - permission:
           - GET
-          - GET/id
+          - GET /id
           - POST
-          - PATCH/id
-          - DELETE/id
+          - PATCH /id
+          - DELETE /id
         - userRole:
           - GET
-          - GET/id
+          - GET /id
           - POST
-          - PATCH/id
-          - DELETE/id
+          - PATCH /id
+          - DELETE /id
     - id: TMF669
       apiSDO: tmForum
       required: true
@@ -75,10 +75,10 @@ spec:
         resources:
         - partyRole:
           - GET
-          - GET/id
+          - GET /id
           - POST
-          - PATCH/id
-          - DELETE/id
+          - PATCH /id
+          - DELETE /id
     publishedEvents:
     - implementation: /{{.Release.Name}}-userrole&permapi
       name: userRole
