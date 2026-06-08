@@ -70,10 +70,11 @@ spec:
         resources:
         - service:
           - GET
+          - GET /id
       - version: 4
         resources:
         - service:
-          - GET / id
+          - GET /id
           - GET
     - id: TMF641
       apiSDO: tmForum
@@ -247,7 +248,7 @@ spec:
     name: ProductOrderDeliveryOrchestrationAndManagement
     version: 2.0.0
     description: This component orchestrates the delivery of Product Orders (status accepted). Based on the level of Product specification information available in the Product Catalog (eg prerequisite links between product specifications, links between product and CFS specifications...) it determines in which order the product specification level order items need to be delivered, and to which CFS (or Resource) specification each ordered product corresponds, and prepares and addresses each related service (or Resource) order to the production system in charge. During the delivery process execution, this component is in charge of the evolution of the status of the product specification level order items, and of the related product items, triggering updates of the related inventories.
-    publicationDate: 2026-05-21 00:00:00
+    publicationDate: 2026-05-21
     status: preview
     functionalBlock: CoreCommerce
     owners:
