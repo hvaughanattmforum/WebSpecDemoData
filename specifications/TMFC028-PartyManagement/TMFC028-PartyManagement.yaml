@@ -84,16 +84,16 @@ spec:
         resources:
         - individual:
           - GET
-          - GET/id
+          - GET /id
           - POST
-          - PATCH/id
-          - DELETE/id
+          - PATCH /id
+          - DELETE /id
         - organization:
           - GET
-          - GET/id
+          - GET /id
           - POST
-          - PATCH/id
-          - DELETE/id
+          - PATCH /id
+          - DELETE /id
     - id: TMF701
       apiSDO: tmForum
       required: false
