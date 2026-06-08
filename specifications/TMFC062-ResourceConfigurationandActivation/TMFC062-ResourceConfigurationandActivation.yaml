@@ -27,7 +27,7 @@ spec:
         resources:
         - resource:
           - GET
-          - GET/id
+          - GET /id
           - POST
           - PATCH /id
           - DELETE /id
