@@ -79,13 +79,13 @@ spec:
         resources:
         - processFlow:
           - GET
-          - GET/id
+          - GET /id
           - POST
-          - DELETE/id
+          - DELETE /id
         - taskFlow:
           - GET
-          - GET/id
-          - PATCH/id
+          - GET /id
+          - PATCH /id
     publishedEvents:
     - implementation: /{{.Release.Name}}-digidemngt
       name: digitalIdentity
