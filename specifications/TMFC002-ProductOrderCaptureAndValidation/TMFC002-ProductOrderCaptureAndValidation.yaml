@@ -202,7 +202,7 @@ spec:
       - version: 4
         resources:
         - payment:
-          - GET / id
+          - GET /id
           - GET
     - id: TMF683
       apiSDO: tmForum
@@ -216,7 +216,7 @@ spec:
       - version: 4
         resources:
         - partyInteraction:
-          - GET / id
+          - GET /id
           - GET
     - id: TMF638
       apiSDO: tmForum
@@ -226,10 +226,11 @@ spec:
         resources:
         - service:
           - GET
+          - GET /id
       - version: 4
         resources:
         - service:
-          - GET / id
+          - GET /id
           - GET
     - id: TMF639
       apiSDO: tmForum
@@ -238,7 +239,7 @@ spec:
       - version: 4
         resources:
         - resource:
-          - GET / id
+          - GET /id
           - GET
     - id: TMF701
       apiSDO: tmForum

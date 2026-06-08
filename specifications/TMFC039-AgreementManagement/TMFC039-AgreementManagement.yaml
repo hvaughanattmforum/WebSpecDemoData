@@ -47,16 +47,18 @@ spec:
         resources:
         - productOffering:
           - GET
+          - GET /id
         - productOfferingPrice:
           - GET
+          - GET /id
       - version: 4
         resources:
         - productOffering:
           - GET
-          - GET/id
+          - GET /id
         - productOfferingPrice:
           - GET
-          - GET/id
+          - GET /id
     - id: TMF637
       apiSDO: tmForum
       required: false
@@ -65,11 +67,12 @@ spec:
         resources:
         - product:
           - GET
+          - GET /id
       - version: 4
         resources:
         - product:
           - GET
-          - GET/id
+          - GET /id
     - id: TMF667
       apiSDO: tmForum
       required: false
@@ -78,7 +81,7 @@ spec:
         resources:
         - document:
           - GET
-          - GET/id
+          - GET /id
     - id: TMF701
       apiSDO: tmForum
       required: false
@@ -103,16 +106,16 @@ spec:
         resources:
         - agreement:
           - GET
-          - GET/id
+          - GET /id
           - POST
-          - PATCH/id
-          - DELETE/id
+          - PATCH /id
+          - DELETE /id
         - agreementSpecification:
           - GET
-          - GET/id
+          - GET /id
           - POST
-          - PATCH/id
-          - DELETE/id
+          - PATCH /id
+          - DELETE /id
     - id: TMF701
       apiSDO: tmForum
       required: false
