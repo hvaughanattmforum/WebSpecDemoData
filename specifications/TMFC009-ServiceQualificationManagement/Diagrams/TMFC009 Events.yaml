@@ -1,0 +1,14 @@
+@startyaml
+publishedEvents:
+    - id: TMF645
+      name: Service Qualification Management API
+      resources:
+      - checkServiceQualificationCreateEvent
+      - checkServiceQualificationStateChangeEvent
+      - checkServiceQualificationInformationRequiredEvent
+      - checkServiceQualificationAttributeValueChangeEvent
+      - checkServiceQualificationDeleteEvent
+      - queryServiceQualificationStateChangeEvent
+      - queryServiceQualificationCreateEvent
+      - queryServiceQualificationDeleteEvent
+@endyaml

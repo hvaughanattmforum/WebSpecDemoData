@@ -1,0 +1,31 @@
+@startyaml
+exposedAPIs:
+    - id: TMF680
+      name: Recommendation Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - queryProductRecommendation:
+          - GET
+          - GET /id
+          - POST
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
+
+@endyaml

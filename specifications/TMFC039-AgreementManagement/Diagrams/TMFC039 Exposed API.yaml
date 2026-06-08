@@ -1,0 +1,39 @@
+@startyaml
+exposedAPIs:
+    - id: TMF651
+      name: Agreement Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - agreement:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
+        - agreementSpecification:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
+
+@endyaml

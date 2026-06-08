@@ -1,0 +1,92 @@
+@startyaml
+exposedAPIs:
+    - id: TMF628
+      name: Performance Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - measurementCollectionJob:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - onDemandCollection:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - performanceIndicatorGroupSpecification:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - performanceIndicatorSpecification:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - trackingRecord:
+          - GET
+          - GET /id
+    - id: TMF649
+      name: Performance Threshold Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - threshold:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - thresholdJob:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+    - id: TMF642
+      name: Alarm Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - alarm:
+          - GET
+          - GET /id
+          - POST
+      - version: 4
+        resources:
+        - alarm:
+          - POST
+          - GET
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
+
+@endyaml

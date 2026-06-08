@@ -1,0 +1,16 @@
+@startyaml
+publishedEvents:
+    - id: TMF720
+      name: Digital Identity Management API
+      resources:
+      - DigitalIdentityCreateEvent
+      - DigitalIdentityStateChangeEvent
+      - DigitalIdentityDeleteEvent
+      - DigitalIdentityAttributeValueChangeEvent
+subscribedEvents:
+    - id: TMF669
+      name: Party Role Management API
+      resources:
+      - UserRoleCreationNotification
+      - UserRoleChangeNotification
+@endyaml
