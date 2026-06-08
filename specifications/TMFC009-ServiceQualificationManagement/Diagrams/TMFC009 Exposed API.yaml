@@ -1,0 +1,37 @@
+@startyaml
+exposedAPIs:
+    - id: TMF645
+      name: Service Qualification Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+
+@endyaml

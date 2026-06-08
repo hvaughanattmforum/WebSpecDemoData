@@ -1,0 +1,120 @@
+@startyaml
+dependentAPIs:
+    - id: TMF634
+      name: Resource Catalog Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - exportJob:
+          - GET
+          - POST
+          - DELETE
+        - importJob:
+          - GET
+          - POST
+          - DELETE
+        - resourceCandidate:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - resourceCatalog:
+          - GET
+          - GET /id
+        - resourceCategory:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - resourceSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - resourceCatalog:
+          - GET
+          - GET /id
+        - resourceCategory:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - resourceSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - resourceCandidate:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - exportJob:
+          - GET
+          - POST
+          - DELETE
+        - importJob:
+          - GET
+          - POST
+          - DELETE
+    - id: TMF669
+      name: Party Role Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+    - id: TMF632
+      name: Party Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organisation:
+          - GET
+          - GET /id
+    - id: TMF662
+      name: Entity Catalog Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - entitySpecification:
+          - GET
+          - GET /id
+        - associationSpecification:
+          - GET
+          - GET /id
+
+@endyaml
