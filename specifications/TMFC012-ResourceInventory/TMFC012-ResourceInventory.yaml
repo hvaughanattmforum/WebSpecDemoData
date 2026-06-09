@@ -288,7 +288,7 @@ spec:
     name: ResourceInventory
     version: 2.3.0
     description: The Resource Inventory component owns accounting for resources (all inputs - including stock, parts, assets, production components etc.) that are owned and/or held for allocation and/or use by the organization. The Resource Inventory component has functionality that includes inventory item creation, inventory organization, inventory search or filter, inventory monitoring and tracking, inventory control (organization, re-stock management etc.) and inventory auditing. The minimum check to be performed at inventory item creation or update is for global consistency with related Resource Catalog information.
-    publicationDate: 2026-06-08 00:00:00
+    publicationDate: 2026-06-08
     status: production
     functionalBlock: Production
     owners:
