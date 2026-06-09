@@ -1,0 +1,116 @@
+@startyaml
+exposedAPIs:
+    - id: TMF642
+      name: Alarm Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - ackAlarm:
+          - GET
+          - GET /id
+          - POST
+        - alarm:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - clearAlarm:
+          - GET
+          - GET /id
+          - POST
+        - groupAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unAckAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unGroupAlarm:
+          - GET
+          - GET /id
+          - POST
+        - commentAlarm:
+          - GET
+          - GET /id
+          - POST
+      - version: 4
+        resources:
+        - alarm:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - ackAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unAckAlarm:
+          - GET
+          - GET /id
+          - POST
+        - clearAlarm:
+          - GET
+          - GET /id
+          - POST
+        - commentAlarmlarm:
+          - GET
+          - GET /id
+          - POST
+        - groupAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unGroupAlarm:
+          - GET
+          - GET /id
+          - POST
+    - id: TMF656
+      name: Service Problem Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - problemGroup:
+          - POST
+        - problemUngroup:
+          - POST
+        - serviceProblem:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+      - version: 4
+        resources:
+        - serviceProblem:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - problemGroup:
+          - POST
+        - problemUnGroup:
+          - POST
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
+
+@endyaml

@@ -6,111 +6,150 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF632
-      required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF666
-      required: false
-      resources:
-      - partyAccount:
-        - GET
-        - GET /id
-      - billingAccount:
-        - GET
-        - GET /id
-      - settlementAccount:
-        - GET
-        - GET /id
-      - financialAccount:
-        - GET
-        - GET /id
-      - billingCycleSpecification:
-        - GET
-        - GET /id
-      - billFormat:
-        - GET
-        - GET /id
-      - billPresentationMedia:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - billFormat:
+          - GET
+          - GET /id
+        - billPresentationMedia:
+          - GET
+          - GET /id
+        - billingAccount:
+          - GET
+          - GET /id
+        - billingCycleSpecification:
+          - GET
+          - GET /id
+        - financialAccount:
+          - GET
+          - GET /id
+        - partyAccount:
+          - GET
+          - GET /id
+        - settlementAccount:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyAccount:
+          - GET
+          - GET /id
+        - billingAccount:
+          - GET
+          - GET /id
+        - settlementAccount:
+          - GET
+          - GET /id
+        - financialAccount:
+          - GET
+          - GET /id
+        - billingCycleSpecification:
+          - GET
+          - GET /id
+        - billFormat:
+          - GET
+          - GET /id
+        - billPresentationMedia:
+          - GET
+          - GET /id
     - id: TMF673
-      required: false
-      resources:
-      - geographicAddressValidation:
-        - GET
-        - GET /id
-      - geographicAddress:
-        - GET
-        - GET /id
-      - geographicSubAddress:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicAddressValidation:
+          - GET
+          - GET /id
+        - geographicAddress:
+          - GET
+          - GET /id
+        - geographicSubAddress:
+          - GET
+          - GET /id
     - id: TMF674
-      required: false
-      resources:
-      - geographicSite:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicSite:
+          - GET
+          - GET /id
     - id: TMF675
-      required: false
-      resources:
-      - geographicLocation:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicLocation:
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF670
-      required: true
-      resources:
-      - paymentMethod:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - paymentMethod:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF676
+      apiSDO: tmForum
       required: true
-      resources:
-      - payment:
-        - GET
-        - GET /id
-        - POST
-      - refund:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        resources:
+        - payment:
+          - GET
+          - GET /id
+          - POST
+        - refund:
+          - GET
+          - GET /id
+          - POST
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentManagement/hub
       implementation: /{{.Release.Name}}-PaymentManagement
@@ -157,11 +196,10 @@ spec:
   componentMetadata:
     id: TMFC029
     name: PaymentManagement
-    version: 1.2.2
-    description: Payment Management component manages methods used by parties to make payments. It also administers payment plans, 
-      handles payments, assigns payments against bills, settlements, and other objects requiring payments.
-    publicationDate: 2024-11-18 00:00:00
-    status: specified
+    version: 1.3.2
+    description: Payment Management component manages methods used by parties to make payments. It also administers payment plans, handles payments, assigns payments against bills, settlements, and other objects requiring payments.
+    publicationDate: 2024-11-18
+    status: production
     functionalBlock: PartyManagement
     owners:
     - email: Redacted

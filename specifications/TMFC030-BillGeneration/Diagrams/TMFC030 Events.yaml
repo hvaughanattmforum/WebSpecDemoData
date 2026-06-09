@@ -1,0 +1,9 @@
+@startyaml
+subscribedEvents:
+    - id: TMF669
+      name: Party Role Management API
+      resources:
+      - partyRoleAttributeValueChangeEvent
+      - partyRoleStateChangeEvent
+      - partyRoleDeleteEvent
+@endyaml

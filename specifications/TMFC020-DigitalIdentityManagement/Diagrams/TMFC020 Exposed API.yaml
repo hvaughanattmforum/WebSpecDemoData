@@ -1,0 +1,39 @@
+@startyaml
+exposedAPIs:
+    - id: TMF720
+      name: Digital Identity Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - digitalIdentity:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
+        - roles:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET/id
+          - POST
+          - DELETE/id
+        - taskFlow:
+          - GET
+          - GET/id
+          - PATCH/id
+
+@endyaml

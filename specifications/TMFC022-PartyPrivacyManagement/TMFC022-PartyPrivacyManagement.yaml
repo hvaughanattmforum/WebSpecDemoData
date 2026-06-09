@@ -6,92 +6,132 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF620
-      required: false
-      resources:
-      - productOffering:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - productOffering:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - productOffering:
+          - GET
+          - GET /id
     - id: TMF632
-      required: true
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF667
+      apiSDO: tmForum
       required: false
-      resources:
-      - document:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        resources:
+        - document:
+          - GET
+          - GET /id
+          - POST
     - id: TMF669
-      required: true
-      resources:
-      - partyRole:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF644
+      apiSDO: tmForum
       required: true
-      resources:
-      - partyPrivacyProfileSpecification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE
-      - partyPrivacyProfile:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE
-      - partyPrivacyAgreement:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        resources:
+        - partyPrivacyAgreement:
+          - GET
+          - GET /id
+          - POST
+          - Patch /id
+          - DELETE
+        - partyPrivacyProfile:
+          - GET
+          - GET /id
+          - POST
+          - Patch /id
+          - DELETE
+        - partyPrivacyProfileSpecification:
+          - GET
+          - GET /id
+          - POST
+          - Patch /id
+          - DELETE
+      - version: 4
+        resources:
+        - partyPrivacyProfileSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE
+        - partyPrivacyProfile:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE
+        - partyPrivacyAgreement:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - GET
-        - GET /id
-        - POST
-        - DELETE /id
-      - taskFlow:
-        - GET
-        - GET /id
-        - PATCH /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
     publishedEvents: []
     subscribedEvents: []
   componentMetadata:
     id: TMFC022
     name: PartyPrivacyManagement
-    version: 1.1.0
-    description: The Party Privacy Management component defines the privacy policy rules established by the CSP 
-      (according to applicable regulations such as GDPR in Europe); applies these rules to each Party interacting 
-      with the CSP and to all of their personal information and personally identifiable information; and registers 
-      explicit opt-in and opt-out given by Parties regarding the use of their personal information for dedicated purposes, 
-      such as marketing.
-    publicationDate: 2024-08-08
-    status: specified
+    version: 1.2.0
+    description: The Party Privacy Management component defines the privacy policy rules established by the CSP (according to applicable regulations such as GDPR in Europe); applies these rules to each Party interacting with the CSP and to all of their personal information and personally identifiable information; and registers explicit opt-in and opt-out given by Parties regarding the use of their personal information for dedicated purposes, such as marketing.
+    publicationDate: 2026-05-21
+    status: preview
     functionalBlock: PartyManagement
     owners:
     - email: components@tmforum.org
