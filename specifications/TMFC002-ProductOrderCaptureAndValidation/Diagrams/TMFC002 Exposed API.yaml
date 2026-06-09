@@ -16,7 +16,7 @@ exposedAPIs:
     - id: TMF663
       name: Shopping Cart Management API
       apiSDO: tmForum
-      required: false
+      required: true
       specification:
       - version: 5
         resources:
@@ -50,4 +50,5 @@ exposedAPIs:
           - PATCH
           - GET
           - GET /id
-@endyaml          
+
+@endyaml

@@ -109,7 +109,7 @@ dependentAPIs:
           - GET
           - GET /id
     - id: TMF716
-      name: Resource Reservation Management API
+      name: Resource Reservation
       apiSDO: tmForum
       required: false
       specification:
@@ -136,19 +136,16 @@ dependentAPIs:
           - GET
           - GET /id
           - POST
-          - PATCH
           - DELETE
         - queryProductStock:
           - GET
           - GET /id
           - POST
-          - PATCH
           - DELETE
         - reserveProductStock:
           - GET
           - GET /id
           - POST
-          - PATCH
           - DELETE
         - productStock:
           - GET
@@ -223,6 +220,7 @@ dependentAPIs:
         resources:
         - partyInteraction:
           - GET
+          - GET /id
       - version: 4
         resources:
         - partyInteraction:
