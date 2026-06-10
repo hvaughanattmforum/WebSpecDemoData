@@ -38,7 +38,7 @@ spec:
         resources:
         - partyRole:
           - GET
-          - GET/id
+          - GET /id
     - id: TMF620
       apiSDO: tmForum
       required: false
