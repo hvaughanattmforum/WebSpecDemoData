@@ -224,9 +224,9 @@ spec:
         resources:
         - productOfferingQualification:
           - GET
-          - GET/id
+          - GET /id
           - POST
-          - PATCH/id
+          - PATCH /id
           - DELETE
     - id: TMF760
       apiSDO: tmForum
