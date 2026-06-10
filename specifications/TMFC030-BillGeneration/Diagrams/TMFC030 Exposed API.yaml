@@ -1,0 +1,53 @@
+@startyaml
+exposedAPIs:
+    - id: TMF678
+      name: Customer Bill Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - billCycle:
+          - GET
+          - GET /id
+        - customerBill:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+        - customerBillOnDemand:
+          - GET
+          - GET /id
+          - POST
+      - version: 4
+        resources:
+        - customerBillOnDemand:
+          - GET
+          - POST
+          - GET /id
+        - customerBill:
+          - GET
+          - GET / id
+          - POST
+          - PATCH /id
+        - billCycle:
+          - GET
+          - GET /id
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
+
+@endyaml

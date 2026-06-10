@@ -1,0 +1,77 @@
+@startyaml
+exposedAPIs:
+    - id: TMF666
+      name: Account Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - billFormat:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - billPresentationMedia:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - billingAccount:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - billingCycleSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+      - version: 4
+        resources:
+        - billingAccount:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - billingCycleSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - billFormat:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - billPresentationMedia:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
+
+@endyaml

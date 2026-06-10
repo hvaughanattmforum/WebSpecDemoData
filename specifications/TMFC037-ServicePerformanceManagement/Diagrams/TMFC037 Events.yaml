@@ -1,0 +1,71 @@
+@startyaml
+publishedEvents:
+    - id: TMF701
+      name: Process Flow Management API
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+    - id: TMF642
+      name: Alarm Management API
+      resources:
+      - alarmStateChange**
+      - alarmCreateEvent**
+      - alarmClearEvent**
+      - alarmAckEvent**
+    - id: TMF628
+      name: Performance Management API
+      resources:
+      - measurementCollectionJobCreateEvent
+      - measurementCollectionJobExecutionStateChangeEvent
+      - measurementCollectionJobDeleteEvent
+      - measurementCollectionJobAttributeValueChangeEvent
+      - measurementCollectionJobFilesReadyEvent
+      - measurementCollectionJobFilesPreparationErrorEvent
+      - onDemandCollectionCreateEvent
+      - onDemandCollectionExecutionStateChangeEvent
+      - onDemandCollectionDeleteEvent
+      - onDemandCollectionAttributeValueChangeEvent
+      - onDemandCollectionFilesReadyEvent
+      - onDemandCollectionFilesPreparationErrorEvent
+      - thresholdCreateNotification
+      - thresholdChangeNotification
+      - thresholdRuleCreateNotification
+      - thresholdRuleChangedNotification
+      - thresholdJobCreateNotification
+      - thresholdJobChangedNotification
+      - thresholdJobSuspendNotification
+      - thresholdJobResumeNotification
+subscribedEvents:
+    - id: TMF633
+      name: Service Catalog Management API
+      resources:
+      - serviceSpecificationChangeEvent
+    - id: TMF638
+      name: Service Inventory Management API
+      resources:
+      - serviceCreateEvent
+      - serviceAttributeValueChangeEvent
+      - serviceStateChangeEvent
+      - serviceDeleteEvent
+    - id: TMF639
+      name: Resource Inventory Management API
+      resources:
+      - resourceCreateEvent
+      - resourceAttributeValueChangeEvent
+      - resourceStateChangeEvent
+      - resourceDeleteEvent
+    - id: TMF701
+      name: Process Flow Management API
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+@endyaml

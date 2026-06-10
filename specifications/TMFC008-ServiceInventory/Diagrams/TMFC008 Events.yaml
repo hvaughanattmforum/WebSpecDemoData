@@ -1,0 +1,59 @@
+@startyaml
+publishedEvents:
+    - id: TMF638
+      name: Service Inventory Management API
+      resources:
+      - serviceCreateEvent
+      - serviceAttributeValueChangeEvent
+      - serviceStateChangeEvent
+      - serviceDeleteEvent
+    - id: TMF701
+      name: Process Flow Management API
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+subscribedEvents:
+    - id: TMF639
+      name: Resource Inventory Management API
+      resources:
+      - resourceDeleteEvent
+    - id: TMF638
+      name: Service Inventory Management API
+      resources:
+      - serviceCreateEvent
+      - serviceAttributeValueChangeEvent
+      - serviceStateChangeEvent
+      - serviceDeleteEvent
+    - id: TMF633
+      name: Service Catalog Management API
+      resources:
+      - serviceSpecificationDeleteEvent
+    - id: TMF669
+      name: Party Role Management API
+      resources:
+      - partyRoleDeleteEvent
+    - id: TMF674
+      name: Geographic Site Management API
+      resources:
+      - geographicSiteDeleteEvent
+    - id: TMF675
+      name: Geographic Location Management API
+      resources:
+      - geographicLocationDeleteEvent
+    - id: TMF632
+      name: Party Management API
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+    - id: TMF641
+      name: Service Ordering Management API
+      resources:
+      - serviceOrderDeleteEvent
+@endyaml

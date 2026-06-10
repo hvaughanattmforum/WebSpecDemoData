@@ -1,0 +1,17 @@
+@startyaml
+publishedEvents:
+    - id: TMF651
+      name: Agreement Management API
+      resources:
+      - agreementCreateEvent
+      - agreementAttributeValueChangeEvent
+      - agreementStateChangeEvent
+      - agreementSpecificationCreateEvent
+      - agreementSpecificationAttributeValueChangeEvent
+subscribedEvents:
+    - id: TMF632
+      name: Party Management API
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+@endyaml

@@ -1,0 +1,53 @@
+@startyaml
+exposedAPIs:
+    - id: TMF632
+      name: Party Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - organization:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - Delete /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
+        - organization:
+          - GET
+          - GET/id
+          - POST
+          - PATCH/id
+          - DELETE/id
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET/id
+          - POST
+          - DELETE/id
+        - taskFlow:
+          - GET
+          - GET/id
+          - PATCH/id
+
+@endyaml

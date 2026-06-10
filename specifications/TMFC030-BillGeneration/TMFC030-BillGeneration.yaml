@@ -6,118 +6,173 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF666
-      required: true
-      resources:
-      - billingAccount:
-        - GET
-        - GET /id
-      - billingCycleSpecification:
-        - GET
-        - GET /id
-      - billFormat:
-        - GET
-        - GET /id
-      - billPresentationMedia:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - billFormat:
+          - GET
+          - GET /id
+        - billPresentationMedia:
+          - GET
+          - GET /id
+        - billingAccount:
+          - GET
+          - GET /id
+        - billingCycleSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - billingAccount:
+          - GET
+          - GET /id
+        - billingCycleSpecification:
+          - GET
+          - GET /id
+        - billFormat:
+          - GET
+          - GET /id
+        - billPresentationMedia:
+          - GET
+          - GET /id
     - id: TMF632
-      required: true
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF676
-      required: false
-      resources:
-      - payment:
-        - GET
-        - GET /id
-        - POST
-      - refund:
-        - GET
-        - GET /id
-        - POST
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - payment:
+          - GET
+          - GET /id
+          - POST
+        - refund:
+          - GET
+          - GET /id
+          - POST
     - id: TMF667
-      required: false
-      resources:
-      - document:
-        - GET
-        - GET /id
-        - POST
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - document:
+          - GET
+          - GET /id
+          - POST
     - id: TMF637
-      required: false
-      resources:
-      - product:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - product:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - product:
+          - GET
+          - GET /id
     - id: TMF669
+      apiSDO: tmForum
       required: true
-      resources:
-      - PartyRole:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - PartyRole:
+          - GET
+          - GET /id
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - PATCH
-      - taskFlow:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
+        - taskFlow:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
     exposedAPIs:
     - id: TMF678
+      apiSDO: tmForum
       required: true
-      resources:
-      - customerBillOnDemand:
-        - GET
-        - POST
-        - GET /id
-      - customerBill:
-        - GET
-        - GET / id
-        - POST
-        - PATCH /id
-      - billCycle:
-        - GET
-        - GET /id
-      version: 4.0
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        resources:
+        - billCycle:
+          - GET
+          - GET /id
+        - customerBill:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+        - customerBillOnDemand:
+          - GET
+          - GET /id
+          - POST
+      - version: 4
+        resources:
+        - customerBillOnDemand:
+          - GET
+          - POST
+          - GET /id
+        - customerBill:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+        - billCycle:
+          - GET
+          - GET /id
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - GET
-        - GET /id
-        - POST
-        - DELETE /id
-      - taskFlow:
-        - GET
-        - GET /id
-        - PATCH /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
     publishedEvents: []
     subscribedEvents:
     - name: partyRoleManagement
@@ -131,11 +186,10 @@ spec:
   componentMetadata:
     id: TMFC030
     name: BillGenerationManagement
-    version: 2.0.0
-    description: The Bill Generation component is responsible for Party invoice management. 
-      It addresses the invoice formatting, presentation and dispatching via the appropriate means of communication.
-    publicationDate: 2024-12-03
-    status: specified
+    version: 2.1.0
+    description: The Bill Generation component is responsible for Party invoice management. It addresses the invoice formatting, presentation and dispatching via the appropriate means of communication.
+    publicationDate: 2026-05-21
+    status: preview
     functionalBlock: PartyManagement
     owners:
     - email: Redacted

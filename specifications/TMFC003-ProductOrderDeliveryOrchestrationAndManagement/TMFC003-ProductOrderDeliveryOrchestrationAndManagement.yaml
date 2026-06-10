@@ -6,131 +6,183 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF620
-      required: true
-      resources:
-      - productSpecification:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - productSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - productSpecification:
+          - GET
+          - GET /id
     - id: TMF622
-      required: true
-      resources:
-      - productOrder:
-        - GET /id
-        - PATCH
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - productOrder:
+          - GET /id
+          - PATCH
+      - version: 4
+        resources:
+        - productOrder:
+          - GET /id
+          - PATCH
     - id: TMF637
-      required: true
-      resources:
-      - product:
-        - POST
-        - GET
-        - GET /id
-        - PATCH
-        - DELETE
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - product:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - product:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
+          - DELETE
     - id: TMF633
-      required: false
-      resources:
-      - serviceSpecification:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - serviceSpecification:
+          - GET
+          - GET /id
     - id: TMF638
-      required: false
-      resources:
-      - service:
-        - GET / id
-        - GET
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - service:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - service:
+          - GET /id
+          - GET
     - id: TMF641
+      apiSDO: tmForum
       required: true
-      resources:
-      - serviceOrder:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - cancelServiceOrder:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        resources:
+        - serviceOrder:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - cancelServiceOrder:
+          - GET
+          - GET /id
+          - POST
     - id: TMF634
-      required: false
-      resources:
-      - resourceSpecification:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
     - id: TMF639
-      required: false
-      resources:
-      - resource:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET
+          - GET /id
     - id: TMF652
-      required: false
-      resources:
-      - resourceOrder:
-        - GET /id
-        - POST
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resourceOrder:
+          - GET /id
+          - POST
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - GET
-        - GET /id
-        - POST
-        - DELETE /id
-      - taskFlow:
-        - GET
-        - GET /id
-        - PATCH /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
     exposedAPIs:
     - id: TMF622
+      apiSDO: tmForum
       required: true
-      resources:
-      - productOrder:
-        - POST
-        - GET
-        - GET /id
-        - PATCH
-        - DELETE
-      - cancelProductOrder:
-        - POST
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        resources:
+        - cancelProductOrder:
+          - GET
+          - GET /id
+          - POST
+        - productOrder:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - productOrder:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
+          - DELETE
+        - cancelProductOrder:
+          - POST
+          - GET
+          - GET /id
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrder/hub
       implementation: /{{.Release.Name}}-ProductOrderEvent
@@ -146,7 +198,6 @@ spec:
       - cancelProductOrderStateChange
       - cancelProductOrderInformationRequired
       specification: https://github.com/tmforum-apis/TMF622_ProductOrder/blob/master/TMF622-ProductOrder-v4.0.0.swagger.json
-   
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
@@ -164,7 +215,6 @@ spec:
       specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
       apiType: openapi
     subscribedEvents:
-
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/call-back
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
       implementation: /{{.Release.Name}}-serviceOrderingManagementEvent
@@ -196,17 +246,10 @@ spec:
   componentMetadata:
     id: TMFC003
     name: ProductOrderDeliveryOrchestrationAndManagement
-    version: 1.1.1
-    description: 'This component orchestrates the delivery of Product Orders (status accepted). 
-      Based on the level of Product specification information available in the Product Catalog 
-      (eg prerequisite links between product specifications, links between product and CFS specifications...) 
-      it determines in which order the product specification level order items need to be delivered, 
-      and to which CFS (or Resource) specification each ordered product corresponds, 
-      and prepares and addresses each related service (or Resource) order to the production system in charge. 
-      During the delivery process execution, this component is in charge of the evolution of the status of 
-      the product specification level order items, and of the related product items, triggering updates of the related inventories.'
-    publicationDate: 2023-08-18 00:00:00
-    status: specified
+    version: 2.0.0
+    description: This component orchestrates the delivery of Product Orders (status accepted). Based on the level of Product specification information available in the Product Catalog (eg prerequisite links between product specifications, links between product and CFS specifications...) it determines in which order the product specification level order items need to be delivered, and to which CFS (or Resource) specification each ordered product corresponds, and prepares and addresses each related service (or Resource) order to the production system in charge. During the delivery process execution, this component is in charge of the evolution of the status of the product specification level order items, and of the related product items, triggering updates of the related inventories.
+    publicationDate: 2026-05-21
+    status: preview
     functionalBlock: CoreCommerce
     owners:
     - email: Redacted
@@ -221,22 +264,15 @@ spec:
     - 1.3.3.12|Customer_Order_Fulfilment|v23.0
     - 1.3.3.12.1|Manage_Customer_Order_Fallout|v23.0
     - 1.3.3.12.1|Manage_Customer_Order_Delivery|v23.0
-    #- 1.3.3.9|Customer_Order_Orchestration|v23.0
-    #- 1.2.9|Product_Offering_Purchasing|v23.0
-    #- 1.2.9.5|Complete_Product_Offering_Purchase|v23.0
     - 1.3.3.15|Manage_Customer_Order_Completion|v23.0
     - 1.3.3.16|Manage Customer_Order_Management_Reporting|v23.0
     - 1.3.3.17|Manage_Customer_Order_Closure|v23.0
-
     - 1.2.27.2|Manage Product_Order_Fulfilment|v23.0
-    - 1.2.27.3|Manage Product_Order_Delivery|v23.0       
+    - 1.2.27.3|Manage Product_Order_Delivery|v23.0
     - 1.2.27.4|Manage Product_Order_Cancellation|v23.0
     - 1.2.27.5|Manage Product_Order_Management_Reports|v23.0
-
     - 1.4.5|Service_Configuration_&_Activation|v23.0
     - 1.4.5.6|Issue_Service_Order|v23.0
-
-
     - 1.5.6|Resource_Provisioning|v23.0
     - 1.5.6.7|Issue_Resource_Order|v23.0
     - 1.6.8|Business_Partner_Order_Managemenrt|v23.0
@@ -263,24 +299,15 @@ spec:
     - 214|Customer_Order_Orchestration|v23.0
     - 215|Retro-active_order_orchestration|v23.0
     - 217Customer_Order_Establishment_Tracking|v23.0
-
-
-    #- 342|Mass_Service/product_pre-activation|v23.0
     - 716|Order_Data_Enrichment|v23.0
     - 716|Order-Data_Enrichment|v23.0
     - 717|Calculated-Order-Data_Enrichment|v23.0
     - 718|Customer_Order_Validation|v23.0
     - 719|Customer_Order_Storage|v23.0
     - 720|Customer_Order_Searching|v23.0
-
     - 756|Fallout_Rule_Based_Error_Correction|v23.0
     - 1070|Orchestration_Customer_Order_Error_Resolution|v23.0
     - 1202|Delivery_Items_Identification|v23.0
     - 1203|Order_Preparation|v23.0
     - 1325|Customer_Order_Distribution|v23.0
-
-    #- 723|Customer_Order_Item_Decomposition|v23.0
-    #- 743|Number_Portability_Orchestration|v23.0
-
     SIDs:
-    #- Customer_Domain|Customer_Product_Order_ABE|CustomerProductOrder|v25.0/

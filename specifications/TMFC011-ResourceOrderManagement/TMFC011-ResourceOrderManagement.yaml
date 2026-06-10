@@ -6,139 +6,167 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF702
-      required: false
-      resources:
-      - resource:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - monitor:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - monitor:
+          - GET
+          - GET /id
     - id: TMF685
-      required: false
-      resources:
-      - resourcePool:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - availabilityCheck:
-        - GET
-        - GET /id
-      version: 5
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - resourcePool:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - availabilityCheck:
+          - GET
+          - GET /id
     - id: TMF634
-      required: true
-      resources:
-      - resourceSpecification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF639
+      apiSDO: tmForum
       required: true
-      resources:
-      - resource:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF664
-      required: false
-      resources:
-      - resourceFunction:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resourceFunction:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF632
-      required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF646
-      required: false
-      resources:
-      - workOrder:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - workOrder:
+          - GET
+          - GET /id
     - id: TMF673
-      required: false
-      resources:
-      - geographicAddress:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicAddress:
+          - GET
+          - GET /id
     - id: TMF674
-      required: false
-      resources:
-      - geographicSite:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicSite:
+          - GET
+          - GET /id
     - id: TMF675
-      required: false
-      resources:
-      - geographicLocation:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicLocation:
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF652
+      apiSDO: tmForum
       required: true
-      resources:
-      - resourceOrder:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - cancelResourceOrder:
-        - GET
-        - GET /id
-        - POST
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        resources:
+        - resourceOrder:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - cancelResourceOrder:
+          - GET
+          - GET /id
+          - POST
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/resourceOrderingManagement/hub
       implementation: /{{.Release.Name}}-ResourceOrderingManagementEvent
@@ -204,13 +232,10 @@ spec:
   componentMetadata:
     id: TMFC011
     name: ResourceOrderManagement
-    version: 1.2.0
-    description: The Resource Order Management Component manages the end-to-end lifecycle of a resource  order request. 
-      This includes validating resource availability as well as the resource order request. 
-      Other functionality includes resource order assurance,  resource order decomposition and resource order tracking, 
-      along with orchestrating  activation and the test and turn-up processes.
-    publicationDate: null
-    status: Pre-production
+    version: 1.3.0
+    description: The Resource Order Management Component manages the end-to-end lifecycle of a resource  order request. This includes validating resource availability as well as the resource order request. Other functionality includes resource order assurance,  resource order decomposition and resource order tracking, along with orchestrating  activation and the test and turn-up processes.
+    publicationDate: 2026-06-02
+    status: preview
     functionalBlock: Production
     owners:
     - email: Redacted

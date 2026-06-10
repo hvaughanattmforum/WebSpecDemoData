@@ -6,138 +6,161 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF632
-      required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF669
-      required: false
-      resources:
-      - partyRole:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
     - id: TMF646
+      apiSDO: tmForum
       required: true
-      resources:
-      - appointment:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      - searchTimeSlot:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 4
+        resources:
+        - appointment:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - searchTimeSlot:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - GET
-        - GET /id
-        - POST
-        - DELETE
-      - taskFlow:
-        - GET
-        - GET /id
-        - PATCH
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH
     - id: TMF688
-      required: false
-      resources:
-      - event:
-        - GET
-        - GET /id
-      version: 4.0
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - event:
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF713
-      required: true
-      resources:
-      - work:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - workSpecification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - work:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - workSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     - id: TMF697
-      required: true
-      resources:
-      - workOrder:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      - cancelWorkOrder:
-        - GET
-        - GET /id
-        - POST
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - workOrder:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - cancelWorkOrder:
+          - GET
+          - GET /id
+          - POST
     - id: TMF714
-      required: true
-      resources:
-      - checkWorkQualification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE
-      - queryWorkQualification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH /id
-        - DELETE /id
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - checkWorkQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE
+        - queryWorkQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
     - id: TMF701
-      required: true
-      resources:
-      - processFlow:
-        - GET
-        - GET /id
-        - POST
-        - DELETE
-      - taskFlow:
-        - GET
-        - GET /id
-        - PATCH /id
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
     - id: TMF688
-      required: true
-      resources:
-      - listener:
-        - POST
-        - DELETE
-      - hub:
-        - POST
-        - DELETE
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - listener:
+          - POST
+          - DELETE
+        - hub:
+          - POST
+          - DELETE
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/workManagement/hub
       name: TMF713 Work Management API
@@ -253,17 +276,10 @@ spec:
   componentMetadata:
     id: TMFC061
     name: WorkOrderManagement
-    version: 1.0.0
-    description: Work Order Management component is responsible of the setup and maintenance
-      requests from initiation to completion.Work Order is a formal request that outlines
-      essential details related to necessary setup/maintenance tasks. These details
-      typically include Nature of the task A description of the work that needs to
-      be done. Location Where the maintenance or repair is required. Required materials
-      The items or resources needed for the job. Assigned personnel The technician
-      or contractor responsible for executing the work. Timeline for completion The
-      expected timeframe within which the task should be finished.
+    version: 1.1.0
+    description: Work Order Management component is responsible of the setup and maintenance requests from initiation to completion.Work Order is a formal request that outlines essential details related to necessary setup/maintenance tasks. These details typically include Nature of the task A description of the work that needs to be done. Location Where the maintenance or repair is required. Required materials The items or resources needed for the job. Assigned personnel The technician or contractor responsible for executing the work. Timeline for completion The expected timeframe within which the task should be finished.
     publicationDate: 2024-06-25
-    status: specified
+    status: preview
     functionalBlock: Production
     owners:
     - email: Redacted

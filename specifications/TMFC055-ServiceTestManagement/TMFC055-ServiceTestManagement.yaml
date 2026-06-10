@@ -5,25 +5,29 @@ metadata:
 spec:
   coreFunction:
     exposedAPIs:
-      - id: TMF653
-        apiSDO: tmForum
-        version: 4.2
-        required: true
+    - id: TMF653
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
         resources:
-          - serviceTest:
-              - GET
-              - POST
-              - GET /id
-              - PATCH /id
-              - DELETE /id
-          - serviceTestSpecification:
-              - GET
-              - POST
-              - GET /id
-              - PATCH /id
-              - DELETE /id
-      - id: TMF701
-        required: false
+        - serviceTest:
+          - GET
+          - POST
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+        - serviceTestSpecification:
+          - GET
+          - POST
+          - GET /id
+          - PATCH /id
+          - DELETE /id
+    - id: TMF701
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
         resources:
         - processFlow:
           - POST
@@ -34,54 +38,78 @@ spec:
           - PATCH
           - GET
           - GET /id
-        version: 4
-        apiSDO: tmForum              
     dependentAPIs:
-      - id: TMF632
-        apiSDO: tmForum
-        version: 4
-        required: false
+    - id: TMF632
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
         resources:
-          - individual:
-              - GET
-              - GET /id
-          - organization:
-              - GET
-              - GET /id
-      - id: TMF669
-        apiSDO: tmForum
-        version: 4
-        required: false
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
         resources:
-          - partyRole:
-              - GET
-              - GET /id
-      - id: TMF633
-        apiSDO: tmForum
-        version: 4
-        required: false
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+    - id: TMF669
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
         resources:
-          - serviceSpecification:
-              - GET
-              - GET /id
-      - id: TMF638
-        apiSDO: tmForum
-        version: 4
-        required: true
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
         resources:
-          - service:
-              - GET
-              - GET /id
-      - id: TMF639
-        apiSDO: tmForum
-        version: 4
-        required: false
+        - partyRole:
+          - GET
+          - GET /id
+    - id: TMF633
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
         resources:
-          - resource:
-              - GET
-              - GET /id
-      - id: TMF701
-        required: false
+        - serviceSpecification:
+          - GET
+          - GET /id
+    - id: TMF638
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - service:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - service:
+          - GET
+          - GET /id
+    - id: TMF639
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET
+          - GET /id
+    - id: TMF701
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
         resources:
         - processFlow:
           - GET
@@ -93,94 +121,73 @@ spec:
           - GET /id
           - POST
           - PATCH
-        version: 4
-        apiSDO: tmForum              
     publishedEvents:
-      - hub: ServiceTestManagement.com
-        name: ServiceTestManagement
-        port: 80
-        apiType: openapi
-        resources:
-          - serviceTestCreateEvent
-          - serviceTestStateChangeEvent
-          - serviceTestSpecificationCreateEvent
-          - serviceTestSpecificationDeleteEvent
-          - serviceTestAttributeValueChangeEvent
-          - serviceTestDeleteEvent
-          - serviceTestSpecificationAttributeValueChangeEvent
-        specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF653_Service_Test/4.2.0/swagger/TMF653_Service_Test_Management_API_v4.2.0_swagger.json
-        implementation: ServiceTestManagement
+    - hub: ServiceTestManagement.com
+      name: ServiceTestManagement
+      port: 80
+      apiType: openapi
+      resources:
+      - serviceTestCreateEvent
+      - serviceTestStateChangeEvent
+      - serviceTestSpecificationCreateEvent
+      - serviceTestSpecificationDeleteEvent
+      - serviceTestAttributeValueChangeEvent
+      - serviceTestDeleteEvent
+      - serviceTestSpecificationAttributeValueChangeEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF653_Service_Test/4.2.0/swagger/TMF653_Service_Test_Management_API_v4.2.0_swagger.json
+      implementation: ServiceTestManagement
     subscribedEvents:
-      - name: ServiceTestManagement
-        port: 80
-        apiType: openapi
-        call-back: ServiceTestManagement
-        resources:
-          - serviceSpecificationCreateEvent
-          - serviceSpecificationDeleteEvent
-        specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF633_Service_Catalog/4.0.0/swagger/TMF633_Service_Catalog_Management_API_v4.0.0_swagger.json
-        implementation: /{{.Release.Name}}-ServiceTestManagement
-      - name: PartyManagement
-        port: 80
-        apiType: openapi
-        call-back: PartyManagement
-        resources:
-          - organizationDeleteEvent
-          - individualDeleteEvent
-        specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF632_Party/4.0.0/swagger/TMF632_Party_Management_API_v4.0.0_swagger.json
-        implementation: /{{.Release.Name}}-PartyManagement
+    - name: ServiceTestManagement
+      port: 80
+      apiType: openapi
+      call-back: ServiceTestManagement
+      resources:
+      - serviceSpecificationCreateEvent
+      - serviceSpecificationDeleteEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF633_Service_Catalog/4.0.0/swagger/TMF633_Service_Catalog_Management_API_v4.0.0_swagger.json
+      implementation: /{{.Release.Name}}-ServiceTestManagement
+    - name: PartyManagement
+      port: 80
+      apiType: openapi
+      call-back: PartyManagement
+      resources:
+      - organizationDeleteEvent
+      - individualDeleteEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF632_Party/4.0.0/swagger/TMF632_Party_Management_API_v4.0.0_swagger.json
+      implementation: /{{.Release.Name}}-PartyManagement
   componentMetadata:
     id: TMFC055
     name: ServiceTestManagement
     eTOMs:
-      - 1.4.1|Service_Strategy_Management|v24.5
-      - 1.4.1.8|Service_Test_Strategy|v24.5
+    - 1.4.1|Service_Strategy_Management|v24.5
+    - 1.4.1.8|Service_Test_Strategy|v24.5
     owners:
-      - url: Redacted
-        name: Redacted
-        email: Redacted
-    status: specified
-    version: 1.0.0
-    description: >-
-      Service Test Management is responsible for managing the service test
-      specification and executing tests based on this specification to ensure
-      the service operates correctly.
-
-
-      Service test specification involves capturing potential tests for each
-      Service Specification that can be initiated either automatically or
-      manually by the service user. These tests are derived from those available
-      at the service specification or resource specification level.
-
-
-      The scope of the component includes the end-to-end execution and reporting
-      of tests, tailored to the specific context and actor involved.
+    - url: Redacted
+      name: Redacted
+      email: Redacted
+    status: preview
+    version: 1.1.0
+    description: 'Service Test Management is responsible for managing the service test specification and executing tests based on this specification to ensure the service operates correctly.      Service test specification involves capturing potential tests for each Service Specification that can be initiated either automatically or manually by the service user. These tests are derived from those available at the service specification or resource specification level. The scope of the component includes the end-to-end execution and reporting of tests, tailored to the specific context and actor involved.'
     maintainers:
-      - url: Redacted
-        name: Redacted
-        email: components@tmforum.org
+    - url: Redacted
+      name: Redacted
+      email: components@tmforum.org
     functionalBlock: Production
-    publicationDate: 2025-07-16 15:05:47
+    publicationDate: 2025-07-16
     functionalFrameworkFunctions:
-      - 625|Service_Test_Operation_Control|v24.0
-      - 1136|Service_Test_Specification_and_Scenario_Management|v24.0
-      - 566|Service_Test_Result_Analysis_Policy_Configuration|v24.0
-      - 573|Service_Testing_Rules_Management|v24.0
-      - 581|Automated_Service_Test_Invocation|v24.0
-      - 1138|Service_Test_Reporting_Rules_Management|v24.0
-      - 582|Manual_Service_Test_Invocation|v24.0
-      - 627|Service_Test_Strategy_Management|v24.0
-      - 1137|Service_Test_Rules_Management|v24.0
-      - 575|Service_Test_Results_Reporting|v24.0
-      - 626|Service_Testing_Management|v24.0
-      - 577|Service_End_to_End_Test_Scheduling|v24.0
-      - 579|Service_End_to_End_Testing|v24.0
+    - 625|Service_Test_Operation_Control|v24.0
+    - 1136|Service_Test_Specification_and_Scenario_Management|v24.0
+    - 566|Service_Test_Result_Analysis_Policy_Configuration|v24.0
+    - 573|Service_Testing_Rules_Management|v24.0
+    - 581|Automated_Service_Test_Invocation|v24.0
+    - 1138|Service_Test_Reporting_Rules_Management|v24.0
+    - 582|Manual_Service_Test_Invocation|v24.0
+    - 627|Service_Test_Strategy_Management|v24.0
+    - 1137|Service_Test_Rules_Management|v24.0
+    - 575|Service_Test_Results_Reporting|v24.0
+    - 626|Service_Testing_Management|v24.0
+    - 577|Service_End_to_End_Test_Scheduling|v24.0
+    - 579|Service_End_to_End_Testing|v24.0
     SIDs:
-      - Service_Domain|Service_Test_ABE|ServiceTest_BE|v25.0
-      - Service_Domain|Service_Test_ABE|ServiceTestSpec_BE|v25.0
-      
-
-
-
-
-
+    - Service_Domain|Service_Test_ABE|ServiceTest_BE|v25.0
+    - Service_Domain|Service_Test_ABE|ServiceTestSpec_BE|v25.0

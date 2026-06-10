@@ -1,0 +1,147 @@
+@startyaml
+dependentAPIs:
+    - id: TMF620
+      name: Product Catalog Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - productSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - productSpecification:
+          - GET
+          - GET /id
+    - id: TMF622
+      name: Product Ordering Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - productOrder:
+          - GET /id
+          - PATCH
+      - version: 4
+        resources:
+        - productOrder:
+          - GET /id
+          - PATCH
+    - id: TMF637
+      name: Product Inventory Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - product:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - product:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
+          - DELETE
+    - id: TMF633
+      name: Service Catalog Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - serviceSpecification:
+          - GET
+          - GET /id
+    - id: TMF638
+      name: Service Inventory Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - service:
+          - GET
+      - version: 4
+        resources:
+        - service:
+          - GET / id
+          - GET
+    - id: TMF641
+      name: Service Ordering Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - serviceOrder:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - cancelServiceOrder:
+          - GET
+          - GET /id
+          - POST
+    - id: TMF634
+      name: Resource Catalog Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+    - id: TMF639
+      name: Resource Inventory Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET
+          - GET /id
+    - id: TMF652
+      name: Resource Ordering Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resourceOrder:
+          - GET /id
+          - POST
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
+
+@endyaml

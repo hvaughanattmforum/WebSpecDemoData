@@ -1,0 +1,78 @@
+@startyaml
+publishedEvents:
+    - id: TMF637
+      name: Product Inventory Management API
+      resources:
+      - productCreateEvent
+      - productAttributeValueChangeEvent
+      - productStateChangeEvent
+      - productDeleteEvent
+      - productBatchEvent
+    - id: TMF701
+      name: Process Flow Management API
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+subscribedEvents:
+    - id: TMF639
+      name: Resource Inventory Management API
+      resources:
+      - resourceDeleteEvent
+    - id: TMF638
+      name: Service Inventory Management API
+      resources:
+      - serviceDeleteEvent
+    - id: TMF620
+      name: Product Catalog Management API
+      resources:
+      - productSpecificationDeleteEvent
+      - productOfferingDeleteEvent
+      - productOfferingPriceDeleteEvent
+    - id: TMF669
+      name: Party Role Management API
+      resources:
+      - partyRoleDeleteEvent
+    - id: TMF651
+      name: Agreement Management API
+      resources:
+      - agreementDeleteEvent
+    - id: TMF666
+      name: Account Management API
+      resources:
+      - billingAccountDeleteEvent
+    - id: TMF672
+      name: User Role Permission Management API
+      resources:
+      - permissionDeleteEvent
+    - id: TMF674
+      name: Geographic Site Management API
+      resources:
+      - geographicSiteDeleteEvent
+    - id: TMF675
+      name: Geographic Location Management API
+      resources:
+      - geographicLocationDeleteEvent
+    - id: TMF632
+      name: Party Management API
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+    - id: TMF622
+      name: Product Ordering Management API
+      resources:
+      - productOrderDeleteEvent
+    - id: TMF637
+      name: Product Inventory Management API
+      resources:
+      - productCreateEvent
+      - productDeleteEvent
+      - productAttributeValueChangeEvent
+      - productStateChangeEvent
+@endyaml

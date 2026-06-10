@@ -6,93 +6,141 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF666
-      required: true
-      resources:
-      - BillingAccount:
-        - GET
-        - GET /id
-      - BillingCycleSpecification:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - billingAccount:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - BillingAccount:
+          - GET
+          - GET /id
+    - id: TMF678
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - billingCycle:
+          - GET
+          - GET /id
     - id: TMF632
-      required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organization:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
     - id: TMF637
+      apiSDO: tmForum
       required: true
-      resources:
-      - product:
-        - GET
-        - GET /id
-      version: 4.0
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        resources:
+        - product:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - product:
+          - GET
+          - GET /id
     - id: TMF620
-      required: false
-      resources:
-      - productOffering:
-        - GET
-        - GET /id
-      - productOfferingPrice:
-        - GET
-        - GET /id
-      - productSpecification:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - productOffering:
+          - GET
+          - GET /id
+        - productOfferingPrice:
+          - GET
+          - GET /id
+        - productSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - productOffering:
+          - GET
+          - GET /id
+        - productOfferingPrice:
+          - GET
+          - GET /id
+        - productSpecification:
+          - GET
+          - GET /id
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - PATCH
-      version: 4.0
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
     - id: TMF635
-      required: false
-      resources:
-      - usage:
-        - GET
-        - GET /id
-      - usageSpecification:
-        - GET
-        - GET /id
-      version: 4.0
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - usage:
+          - GET
+          - GET /id
+        - usageSpecification:
+          - GET
+          - GET /id
     exposedAPIs:
     - id: TMF678
+      apiSDO: tmForum
       required: true
-      resources:
-      - appliedCustomerBillingRate:
-        - GET
-        - GET /id
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        resources:
+        - appliedCustomerBillingRate:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - appliedCustomerBillingRate:
+          - GET
+          - GET /id
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - GET
-        - GET /id
-        - POST
-        - DELETE /id
-      - taskFlow:
-        - GET
-        - GET /id
-        - PATCH /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - DELETE /id
+        - taskFlow:
+          - GET
+          - GET /id
+          - PATCH /id
     publishedEvents: []
     subscribedEvents:
     - name: usageManagement
@@ -109,13 +157,10 @@ spec:
   componentMetadata:
     id: TMFC031
     name: BillCalculation
-    version: 3.0.0
-    description: The Bill Calculation component processes all charges against billing accounts during bill cycles. 
-      Bill Calculation can be executed both on a cyclic basis and on demand. It performs calculations with bill compilation of charges, 
-      credits, fees & taxes, including pro rata, at various levels, such as product and/or account level that have been generated 
-      since the last run for that account, applying promotions and discounts.
+    version: 3.1.0
+    description: The Bill Calculation component processes all charges against billing accounts during bill cycles. Bill Calculation can be executed both on a cyclic basis and on demand. It performs calculations with bill compilation of charges, credits, fees & taxes, including pro rata, at various levels, such as product and/or account level that have been generated since the last run for that account, applying promotions and discounts.
     publicationDate: 2023-06-25
-    status: specified
+    status: preview
     functionalBlock: CoreCommerce
     owners:
     - email: Redacted

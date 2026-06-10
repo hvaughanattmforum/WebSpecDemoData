@@ -1,0 +1,41 @@
+@startyaml
+exposedAPIs:
+    - id: TMF637
+      name: Product Inventory Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - product:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - product:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
+
+@endyaml

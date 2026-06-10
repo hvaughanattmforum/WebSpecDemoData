@@ -6,202 +6,317 @@ spec:
   coreFunction:
     dependentAPIs:
     - id: TMF633
-      required: false
-      resources:
-      - serviceSpecification:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - serviceSpecification:
+          - GET
+          - GET /id
     - id: TMF669
-      required: false
-      resources:
-      - partyRole:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
     - id: TMF632
-      required: false
-      resources:
-      - individual:
-        - GET
-        - GET /id
-      - organisation:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organisation:
+          - GET
+          - GET /id
     - id: TMF634
-      required: false
-      resources:
-      - resourceSpecification:
-        - GET
-        - GET /id
-      version: 4.1
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
     - id: TMF651
-      required: false
-      resources:
-      - agreement:
-        - GET
-        - GET /id
-      - agreementSpecification:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - agreement:
+          - GET
+          - GET /id
+        - agreementSpecification:
+          - GET
+          - GET /id
     - id: TMF673
-      required: false
-      resources:
-      - geographicAddress:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicAddress:
+          - GET
+          - GET /id
     - id: TMF674
-      required: false
-      resources:
-      - geographicSite:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicSite:
+          - GET
+          - GET /id
     - id: TMF675
-      required: false
-      resources:
-      - geographicLocation:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicLocation:
+          - GET
+          - GET /id
     - id: TMF662
-      required: false
-      resources:
-      - entitySpecification:
-        - GET
-        - GET /id
-      - associationSpecification:
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - entitySpecification:
+          - GET
+          - GET /id
+        - associationSpecification:
+          - GET
+          - GET /id
     - id: TMF620
-      required: false
-      resources:
-      - catalog:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - category:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - productOffering:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - productSpecification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - productOfferingPrice:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - importJob:
-        - GET
-        - GET /id
-        - POST
-        - DELETE
-      - exportJob:
-        - GET
-        - GET /id
-        - POST
-        - DELETE
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - productCatalog:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - category:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - exportJob:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - importJob:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - productOffering:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productOfferingPrice:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - catalog:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - category:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productOffering:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productOfferingPrice:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - importJob:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - exportJob:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
     exposedAPIs:
     - id: TMF620
+      apiSDO: tmForum
       required: true
-      resources:
-      - catalog:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - category:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - productSpecification:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - productOffering:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - productOfferingPrice:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      - exportJob:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - importJob:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      version: 4
-      apiSDO: tmForum
+      specification:
+      - version: 5
+        resources:
+        - productCatalog:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - category:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - exportJob:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - importJob:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - productOffering:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productOfferingPrice:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - catalog:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - category:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productOffering:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productOfferingPrice:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - exportJob:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - importJob:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
     - id: TMF701
-      required: false
-      resources:
-      - processFlow:
-        - POST
-        - GET
-        - GET /id
-        - DELETE
-      - taskFlow:
-        - PATCH
-        - GET
-        - GET /id
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
     - id: TMF671
-      required: false
-      resources:
-      - promotion:
-        - GET
-        - GET /id
-        - POST
-        - PATCH
-        - DELETE
-      version: 4
       apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - promotion:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
     publishedEvents:
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productspecification/hub
       implementation: /{{.Release.Name}}-ProductCatalogManagementEvent
@@ -287,10 +402,10 @@ spec:
   componentMetadata:
     id: TMFC001
     name: ProductCatalogManagement
-    version: 2.1.2
-    description: The product catalog management component is responsible for organizing the collection of products and product offering specifications that identify and define all requirements of a product or a product offering that can be commercialized. 
-    publicationDate: 2025-11-12 00:00:00
-    status: specified
+    version: 2.2.2
+    description: The product catalog management component is responsible for organizing the collection of products and product offering specifications that identify and define all requirements of a product or a product offering that can be commercialized.
+    publicationDate: 2026-05-11
+    status: production
     functionalBlock: CoreCommerce
     owners:
     - email: Redacted

@@ -1,0 +1,171 @@
+@startyaml
+publishedEvents:
+    - id: TMF642
+      name: Alarm Management API
+      resources:
+      - alarmCreateEvent
+      - alarmAttributeValueChangeEvent
+      - alarmStateChangeEvent
+      - alarmDeleteEvent
+      - ackAlarmsCreateEvent
+      - ackAlarmsStateChangeEvent
+      - unAckAlarmsCreateEvent
+      - unAckAlarmsStateChangeEvent
+      - clearAlarmsCreateEvent
+      - clearAlarmsStateChangeEvent
+      - commentAlarmsCreateEvent
+      - commentAlarmsStateChangeEvent
+      - groupAlarmsCreateEvent
+      - groupAlarmsStateChangeEvent
+      - unGroupAlarmsCreateEvent
+      - unGroupAlarmsStateChangeEvent
+    - id: TMF701
+      name: Process Flow Management API
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+    - id: TMF656
+      name: Service Problem Management API
+      resources:
+      - problemAcknowledgementCreateEvent
+      - problemAcknowledgementDeleteEvent
+      - problemAcknowledgementStateChangeEvent
+      - problemGroupCreateEvent
+      - problemGroupDeleteEvent
+      - problemGroupStateChangeEvent
+      - problemUnacknowledgementCreateEvent
+      - problemUnacknowledgementDeleteEvent
+      - problemUnacknowledgementStateChangeEvent
+      - problemUngroupCreateEvent
+      - problemUngroupDeleteEvent
+      - problemUngroupStateChangeEvent
+      - serviceProblemAttributeValueChangeEvent
+      - serviceProblemCreateEvent
+      - serviceProblemDeleteEvent
+      - serviceProblemInformationRequiredEvent
+      - serviceProblemStateChangeEvent
+subscribedEvents:
+    - id: TMF633
+      name: Service Catalog Management API
+      resources:
+      - serviceCatalogCreateEvent
+      - serviceCatalogChangeEvent
+      - serviceCatalogDeleteEvent
+      - serviceCategoryCreateEvent
+      - serviceCategoryChangeEvent
+      - serviceCategoryDeleteEvent
+      - serviceCandidateCreateEvent
+      - serviceCandidateChangeEvent
+      - serviceCandidateDeleteEvent
+      - serviceSpecificationCreateEvent
+      - serviceSpecificationChangeEvent
+      - serviceSpecificationDeleteEvent
+    - id: TMF638
+      name: Service Inventory Management API
+      resources:
+      - serviceCreateEvent
+      - serviceChangeEvent
+      - serviceDeleteEvent
+      - serviceStateChangeEvent
+    - id: TMF639
+      name: Resource Inventory Management API
+      resources:
+      - resourceCreateEvent
+      - resourceChangeEvent
+      - resourceDeleteEvent
+      - resourceStateChangeEvent
+    - id: TMF673
+      name: Geographic Address Management API
+      resources:
+      - geographicAddressValidationStateChangeEvent
+    - id: TMF674
+      name: Geographic Site Management API
+      resources:
+      - geographicSiteCreateEvent
+      - geographicSiteAttributeValueChangeEvent
+      - geographicSiteStatusChangeEvent
+      - geographicSiteDeleteEvent
+    - id: TMF675
+      name: Geographic Location Management API
+      resources:
+      - geographicLocationCreateEvent
+      - geographicLocationAttributeValueChangeEvent
+      - geographicLocationDeleteEvent
+    - id: TMF642
+      name: Alarm Management API
+      resources:
+      - alarmCreateEvent
+      - alarmAttributeValueChangeEvent
+      - alarmStateChangeEvent
+      - alarmDeleteEvent
+      - ackAlarmsCreateEvent
+      - ackAlarmsStateChangeEvent
+      - unAckAlarmsCreateEvent
+      - unAckAlarmsStateChangeEvent
+      - clearAlarmsCreateEvent
+      - clearAlarmsStateChangeEvent
+      - commentAlarmsCreateEvent
+      - commentAlarmsStateChangeEvent
+      - groupAlarmsCreateEvent
+      - groupAlarmsStateChangeEvent
+      - unGroupAlarmsCreateEvent
+      - unGroupAlarmsStateChangeEvent
+    - id: TMF656
+      name: Service Problem Management API
+      resources:
+      - problemAcknowledgementCreateEvent
+      - problemAcknowledgementDeleteEvent
+      - problemAcknowledgementStateChangeEvent
+      - problemGroupCreateEvent
+      - problemGroupDeleteEvent
+      - problemGroupStateChangeEvent
+      - problemUnacknowledgementCreateEvent
+      - problemUnacknowledgementDeleteEvent
+      - problemUnacknowledgementStateChangeEvent
+      - problemUngroupCreateEvent
+      - problemUngroupDeleteEvent
+      - problemUngroupStateChangeEvent
+      - serviceProblemAttributeValueChangeEvent
+      - serviceProblemCreateEvent
+      - serviceProblemDeleteEvent
+      - serviceProblemInformationRequiredEvent
+      - serviceProblemStateChangeEvent
+    - id: TMF621
+      name: Trouble Ticket Management API
+      resources:
+      - troubleTicketCreateEvent
+      - troubleTicketAttributeValueChangeEvent
+      - troubleTicketStatusChangeEvent
+      - troubleTicketDeleteEvent
+      - troubleTicketResolvedEvent
+      - troubleTicketInformationRequiredEvent
+    - id: TMF632
+      name: Party Management API
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+    - id: TMF669
+      name: Party Role Management API
+      resources:
+      - partyRoleDeleteEvent
+    - id: TMF662
+      name: Entity Catalog Management API
+      resources:
+      - entityCatalogCreateEvent
+      - entityCatalogDeleteEvent
+      - entityCatalogItemCreateEvent
+      - entityCatalogItemDeleteEvent
+      - entitySpecificationCreateEvent
+      - entitySpecificationDeleteEvent
+      - associationSpecificationCreateEvent
+      - associationSpecificationDeleteEvent
+      - associationCreateEvent
+      - associationDeleteEvent
+@endyaml
