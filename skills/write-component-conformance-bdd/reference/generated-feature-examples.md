@@ -5,9 +5,9 @@ This document provides examples of generated Component Conformance BDD feature f
 ---
 Canonical feature examples:
 
-reference/examples/TMFC005
-reference/examples/TMFC007
-reference/examples/TMFC028
+skills/write-component-conformance-bdd/reference/examples/TMFC005
+skills/write-component-conformance-bdd/reference/examples/TMFC007
+skills/write-component-conformance-bdd/reference/examples/TMFC028
 
 ---
 
