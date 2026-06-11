@@ -70,10 +70,8 @@ BDD/
 
 ### Mandatory Inputs
 
-1. Fully resolved Component Specification YAML
-2. OpenAPI specifications referenced by the Component Specification
-
-The Component Specification YAML may be directly supplied, available locally, or resolved from the Ready-for-publication repository.
+1. Fully resolved Component Specification YAML from the Ready-for-publication repository, unless the user directly supplies a YAML or explicitly requests local-file mode.
+2. OpenAPI specifications referenced by the Component Specification.
 
 ### Optional Inputs
 
@@ -85,11 +83,14 @@ The Component Specification YAML may be directly supplied, available locally, or
 
 When conflicts exist, use the following precedence order:
 
-1. Component Specification YAML
-2. Component CTK Runtime Contract (componentTests-contract.md)
-3. Fully Worked Examples
-4. Generation Decision Tree
-5. Generated Example Documentation
+1. Component Specification YAML (API discovery)
+2. OpenAPI Specifications (schema generation)
+3. Component CTK Runtime Contract
+4. Fully Worked Examples
+5. Generation Decision Tree
+6. Generated Example Documentation
+
+For payload generation, OpenAPI specifications are authoritative.
 
 Do not derive behavior from README files when it conflicts with the runtime contract.
 
@@ -117,7 +118,25 @@ Location:
 
 skills/write-component-conformance-bdd/reference/examples/
 
-These examples are the primary source of truth for generation patterns.
+These examples are reference implementations.
+
+They are authoritative only for:
+
+- feature structure
+- payload naming
+- numbering conventions
+- README structure
+- multi-stage dependency patterns
+
+They are not authoritative for:
+
+- schema structure
+- property names
+- field types
+- array names
+- required attributes
+
+OpenAPI specifications always take precedence.
 
 ### Runtime Contract
 
@@ -139,27 +158,42 @@ Use this document to determine which generation pattern applies before selecting
 
 The Component Specification YAML is the source of truth for BDD generation.
 
-The specification may be supplied in one of three ways:
-
-1. Directly provided by the user.
-2. Available as a local file in the current repository.
-3. Resolved from the TM Forum Ready-for-publication repository.
-
-When resolving from the Ready-for-publication repository, use the configured release branch and exact component folder name.
+By default, resolve the Component Specification YAML from the TM Forum Ready-for-publication repository.
 
 Default repository:
 
 https://github.com/tmforum-rand/TMForum-ODA-Ready-for-publication
 
+Default release branch:
+
+v1.1.0
+
 Default raw URL pattern:
 
+```text
 https://raw.githubusercontent.com/tmforum-rand/TMForum-ODA-Ready-for-publication/{release}/{CODE}-{ShortName}/Specification/{CODE}-{ShortName}.yaml
+```
 
 Example:
 
 https://raw.githubusercontent.com/tmforum-rand/TMForum-ODA-Ready-for-publication/v1.1.0/TMFC005-ProductInventory/Specification/TMFC005-ProductInventory.yaml
 
-Do not guess the folder name if unsure. Confirm the exact folder name from the repository tree or ask the user to provide the YAML.
+Source priority:
+
+1. Component Specification YAML directly provided by the user.
+2. Component Specification YAML resolved from the Ready-for-publication repository.
+3. Local repository YAML only if the user explicitly requests local-file mode.
+
+Do not use local component specification YAML files by default.
+
+Local YAML files may be stale and must not override the Ready-for-publication repository unless explicitly requested.
+
+When resolving from the Ready-for-publication repository:
+
+- Use the configured release branch.
+- Use the exact component folder name.
+- Do not guess the folder name if unsure.
+- Confirm the exact folder name from the repository tree or ask the user to provide the YAML.
 
 ---
 
@@ -181,23 +215,35 @@ Generated artefacts should follow the same structure, naming conventions, featur
 
 ---
 
-## BDD Generation Model
+## Generation Pipeline
 
-Component Specification
+Generation must follow the following sequence:
+
+Resolve Component Specification
 ↓
-Mandatory Exposed API
+Resolve Exposed API OpenAPI Specification
 ↓
-Mandatory Dependent API
+Resolve Dependent API OpenAPI Specifications
 ↓
-Dependent Resource Selection
+Fully Resolve POST Request Schemas
 ↓
-Base Payload Generation
+Resolve All Nested $ref Definitions
 ↓
-Target Payload Generation
+Identify Dependency Resource References
 ↓
-BDD Feature Generation
+Generate Base Payloads
 ↓
-Validation
+Generate Target Payloads
+↓
+Validate Generated Payloads Against Schemas
+↓
+Generate Feature File
+↓
+Generate README
+↓
+Run Validation Checklist
+
+Do not skip any stage.
 
 ---
 
@@ -235,7 +281,12 @@ TMF669 → partyRole
 
 If multiple resources exist:
 
-Use the first listed resource unless an explicit override exists.
+Use the first listed resource only when it satisfies all selection criteria.
+
+If multiple candidate resources satisfy the criteria:
+
+1. Prefer the resource referenced by the exposed API schema.
+2. Otherwise use the first listed resource.
 
 ### No Dependency Rule
 
@@ -291,6 +342,151 @@ If multiple mandatory exposed APIs exist, include scenarios for all mandatory ex
 
 ---
 
+## OpenAPI Resolution Rules
+
+OpenAPI specifications are the authoritative source for payload generation.
+
+Before generating any payload:
+
+1. Resolve the POST operation.
+2. Resolve the requestBody schema.
+3. Resolve all nested $ref definitions recursively.
+4. Continue resolution until a fully expanded schema model exists.
+5. Generate payloads only from the resolved schema.
+
+Do not generate payloads solely from:
+
+- examples
+- sample payloads
+- README documentation
+- naming conventions
+- previously generated payloads
+
+Examples may be used only to choose realistic sample values after the schema structure, field names, types, and required fields have been resolved.
+
+---
+
+## Schema-Driven Payload Rule
+
+All payload content must be derived from the resolved OpenAPI schema.
+
+The following must never be inferred:
+
+- property names
+- array names
+- object structure
+- field types
+- required attributes
+- enum values
+
+These must always be resolved from the schema.
+
+Examples are not authoritative.
+
+Schema definitions always override examples.
+
+---
+
+## Payload Validation Rules
+
+Every generated payload must be validated against the resolved schema before generation completes.
+
+Verify:
+
+- required fields exist
+- property names exist
+- nested objects exist
+- array names match schema
+- scalar types match schema
+- enum values are valid
+- object hierarchy matches schema
+
+If validation still fails after regeneration:
+
+- Stop generation.
+- Report the validation failure.
+- Do not emit BDD artefacts that violate schema requirements.
+
+---
+
+## Scalar Type Validation Rule
+
+Generated payload values must match OpenAPI scalar types.
+
+Examples:
+Schema:
+```yaml
+priority:
+  type: integer
+```
+
+Valid:
+```json
+{
+  "priority": 1
+}
+```
+Invalid:
+```json
+{
+  "priority": "1"
+}
+```
+
+The generator must validate all scalar types before finalizing payloads.
+
+---
+
+## Array Name Verification Rule
+
+Array names must be resolved directly from the schema.
+
+Do not infer array names from:
+
+- other TM Forum APIs
+- examples
+- naming conventions
+
+Examples:
+
+Correct:
+```json
+{
+  "orderItem": []
+}
+```
+
+Incorrect:
+```json
+{
+  "resourceOrderItem": []
+}
+```
+
+if the schema defines orderItem.
+
+---
+
+## Schema Ambiguity Rule
+
+If the schema cannot be fully resolved:
+
+Do not:
+
+- guess field names
+- guess array names
+- guess object hierarchy
+- guess types
+- copy structures from another TM Forum API
+
+Instead:
+
+- document the unresolved section
+- report the issue in README.md
+- request human review
+
+---
+
 ## Base Payload Generation Rules
 
 ### Purpose
@@ -306,16 +502,20 @@ Locate the POST operation for the selected dependent resource.
 ### Rule 2
 
 Resolve:
-
 - requestBody
 - schema
-- examples
+- examples for sample values only
 
 ### Rule 3
 
 If examples exist:
 
-Prefer examples.
+Use examples only to populate sample values.
+
+Do not derive structure, field names, required attributes,
+or field types from examples.
+
+Schema definitions always take precedence.
 
 ### Rule 4
 
@@ -387,17 +587,21 @@ per dependent resource.
 
 ### Valid Reference Pattern
 
+```json
 {
   "id": "__VALID_ID__",
   "href": "__VALID_HREF__"
 }
+```
 
 ### Invalid Reference Pattern
 
+```json
 {
   "id": "non-existent-id",
   "href": "non-existent-href"
 }
+```
 
 ### Rule 4
 
@@ -408,7 +612,7 @@ Generate exactly:
 
 for each dependent resource.
 
-## Placeholder Rules
+### Placeholder Rules
 
 Success payloads must use:
 
@@ -423,6 +627,40 @@ Failure payloads must use:
 
 non-existent-id
 non-existent-href
+
+### Exposed Schema Strictness Rule
+
+Target payloads must be generated strictly from the exposed API POST request schema.
+
+Do not infer target payload property names from similar APIs or canonical examples.
+
+Canonical examples are guidance only. They must not override the exposed API schema.
+
+Before finalizing a target payload:
+
+- verify every top-level property exists in the exposed POST schema
+- verify each nested property path exists in the resolved schema
+- verify scalar field types match the schema
+- verify array names match the schema exactly
+- verify resourceFieldPath is derived from the actual payload path
+
+If a generated field does not exist in the exposed API POST schema, remove or correct it.
+Schema validation must be performed before and after placeholder insertion where placeholders are used. Placeholder values may be treated as schema-valid strings for id and href fields.
+
+### Dependency Reference Verification Rule
+
+Before generating target payloads:
+
+1. Confirm the dependent resource type exists in the exposed API schema.
+2. Confirm the dependent reference object is present.
+3. Confirm the reference contains an identifier field.
+4. Confirm the reference path is reachable from the POST payload root.
+
+Only then generate success and failure payloads.
+
+If the target payload cannot be validated against the exposed POST request schema, do not generate the feature row for that dependency. Report the unresolved validation issue in README.md.
+
+If the base payload cannot be validated against the dependent API POST schema, do not generate scenarios for that dependent resource. Report the validation issue in README.md.
 
 ---
 
@@ -496,6 +734,38 @@ If the dependent resource reference path cannot be determined from the exposed A
 
 ---
 
+## Resource Field Path Verification Rule
+
+resourceFieldPath must be derived from the generated target payload.
+
+Verification procedure:
+
+1. Locate the dependency reference object in the generated payload.
+2. Determine the exact path to the object containing:
+
+```json
+{
+  "id": "__VALID_ID__",
+  "href": "__VALID_HREF__"
+}
+```
+
+3. Verify:
+
+_.set(payload, `${resourceFieldPath}.id`, value)
+_.set(payload, `${resourceFieldPath}.href`, value)
+
+updates the intended object.
+
+If verification fails:
+
+* regenerate the path
+* do not guess
+
+This prevents incorrect paths.
+
+---
+
 ## OperationID Rule
 
 Use the operationId defined on the POST operation of the exposed resource.
@@ -513,6 +783,11 @@ TMF637 product
 ## Resource Type Rule
 
 resourceType must be the resource name associated with the exposed API POST operation.
+
+resourceType must be derived from the POST operation resource path
+or POST request schema.
+
+Do not infer resourceType from examples.
 
 Examples:
 
@@ -560,6 +835,7 @@ Required tag:
 
 Example:
 
+```gherkin
 @tmfc007
 
 Feature: Dependent API interaction testing for TMFC007 - Service Order
@@ -577,6 +853,7 @@ Feature: Dependent API interaction testing for TMFC007 - Service Order
     | tmfc007            | serviceCatalog       | serviceOrder  | TMF641        | serviceOrder | TMF633         | serviceSpecification  | service-catalog-0001.json  | service-target-0002.json  | serviceOrderItem[0].service.serviceSpecification       | createServiceOrder | failure          |
     | tmfc007            | serviceInventory     | serviceOrder  | TMF641        | serviceOrder | TMF638         | service               | service-inventory-0001.json| service-target-0003.json  | serviceOrderItem[0].service                            | createServiceOrder | success          |
     | tmfc007            | serviceInventory     | serviceOrder  | TMF641        | serviceOrder | TMF638         | service               | service-inventory-0001.json| service-target-0004.json  | serviceOrderItem[0].service                            | createServiceOrder | failure          |
+```
 
 Do not generate custom step definitions.
 
@@ -660,7 +937,7 @@ Dependent API 2:
 
 Default Mode:
 
-Version-Tolerant Generation
+Use the highest available OpenAPI version as the primary schema for generation, then validate compatibility against lower versions where possible.
 
 ### Rule 1
 
@@ -692,6 +969,15 @@ Do not generate separate scenarios for v4 and v5 versions of the same API.
 Generate a single dependency validation scenario set per exposed API and dependent API combination.
 
 The CTK runtime determines which API version is deployed and executes the same BDD artefacts against that implementation.
+
+## OpenAPI Version Selection Rule
+
+When multiple versions of an API are referenced:
+
+1. Prefer the highest available version.
+2. Generate payloads against that version.
+3. Verify compatibility with lower supported versions.
+4. If compatibility cannot be achieved, document the limitation in README.md.
 
 ---
 
@@ -744,6 +1030,37 @@ TMF641 serviceOrder
 
 ---
 
+## Generated Artefact Audit
+
+Before generation completes verify:
+
+Payload Audit
+
+- All payloads validate against schema
+- All required fields present
+- All scalar types valid
+- All array names valid
+- All nested references resolved
+
+Dependency Audit
+
+- Dependent resource exists
+- resourceFieldPath verified
+- placeholder injection verified
+
+Feature Audit
+
+- Examples table matches runtime contract
+- operationId verified
+- resourceType verified
+
+README Audit
+
+- mappings match generated payloads
+- operationIds match OpenAPI specifications
+
+---
+
 ## Validation Checklist
 
 Before generation completes verify:
@@ -777,6 +1094,34 @@ Before generation completes verify:
 ✓ Compatible with componentTests.js
 
 ✓ Generated artefacts conform to documented examples and runtime contracts
+
+✓ OpenAPI POST schema fully resolved
+
+✓ All nested $ref definitions resolved
+
+✓ Generated payload validated against schema
+
+✓ Property names verified
+
+✓ Array names verified
+
+✓ Scalar types verified
+
+✓ Required fields verified
+
+✓ Dependency reference verified
+
+✓ resourceFieldPath verified against payload
+
+✓ resourceType verified against POST operation
+
+✓ operationId verified against POST operation
+
+✓ target payload schema matches POST requestBody schema
+
+✓ No payload structure derived solely from examples
+
+✓ README mappings match generated payloads
 
 ---
 

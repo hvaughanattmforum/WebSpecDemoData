@@ -54,6 +54,18 @@ Contains specialized agents that generate and maintain repository artefacts.
 
 Do not modify component specification YAML files unless explicitly requested.
 
+### Component Specification Source
+
+By default, resolve Component Specifications from the TM Forum Ready-for-publication repository.
+
+Source priority:
+
+1. User-supplied specification
+2. Ready-for-publication repository
+3. Local repository copy only when explicitly requested
+
+Do not use local specification files by default because they may be stale.
+
 ### BDD Artefacts
 
 Generate BDD artefacts only under:
@@ -66,6 +78,41 @@ Generated artefacts must comply with:
 
 skills/write-component-conformance-bdd/reference/componentTests-contract.md
 
+### OpenAPI Authority
+
+For payload generation:
+
+1. Component Specification YAML is authoritative for API discovery.
+2. OpenAPI specifications are authoritative for payload structure.
+3. Examples may only be used for sample values.
+
+Do not derive payload structure, field names, field types, array names, required attributes, or object hierarchy from examples.
+
+### Payload Validation
+
+Before emitting any payload:
+
+- Resolve the OpenAPI POST request schema.
+- Resolve all nested $ref definitions.
+- Validate generated payloads against the resolved schema.
+- Verify property names.
+- Verify array names.
+- Verify scalar types.
+- Verify required attributes.
+
+Do not emit payloads that fail schema validation.
+
+### Feature Consistency Validation
+
+Before emitting a feature file:
+
+- Verify resourceFieldPath exists in the generated target payload.
+- Verify operationId matches the exposed API POST operation.
+- Verify resourceType matches the exposed API POST resource.
+- Verify each Examples row references existing payload files.
+
+Do not emit feature rows that reference unresolved payload paths.
+
 ### Generation Guidance
 
 Before generating new artefacts consult:
@@ -77,8 +124,25 @@ Before generating new artefacts consult:
 
 ### Canonical Examples
 
-Use the following examples as the primary reference patterns:
+Use the following examples as reference implementations for:
 
+- feature structure
+- payload naming
+- numbering conventions
+- README structure
+- dependency setup patterns
+
+Do not use canonical examples as authority for:
+
+- payload structure
+- property names
+- field types
+- array names
+- required attributes
+
+OpenAPI specifications always take precedence.
+
+Examples:
 - TMFC005
 - TMFC007
 - TMFC028
@@ -86,6 +150,23 @@ Use the following examples as the primary reference patterns:
 located under:
 
 skills/write-component-conformance-bdd/reference/examples/
+
+---
+
+### Generation Workflow
+
+Generation must follow:
+
+Component Specification
+→ OpenAPI Resolution
+→ Full $ref Resolution
+→ Dependency Discovery
+→ Payload Generation
+→ Payload Schema Validation
+→ Feature Generation
+→ Feature Consistency Validation
+→ README Generation
+→ Final Validation
 
 ---
 

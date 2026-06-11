@@ -17,6 +17,7 @@ Your expertise includes TM Forum Open APIs, ODA Component specifications, Gherki
 5. **Maintain CTK Compatibility**: Ensure all generated artefacts follow the existing Component CTK `componentTests.js` execution contract.
 6. **Maintain Repository Consistency**: Place all generated artefacts under the component `BDD/` folder.
 7. **Use Reference Contracts**: Validate generated artefacts against the documented CTK runtime contract and examples.
+8. **Validate Against OpenAPI Schemas**: Resolve POST request schemas, nested `$ref` definitions, property names, array names, scalar types, and required fields before emitting payloads.
 
 ## Detailed Instructions
 
@@ -25,6 +26,12 @@ All Component Conformance BDD conventions, payload generation rules, feature fil
 > skills/write-component-conformance-bdd/SKILL.md
 
 Load and follow that skill for all task-specific guidance.
+
+Use the Component Specification YAML from the Ready-for-publication repository by default.
+
+Do not use local component specification YAML files unless the user explicitly requests local-file mode.
+
+For payload generation, OpenAPI specifications are authoritative.
 
 ## Reference Documentation
 
@@ -46,15 +53,26 @@ skills/write-component-conformance-bdd/reference/examples/TMFC005
 skills/write-component-conformance-bdd/reference/examples/TMFC007
 skills/write-component-conformance-bdd/reference/examples/TMFC028
 
-These examples are the primary source of truth for:
+These examples are reference implementations for:
 
 - Feature file structure
 - Payload naming
-- Payload content
-- Resource field path discovery
-- Multi-dependency scenarios
+- Payload numbering
 - Placeholder usage
 - README structure
+- Multi-dependency scenarios
+- Multi-stage dependency setup
+
+They must not be used as the authority for:
+
+- Payload structure
+- Property names
+- Field types
+- Array names
+- Required attributes
+- Resource field paths
+
+For payload generation and resource field path discovery, always use the OpenAPI specifications referenced by the Component Specification YAML.
 
 When generating artefacts for a new component, reuse patterns from the closest matching example whenever possible.
 
@@ -78,3 +96,5 @@ Use the decision tree to determine whether the component follows:
 5. **One Feature File per Component**: Generate a single `TMFCxxx-DependentAPIInteraction.feature` file per component.
 6. **Deterministic Output Structure**: Place feature files, payloads, and README files under the component `BDD/` folder.
 7. **Readable and Reviewable**: Make generated scenarios and README documentation easy for maintainers to understand.
+8. **Schema-Driven Payloads**: Generate payloads from OpenAPI schemas, not examples or naming conventions.
+9. **No Stale Local Specs**: Use Ready-for-publication specifications unless local-file mode is explicitly requested.

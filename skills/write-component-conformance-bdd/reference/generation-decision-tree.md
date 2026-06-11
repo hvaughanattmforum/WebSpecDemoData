@@ -2,19 +2,25 @@
 
 Start
 
-├── Does the component have any mandatory dependent APIs?
+├── Resolve Component Specification
+│
+├── Any mandatory dependent APIs?
 │
 ├── NO
 │   └── Generate README.md only
 │
 └── YES
     │
-    ├── Number of mandatory dependent APIs = 1 ?
+    ├── Resolve OpenAPI specifications
     │
-    ├── YES
-    │   └── Follow TMFC005 pattern
+    ├── Fully resolve POST request schemas and all nested $ref definitions
     │
-    └── NO
+    ├── Can schemas be fully resolved?
+    │
+    ├── NO
+    │   └── Report unresolved schema and request human review
+    │
+    └── YES
         │
         ├── Do dependent APIs require chained resource creation?
         │
@@ -22,4 +28,27 @@ Start
         │   └── Follow TMFC028 pattern
         │
         └── NO
-            └── Follow TMFC007 pattern
+            │
+            ├── Number of mandatory dependent APIs = 1 ?
+            │
+            ├── YES
+            │   └── Follow TMFC005 pattern
+            │
+            └── NO
+                │
+                └── Follow TMFC007 pattern
+                    │
+                    ├── Can valid base payloads be generated?
+                    │
+                    ├── NO
+                    │   └── Report validation issue in README.md
+                    │
+                    └── YES
+                        │
+                        ├── Can dependency references be located in exposed API schema?
+                        │
+                        ├── NO
+                        │   └── Report unresolved dependency mapping in README.md
+                        │
+                        └── YES
+                            └── Generate BDD artefacts
