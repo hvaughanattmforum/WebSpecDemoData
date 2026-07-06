@@ -37,6 +37,13 @@ def validate_component_file_names_and_content():
             print("::endgroup::")
             return 1
 
+    for spec in COMPONENTS.rglob("*"):
+        if " " in spec.name:
+            print(f"::group::TMFC File Naming is invalid")
+            print(f"::error::{spec.relative_to(COMPONENTS)} contains a space")
+            print("::endgroup::")
+            return 1
+
     return 0
 
 def load_components():
