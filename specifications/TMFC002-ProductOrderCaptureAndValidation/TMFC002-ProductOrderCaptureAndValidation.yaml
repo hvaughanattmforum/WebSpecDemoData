@@ -328,8 +328,8 @@ spec:
           - GET
           - GET /id
     publishedEvents:
-    - apiType: openapi
-      apiId: TMF648
+    - id: TMF648
+      apiType: openapi
       hubResource: /hub
       resources:
       - quoteStateChangeEvent
@@ -337,21 +337,16 @@ spec:
       - quoteAttributeValueChangeEvent
       - quoteDeleteEvent
       - quoteInformationRequiredEvent
-    - apiType: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ShoppingCart/hub
-      implementation: /{{.Release.Name}}-ShoppingCartEvent
-      name: ShoppingCart
-      port: 80
+    - id: TMF663
+      apiType: openapi
+      hubResource: /hub
       resources:
       - shoppingCartCreateEvent
       - shoppingCartAttributeValueChangeEvent
       - shoppingCartDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF663_ShoppingCart/blob/master/TMF663-ShoppingCart-v4.0.0.swagger.json
-    - apiType: openapi
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
-      name: ProcessFlowManagement
-      port: 80
+    - id: TMF701
+      apiType: openapi
+      hubResource: /hub
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -362,38 +357,22 @@ spec:
       - taskFlowDeleteEvent
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
     subscribedEvents:
-    - apiType: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOfferingQualification/call-back
-      implementation: /{{.Release.Name}}-ProductOfferingQualificationEvent
-      name: ProductOfferingQualification
-      port: 80
+    - id: TMF679
+      apiType: openapi
       resources:
       - productOfferingQualificationStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF679_ProductOfferingQualification/blob/master/TMF679-ProductOfferingQualification-v4.0.0.swagger.json
-    - apiType: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/call-back
-      implementation: /{{.Release.Name}}-GeographicAddressManagementEvent
-      name: GeographicAddressManagement
-      port: 80
+    - id: TMF673
+      apiType: openapi
       resources:
       - geographicAddressValidationStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
-    - apiType: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentManagementEvent/call-back
-      implementation: /{{.Release.Name}}-PaymentManagementEvent
-      name: PaymentManagement
-      port: 80
+    - id: TMF670
+      apiType: openapi
       resources:
       - paymentCreateEvent
       - paymentStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF676_PaymentManagement/blob/master/TMF676-Payment-v4.0.0.swagger.json
-    - apiType: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceReservationEvent/call-back
-      implementation: /{{.Release.Name}}-ResourceReservationEvent
-      name: ResourceReservation
-      port: 80
+    - id: TMF716
+      apiType: openapi
       resources:
       - resourceReservationCreateEvent
       - resourceReservationAttributeValueChangeEvent
@@ -403,7 +382,6 @@ spec:
       - cancelResourceReservationCreateEvent
       - cancelResourceReservationStateChangeEvent
       - cancelResourceReservationInformationRequiredEvent
-      specification: https://github.com/tmforum-apis/TMF716_ResourceReservation/blob/master/TMF716-ResourceReservation-v4.1.0.swagger.json
   componentMetadata:
     id: TMFC002
     name: ProductOrderCaptureAndValidation
