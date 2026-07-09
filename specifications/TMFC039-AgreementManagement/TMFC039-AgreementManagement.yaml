@@ -158,7 +158,7 @@ spec:
     version: 1.2.0
     description: The Agreement Management component is responsible for creating, storing, editing, and tracking agreed arrangements with related terms and conditions over a lifecycle. The component manages offers, records acceptance, and associated considerations and intentions to establish agreements as legally binding. This component also provides workflows and templates that facilitate collaboration, communication and negotiation of agreements between parties, and administers the translation of agreements into contracts, when required. It provides secure storage, version control, compliance management, and renewal notifications for agreements.
     publicationDate: 2026-05-21
-    status: preview
+    status: roadmap
     functionalBlock: PartyManagement
     owners:
     - email: Redacted
