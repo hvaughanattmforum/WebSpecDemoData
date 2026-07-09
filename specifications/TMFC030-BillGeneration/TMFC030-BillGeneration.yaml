@@ -189,7 +189,7 @@ spec:
     version: 2.1.0
     description: The Bill Generation component is responsible for Party invoice management. It addresses the invoice formatting, presentation and dispatching via the appropriate means of communication.
     publicationDate: 2026-05-21
-    status: preview
+    status: roadmap
     functionalBlock: PartyManagement
     owners:
     - email: Redacted
