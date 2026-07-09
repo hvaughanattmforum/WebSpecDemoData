@@ -70,14 +70,39 @@ BDD/
 
 ### Mandatory Inputs
 
-1. Fully resolved Component Specification YAML from the Ready-for-publication repository, unless the user directly supplies a YAML or explicitly requests local-file mode.
-2. OpenAPI specifications referenced by the Component Specification.
+1. Component Specification YAML — resolved from the local `specs/` folder first; fetched from the Ready-for-publication repository as fallback.
+2. OpenAPI specifications — resolved from the local `specs/` folder first; fetched from the internet as fallback.
 
 ### Optional Inputs
 
 1. Existing payload files
 2. Existing BDD artefacts
 3. CHANGE_ME.json
+
+### Local Specs Folder
+
+The canonical location for all local specification files is:
+
+```
+specifications/{CODE}-{ShortName}/specs/
+```
+
+Example:
+
+```
+specifications/TMFC011-ResourceOrderManagement/specs/
+```
+
+This folder must contain:
+
+- The Component Specification YAML: `{CODE}-{ShortName}.yaml`  
+  Example: `TMFC011-ResourceOrderManagement.yaml`
+- One file per declared API version: `<TMFXXX>-v<version>.<ext>`  
+  Examples: `TMF652-v4.json`, `TMF634-v5.yaml`, `TMF634-v4.json`, `TMF639-v4.json`
+
+The skill runner is responsible for populating this folder before invoking the agent. All URLs required for download are available in the `specification[].url` entries for each API in `spec.coreFunction.exposedAPIs` and `spec.coreFunction.dependentAPIs`.
+
+When the `specs/` folder is fully populated, no internet access is required during generation.
 
 ## Source Of Truth Priority
 
@@ -154,21 +179,33 @@ skills/write-component-conformance-bdd/reference/generation-decision-tree.md
 
 Use this document to determine which generation pattern applies before selecting payload and feature generation rules.
 
+### Component Specification YAML Schema
+
+ci/component.schema.json
+
+Consult this schema when parsing any Component Specification YAML to understand the exact structure of exposed and dependent API entries, including the `specification` array used for multi-version declarations.
+
 ### Component Specification Source Rule
 
 The Component Specification YAML is the source of truth for BDD generation.
 
-By default, resolve the Component Specification YAML from the TM Forum Ready-for-publication repository.
+Resolution priority:
 
-Default repository:
+1. **User-supplied YAML** — if the user directly provides a YAML, use it.
+2. **Local `specs/` folder** — check for the file at:
+   `specifications/{CODE}-{ShortName}/specs/{CODE}-{ShortName}.yaml`
+   If present, use it.
+3. **Ready-for-publication repository** — fetch from the remote repository as fallback.
+
+Fallback repository:
 
 https://github.com/tmforum-rand/TMForum-ODA-Ready-for-publication
 
-Default release branch:
+Fallback release branch:
 
 v1.1.0
 
-Default raw URL pattern:
+Fallback raw URL pattern:
 
 ```text
 https://raw.githubusercontent.com/tmforum-rand/TMForum-ODA-Ready-for-publication/{release}/{CODE}-{ShortName}/Specification/{CODE}-{ShortName}.yaml
@@ -178,22 +215,99 @@ Example:
 
 https://raw.githubusercontent.com/tmforum-rand/TMForum-ODA-Ready-for-publication/v1.1.0/TMFC005-ProductInventory/Specification/TMFC005-ProductInventory.yaml
 
-Source priority:
-
-1. Component Specification YAML directly provided by the user.
-2. Component Specification YAML resolved from the Ready-for-publication repository.
-3. Local repository YAML only if the user explicitly requests local-file mode.
-
-Do not use local component specification YAML files by default.
-
-Local YAML files may be stale and must not override the Ready-for-publication repository unless explicitly requested.
-
-When resolving from the Ready-for-publication repository:
+When falling back to the repository:
 
 - Use the configured release branch.
 - Use the exact component folder name.
 - Do not guess the folder name if unsure.
 - Confirm the exact folder name from the repository tree or ask the user to provide the YAML.
+
+---
+
+## API Discovery from Component Specification YAML
+
+Use `ci/component.schema.json` as the authoritative reference for the YAML structure when extracting API information.
+
+### API Location in the YAML
+
+Exposed and dependent APIs are declared under:
+
+```
+spec.coreFunction.exposedAPIs
+spec.coreFunction.dependentAPIs
+```
+
+### API Entry Structure
+
+Each entry in `exposedAPIs` and `dependentAPIs` conforms to the following structure (per the schema):
+
+```yaml
+id: TMF641                      # API identifier — use this to identify the API
+name: serviceOrderManagement    # Human-readable name
+required: true                  # Whether this API is mandatory
+specification:                  # Array of version-specific OpenAPI specifications
+  - version: 4                  # Version number (number or string)
+    url: https://...            # URL to the OpenAPI specification for this version
+    apiType: openapi
+    path: /tmf-api/serviceOrdering/v4
+  - version: 5
+    url: https://...
+    apiType: openapi
+    path: /tmf-api/serviceOrdering/v5
+version: 4                      # Top-level version field (may be present in older YAML)
+```
+
+The `specification` field is an **array**. Each element is an independent version entry with its own `url` and `version`.
+
+### OpenAPI Specification URL Discovery
+
+To retrieve the OpenAPI specification URL for an API:
+
+1. Locate the API entry by `id` (e.g., `TMF641`) in `exposedAPIs` or `dependentAPIs`.
+2. Read the `specification` array.
+3. For each entry in the array, the `url` field is the URL to that version's OpenAPI specification.
+4. The `version` field in each entry identifies which API version that URL corresponds to.
+
+If the `specification` array is absent or empty, fall back to a top-level `url` field on the API entry if present (older YAML format).
+
+Do not assume a single URL covers all versions. Each `specification` array entry is a distinct version with its own URL.
+
+### Multiple Version Detection
+
+When an API declares more than one version, the `specification` array will contain multiple entries — one per version.
+
+Example:
+
+```yaml
+dependentAPIs:
+  - id: TMF633
+    name: serviceCatalog
+    required: true
+    specification:
+      - version: 4
+        url: https://raw.githubusercontent.com/.../TMF633-ServiceCatalog-v4.0.0.swagger.json
+      - version: 5
+        url: https://raw.githubusercontent.com/.../TMF633-ServiceCatalog.openapi.json
+```
+
+When this pattern is present:
+
+1. Collect all entries from the `specification` array.
+2. Extract the `version` and `url` from each entry.
+3. Apply the OpenAPI Version Selection Rule: prefer the highest version.
+4. Fetch the OpenAPI specification from the selected `url`.
+5. Apply Version Compatibility Rules when generating payloads.
+
+### Required API Identification
+
+An API is mandatory if and only if its `required` field is `true`.
+
+```yaml
+required: true   # mandatory — include in BDD generation
+required: false  # optional — skip
+```
+
+If the `required` field is absent, treat the API as optional.
 
 ---
 
@@ -220,6 +334,8 @@ Generated artefacts should follow the same structure, naming conventions, featur
 Generation must follow the following sequence:
 
 Resolve Component Specification
+↓
+Apply Generation Decision Tree (skills/write-component-conformance-bdd/reference/generation-decision-tree.md)
 ↓
 Resolve Exposed API OpenAPI Specification
 ↓
@@ -308,11 +424,58 @@ Party
 → PartyRole
 → Supplier
 
-In these cases:
+In these cases the Scenario Outline structure differs from the standard pattern.
 
-- Multiple base payloads may be generated.
-- Runtime placeholder names may differ from __VALID_ID__ and __VALID_HREF__.
-- Follow the canonical example implementation.
+### Multi-Stage Scenario Outline Structure
+
+```gherkin
+  Scenario Outline: Test dependent API interactions with different payloads
+    Given the CTK target component "<componentUnderTest>" with exposed API ID "<exposedApiId>" and dependent API ID "<dependentApiId>" has been installed successfully
+    And the supporting stub "<dependentComponent>" for API "<dependentAPI>" has been installed successfully
+    Given the target component exposed API "<exposedAPI>" is initialized with the payload defined in file "<basePayload>"
+    Given the dependent API stub "<dependentAPI>" is initialized with the payload defined in file "<basePayload2>"
+    When a "<resourceType>" with "<resourceFieldPath>" on payload defined in file "<targetPayload>" is created in API "<exposedAPI>" expecting "<expectedResponse>"
+    Then expected response for operation "<operationID>" should be "<expectedResponse>"
+
+  Examples:
+    | componentUnderTest | dependentComponent | resourceType | exposedApiId | exposedAPI | dependentApiId | dependentAPI | basePayload | basePayload2 | targetPayload | resourceFieldPath | operationID | expectedResponse |
+```
+
+Key differences from the standard pattern:
+
+1. `basePayload` initializes the **exposed API** (not the dependent stub): `Given the target component exposed API "<exposedAPI>" is initialized with the payload defined in file "<basePayload>"`
+2. `basePayload2` initializes the **dependent API stub**: `Given the dependent API stub "<dependentAPI>" is initialized with the payload defined in file "<basePayload2>"`
+3. The Examples table has an extra `basePayload2` column (13 columns total).
+
+### Multi-Stage Placeholder Names
+
+Multi-stage base payloads use different placeholder names to distinguish the intermediate resource from the final dependency.
+
+Stage 1 base payload (`basePayload`): standard resource — no placeholders.
+
+Stage 2 base payload (`basePayload2`): references the stage 1 resource using named placeholders:
+
+```json
+{
+  "id": "__VALID_PARTY_ID__",
+  "href": "__VALID_PARTY_HREF__"
+}
+```
+
+Target payload (`targetPayload`): references the final dependent resource using the standard placeholders:
+
+```json
+{
+  "id": "__VALID_ID__",
+  "href": "__VALID_HREF__"
+}
+```
+
+Use the canonical TMFC028 example for exact placeholder names and injection order.
+
+### Multi-Stage Payload Naming
+
+For multi-stage dependencies, base payloads are named to reflect their role in the setup sequence rather than the standard `<domain>-<resource>-0001.json` pattern. Follow the TMFC028 canonical example exactly.
 
 ---
 
@@ -342,17 +505,35 @@ If multiple mandatory exposed APIs exist, include scenarios for all mandatory ex
 
 ---
 
+## OpenAPI Spec File Resolution Rule
+
+For each API version declared in the component specification, resolve the OpenAPI spec file using the following priority:
+
+1. **Local `specs/` folder** — look for the file at:
+   `specifications/{CODE}-{ShortName}/specs/<TMFXXX>-v<version>.<ext>`
+   Example: `specifications/TMFC011-ResourceOrderManagement/specs/TMF634-v5.yaml`
+   If the file exists, use it.
+2. **Internet fetch** — fetch from the `url` field in the matching `specification` array entry as fallback.
+3. **Failure** — if neither is available, stop generation for that API version, document the gap in README.md, request the skill runner to supply the missing file, and apply the Version Fallback Rule.
+
+Apply this resolution priority independently for each declared version of each API. A local file for v4 does not substitute for a missing v5 file — attempt to resolve each version separately.
+
+When the local `specs/` folder is fully populated, no internet access is required during generation.
+
+---
+
 ## OpenAPI Resolution Rules
 
 OpenAPI specifications are the authoritative source for payload generation.
 
 Before generating any payload:
 
-1. Resolve the POST operation.
-2. Resolve the requestBody schema.
-3. Resolve all nested $ref definitions recursively.
-4. Continue resolution until a fully expanded schema model exists.
-5. Generate payloads only from the resolved schema.
+1. Apply the OpenAPI Spec File Resolution Rule to obtain the spec for each required version.
+2. Resolve the POST operation.
+3. Resolve the requestBody schema.
+4. Resolve all nested $ref definitions recursively.
+5. Continue resolution until a fully expanded schema model exists.
+6. Generate payloads only from the resolved schema.
 
 Do not generate payloads solely from:
 
@@ -664,17 +845,7 @@ If the base payload cannot be validated against the dependent API POST schema, d
 
 ---
 
-### Version Fallback Rule
-
-If a usable v5 example cannot be constructed:
-
-1. Build the payload using the v4 schema.
-2. Verify compatibility with v5.
-3. Reuse the v4 payload.
-
----
-
-### Resource Mapping Discovery
+## Resource Mapping Discovery
 
 The skill must recursively inspect the exposed API POST schema.
 
@@ -857,6 +1028,39 @@ Feature: Dependent API interaction testing for TMFC007 - Service Order
 
 Do not generate custom step definitions.
 
+### Feature Column Derivation
+
+Before populating the Examples table, derive each column value as follows:
+
+| Column | Source |
+|--------|--------|
+| `componentUnderTest` | Component code in lowercase (e.g., `tmfc007`) |
+| `dependentComponent` | `name` field of the dependent API entry in the component specification YAML |
+| `resourceType` | Resource name of the exposed API POST operation, derived from the OpenAPI spec |
+| `exposedApiId` | `id` field of the exposed API entry in the component specification YAML (e.g., `TMF641`) |
+| `exposedAPI` | Resource path/name of the exposed API POST operation (e.g., `serviceOrder` for `POST /serviceOrder`) |
+| `dependentApiId` | `id` field of the dependent API entry in the component specification YAML (e.g., `TMF633`) |
+| `dependentAPI` | Resource name selected from the dependent API OpenAPI spec (e.g., `serviceSpecification`) |
+| `basePayload` | Generated base payload filename |
+| `targetPayload` | Generated target payload filename |
+| `resourceFieldPath` | lodash-compatible path to the dependency reference in the target payload |
+| `operationID` | `operationId` of the POST operation in the exposed API OpenAPI spec |
+| `expectedResponse` | `success` or `failure` |
+
+`dependentComponent` is a short camelCase identifier for the dependent component stub. Derive it as follows:
+
+1. Read the `name` field of the matching entry in `spec.coreFunction.dependentAPIs`.
+2. If the `name` is already a short camelCase identifier (e.g., `serviceCatalog`, `serviceInventory`), use it directly.
+3. If the `name` is a hyphenated full API name (e.g., `resource-catalog-management-api`), derive the short form:
+   - Remove trailing `-management-api`, `-management`, or `-api` suffixes.
+   - Convert the remaining hyphen-separated words to camelCase.
+   - Example: `resource-catalog-management-api` → remove `-management-api` → `resource-catalog` → `resourceCatalog`
+   - Example: `resource-inventory-management-api` → remove `-management-api` → `resource-inventory` → `resourceInventory`
+
+The result must match the style of the canonical examples: `productCatalog`, `serviceCatalog`, `serviceInventory`, `resourceCatalog`, `resourceInventory`.
+
+`exposedAPI` is the resource name from the POST operation path (the segment after the last `/`), not the API name or ID.
+
 ---
 
 ## Payload Naming Rules
@@ -941,7 +1145,9 @@ Use the highest available OpenAPI version as the primary schema for generation, 
 
 ### Rule 1
 
-Inspect all available versions referenced in the component specification.
+Inspect all versions available in the component specification.
+
+Multiple versions are declared as multiple entries in the `specification` array of the API entry (see API Discovery from Component Specification YAML). Iterate the full `specification` array to collect all declared versions and their URLs before selecting a primary version.
 
 ### Rule 2
 
@@ -970,14 +1176,50 @@ Generate a single dependency validation scenario set per exposed API and depende
 
 The CTK runtime determines which API version is deployed and executes the same BDD artefacts against that implementation.
 
-## OpenAPI Version Selection Rule
+### OpenAPI Version Selection Rule
 
-When multiple versions of an API are referenced:
+When multiple versions of an API are referenced (i.e., the `specification` array contains more than one entry):
 
-1. Prefer the highest available version.
-2. Generate payloads against that version.
-3. Verify compatibility with lower supported versions.
-4. If compatibility cannot be achieved, document the limitation in README.md.
+1. Collect all entries from the `specification` array; each entry has a `version` and a `url`.
+2. Select the entry with the highest `version` value as the primary OpenAPI specification.
+3. Fetch the OpenAPI specification from the selected entry's `url`.
+4. Generate payloads against the highest-version schema.
+5. Fetch and verify compatibility against lower-version schemas where other `specification` entries exist.
+6. If compatibility cannot be achieved across all declared versions, document the limitation in README.md.
+
+### Version Fallback Rule
+
+If a usable payload cannot be constructed from the highest available version:
+
+1. Build the payload using the next lower version schema.
+2. Verify compatibility with the higher version.
+3. Reuse the lower-version payload if compatible.
+4. Document the fallback in README.md if full compatibility cannot be achieved.
+
+### Cross-Version Required Field Comparison Rule
+
+When spec files for multiple versions are available, explicitly compare the `required` arrays of the POST request schema between versions before generating payloads.
+
+Fields that are required in the higher version but not in the lower version must be included in the generated payload to ensure cross-version compatibility.
+
+Apply this comparison for every object in the schema that is present in the generated payload, not just the top-level schema.
+
+### `@type` Discriminator Rule
+
+TM Forum v5 OpenAPI schemas promote `@type` to a mandatory discriminator field on resource creation. v4 schemas typically do not require it.
+
+When generating base or target payloads that will be used against APIs declaring a v5 specification:
+
+1. Check whether `@type` appears in the `required` array of the POST request schema for the v5 spec.
+2. If required, include `"@type": "<ResourceClassName>"` in the payload.
+3. The value must be the concrete class name of the resource being created (e.g., `"ResourceSpecification"` for TMF634, `"Resource"` for TMF639).
+
+When the v5 spec file is unavailable and the v4 schema is used as fallback, apply the following defensive rule:
+
+- If the API declares a v5 version in the component specification YAML, include `"@type": "<ResourceClassName>"` in the generated payload regardless of whether the v5 spec was successfully retrieved.
+- Document in README.md that `@type` was added defensively due to an inaccessible v5 spec.
+
+The resource class name is the PascalCase name of the resource (e.g., the resource selected from the dependent API, capitalised: `productSpecification` → `"ProductSpecification"`, `service` → `"Service"`).
 
 ---
 
@@ -1021,9 +1263,6 @@ Resource: service
 Field Path: serviceOrderItem[0].service
 
 Operation Mapping:
-
-TMF637 product
-→ createProduct
 
 TMF641 serviceOrder
 → createServiceOrder
@@ -1085,8 +1324,6 @@ Before generation completes verify:
 
 ✓ Target payload generated
 
-✓ Resource field path discovered
-
 ✓ Success scenario generated
 
 ✓ Failure scenario generated
@@ -1120,6 +1357,10 @@ Before generation completes verify:
 ✓ target payload schema matches POST requestBody schema
 
 ✓ No payload structure derived solely from examples
+
+✓ `@type` field included in base payloads where v5 spec requires it or where a v5 version is declared and the spec was inaccessible
+
+✓ Cross-version required field comparison performed where multiple spec versions are available
 
 ✓ README mappings match generated payloads
 

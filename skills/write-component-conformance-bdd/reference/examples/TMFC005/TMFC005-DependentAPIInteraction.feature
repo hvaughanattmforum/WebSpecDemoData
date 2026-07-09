@@ -9,6 +9,6 @@ Feature: Dependent API interaction testing for TMFC005 - Product Inventory
     Then expected response for operation "<operationID>" should be "<expectedResponse>"
 
   Examples:
-    | componentUnderTest | dependentComponent   | resourceType          | exposedApiId  | exposedAPI   | dependentApiId | dependentAPI          | basePayload                | targetPayload             | resourceFieldPath          | operationID        | expectedResponse |
-    | tmfc005            | productCatalog       | productSpecification  | TMF637        | product      | TMF620         | productSpecification  | product-catalog-0001.json  | product-target-0001.json  | productSpecification       | createProduct      | success          |
-    | tmfc005            | productCatalog       | productSpecification  | TMF637        | product      | TMF620         | productSpecification  | product-catalog-0001.json  | product-target-0002.json  | productSpecification       | createProduct      | failure          |
+    | componentUnderTest | dependentComponent   | resourceType  | exposedApiId  | exposedAPI   | dependentApiId | dependentAPI          | basePayload                | targetPayload             | resourceFieldPath          | operationID        | expectedResponse |
+    | tmfc005            | productCatalog       | product       | TMF637        | product      | TMF620         | productSpecification  | product-catalog-0001.json  | product-target-0001.json  | productSpecification       | createProduct      | success          |
+    | tmfc005            | productCatalog       | product       | TMF637        | product      | TMF620         | productSpecification  | product-catalog-0001.json  | product-target-0002.json  | productSpecification       | createProduct      | failure          |
