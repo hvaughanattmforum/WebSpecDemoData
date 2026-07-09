@@ -1,0 +1,54 @@
+@startyaml
+publishedEvents:
+    - id: TMF648
+      name: Quote Management API
+      resources:
+      - quoteStateChangeEvent
+      - quoteCreateEvent
+      - quoteAttributeValueChangeEvent
+      - quoteDeleteEvent
+      - quoteInformationRequiredEvent
+    - id: TMF663
+      name: Shopping Cart Management API
+      resources:
+      - shoppingCartCreateEvent
+      - shoppingCartAttributeValueChangeEvent
+      - shoppingCartDeleteEvent
+    - id: TMF701
+      name: Process Flow Management API
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+subscribedEvents:
+    - id: TMF679
+      name: Product Offering Qualification Management API
+      resources:
+      - productOfferingQualificationStateChangeEvent
+    - id: TMF673
+      name: Geographic Address Management API
+      resources:
+      - geographicAddressValidationStateChangeEvent
+    - id: TMF676
+      name: Payment Management API
+      resources:
+      - paymentCreateEvent
+      - paymentStateChangeEvent
+    - id: TMF716
+      name: Resource Reservation
+      resources:
+      - resourceReservationCreateEvent
+      - resourceReservationAttributeValueChangeEvent
+      - resourceReservationDeleteEvent
+      - resourceReservationStateChangeEvent
+      - resourceReservationInformationRequiredEvent
+      - cancelResourceReservationCreateEvent
+      - cancelResourceReservationStateChangeEvent
+      - cancelResourceReservationInformationRequiredEvent
+@endyaml

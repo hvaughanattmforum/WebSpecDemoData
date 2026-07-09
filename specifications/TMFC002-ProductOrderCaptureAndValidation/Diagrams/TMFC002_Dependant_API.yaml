@@ -1,0 +1,296 @@
+@startyaml
+dependentAPIs:
+    - id: TMF620
+      name: Product Catalog Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - productOffering:
+          - GET
+          - GET /id
+        - productOfferingPrice:
+          - GET
+          - GET /id
+        - productSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - productCategory:
+          - GET
+          - GET /id
+        - productOffering:
+          - GET
+          - GET /id
+        - productOfferingPrice:
+          - GET
+          - GET /id
+        - productSpecification:
+          - GET
+          - GET /id
+    - id: TMF637
+      name: Product Inventory Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - product:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+      - version: 4
+        resources:
+        - product:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+    - id: TMF679
+      name: Product Offering Qualification Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - productOfferingQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+    - id: TMF646
+      name: Appointment Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - appointment:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - searchTimeSlot:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+    - id: TMF673
+      name: Geographic Address Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicAddress:
+          - GET
+          - GET /id
+        - geographicSubAddress:
+          - GET
+          - GET /id
+        - geographicAddressValidation:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+    - id: TMF674
+      name: Geographic Site Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicSite:
+          - GET
+          - GET /id
+    - id: TMF716
+      name: Resource Reservation
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resourceReservation:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - cancelResourceReservation:
+          - GET
+          - GET /id
+          - POST
+    - id: TMF687
+      name: Stock Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - checkProductStock:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - queryProductStock:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - reserveProductStock:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - productStock:
+          - GET
+          - GET /id
+    - id: TMF632
+      name: Party Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+    - id: TMF669
+      name: Party Role Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+    - id: TMF666
+      name: Account Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - billingAccount:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - billingAccount:
+          - GET /id
+          - GET
+    - id: TMF676
+      name: Payment Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - payment:
+          - GET / id
+          - GET
+    - id: TMF683
+      name: Party Interaction Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - partyInteraction:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyInteraction:
+          - GET / id
+          - GET
+    - id: TMF638
+      name: Service Inventory Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - service:
+          - GET
+      - version: 4
+        resources:
+        - service:
+          - GET / id
+          - GET
+    - id: TMF639
+      name: Resource Inventory Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET / id
+          - GET
+    - id: TMF701
+      name: Process Flow Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - PATCH
+          - GET
+          - GET /id
+        - taskFlow:
+          - POST
+          - PATCH
+          - GET
+          - GET /id
+    - id: TMF760
+      name: Product Configuration Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - checkProductConfiguration:
+          - GET
+          - GET /id
+          - POST
+        - queryProductConfiguration:
+          - GET
+          - GET /id
+          - POST
+    - id: TMF651
+      name: Agreement Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - agreement:
+          - GET
+          - GET /id
+
+@endyaml
