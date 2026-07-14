@@ -1,19 +1,34 @@
-# TMFC008 – ServiceInventory – v1.3.0
+# TMFC003 – ProductOrderDeliveryOrchestrationAndManagement – v2.0.0
 
 ## Mandatory Exposed APIs (Require Conformance)
 
-- **TMF638 – Service Inventory Management API**
+- **TMF622 – Product Ordering Management API**
   Swagger:
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/5.0.0/swagger/TMF638-Service_Inventory_Management-v5.0.0.oas.yaml
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/4.0.0/swagger/TMF638_Service_Inventory_Management_API_v4.0.0_swagger.json
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF622_Product_Ordering/5.0.0/swagger/TMF622-ProductOrdering-v5.0.0.oas.yaml
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF622_Product_Ordering/4.0.0/swagger/TMF622_Product_Ordering_Management_API_v4.0.0_swagger.json
 
 *(Conformance MUST support one of the specified versions above.)*
 
 ## Mandatory Dependent APIs (Require Conformance)
 
-- **TMF633 – Service Catalog Management API**
+- **TMF620 – Product Catalog Management API**
   Swagger:
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF633_Service_Catalog/4.0.0/swagger/TMF633_Service_Catalog_Management_API_v4.0.0_swagger.json
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF620_Product_Catalog/5.0.0/swagger/TMF620-Product_Catalog_Management-v5.0.0.oas.yaml
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF620_Product_Catalog/4.1.0/swagger/TMF620_Product_Catalog_Management_API_v4.1.0_swagger.json
+
+- **TMF622 – Product Ordering Management API**
+  Swagger:
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF622_Product_Ordering/5.0.0/swagger/TMF622-ProductOrdering-v5.0.0.oas.yaml
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF622_Product_Ordering/4.0.0/swagger/TMF622_Product_Ordering_Management_API_v4.0.0_swagger.json
+
+- **TMF637 – Product Inventory Management API**
+  Swagger:
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF637_Product_Inventory/5.0.0/swagger/TMF637-ProductInventory-v5.0.0.oas.yaml
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF637_Product_Inventory/4.0.0/swagger/TMF637_Product_Inventory_Management_API_v4.0.0_swagger.json
+
+- **TMF641 – Service Ordering Management API**
+  Swagger:
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF641_Service_Ordering/4.2.0/swagger/TMF641_Service_Ordering_v4.2.0_beta_swagger.json
 
 *(Conformance MUST support one of the specified versions above.)*
 
@@ -30,7 +45,8 @@ The component must ensure that this API is properly implemented and accessible, 
 that a valid `canvasSystemRole` is configured.
 
 The presence of **TMF672 (User Role Permission Management API)** under `securityFunction` is ignored for
-conformance purposes.
+conformance purposes; it is marked `required: false` and nothing elsewhere in the spec promotes it to
+mandatory.
 
 ### Mandatory Security API
 - **TMF669 – Party Role Management API**
@@ -87,8 +103,8 @@ The component deployment and the Kubernetes cluster must pass the following test
 
 ```json
 {
-    "releaseName": "si-1",
-    "component_to_run": "TMFC008",
+    "releaseName": "podm-1",
+    "component_to_run": "TMFC003",
     "component_namespace": "components",
     "standardComponentPath": "",
     "ctk_name_mapping": {},
@@ -106,7 +122,7 @@ The component deployment and the Kubernetes cluster must pass the following test
     },
     "ctkconfig": {
         "companyName": "TM FORUM",
-        "productName": "REFERENCE EXAMPLE SERVICE INVENTORY",
+        "productName": "REFERENCE EXAMPLE PRODUCT ORDER DELIVERY ORCHESTRATION AND MANAGEMENT",
         "productUrl": "https://www.tmforum.org",
         "componentUrl": "https://www.tmforum.org/oda/directory/components-map",
         "headers": {
