@@ -1,21 +1,29 @@
-# TMFC008 – ServiceInventory – v1.3.0
+# TMFC014 – LocationManagement – v1.3.1
 
 ## Mandatory Exposed APIs (Require Conformance)
 
-- **TMF638 – Service Inventory Management API**
+- **TMF673 – Geographic Address Management API**
   Swagger:
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/5.0.0/swagger/TMF638-Service_Inventory_Management-v5.0.0.oas.yaml
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/4.0.0/swagger/TMF638_Service_Inventory_Management_API_v4.0.0_swagger.json
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF673_Geographic_Address/4.0.0/swagger/TMF673_Geographic_Address_Management_API_v4.0.0_swagger.json
+
+*(Conformance MUST support one of the specified versions above.)*
+
+- **TMF674 – Geographic Site Management API**
+  Swagger:
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF674_Geographic_Site/4.0.0/swagger/TMF674_Geographic_Site_Management_API_v4.0.0_swagger.json
+
+*(Conformance MUST support one of the specified versions above.)*
+
+- **TMF675 – *(display name not found in apiIndex.json — fill in manually)***
+  Swagger:
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF675_Geographic_Location/4.0.0/swagger/TMF675_Geographic_Location_Management_API_v4.0.0_beta_swagger.json
+  <!-- name not found in apiIndex.json (checked all entries) — fill in manually; URL taken directly from Ready-for-publication YAML -->
 
 *(Conformance MUST support one of the specified versions above.)*
 
 ## Mandatory Dependent APIs (Require Conformance)
 
-- **TMF633 – Service Catalog Management API**
-  Swagger:
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF633_Service_Catalog/4.0.0/swagger/TMF633_Service_Catalog_Management_API_v4.0.0_swagger.json
-
-*(Conformance MUST support one of the specified versions above.)*
+There are **no mandatory dependent APIs** specified in this component.
 
 ## Security Conformance Requirements
 
@@ -24,13 +32,12 @@ Specifically, the component must either expose and use the relevant Security API
 `securityFunction`, or provide a valid `canvasSystemRole`.
 
 In this case, **TMF669 (Party Role Management API)** is present under the Security Function and must
-therefore be treated as **mandatory for conformance**, regardless of its `required: false` flag in the
-manifest — TMF669 is the canvas-identity API and is always mandatory when present under `securityFunction`.
-The component must ensure that this API is properly implemented and accessible, or alternatively ensure
-that a valid `canvasSystemRole` is configured.
+therefore be treated as **mandatory for conformance**, regardless of its `required: false` flag in the YAML —
+this is the canvas-identity API and is always mandatory when present in `securityFunction`.
 
-The presence of **TMF672 (User Role Permission Management API)** under `securityFunction` is ignored for
-conformance purposes.
+**TMF672 (User Role Permission Management API)** is also present under the Security Function, marked
+`required: false`. It is treated as **present but ignored** for conformance purposes — nothing else in the
+spec promotes it to mandatory, so it does not add a conformance requirement beyond the check below.
 
 ### Mandatory Security API
 - **TMF669 – Party Role Management API**
@@ -87,8 +94,8 @@ The component deployment and the Kubernetes cluster must pass the following test
 
 ```json
 {
-    "releaseName": "si-1",
-    "component_to_run": "TMFC008",
+    "releaseName": "lm-1",
+    "component_to_run": "TMFC014",
     "component_namespace": "components",
     "standardComponentPath": "",
     "ctk_name_mapping": {},
@@ -106,7 +113,7 @@ The component deployment and the Kubernetes cluster must pass the following test
     },
     "ctkconfig": {
         "companyName": "TM FORUM",
-        "productName": "REFERENCE EXAMPLE SERVICE INVENTORY",
+        "productName": "REFERENCE EXAMPLE LOCATION MANAGEMENT",
         "productUrl": "https://www.tmforum.org",
         "componentUrl": "https://www.tmforum.org/oda/directory/components-map",
         "headers": {

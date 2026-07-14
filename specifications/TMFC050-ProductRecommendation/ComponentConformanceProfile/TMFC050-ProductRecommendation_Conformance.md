@@ -1,19 +1,19 @@
-# TMFC008 – ServiceInventory – v1.3.0
+# TMFC050 – ProductRecommendationManagement – v1.1.0
 
 ## Mandatory Exposed APIs (Require Conformance)
 
-- **TMF638 – Service Inventory Management API**
+- **TMF680 – Recommendation Management API**
   Swagger:
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/5.0.0/swagger/TMF638-Service_Inventory_Management-v5.0.0.oas.yaml
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/4.0.0/swagger/TMF638_Service_Inventory_Management_API_v4.0.0_swagger.json
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF680_Recommendation/4.0.0/swagger/TMF680_Recommendation_Management_API_v4.0.0_swagger.json
 
 *(Conformance MUST support one of the specified versions above.)*
 
 ## Mandatory Dependent APIs (Require Conformance)
 
-- **TMF633 – Service Catalog Management API**
+- **TMF620 – Product Catalog Management API**
   Swagger:
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF633_Service_Catalog/4.0.0/swagger/TMF633_Service_Catalog_Management_API_v4.0.0_swagger.json
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF620_Product_Catalog/5.0.0/swagger/TMF620-Product_Catalog_Management-v5.0.0.oas.yaml
+  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF620_Product_Catalog/4.1.0/swagger/TMF620_Product_Catalog_Management_API_v4.1.0_swagger.json
 
 *(Conformance MUST support one of the specified versions above.)*
 
@@ -25,12 +25,9 @@ Specifically, the component must either expose and use the relevant Security API
 
 In this case, **TMF669 (Party Role Management API)** is present under the Security Function and must
 therefore be treated as **mandatory for conformance**, regardless of its `required: false` flag in the
-manifest — TMF669 is the canvas-identity API and is always mandatory when present under `securityFunction`.
-The component must ensure that this API is properly implemented and accessible, or alternatively ensure
-that a valid `canvasSystemRole` is configured.
-
-The presence of **TMF672 (User Role Permission Management API)** under `securityFunction` is ignored for
-conformance purposes.
+manifest. **TMF672 (User Role Permission Management API)** is also present under `securityFunction`, but
+it remains marked `required: false` and is not promoted to mandatory by anything else in the spec — it is
+therefore present-but-ignored for conformance purposes.
 
 ### Mandatory Security API
 - **TMF669 – Party Role Management API**
@@ -87,8 +84,8 @@ The component deployment and the Kubernetes cluster must pass the following test
 
 ```json
 {
-    "releaseName": "si-1",
-    "component_to_run": "TMFC008",
+    "releaseName": "pr-1",
+    "component_to_run": "TMFC050",
     "component_namespace": "components",
     "standardComponentPath": "",
     "ctk_name_mapping": {},
@@ -106,7 +103,7 @@ The component deployment and the Kubernetes cluster must pass the following test
     },
     "ctkconfig": {
         "companyName": "TM FORUM",
-        "productName": "REFERENCE EXAMPLE SERVICE INVENTORY",
+        "productName": "REFERENCE EXAMPLE PRODUCT RECOMMENDATION",
         "productUrl": "https://www.tmforum.org",
         "componentUrl": "https://www.tmforum.org/oda/directory/components-map",
         "headers": {
