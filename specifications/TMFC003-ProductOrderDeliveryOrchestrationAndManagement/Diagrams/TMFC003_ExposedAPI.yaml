@@ -34,6 +34,28 @@ exposedAPIs:
       apiSDO: tmForum
       required: false
       specification:
+      - version: 5
+        resources:
+        - process:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
+        - task:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
+        - processSpecification:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
+        - taskSpecification:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
       - version: 4
         resources:
         - processFlow:
@@ -42,8 +64,8 @@ exposedAPIs:
           - GET /id
           - DELETE
         - taskFlow:
+          - POST
           - PATCH
           - GET
           - GET /id
-
 @endyaml

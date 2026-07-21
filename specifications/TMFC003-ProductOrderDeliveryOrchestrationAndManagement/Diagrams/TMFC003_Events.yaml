@@ -1,0 +1,280 @@
+@startyaml
+publishedEvents:
+  - id: TMF622
+    name: Product Ordering Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - productOrderStateChangeEvent
+      - productOrderCreateEvent
+      - productOrderAttributeValueChangeEvent
+      - productOrderDeleteEvent
+      - productOrderInformationRequiredEvent
+      - cancelProductOrderCreateEvent
+      - cancelProductOrderStateChangeEvent
+      - cancelProductOrderInformationRequiredEvent
+    - version: 5.0.0
+      events:
+      - productOrderStateChangeEvent
+      - productOrderCreateEvent
+      - productOrderAttributeValueChangeEvent
+      - productOrderDeleteEvent
+      - productOrderInformationRequiredEvent
+      - cancelProductOrderCreateEvent
+      - cancelProductOrderStateChangeEvent
+      - cancelProductOrderInformationRequiredEvent
+  - id: TMF701
+    name: Process Flow Management API
+    specification:
+    - version: 5.0.0
+      events:
+      - processCreateEvent
+      - processStateChangeEvent
+      - processDeleteEvent
+      - processAttributeValueChangeEvent
+      - taskCreateEvent
+      - taskStateChangeEvent
+      - taskDeleteEvent
+      - taskAttributeValueChangeEvent
+      - taskInformationRequiredEvent
+      - processSpecificationAttributeValueChangeEvent
+      - processSpecificationCreateEvent
+      - processSpecificationDeleteEvent
+      - processSpecificationStateChangeEvent
+      - taskSpecificationAttributeValueChangeEvent
+      - taskSpecificationCreateEvent
+      - taskSpecificationDeleteEvent
+      - taskSpecificationStateChangeEvent
+    - version: 4.0.0
+      events:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowDeleteEvent
+      - processFlowAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+
+subscribedEvents:
+  - id: TMF641
+    name: Service Ordering Management API
+    specification:
+    - version: 4.1.0
+      events:
+      - serviceOrderAttributeValueChangeEvent
+      - serviceOrderInformationRequiredEvent
+      - serviceOrderMilestoneEvent
+      - serviceOrderJeopardyEvent
+      - serviceOrderDeleteEvent
+      - cancelServiceOrderStateChangeEvent
+      - cancelServiceOrderInformationRequiredEvent
+    - version: 5.0.0
+      events:
+      - serviceOrderDeleteEvent
+      - serviceOrderStateChangeEvent
+      - serviceOrderAttributeValueChangeEvent
+      - serviceOrderInformationRequiredEvent
+      - serviceOrderMilestoneEvent
+      - serviceOrderJeopardyEvent
+      - cancelServiceOrderStateChangeEvent
+      - cancelServiceOrderInformationRequiredEvent
+  - id: TMF652
+    name: Resource Order Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - resourceOrderStateChange
+      - resourceOrderAttributeValueChangeEvent
+      - resourceOrderInformationRequiredEvent
+      - cancelResourceOrderStateChange
+      - cancelResourceOrderInformationRequiredEvent
+    - version: 5.0.0
+      events:
+      - resourceOrderStateChange
+      - resourceOrderAttributeValueChangeEvent
+      - resourceOrderInformationRequiredEvent
+      - cancelResourceOrderStateChange
+      - cancelResourceOrderInformationRequiredEvent
+  - id: TMF675
+    name: Geographic Location Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - geographicLocationCreateEvent
+      - geographicLocationAttributeValueChangeEvent
+      - geographicLocationDeleteEvent
+  - id: TMF674
+    name: Geographic Site Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - geographicSiteCreateEvent
+      - geographicSiteAttributeValueChangeEvent
+      - geographicSiteDeleteEvent
+      - geographicSiteStatusChangeEvent
+    - version: 5.0.0
+      events:
+      - geographicSiteCreateEvent
+      - geographicSiteAttributeValueChangeEvent
+      - geographicSiteDeleteEvent
+      - geographicSiteStateChangeEvent
+  - id: TMF673
+    name: Geographic Address Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - geographicAddressValidationStateChangeEvent
+    - version: 5.0.0
+      events:
+      - geographicAddressValidationStateChangeEvent
+      - geographicAddressAttributeValueChangeEvent
+      - geographicAddressCreateEvent
+      - geographicAddressDeleteEvent
+  - id: TMF921
+    name: Intent Management API
+    specification:
+    - version: 5.0.0
+      events:
+      - intentCreateEvent
+      - intentStatusChangeEvent
+      - intentDeleteEvent
+      - intentAttributeValueChangeEvent
+  - id: TMF646
+    name: Appointment Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - appointmentStateChange
+      - appointmentCreateEvent
+      - appointmentAttributeValueChangeEvent
+      - appointmentDeleteEvent
+  - id: TMF679
+    name: Product Offering Qualification Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - productOfferingQualificationCreateEvent
+      - productOfferingQualificationAttributeValueChangeEvent
+      - productOfferingQualificationStateChangeEvent
+      - productOfferingQualificationDeleteEvent
+      - productOfferingQualificationInformationRequiredEvent
+    - version: 5.0.0
+      events:
+      - checkProductOfferingQualificationCreateEvent
+      - checkProductOfferingQualificationAttributeValueChangeEvent
+      - checkProductOfferingQualificationStateChangeEvent
+      - checkProductOfferingQualificationDeleteEvent
+  - id: TMF632
+    name: Party Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+    - version: 5.0.0
+      events:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+  - id: TMF669
+    name: Party Role Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - partyRoleDeleteEvent
+    - version: 5.0.0
+      events:
+      - partyRoleDeleteEvent
+      - partyRoleSpecificationDeleteEvent
+  - id: TMF676
+    name: Payment Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - paymentDeleteEvent
+  - id: TMF666
+    name: Account Management API
+    specification:
+    - version: 5.0.0
+      events:
+      - billingAccountDeleteEvent
+  - id: TMF651
+    name: Agreement Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - agreementDeleteEvent
+  - id: TMF639
+    name: Resource Inventory Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - resourceDeleteEvent
+    - version: 5.0.0
+      events:
+      - resourceDeleteEvent
+  - id: TMF634
+    name: Resource Catalog Management API
+    specification:
+    - version: 4.1.0
+      events:
+      - resourceSpecificationDeleteEvent
+    - version: 5.0.0
+      events:
+      - resourceSpecificationDeleteEvent
+  - id: TMF638
+    name: Service Inventory Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - serviceDeleteEvent
+    - version: 5.0.0
+      events:
+      - serviceDeleteEvent
+  - id: TMF633
+    name: Service Catalog Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - serviceSpecificationDeleteEvent
+  - id: TMF637
+    name: Product Inventory Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - productCreateEvent
+      - productAttributeValueChangeEvent
+      - productStateChangeEvent
+      - productDeleteEvent
+      - productBatchEvent
+    - version: 5.0.0
+      events:
+      - productCreateEvent
+      - productAttributeValueChangeEvent
+      - productStateChangeEvent
+      - productDeleteEvent
+      - productBatchEvent
+  - id: TMF620
+    name: Product Catalog Management API
+    specification:
+    - version: 4.1.0
+      events:
+      - productSpecificationDeleteEvent
+      - productOfferingDeleteEvent
+      - productOfferingPriceDeleteEvent
+    - version: 5.0.0
+      events:
+      - productSpecificationDeleteEvent
+      - productOfferingDeleteEvent
+      - productOfferingPriceDeleteEvent
+  - id: TMF648
+    name: Quote Management API
+    specification:
+    - version: 4.0.0
+      events:
+      - quoteDeleteEvent
+    - version: 5.0.0
+      events:
+      - quoteDeleteEvent
+@endyaml
