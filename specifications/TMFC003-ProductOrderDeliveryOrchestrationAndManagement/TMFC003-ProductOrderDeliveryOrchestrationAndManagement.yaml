@@ -50,7 +50,7 @@ spec:
           - GET /id
       - version: 4
         apiType: openapi
-        url: tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF622_Product_Ordering/4.0.0/swagger/TMF622_Product_Ordering_Management_API_v4.0.0_swagger.json
+        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF622_Product_Ordering/4.0.0/swagger/TMF622_Product_Ordering_Management_API_v4.0.0_swagger.json
         resources:
         - productOrder:
           - GET
@@ -208,7 +208,7 @@ spec:
           - GET /id
           - POST
     - id: TMF701
-      name: Process Management API API
+      name: Process Management API
       apiSDO: tmForum
       required: false
       specification:
@@ -281,7 +281,7 @@ spec:
         url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF676_Payment/4.0.0/swagger/TMF676_Payment_Management_API_v4.0.0_swagger.json
         resources:
         - payment:
-          - GET / id
+          - GET /id
           - GET
     - id: TMF669
       name: Party Role Management API
@@ -505,7 +505,7 @@ spec:
         - productOrder:
           - POST
           - GET
-          - GET /ids
+          - GET /id
           - PATCH
           - DELETE
         - cancelProductOrder:
