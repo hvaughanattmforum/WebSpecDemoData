@@ -1,0 +1,87 @@
+apiVersion: oda.tmforum.org/v1
+kind: Component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  coreFunction:
+    exposedAPIs:
+    - id: TMF620
+      required: true
+      apiSDO: tmForum
+      specification:
+      - version: 5.0.0
+        resources:
+        - category:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productOfferingPrice:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - productOfferingPrice:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+    dependentAPIs:
+    - id: TMF621
+      required: false
+      apiSDO: tmForum
+      specification:
+      - version: 5.0.0
+        resources:
+        - troubleTicketSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+    publishedEvents:
+    - name: ProductCatalogManagement
+      resources:
+      - importJobCreateEvent
+      - productCatalogCreateEvent
+      - productCatalogStateChangeEvent
+      - productOfferingCreateEvent
+      apiType: openapi
+    subscribedEvents:
+    - name: PartyManagement
+      resources:
+      - individualStateChangeEvent
+      - organizationCreateEvent
+      - organizationStateChangeEvent
+      apiType: openapi
+  componentMetadata:
+    id: TMFC063
+    name: TestComponent
+    version: 1.0.0
+    description: ''
+    publicationDate: 2026-07-31
+    status: roadmap
+    functionalBlock: CoreCommerce
+    eTOMs:
+    - 1.1.1.2|Establish_Market_Strategy|v26.0
+    functionalFrameworkFunctions:
+    - 1093|Market_Strategy_Plan_Design|v26.0
+    SIDs:
+    - Market_Domain|Market_Strategy_Plan_ABE|v26.0
