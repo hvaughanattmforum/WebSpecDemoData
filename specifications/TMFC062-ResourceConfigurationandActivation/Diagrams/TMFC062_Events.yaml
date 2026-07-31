@@ -1,0 +1,36 @@
+@startyaml
+publishedEvents:
+    - id: TMF702
+      name: Resource Activation Management API
+      resources:
+      - ResourceCreateEvent
+      - ResourceAttributeValueChangeEvent
+      - ResourceStateChangeEvent
+      - ResourceDeleteEvent
+    - id: TMF664
+      name: Resource Function Activation Management API
+      resources:
+      - ResourceFunctionCreateEvent
+      - ResourceFunctionAttributeValueChangeEvent
+      - ResourceFunctionChangeEvent
+      - ResourceFunctionDeleteEvent
+      - HealCreateEvent
+      - HealAttributeValueChangeEvent
+      - HealChangeEvent
+      - HealDeleteEvent
+      - ScaleCreateEvent
+      - ScaleAttributeValueChangeEvent
+      - ScaleChangeEvent
+      - ScaleDeleteEvent
+      - MigrateCreateEvent
+      - MigrateAttributeValueChangeEvent
+      - MigrateChangeEvent
+      - MigrateDeleteEvent
+subscribedEvents:
+    - id: TMF634
+      name: Resource Catalog Management API
+      resources:
+      - ResourceSpecificationCreateEvent
+      - ResourceSpecificationChangeEvent
+      - ResourceSpecificationDeleteEvent
+@endyaml

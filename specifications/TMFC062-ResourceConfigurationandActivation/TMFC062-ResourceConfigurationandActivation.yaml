@@ -1,0 +1,132 @@
+apiVersion: oda.tmforum.org/v1
+kind: Component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  coreFunction:
+    dependentAPIs:
+    - id: TMF634
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+    - id: TMF639
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+    exposedAPIs:
+    - id: TMF702
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET
+          - GET /id
+          - POST /id
+          - PATCH
+          - DELETE /id
+    - id: TMF664
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resourceFunction:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - heal:
+          - GET
+          - GET /id
+          - POST
+        - scale:
+          - GET
+          - GET /id
+          - POST
+        - migrate:
+          - GET
+          - GET /id
+          - POST
+    publishedEvents:
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationManagement/hub
+      implementation: /{{.Release.Name}}-ResourceActivationManagement
+      name: ResourceActivationManagement
+      port: 80
+      resources:
+      - ResourceCreateEvent
+      - ResourceAttributeValueChangeEvent
+      - ResourceStateChangeEvent
+      - ResourceDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF702_Resource_Activation_Management/master/TMF702_Resource_Activation_Management_API_v4.0.0_swagger.json
+    - apitype: openapi
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationManagement/hub
+      implementation: /{{.Release.Name}}-ResourceFunctionActivationManagement
+      name: ResourceFunctionActivationManagement
+      port: 80
+      resources:
+      - ResourceFunctionCreateEvent
+      - ResourceFunctionAttributeValueChangeEvent
+      - ResourceFunctionChangeEvent
+      - ResourceFunctionDeleteEvent
+      - HealCreateEvent
+      - HealAttributeValueChangeEvent
+      - HealChangeEvent
+      - HealDeleteEvent
+      - ScaleCreateEvent
+      - ScaleAttributeValueChangeEvent
+      - ScaleChangeEvent
+      - ScaleDeleteEvent
+      - MigrateCreateEvent
+      - MigrateAttributeValueChangeEvent
+      - MigrateChangeEvent
+      - MigrateDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF664_Resource_Function_Activation_Management/blob/master/TMF664_Resource_Function_Activation_Management_API_v4.0.0_swagger.json
+    subscribedEvents:
+    - apitype: openapi
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalogManagement/call-back
+      implementation: /{{.Release.Name}}-ResourceCatalogManagement
+      name: ResourceCatalogManagement
+      port: 80
+      resources:
+      - ResourceSpecificationCreateEvent
+      - ResourceSpecificationChangeEvent
+      - ResourceSpecificationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF634_Resource_Catalog_Management/blob/master/TMF634_Resource_Catalog_Management_API_v4.1.0_swagger.json
+  componentMetadata:
+    id: TMFC062
+    name: ResourceConfigurationandActivation
+    version: 1.1.0
+    description: The Resource Configuration and Activation component configures and activates resource instances and enables querying of resource instances to acquire the resource activation states and attributes.
+    publicationDate: '2026-06-02'
+    status: preview
+    functionalBlock: Production
+    owners:
+    - name: Gaetano Biancardi
+      email: redacted
+      url: Redacted
+    eTOMs:
+    - 1.5.8.2.1|Verify_Resource_Configuration|v25.0
+    SIDs:
+    - Resource_Domain|Resource_Configuration_ABE|v25.0

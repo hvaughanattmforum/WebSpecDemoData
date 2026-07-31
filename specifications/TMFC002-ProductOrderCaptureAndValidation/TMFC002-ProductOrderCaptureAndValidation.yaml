@@ -1,0 +1,436 @@
+apiVersion: oda.tmforum.org/v1
+kind: Component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  coreFunction:
+    dependentAPIs:
+    - id: TMF620
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - productOffering:
+          - GET
+          - GET /id
+        - productOfferingPrice:
+          - GET
+          - GET /id
+        - productSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - productCategory:
+          - GET
+          - GET /id
+        - productOffering:
+          - GET
+          - GET /id
+        - productOfferingPrice:
+          - GET
+          - GET /id
+        - productSpecification:
+          - GET
+          - GET /id
+    - id: TMF637
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - product:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+      - version: 4
+        resources:
+        - product:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+    - id: TMF679
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - productOfferingQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+    - id: TMF646
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - appointment:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - searchTimeSlot:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+    - id: TMF673
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicAddress:
+          - GET
+          - GET /id
+        - geographicSubAddress:
+          - GET
+          - GET /id
+        - geographicAddressValidation:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+    - id: TMF674
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicSite:
+          - GET
+          - GET /id
+    - id: TMF716
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resourceReservation:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - cancelResourceReservation:
+          - GET
+          - GET /id
+          - POST
+    - id: TMF687
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - checkProductStock:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - queryProductStock:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - reserveProductStock:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - productStock:
+          - GET
+          - GET /id
+    - id: TMF632
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+    - id: TMF669
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+    - id: TMF666
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - billingAccount:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - billingAccount:
+          - GET /id
+          - GET
+    - id: TMF676
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - payment:
+          - GET /id
+          - GET
+    - id: TMF683
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - partyInteraction:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyInteraction:
+          - GET /id
+          - GET
+    - id: TMF638
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - service:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - service:
+          - GET /id
+          - GET
+    - id: TMF639
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET /id
+          - GET
+    - id: TMF701
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - PATCH
+          - GET
+          - GET /id
+        - taskFlow:
+          - POST
+          - PATCH
+          - GET
+          - GET /id
+    - id: TMF760
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - checkProductConfiguration:
+          - GET
+          - GET /id
+          - POST
+        - queryProductConfiguration:
+          - GET
+          - GET /id
+          - POST
+    - id: TMF651
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - agreement:
+          - GET
+          - GET /id
+    exposedAPIs:
+    - id: TMF648
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - quote:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
+          - DELETE
+    - id: TMF663
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - shoppingCart:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - shoppingCart:
+          - POST
+          - GET
+          - GET /id
+          - PATCH
+          - DELETE
+    - id: TMF701
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
+    publishedEvents:
+    - id: TMF648
+      apiType: openapi
+      hubResource: /hub
+      resources:
+      - quoteStateChangeEvent
+      - quoteCreateEvent
+      - quoteAttributeValueChangeEvent
+      - quoteDeleteEvent
+      - quoteInformationRequiredEvent
+    - id: TMF663
+      apiType: openapi
+      hubResource: /hub
+      resources:
+      - shoppingCartCreateEvent
+      - shoppingCartAttributeValueChangeEvent
+      - shoppingCartDeleteEvent
+    - id: TMF701
+      apiType: openapi
+      hubResource: /hub
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+    subscribedEvents:
+    - id: TMF679
+      apiType: openapi
+      resources:
+      - productOfferingQualificationStateChangeEvent
+    - id: TMF673
+      apiType: openapi
+      resources:
+      - geographicAddressValidationStateChangeEvent
+    - id: TMF676
+      apiType: openapi
+      resources:
+      - paymentCreateEvent
+      - paymentStateChangeEvent
+    - id: TMF716
+      apiType: openapi
+      resources:
+      - resourceReservationCreateEvent
+      - resourceReservationAttributeValueChangeEvent
+      - resourceReservationDeleteEvent
+      - resourceReservationStateChangeEvent
+      - resourceReservationInformationRequiredEvent
+      - cancelResourceReservationCreateEvent
+      - cancelResourceReservationStateChangeEvent
+      - cancelResourceReservationInformationRequiredEvent
+  componentMetadata:
+    id: TMFC002
+    name: ProductOrderCaptureAndValidation
+    version: 3.0.0
+    description: This component captures what a customer wants to order based on the CSP's Product Catalog. It enables configuration of the product offerings and products desired, provides quotes, checks the eligibility of the customer order, and completes it with information needed such as the related parties or associated billing account and the delivery appointment. This component owns quote management, order capture and validation, using dedicated components (eg Offering Configurator, Service Qualification, Party Management) when needed. After the delivery of the customer product order items, this component is also in charge of the commercial closure of the order. It includes update of the Product Inventory (status and starting/end date of tariffs and discounts) and potential commercial rules control (eg receipt of the contract document signed by the customer).
+    publicationDate: 2026-05-21
+    status: production
+    functionalBlock: CoreCommerce
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs:
+    - 1.1.9|Selling|v23.0
+    - 1.1.9.2|Develop_Sales_Proposal|v23.0
+    - 1.1.9.5|Negotiate_Sales/Contract|v23.0
+    - 1.3.3|Customer_Order_Handling|v23.0
+    - 1.3.3.10|Manage_Customer_Order_Placement|v23.0
+    functionalFrameworkFunctions:
+    - 16|Fallout_Automated_Correction|v23.0
+    - 17|Fallout_Correction_Information_Collection|v23.0
+    - 18|Fallout_Management_to_Fulfillment_Application_Accessing|v23.0
+    - 19|Fallout_Manual_Correction_Queuing|v23.0
+    - 20|Fallout_Notification|v23.0
+    - 21|Fallout_Orchestration|v23.0
+    - 22|Fallout_Reporting|v23.0
+    - 23|Fallout_Dashboard_System_Log-in_Accessing|v23.0
+    - 24|Pre-populated_Fallout_Information_Presentation|v23.0
+    - 120|Customer_Order_Capturing|v23.0
+    - 176|Customer_Order_Capturing_Access|v23.0
+    - 177|Customer_Order_Take-over_Management|v23.0
+    - 181|Product_Order_Data_Collection|v23.0
+    - 204|Customer_Order_Completion|v23.0
+    - 217|Customer_Order_Establishment_Tracking|v23.0
+    - 236|Customer_Loyalty_Subscription_Management|v23.0
+    - 259|External_Call_Center_Access|v23.0
+    - 277|Shopping_Cart_Purchasing_Access|v23.0
+    - 317|Product_Availability_Area_Checking|v23.0
+    - 343|Mass_Transaction_Ordering|v23.0
+    - 379|Product_Customization_Offering_Management|v23.0
+    - 388|Sales_Order_Reporting|v23.0
+    - 756|Fallout_Rule_Based_Error_Correction|v23.0
+    - 934|Sales_Negotiation_Support|v23.0
+    - 1063|Sales_Quote_Management|v23.0
+    SIDs:
+    - Customer_Domain|Customer_Product_Order_ABE|SalesQuote_BE|v25.0
+    - Customer_Domain|Customer_Product_Order_ABE|ShoppingCart_BE|v25.0

@@ -1,0 +1,209 @@
+apiVersion: oda.tmforum.org/v1
+kind: Component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  coreFunction:
+    dependentAPIs:
+    - id: TMF633
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - serviceSpecification:
+          - GET
+          - GET /id
+        - serviceCategory:
+          - GET
+          - GET /id
+    - id: TMF638
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - service:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - service:
+          - GET
+          - GET /id
+    - id: TMF634
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - resourceSpecification:
+          - GET
+          - GET /id
+    - id: TMF639
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET
+          - GET /id
+    - id: TMF632
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+    - id: TMF669
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+    - id: TMF672
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - permission:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - permission:
+          - GET
+          - GET /id
+    - id: TMF673
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicAddress:
+          - GET
+          - GET /id
+        - geographicSubAddress:
+          - GET
+          - GET /id
+    - id: TMF674
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicSite:
+          - GET
+          - GET /id
+    - id: TMF675
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - geographicLocation:
+          - GET
+          - GET /id
+    exposedAPIs:
+    - id: TMF645
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+      - version: 4
+        resources:
+        - checkServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - queryServiceQualification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+    publishedEvents:
+    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/v4/docs
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/hub
+      implementation: /{{.Release.Name}}-ServiceQualification
+      name: ServiceQualification
+      port: 80
+      resources:
+      - checkServiceQualificationCreateEvent
+      - checkServiceQualificationStateChangeEvent
+      - checkServiceQualificationInformationRequiredEvent
+      - checkServiceQualificationAttributeValueChangeEvent
+      - checkServiceQualificationDeleteEvent
+      - queryServiceQualificationStateChangeEvent
+      - queryServiceQualificationCreateEvent
+      - queryServiceQualificationDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF645_ServiceQualification/master/TMF645-ServiceQualification-v4.0.0.swagger.json
+      apiType: openapi
+    subscribedEvents: []
+  componentMetadata:
+    id: TMFC009
+    name: ServiceQualificationManagement
+    version: 1.2.0
+    description: The Service Qualification Management component is responsible for checking and validating the availability of a service according to specified and configured business rules. It must identify at least one technical solution (RFSspec) available to deliver the service (CFSspec) and check the availability of all the resources types involved in this technical solution. No resources are allocated during service qualification. The Service Qualification Management component has functionality that includes checking service feasibility status and publishing or reporting service qualification results, but also calculated service delivery due date and identified need of an appointment at the customer site. Service Qualification Management can also be responsible for the cost calculation of the technical solution identified, when it cannot be determined at catalog design time (complex B2B services). This information will be used as an input to price calculation.
+    publicationDate: 2023-08-18
+    status: preview
+    functionalBlock: Production
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs:
+    - 1.4.5|Service_Configuration_&_Activation|v23.0.1
+    functionalFrameworkFunctions:
+    - 319|Service_Feasibility_Checking|v23.0
+    - 586|Service_Availability_Validation|v23.0
+    - 571|Service_Delivery_Due_Date_Calculation|v23.0
+    SIDs:
+    - Service_Domain|Service_Configuration_ABE|v23.5.0

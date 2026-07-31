@@ -1,0 +1,230 @@
+apiVersion: oda.tmforum.org/v1
+kind: Component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  coreFunction:
+    dependentAPIs:
+    - id: TMF620
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - productSpecification:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - productSpecification:
+          - GET
+          - GET /id
+    - id: TMF637
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - product:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - product:
+          - GET
+          - GET /id
+    - id: TMF632
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - individual:
+          - GET
+          - GET /id
+        - organization:
+          - GET
+          - GET /id
+    - id: TMF669
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - partyRole:
+          - GET
+          - GET /id
+    - id: TMF653
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - serviceTestSpecification:
+          - GET
+          - GET /id
+        - serviceTest:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+    - id: TMF638
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - service:
+          - GET
+          - GET /id
+      - version: 4
+        resources:
+        - service:
+          - GET
+          - GET /id
+    - id: TMF724
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - incident:
+          - GET
+          - GET /id
+    - id: TMF701
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+        - taskFlow:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+    exposedAPIs:
+    - id: TMF769
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - productTestSpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - productTest:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+    - id: TMF701
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
+    publishedEvents:
+    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productTestManagement/hub
+      implementation: /{{.Release.Name}}-productTestManagement
+      name: productTestManagement
+      port: 80
+      resources:
+      - ProductTestSpecificationCreateEvent
+      - ProductTestSpecificationDeleteEvent
+      - ProductTestSpecificationAttributeValueChangeEvent
+      - ProductTestSpecificationStateChangeEvent
+      - ProductTestCreateEvent
+      - ProductTestAttributeValueChangeEvent
+      - ProductTestStateChangeEvent
+      specification: ''
+      apiType: openapi
+    subscribedEvents:
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productCatalogManagement/call-back
+      implementation: /{{.Release.Name}}-productCatalogManagement
+      name: productCatalogManagement
+      port: 80
+      resources:
+      - productSpecificationCreateEvent
+      - productSpecificationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.1.0.swagger.json
+      apiType: openapi
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceTestManagement/call-back
+      implementation: /{{.Release.Name}}-serviceTestManagement
+      name: serviceTestManagement
+      port: 80
+      resources:
+      - serviceTestSpecificationCreateEvent
+      - serviceTestSpecificationAttributeValueChangeEvent
+      - serviceTestSpecificationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF653_ServiceTestManagement/blob/master/TMF653-ServiceTest-v4.1.0.swagger.json
+    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyManagement/call-back
+      implementation: /{{.Release.Name}}-Party
+      name: Party
+      port: 80
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
+      apiType: openapi
+  componentMetadata:
+    id: TMFC054
+    name: ProductTestManagement
+    version: 1.1.0
+    description: Product Test Management component is responsible for product test specification for each Product Specification, and identification of the possible tests to be launched automatically by the delivery or assurance processes, or manually by the customer or user or by a CSR, to test that a product is functioning correctly. It utilizes tests available at the service specification level (or resource specification level for a tangible product). Product Test Management owns end-to-end execution and reporting of product tests according to the context and/or the actor.
+    publicationDate: '2026-06-02'
+    status: preview
+    functionalBlock: CoreCommerce
+    owners:
+    - name: Redacted
+      email: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs:
+    - 1.2.1.5|Product_Test_Strategy|v25.0
+    - 1.2.4.9|Manage_Product_Test|v25.0
+    - 1.2.1|Product_Portfolio_Strategy_Management|v25.0
+    - 1.2.4|Product_Support_Management|v25.0
+    functionalFrameworkFunctions:
+    - 1073|Product_Test_Specification_Design|v26.0
+    - 1074|Product_Test_Configuration_Design|v26.0
+    - 1075|Product_Test_Restitution_Design|v26.0
+    - 1130|Product_Test_Authorization_Check|v26.0
+    - 1131|Product_Test_Execution|v26.0
+    - 1132|Product_Test_Reporting|v26.0
+    SIDs:
+    - Product_Domain|Product_Test_ABE|v25.0

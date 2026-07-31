@@ -1,0 +1,347 @@
+apiVersion: oda.tmforum.org/v1
+kind: Component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  coreFunction:
+    exposedAPIs:
+    - id: TMF642
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 5
+        resources:
+        - ackAlarm:
+          - GET
+          - GET /id
+          - POST
+        - alarm:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - clearAlarm:
+          - GET
+          - GET /id
+          - POST
+        - groupAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unAckAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unGroupAlarm:
+          - GET
+          - GET /id
+          - POST
+        - commentAlarm:
+          - GET
+          - GET /id
+          - POST
+      - version: 4
+        resources:
+        - alarm:
+          - GET
+          - GET /id
+          - POST
+          - PATCH
+          - DELETE
+        - ackAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unAckAlarm:
+          - GET
+          - GET /id
+          - POST
+        - clearAlarm:
+          - GET
+          - GET /id
+          - POST
+        - commentAlarmlarm:
+          - GET
+          - GET /id
+          - POST
+        - groupAlarm:
+          - GET
+          - GET /id
+          - POST
+        - unGroupAlarm:
+          - GET
+          - GET /id
+          - POST
+    - id: TMF656
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 5
+        resources:
+        - problemGroup:
+          - POST
+        - problemUngroup:
+          - POST
+        - serviceProblem:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+      - version: 4
+        resources:
+        - serviceProblem:
+          - GET
+          - GET /id
+          - POST
+          - DELETE
+        - problemGroup:
+          - POST
+        - problemUnGroup:
+          - POST
+    - id: TMF701
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - processFlow:
+          - POST
+          - GET
+          - GET /id
+          - DELETE
+        - taskFlow:
+          - PATCH
+          - GET
+          - GET /id
+    publishedEvents:
+    - name: Alarm Management API
+      port: 80
+      resources:
+      - alarmCreateEvent
+      - alarmAttributeValueChangeEvent
+      - alarmStateChangeEvent
+      - alarmDeleteEvent
+      - ackAlarmsCreateEvent
+      - ackAlarmsStateChangeEvent
+      - unAckAlarmsCreateEvent
+      - unAckAlarmsStateChangeEvent
+      - clearAlarmsCreateEvent
+      - clearAlarmsStateChangeEvent
+      - commentAlarmsCreateEvent
+      - commentAlarmsStateChangeEvent
+      - groupAlarmsCreateEvent
+      - groupAlarmsStateChangeEvent
+      - unGroupAlarmsCreateEvent
+      - unGroupAlarmsStateChangeEvent
+      specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642_AlarmManagement-v4.0.0.swagger.json
+      apiType: openapi
+    - name: ProcessFlowManagement
+      port: 80
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      apiType: openapi
+    - name: ServiceProblemManagement
+      port: 80
+      resources:
+      - problemAcknowledgementCreateEvent
+      - problemAcknowledgementDeleteEvent
+      - problemAcknowledgementStateChangeEvent
+      - problemGroupCreateEvent
+      - problemGroupDeleteEvent
+      - problemGroupStateChangeEvent
+      - problemUnacknowledgementCreateEvent
+      - problemUnacknowledgementDeleteEvent
+      - problemUnacknowledgementStateChangeEvent
+      - problemUngroupCreateEvent
+      - problemUngroupDeleteEvent
+      - problemUngroupStateChangeEvent
+      - serviceProblemAttributeValueChangeEvent
+      - serviceProblemCreateEvent
+      - serviceProblemDeleteEvent
+      - serviceProblemInformationRequiredEvent
+      - serviceProblemStateChangeEvent
+      specification: https://github.com/tmforum-rand/TMF656_Service_Problem/blob/master/swaggers-gen/TMF656-ServiceProblem-v4.0.0.swagger.json
+      apiType: openapi
+    subscribedEvents:
+    - name: ServiceCatalogManagement
+      port: 80
+      resources:
+      - serviceCatalogCreateEvent
+      - serviceCatalogChangeEvent
+      - serviceCatalogDeleteEvent
+      - serviceCategoryCreateEvent
+      - serviceCategoryChangeEvent
+      - serviceCategoryDeleteEvent
+      - serviceCandidateCreateEvent
+      - serviceCandidateChangeEvent
+      - serviceCandidateDeleteEvent
+      - serviceSpecificationCreateEvent
+      - serviceSpecificationChangeEvent
+      - serviceSpecificationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF633_ServiceCatalog/blob/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
+    - name: ServiceInventoryManagement
+      port: 80
+      resources:
+      - serviceCreateEvent
+      - serviceChangeEvent
+      - serviceDeleteEvent
+      - serviceStateChangeEvent
+      specification: https://github.com/tmforum-apis/TMF638_ServiceInventory/blob/master/TMF638-ServiceInventory-v4.0.0.swagger.json
+      apiType: openapi
+    - name: ResourceInventoryManagement
+      port: 80
+      resources:
+      - resourceCreateEvent
+      - resourceChangeEvent
+      - resourceDeleteEvent
+      - resourceStateChangeEvent
+      specification: https://github.com/tmforum-apis/TMF639_ResourceInventory/blob/master/TMF639-ResourceInventory-v4.0.0.swagger.json
+      apiType: openapi
+    - name: GeographicAddressManagement
+      port: 80
+      resources:
+      - geographicAddressValidationStateChangeEvent
+      specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.0.swagger.json
+      apiType: openapi
+    - name: GeographicSiteManagement
+      port: 80
+      resources:
+      - geographicSiteCreateEvent
+      - geographicSiteAttributeValueChangeEvent
+      - geographicSiteStatusChangeEvent
+      - geographicSiteDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF674_GeographicSite/blob/master/TMF674-GeographicSite-v4.0.0.swagger.json
+      apiType: openapi
+    - name: GeographicLocationManagement
+      port: 80
+      resources:
+      - geographicLocationCreateEvent
+      - geographicLocationAttributeValueChangeEvent
+      - geographicLocationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF675_GeographicLocation/blob/master/TMF675-GeographicLocation-v4.0.0.swagger.json
+      apiType: openapi
+    - name: AlarmManagement
+      port: 80
+      resources:
+      - alarmCreateEvent
+      - alarmAttributeValueChangeEvent
+      - alarmStateChangeEvent
+      - alarmDeleteEvent
+      - ackAlarmsCreateEvent
+      - ackAlarmsStateChangeEvent
+      - unAckAlarmsCreateEvent
+      - unAckAlarmsStateChangeEvent
+      - clearAlarmsCreateEvent
+      - clearAlarmsStateChangeEvent
+      - commentAlarmsCreateEvent
+      - commentAlarmsStateChangeEvent
+      - groupAlarmsCreateEvent
+      - groupAlarmsStateChangeEvent
+      - unGroupAlarmsCreateEvent
+      - unGroupAlarmsStateChangeEvent
+      specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642_AlarmManagement-v4.0.0.swagger.json
+      apiType: openapi
+    - name: ServiceProblemManagement
+      port: 80
+      resources:
+      - problemAcknowledgementCreateEvent
+      - problemAcknowledgementDeleteEvent
+      - problemAcknowledgementStateChangeEvent
+      - problemGroupCreateEvent
+      - problemGroupDeleteEvent
+      - problemGroupStateChangeEvent
+      - problemUnacknowledgementCreateEvent
+      - problemUnacknowledgementDeleteEvent
+      - problemUnacknowledgementStateChangeEvent
+      - problemUngroupCreateEvent
+      - problemUngroupDeleteEvent
+      - problemUngroupStateChangeEvent
+      - serviceProblemAttributeValueChangeEvent
+      - serviceProblemCreateEvent
+      - serviceProblemDeleteEvent
+      - serviceProblemInformationRequiredEvent
+      - serviceProblemStateChangeEvent
+      specification: https://github.com/tmforum-rand/TMF656_Service_Problem/blob/master/swaggers-gen/TMF656-ServiceProblem-v4.0.0.swagger.json
+      apiType: openapi
+    - name: TroubleTicketManagement
+      port: 80
+      resources:
+      - troubleTicketCreateEvent
+      - troubleTicketAttributeValueChangeEvent
+      - troubleTicketStatusChangeEvent
+      - troubleTicketDeleteEvent
+      - troubleTicketResolvedEvent
+      - troubleTicketInformationRequiredEvent
+      specification: https://github.com/tmforum-apis/TMF621_TroubleTicket/blob/master/TMF621-TroubleTicket-v4.0.0.swagger.json
+      apiType: openapi
+    - name: PartyManagement
+      port: 80
+      resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF632_Party/blob/master/TMF632-Party-v4.0.0.swagger.json
+      apiType: openapi
+    - name: PartyRoleManagement
+      port: 80
+      resources:
+      - partyRoleDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF669_PartyRole/blob/master/TMF669-PartyRole-v4.0.0.swagger.json
+      apiType: openapi
+    - name: EntityCatalogManagement
+      port: 80
+      resources:
+      - entityCatalogCreateEvent
+      - entityCatalogDeleteEvent
+      - entityCatalogItemCreateEvent
+      - entityCatalogItemDeleteEvent
+      - entitySpecificationCreateEvent
+      - entitySpecificationDeleteEvent
+      - associationSpecificationCreateEvent
+      - associationSpecificationDeleteEvent
+      - associationCreateEvent
+      - associationDeleteEvent
+      specification: https://github.com/tmforum-apis/TMF662_EntityCatalogue/blob/master/TMF662-EntityCatalogue-v4.0.0.swagger.json
+      apiType: openapi
+  componentMetadata:
+    id: TMFC043
+    name: FaultManagement
+    version: 1.1.0
+    description: Fault Management component involves identifying, diagnosing, and resolving issues that prevent the communication resources and their overlaying services from functioning correctly. Its scope covers this functionality at the ODA Production layer while business related resolutions are not part of its scope. The Fault Management component manages the currently active alarms or problem candidates, potentially modifying or enhancing their data to make persistent alarms more actionable. It may apply logic to preserve alarms that reflect actual problems, eliminating those that are merely symptoms. Various actions can be taken using the alarm/problem information as part of the resolution process, such as applying automated/automonous corrective actions or opening trouble tickets.
+    publicationDate: '2026-05-21'
+    status: production
+    functionalBlock: Production
+    owners:
+    - name: Redacted
+      email: Redacted
+      url: Redacted
+    maintainers:
+    - name: Redacted
+      email: components@tmforum.org
+      url: Redacted
+    eTOMs:
+    - 1.5.8|Resource_Trouble_Management|v25.0
+    - 1.4.6|Service_Problem_Management|v25.0
+    functionalFrameworkFunctions:
+    - 1187|Resource_Trouble_Resolution|v25.0
+    - 615|Service_Problem_Tracking_&_Management|v25.0
+    - 1155|Resource_Diagnostic_and_Test_Analysis|v25.0
+    - 1186|Resource_Trouble_Cause_Identification|v25.0
+    - 610|Service_Problem_Prioritization|v25.0
+    - 612|Service_Problem_Automatic_Correction|v25.0
+    - 979|Service_Assurance_Control_Calculation|v25.0
+    - 980|Service_Assurance_Trouble_Mitigation|v25.0
+    - 1067|Service_Problem_Manual_Correction_Support|v25.0
+    SIDs:
+    - Resource_Domain|Resource_Trouble_ABE|Resource_Alarm_ABE|v25.0
+    - Resource_Domain|Resource_Trouble_ABE|AlarmSeverityAssignmentProfile_BE|v25.0
+    - Service_Domain|Service_Problem_ABE|v25.0

@@ -1,0 +1,13 @@
+@startyaml
+subscribedEvents:
+    - id: TMF635
+      name: Usage Management API
+      resources:
+      - UsageCreateEvent
+      - UsageAttributeValueChangeEvent
+      - UsageDeleteEvent
+      - UsageStateChangeEvent
+      - UsageSpecificationCreateEvent
+      - UsageSpecificationAttributeValueChangeEvent
+      - UsageSpecificationDeleteEvent
+@endyaml

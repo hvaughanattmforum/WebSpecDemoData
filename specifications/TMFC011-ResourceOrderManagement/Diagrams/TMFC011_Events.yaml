@@ -1,0 +1,48 @@
+@startyaml
+publishedEvents:
+    - id: TMF652
+      name: Resource Order Management API
+      resources:
+      - CancelResourceOrderInformationRequiredEvent
+      - CancelResourceOrderInformationRequiredEventPayload
+      - CancelResourceOrderStateChangeEvent
+      - CancelResourceOrderStateChangeEventPayload
+      - ResourceOrderAttributeValueChangeEvent
+      - ResourceOrderAttributeValueChangeEventPayload
+      - ResourceOrderCreateEvent
+      - ResourceOrderCreateEventPayload
+      - ResourceOrderDeleteEvent
+      - ResourceOrderDeleteEventPayload
+      - ResourceOrderInformationRequiredEvent
+      - ResourceOrderInformationRequiredEventPayload
+      - ResourceOrderStateChangeEvent
+      - ResourceOrderStateChangeEventPayload
+    - id: TMF701
+      name: Process Flow Management API
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+subscribedEvents:
+    - id: TMF664
+      name: Resource Function Activation Management API
+      resources:
+      - resourceFunctionCreateEvent
+      - resourceFunctionChangeEvent
+      - monitorStatechangeEvent
+      - healStatechangeEvent
+      - scaleStatechangeEvent
+      - migrateStatechangeEvent
+    - id: TMF702
+      name: Resource Activation Management API
+      resources:
+      - resourceChangeEvent
+      - monitorCreateEvent
+      - monitorStatechangeEvent
+@endyaml

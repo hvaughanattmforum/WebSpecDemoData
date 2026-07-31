@@ -1,0 +1,7 @@
+{
+  "name": "component-specification-markdown-scripts",
+  "private": true,
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}

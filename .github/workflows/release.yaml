@@ -1,0 +1,37 @@
+name: TriggerCIRepoPipeline
+
+on:
+  push:
+    branches:
+      - 'v1.0.0'
+      - 'v1.1.0'
+  workflow_dispatch:
+    inputs:
+      ref_name:
+        description: 'Branch name to validate (e.g., v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+jobs:
+  notify-ci:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Send repository_dispatch to CI repo using curl
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEVOPS_TOKEN }}
+          CI_REPO: tmforum-rand/TMForum-ODA-CI
+          EVENT_TYPE: component-spec-changed
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          echo "Triggering CI repo with ref: $REF_NAME"
+
+          curl -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            https://api.github.com/repos/$CI_REPO/dispatches \
+            -d "$(jq -n \
+                  --arg event_type "$EVENT_TYPE" \
+                  --arg ref "$REF_NAME" \
+                  '{event_type: $event_type, client_payload: {ref: $ref}}')"
+
+          echo "Triggered CI repo with ref: $REF_NAME"

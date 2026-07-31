@@ -1,0 +1,42 @@
+@startyaml
+exposedAPIs:
+    - id: TMF702
+      name: Resource Activation Management API
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - resource:
+          - GET
+          - GET /id
+          - POST /id
+          - PATCH
+          - DELETE /id
+    - id: TMF664
+      name: Resource Function Activation Management API
+      apiSDO: tmForum
+      required: false
+      specification:
+      - version: 4
+        resources:
+        - resourceFunction:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - heal:
+          - GET
+          - GET /id
+          - POST
+        - scale:
+          - GET
+          - GET /id
+          - POST
+        - migrate:
+          - GET
+          - GET /id
+          - POST
+
+@endyaml

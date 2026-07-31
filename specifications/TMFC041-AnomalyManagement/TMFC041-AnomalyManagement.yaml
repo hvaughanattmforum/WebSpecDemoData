@@ -1,0 +1,92 @@
+apiVersion: oda.tmforum.org/v1
+kind: Component
+metadata:
+  name: components.oda.tmforum.org
+spec:
+  coreFunction:
+    exposedAPIs:
+    - id: TMF751
+      apiSDO: tmForum
+      required: true
+      specification:
+      - version: 4
+        resources:
+        - anomalySpecification:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+        - anomaly:
+          - GET
+          - GET /id
+          - POST
+          - PATCH /id
+          - DELETE /id
+    publishedEvents:
+    - apitype: openapi
+      hub: /{{.Release.Name}}-AnomalyManagementEvent/hub
+      id: TMF651
+      implementation: /{{.Release.Name}}-AnomalyManagementEvent
+      name: AnomalyManagementEvent
+      port: 8080
+      resources:
+      - anomalyCreateEvent
+      - anomalyDeleteEvent
+      - anomalyAttributeValueChangeEvent
+      - anomalyStateChangeEvent
+      - anomalySpecificationStatusChangeEvent
+      - anomalySpecificationAttributeValueChangeEvent
+      - anomalySpecificationCreateEvent
+      - anomalySpecificationDeleteEvent
+      specification: https://github.com/tmforum-rand/Open_API_And_Data_Model/blob/v4.0-Sprint-2020-03/apis/TMF751_AnomalyManagement/swaggers/TMF751-AnomalyManagement-v4.0.0.swagger.json
+    subscribedEvents:
+    - apitype: openapi
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AIManagement/call-back
+      implementation: /{{.Release.Name}}-AIManagement
+      name: AIManagement
+      port: 80
+      resources:
+      - aiContractSpecificationCreateEvent
+      - aiContractSpecificationDeleteEvent
+      - aiContractSpecificationAttributeValueChangeEvent
+      - aiModelSpecificationCreateEvent
+      - aiModelSpecificationDeleteEvent
+      - aiModelSpecificationAttributeValueChangeEvent
+      - aiModelCreateEvent
+      - aiModelStateChangeEvent
+      - aiModelDeleteEvent
+      - aiModelAttributeValueChangeEvent
+      - aiContractCreateEvent
+      - aiContractDeleteEvent
+      - aiContractAttributeValueChangeEvent
+      - aiContractStateChangeEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF915_AIManagementSuite/master/TMF915-AIManagement-v4.0.0.swagger.json
+    - apitype: openapi
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/call-back
+      implementation: /{{.Release.Name}}-AlarmManagement
+      name: AlarmManagement
+      port: 80
+      resources:
+      - alarmCreateEvent
+      - alarmStateChangeEvent
+      - alarmDeleteEvent
+      specification: https://raw.githubusercontent.com/tmforum-apis/TMF642_AlarmManagement/master/TMF642-Alarm-v4.0.0.swagger.json
+  componentMetadata:
+    id: TMFC041
+    name: AnomalyManagement
+    version: 1.3.0
+    description: The Anomaly Management component is responsible for predicting, detecting and managing anomalous patterns in the usage and behavior of products, services and resources in order to avoid occurrence of problems. Anomaly Management has functionality for predicting, detecting and flagging unusual patterns or outliers for products, services and resource entities, and initiating mitigatory actions to prevent outlier patterns in usage or behavior becoming problems. In the event of failure to predict or detect an early warning sign of a possible problem occurrence, the component hands off mitigatory actions to the Party Problem Management component.
+    publicationDate: 2026-05-21
+    status: roadmap
+    functionalBlock: IntelligenceManagement
+    owners:
+    - email: Redacted
+      name: Redacted
+      url: Redacted
+    eTOMs: []
+    functionalFrameworkFunctions: []
+    SIDs:
+    - Patterns_Domain|Anomaly_ABE|Anomaly_Entity_ABE|v25.0
+    - Patterns_Domain|Anomaly_ABE|Anomaly_Management_Plan_ABE|v25.0
+    - Patterns_Domain|Anomaly_ABE|Anomaly_Specification_ABE|v25.0

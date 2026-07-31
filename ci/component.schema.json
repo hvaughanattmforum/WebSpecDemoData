@@ -1,0 +1,310 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "coreFunction": {
+          "type": "object",
+          "properties": {
+            "dependentAPIs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/dependentAPI"
+              }
+            },
+            "exposedAPIs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/exposedAPI"
+              }
+            },
+            "publishedEvents": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/eventAPI"
+              }
+            },
+            "subscribedEvents": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/eventAPI"
+              }
+            }
+          },
+          "required": [
+            "exposedAPIs"
+          ]
+        },
+        "componentMetadata":{
+          "type": "object",
+          "properties" : {
+
+            "id": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "publicationDate": {
+              "type": ["string", "null"],
+              "format": "date"
+            },
+            "status": {
+              "type": "string"
+            },
+            "functionalBlock": {
+              "type": "string"
+            },
+            "owners": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/contact"
+              }
+            },
+            "maintainers": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/contact"
+              }
+            },
+            "eTOMs":{
+              "type" : "array"
+            },
+            "functionalFrameworkFunctions":{
+              "type" : "array"
+            }
+          },
+          "required": [
+              "name",
+              "id",
+              "description",
+              "functionalBlock",
+              "publicationDate",
+              "version"
+            ]
+        },
+        "managementFunction": {
+          "type": ["array", "object"]
+        },
+        "securityFunction": {
+          "type": ["array", "object"]
+        }
+      },
+      "required": [
+        "coreFunction",
+        "componentMetadata"
+      ]
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "spec"
+  ],
+  "definitions": {
+    "apiSpecification": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": ["number", "string"]
+        },
+        "apiType": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "developerUI": {
+          "type": "string"
+        },
+        "implementation": {
+          "type": "string"
+        },
+        "port": {
+          "type": "number"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": ["version"]
+    },
+    "exposedAPI": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "apiSDO": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "specification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiSpecification"
+          }
+        },
+
+        "apiType": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "implementation": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "developerUI": {
+          "type": "string"
+        },
+        "version": {
+          "type": ["number", "string"]
+        }
+      },
+      "required": ["id", "required"]
+    },
+    "dependentAPI": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "apiSDO": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "specification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiSpecification"
+          }
+        },
+
+        "apiType": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "version": {
+          "type": ["number", "string"]
+        }
+      },
+      "required": ["id","required"]
+    },
+    "eventAPI": {
+      "type": "object",
+      "properties": {
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "apiType": {
+          "type": "string"
+        },
+        "apitype": {
+          "type": "string"
+        },
+        "apiSDO": {
+          "type": "string"
+        },
+        "hub": {
+          "type": "string"
+        },
+        "implementation": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "port": {
+          "type": "number"
+        },
+        "specification": {
+          "type": "string"
+        },
+        "developerUI": {
+          "type": "string"
+        },
+        "call-back": {
+          "type": "string"
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "name"
+      ]
+    }
+  }
+}
