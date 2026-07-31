@@ -11,11 +11,16 @@ on:
 
   push:
     branches:
+      - main
       - 'v1beta*'
       - 'v1.*'
 
+  # `main` is included so this job reports a check on every pull request
+  # targeting it - it is a required status check on that branch, and a
+  # required check that never runs would block all PRs indefinitely.
   pull_request:
     branches:
+      - main
       - 'v1beta*'
       - 'v1.*'
 
