@@ -1,0 +1,10 @@
+# CODEOWNERS
+# These owners are automatically requested for review on pull requests
+# that touch matching files. Combine this with a branch protection rule
+# on `main` ("Require review from Code Owners") so that only reviews
+# from an owner count toward merging.
+#
+# See: https://docs.github.com/articles/about-code-owners/
+
+# Default owner for everything in the repo
+* @hvaughanattmforum
