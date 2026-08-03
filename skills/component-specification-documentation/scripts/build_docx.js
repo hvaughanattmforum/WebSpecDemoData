@@ -1,4 +1,4 @@
-// Assembles a component-specification-markdown .docx from the JSON payload build_docx.py
+// Assembles a component-specification-documentation .docx from the JSON payload build_docx.py
 // produces. Kept deliberately dumb: all Markdown/YAML interpretation happens in Python;
 // this file only turns already-parsed blocks into docx-js objects.
 //

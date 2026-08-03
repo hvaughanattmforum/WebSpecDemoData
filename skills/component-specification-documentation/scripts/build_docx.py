@@ -1,5 +1,5 @@
 """
-Render a component-specification-markdown .md file (+ its sibling _Supplement.md) to a
+Render a component-specification-documentation .md file (+ its sibling _Supplement.md) to a
 .docx, mirroring build_pdf.py's cover/notice/table-of-contents assembly but targeting Word
 instead of PDF.
 
