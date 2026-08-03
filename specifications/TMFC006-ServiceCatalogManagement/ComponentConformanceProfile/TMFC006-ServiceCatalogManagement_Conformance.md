@@ -6,8 +6,6 @@
   Swagger:
   - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF633_Service_Catalog/4.0.0/swagger/TMF633_Service_Catalog_Management_API_v4.0.0_swagger.json
 
-*(Conformance MUST support one of the specified versions above.)*
-
 - **TMF657 – Service Quality Management API**
   Swagger:
   - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF657_Service_Quality_Management/4.0.0/swagger/TMF657_Service_Quality_Management_Management_API_v4.0.0_swagger.json
@@ -88,7 +86,7 @@ The component deployment and the Kubernetes cluster must pass the following test
 
 ```json
 {
-    "releaseName": "scm-1",
+    "releaseName": "sc-1",
     "component_to_run": "TMFC006",
     "component_namespace": "components",
     "standardComponentPath": "",
@@ -107,7 +105,7 @@ The component deployment and the Kubernetes cluster must pass the following test
     },
     "ctkconfig": {
         "companyName": "TM FORUM",
-        "productName": "REFERENCE EXAMPLE SERVICE CATALOG",
+        "productName": "REFERENCE EXAMPLE SERVICE CATALOG MANAGEMENT",
         "productUrl": "https://www.tmforum.org",
         "componentUrl": "https://www.tmforum.org/oda/directory/components-map",
         "headers": {
