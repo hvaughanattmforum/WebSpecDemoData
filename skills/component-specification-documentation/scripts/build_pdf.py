@@ -1,5 +1,5 @@
 """
-Render a component-specification-markdown .md file to a .pdf with all diagrams visible,
+Render a component-specification-documentation .md file to a .pdf with all diagrams visible,
 a cover + notice page generated fresh from the component YAML, a freshly rebuilt table of
 contents, and every table's columns sized to its actual content.
 

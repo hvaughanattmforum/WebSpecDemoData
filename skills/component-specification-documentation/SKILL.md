@@ -1,5 +1,5 @@
 ---
-name: component-specification-markdown
+name: component-specification-documentation
 description: Generate (or refresh) the main TMFCxxx component specification document as Markdown plus a PDF and a Word (.docx) export, with PlantUML and hand-drawn SVG diagrams, for a TMForum ODA component. Use this whenever the user asks for a component's specification, overview document, or "main doc" in Markdown/.md, PDF, or Word/.docx form (as opposed to the ComponentConformanceProfile, which is a different document handled by the component-conformance-profile skill), whenever they mention turning a TMFCxxx PDF/docx into Markdown, or whenever they ask for eTOM/SID diagrams, API context diagrams, or exposed/dependent API/event diagrams for a component. Trigger this proactively when a component's YAML changes in a way that would affect this document (name, description, eTOMs, SIDs, functionalFrameworkFunctions, exposedAPIs, dependentAPIs, publishedEvents, subscribedEvents) — this document should stay in sync with the YAML the same way the conformance profile does.
 ---
 
@@ -118,7 +118,7 @@ branch `v1.1.0`):
   below for the main `.md`'s exact output path.
 
 **Where the repo is**: this skill is committed *inside* the specification repository, at
-`skills/component-specification-markdown/`, so the component data is always reachable relatively — from
+`skills/component-specification-documentation/`, so the component data is always reachable relatively — from
 `scripts/`, the specifications folder is `../../../specifications`. Resolve it from `__file__` rather than
 from the working directory or an absolute path, so the skill works in any clone. `scripts/build_pdf.py`,
 `build_docx_scroll.py`, `add_descriptions_to_md.py` and `write_description_files.py` all do this.

@@ -1,5 +1,5 @@
 {
-  "name": "component-specification-markdown-scripts",
+  "name": "component-specification-documentation-scripts",
   "private": true,
   "dependencies": {
     "docx": "^9.0.0"
