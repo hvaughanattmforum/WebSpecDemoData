@@ -9,9 +9,6 @@
 
 *(Conformance MUST support one of the specified versions above.)*
 
-The optional exposed APIs TMF656 (Service Problem Management, v5.0.0 / v4.0.0) and TMF701 (Process Flow
-Management, v4.1.0) are declared but not required, and therefore impose no conformance obligation.
-
 ## Mandatory Dependent APIs (Require Conformance)
 
 There are **no mandatory dependent APIs** specified in this component.
@@ -24,12 +21,11 @@ Specifically, the component must either expose and use the relevant Security API
 
 In this case, **TMF669 (Party Role Management API)** is present under the Security Function and must
 therefore be treated as **mandatory for conformance**, regardless of its `required: false` flag in the
-manifest — TMF669 is the canvas-identity API and is always mandatory when present under `securityFunction`.
-The component must ensure that this API is properly implemented and accessible, or alternatively ensure
-that a valid `canvasSystemRole` is configured.
+manifest, since it is the canvas-identity API.
 
-The presence of **TMF672 (User Role Permission Management API)** under `securityFunction` is ignored for
-conformance purposes.
+Also present under `securityFunction` is **TMF672 (User Role Permission Management API)**, listed with
+`required: false`. TMF672 is present-but-ignored for conformance purposes — it is not promoted to
+mandatory status simply by virtue of appearing in `securityFunction`.
 
 ### Mandatory Security API
 - **TMF669 – Party Role Management API**

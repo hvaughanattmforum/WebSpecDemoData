@@ -1,4 +1,4 @@
-# TMFC036 – LeadAndOpportunityManagement
+# TMFC036 – LeadAndOpportunityManagement – v1.3.0
 
 ## Mandatory Exposed APIs (Require Conformance)
 
@@ -22,10 +22,13 @@ In this case, **TMF669 (Party Role Management API)** is present under the Securi
 therefore be treated as **mandatory for conformance**, regardless of its `required: false` flag in the
 manifest — TMF669 is the canvas-identity API and is always mandatory when present under `securityFunction`.
 The component must ensure that this API is properly implemented and accessible, or alternatively ensure
-that a valid `canvasSystemRole` is configured.
+that a valid `canvasSystemRole` is configured. Note that TMF669 is also separately listed as a (non-mandatory)
+dependent API under `coreFunction` (`required: false`), so its mandatory status for conformance purposes
+comes from its presence under `securityFunction`, not from the core function listing.
 
-The presence of **TMF672 (User Role Permission Management API)** under `securityFunction` is ignored for
-conformance purposes.
+The presence of **TMF672 (User Role Permission Management API)** under `securityFunction` (listed with both
+a v4.0.0 and a v5.1.0 specification entry, and marked `required: false`) is ignored for conformance
+purposes — it is not promoted to mandatory status simply by virtue of being listed under `securityFunction`.
 
 ### Mandatory Security API
 - **TMF669 – Party Role Management API**
