@@ -19,7 +19,7 @@
   - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/5.0.0/swagger/TMF638-Service_Inventory_Management-v5.0.0.oas.yaml
   - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/4.0.0/swagger/TMF638_Service_Inventory_Management_API_v4.0.0_swagger.json
 
-*(Conformance MUST support one of the specified versions above, for each API.)*
+*(Conformance MUST support one of the specified versions above.)*
 
 ## Security Conformance Requirements
 
@@ -29,11 +29,12 @@ Specifically, the component must either expose and use the relevant Security API
 
 In this case, **TMF669 (Party Role Management API)** is present under the Security Function and must
 therefore be treated as **mandatory for conformance**, regardless of its `required: false` flag in the
-manifest — it is the canvas-identity API and this rule overrides the naive reading of that flag.
+manifest — TMF669 is the canvas-identity API and is always mandatory when present under `securityFunction`.
+The component must ensure that this API is properly implemented and accessible, or alternatively ensure
+that a valid `canvasSystemRole` is configured.
 
-The Security Function also lists **TMF672 (User Role Permission Management API)**, also marked
-`required: false`. Unlike TMF669, TMF672 is treated as **present but ignored for conformance purposes** —
-it is not promoted to mandatory merely by appearing under `securityFunction`.
+The presence of **TMF672 (User Role Permission Management API)** under `securityFunction` is ignored for
+conformance purposes.
 
 ### Mandatory Security API
 - **TMF669 – Party Role Management API**
