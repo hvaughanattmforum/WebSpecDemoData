@@ -1,13 +1,8 @@
-# TMFC002 – ProductOrderCaptureAndValidation – v3.0.0
+# TMFC002 – ProductOrderCaptureAndValidation – v2.2.0
 
 ## Mandatory Exposed APIs (Require Conformance)
 
-- **TMF663 – Shopping Cart Management API**
-  Swagger:
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF663_Shopping_Cart/5.0.0/swagger/TMF663-Shopping_Cart-v5.0.0.oas.yaml
-  - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF663_Shopping_Cart/4.0.0/swagger/TMF663_Shopping_Cart_Management_API_v4.0.0_swagger.json
-
-*(Conformance MUST support one of the specified versions above.)*
+There are **no mandatory exposed APIs** specified in this component.
 
 ## Mandatory Dependent APIs (Require Conformance)
 
@@ -21,7 +16,7 @@
   - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF637_Product_Inventory/5.0.0/swagger/TMF637-ProductInventory-v5.0.0.oas.yaml
   - https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF637_Product_Inventory/4.0.0/swagger/TMF637_Product_Inventory_Management_API_v4.0.0_swagger.json
 
-*(Conformance MUST support one of the specified versions above, for each API listed.)*
+*(Conformance MUST support one of the specified versions above.)*
 
 ## Security Conformance Requirements
 
@@ -93,7 +88,7 @@ The component deployment and the Kubernetes cluster must pass the following test
 
 ```json
 {
-    "releaseName": "poc-1",
+    "releaseName": "pocv-1",
     "component_to_run": "TMFC002",
     "component_namespace": "components",
     "standardComponentPath": "",
