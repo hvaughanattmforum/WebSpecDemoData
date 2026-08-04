@@ -10,7 +10,7 @@ CI = Path(__file__).parents[1] / "ci"
 
 # Components excluded from framework-format enforcement for now (pre-existing data
 # issues not yet cleaned up). Remove an id here once its componentMetadata is fixed.
-FRAMEWORK_FORMAT_SKIP_IDS = {"TMFC003"}
+FRAMEWORK_FORMAT_SKIP_IDS = set()
 
 ETOM_CODE_RE = re.compile(r'^\d+(\.\d+)+$')
 FF_ID_RE = re.compile(r'^\d+$')
