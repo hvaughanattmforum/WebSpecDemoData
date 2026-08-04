@@ -328,6 +328,61 @@ spec:
           - PATCH
           - GET
           - GET /id
+    publishedEvents:
+    - id: TMF648
+      apiType: openapi
+      hubResource: /hub
+      resources:
+      - quoteStateChangeEvent
+      - quoteCreateEvent
+      - quoteAttributeValueChangeEvent
+      - quoteDeleteEvent
+      - quoteInformationRequiredEvent
+    - id: TMF663
+      apiType: openapi
+      hubResource: /hub
+      resources:
+      - shoppingCartCreateEvent
+      - shoppingCartAttributeValueChangeEvent
+      - shoppingCartDeleteEvent
+    - id: TMF701
+      apiType: openapi
+      hubResource: /hub
+      resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowStateDeleteEvent
+      - processFlowStateAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+    subscribedEvents:
+    - id: TMF679
+      apiType: openapi
+      resources:
+      - productOfferingQualificationStateChangeEvent
+    - id: TMF673
+      apiType: openapi
+      resources:
+      - geographicAddressValidationStateChangeEvent
+    - id: TMF670
+      apiType: openapi
+      resources:
+      - paymentCreateEvent
+      - paymentStateChangeEvent
+    - id: TMF716
+      apiType: openapi
+      resources:
+      - resourceReservationCreateEvent
+      - resourceReservationAttributeValueChangeEvent
+      - resourceReservationDeleteEvent
+      - resourceReservationStateChangeEvent
+      - resourceReservationInformationRequiredEvent
+      - cancelResourceReservationCreateEvent
+      - cancelResourceReservationStateChangeEvent
+      - cancelResourceReservationInformationRequiredEvent
   componentMetadata:
     id: TMFC002
     name: ProductOrderCaptureAndValidation
