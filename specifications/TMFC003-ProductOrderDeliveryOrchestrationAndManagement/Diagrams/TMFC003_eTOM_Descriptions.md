@@ -1,6 +1,6 @@
 # TMFC003 eTOM Business Activity Descriptions
 
-Source: transcribed from `TMFC003 Product Order Delivery Orchestration and Management v3.X.X.docx`, section 2.1 (eTOM business activities).
+Source: transcribed from `TMFC003 Product Order Delivery Orchestration and Management v3.1.0.docx`, section 2.1 (eTOM business activities).
 
 | Identifier | Description | Version | Document Name | Alignment Notes |
 |---|---|---|---|---|

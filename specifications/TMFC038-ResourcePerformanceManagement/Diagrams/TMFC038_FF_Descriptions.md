@@ -1,0 +1,13 @@
+# TMFC038 Functional Framework Function Descriptions
+
+Source: transcribed from `Copy of TMFC038_ Resource Performance Management 1.2.1 (To be used for future versions) TAC-1271-v17-Fx_only_source.docx`, section 2.4 (Functional Framework Functions),
+gap-filled from the Functional Framework spreadsheet for IDs the document scores out or omits.
+
+| Function ID | Function Description | Aggregate Function Level 1 | Aggregate Function Level 2 | Version | Document Name |
+|---|---|---|---|---|---|
+| 498 | Resource Performance Data Analyzing functions provide the necessary functionality to analyze the performance of the various service provider's resources. This includes: Analyzing performance data received from Resource Performance Monitoring and historic performance data or system environment data / • Notify operations applications for automatic or manual action in case of alarming analysis results. / • Determining the root causes of resource performance degradations | Resource Performance Management | Resource Performance Supervision | v24.5 | Resource Performance Data Analyzing |
+| 499 | Resource Performance Data Aggregation and Trend Analyzing provides data aggregation and trend analysis in resource performance monitoring | Resource Performance Management | Resource Performance Supervision | v24.5 | Resource Performance Data Aggregation and Trend Analyzing |
+| 501 | Resource Performance Event Correlation provides performance event correlation in resource performance monitoring. | Resource Performance Management | Resource Performance Supervision | v24.5 | Resource Performance Event Correlation |
+| 502 | Resource Performance Data Accumulation provides performance data accumulation for resource performance monitoring, including real time monitoring data | Resource Performance Management | Resource Performance Supervision | v24.5 | Resource Performance Data Accumulation |
+| 903 | Anomaly Monitoring; System and network monitoring activity, determining whether it is normal or anomalous, based on rules, signatures or heuristics. | Resource Performance Management | Resource Performance Supervision | v24.5 | Anomaly Monitoring |
+| 1066 | **[Data-quality issue: this row's Description in the source document is a verbatim copy of function 502's description, not a description of "Resource Performance Event Filtering."]** Resource Performance Data Accumulation provides performance data accumulation for resource performance monitoring, including real time monitoring data | Resource Performance Management | Resource Performance Supervision | v24.5 | Resource Performance Event Filtering |

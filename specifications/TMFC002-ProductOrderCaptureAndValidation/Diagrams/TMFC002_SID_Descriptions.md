@@ -1,13 +1,9 @@
 # TMFC002 SID Descriptions
 
-Source: TMFC002_Product_Order_Capture_Validation_v2.1.1.pdf (Section 2.2)
+Source: `TMFC002 Product Order Capture & Validation v3.0.0 (v5 APIs) (TAC-1400)-v15-Fx_only_source.docx` (Section 2.2) where it documents a definition;
+gap-filled from the SID Information Framework spreadsheet for ABEs/Business Entities it omits.
 
 | SID ABE Level 1 | SID ABE L1 Definition | SID ABE Level 2 | SID ABE L2 Definition | Source |
 |---|---|---|---|---|
-| Customer Product Order | Handles single customer orders and the various types thereof, such as regulated and non-regulated orders. | SalesQuote | Sales Quote Business Entity - manages quote information for customer product orders | v2.1.1 PDF |
-| Customer Product Order | Handles single customer orders and the various types thereof, such as regulated and non-regulated orders. | ShoppingCart | Shopping Cart Business Entity - manages shopping cart items and state for customer product orders | v2.1.1 PDF |
-
-## Notes
-
-- The Product Order Capture & Validation component will also trigger creation and update of Product but this information is managed by a dedicated component TMFC005 - Product Inventory.
-- All L2 entities under Customer Product Order ABE are implemented.
+| Customer Product Order | Handles single customer orders and the various types thereof, such as regulated and non-regulated orders. / Orders ProductOfferings and concerned Products | SalesQuote | A SalesQuote is a document that allows a Prospect to view the cost involved in purchasing specific Products. It is generally used by suppliers or resellers to begin a business transaction and specifies validity period for acceptance of the quote and possibly an authorisation process depending on the value of the quote. | L1: `TMFC002 Product Order Capture & Validation v3.0.0 (v5 APIs) (TAC-1400)-v15-Fx_only_source.docx` s2.2 / L2: GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |
+| Customer Product Order | Handles single customer orders and the various types thereof, such as regulated and non-regulated orders. / Orders ProductOfferings and concerned Products | ShoppingCart | Shopping Cart entity is used for the temporarily selection and reservation of product offerings in e-commerce and retail purchase. Shopping cart supports purchase of both tangible and intangible goods and service (e.g. handset, telecom network service). The charge includes the one-off fee such as the fee for handset and the recurring fee such as the fee of a network service. It is mainly used in case of unknown customer with only a ContactMedium instead of a Party and PartyRole with their ContactMedium. | L1: `TMFC002 Product Order Capture & Validation v3.0.0 (v5 APIs) (TAC-1400)-v15-Fx_only_source.docx` s2.2 / L2: GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |

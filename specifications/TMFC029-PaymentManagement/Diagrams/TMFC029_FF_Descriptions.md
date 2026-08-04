@@ -1,0 +1,26 @@
+# TMFC029 Functional Framework Function Descriptions
+
+Source: transcribed from `TMFC029 Payment Management-v1-Fx_only_source.docx`, section 2.4 (Functional Framework Functions),
+gap-filled from the Functional Framework spreadsheet for IDs the document scores out or omits.
+
+| Function ID | Function Description | Aggregate Function Level 1 | Aggregate Function Level 2 | Version | Document Name |
+|---|---|---|---|---|---|
+| 30 | Advance Payment Acceptance; Advance Payments are accepted before initiation of service - usually at time of ordering. Interest is not accrued on advance payments. | Customer Financial Management | Payment Management | v24.0 | Advance Payment Acceptance |
+| 33 | Deposit Management manages amounts held as a guarantee of payment. Interest may be accumulated on this deposit amount. If payment is not made in a timely manner, a portion of this deposit may be applied to the outstanding balance. Based on business policy, deposits may be refunded with applicable interest after some period of time. Deposit Management maintains and executes on these policies. | Customer Financial Management | Payment Management | v24.0 | Deposit Management |
+| 153 | Collection Payment Agreement Monitoring monitors the inclusion of a payment schedule or a promise of payment, negotiated with the customer during the dunning process. | Customer Financial Management | Payment Management | v24.0 | Collection Payment Agreement Monitoring |
+| 156 | Collection Payment Planning is creating a payment plan based on system recommendation or CSR decision to build a payment plan. This is a dunning activity. | Customer Financial Management | Payment Management | v24.0 | Collection Payment Planning |
+| 157 | Collection Payment Plan Monitoring monitors the payment plan execution and trigger events for the collection monitoring process. This is a dunning activity. | Customer Financial Management | Payment Management | v24.0 | Collection Payment Plan Monitoring |
+| 171 | Customer Support Payment Management function provides front end functionality for the CSR in their day-to-day payment support related activities. | Customer Financial Management | Payment Management | v24.0 | Customer Support Payment Management |
+| 251 | Customer Bill Payment provide an internet technology driven interface to the customer to undertake direct payments | Customer Financial Management | Payment Management | v24.0 | Customer Bill Payment |
+| 321 | Bank Interface Direct Debit Payment Receiving supports receiving of direct debit payments from the nominated (specified) bank accounts. | Customer Financial Management | Payment Management | v24.0 | Bank Interface Direct Debit Payment Receiving |
+| 322 | Payment Transaction Refunding supports refund transactions based on the saved payment transaction details. | Customer Financial Management | Payment Management | v24.0 | Payment Transaction Refunding |
+| 323 | Payment Interface Management manages interfaces between the service provider and payment channel organizations | Customer Financial Management | Payment Management | v24.0 | Payment Interface Management |
+| 324 | Financial Transaction Settlement submits authorized transactions to the financial institutions for settlement. | Customer Financial Management | Payment Management | v24.0 | Financial Transaction Settlement |
+| 325 | Financial Institution Reconciliation supports the reconciliation process with financial institutions | Customer Financial Management | Payment Management | v24.0 | Financial Institution Reconciliation |
+| 326 | Financial Institution Payment Authorization Linking liaises with financial institutions for payment authorization | Customer Financial Management | Payment Management | v24.0 | Financial Institution Payment Authorization Linking |
+| 327 | Remittance Details Access; Provides remittance details to the bill accounts receivable management application within the service provider billing system. | Customer Financial Management | Payment Management | v24.0 | Remittance Details Access |
+| 328 | Financial Institution Security Verification supports financial institutions’ security standards (e.g., “Verified by Visa” and “MasterCard SecureCode”). | Customer Financial Management | Payment Management | v24.0 | Financial Institution Security Verification |
+| 658 | Partner Payments Management handles payments in the area of Supplier/Partner billing and settlement. Logging and tracking of full or partial payments. | Business Partner Financial Management | Business Partner Payment Management | v24.0 | Partner Payments Management |
+| 936 | Customer Support Invoice Payment function is to accept customer payment via the customer service representative (CSR) for immediate Payment of Invoices using existing or new pay means. | Customer Financial Management | Payment Management | v24.0 | Customer Support Invoice Payment |
+| 937 | Customer Support Prepaid Recharge Payment function is to accept customer payment via the customer service representative (CSR) for Prepaid recharge using vouchers or other pay means | Customer Financial Management | Payment Management | v24.0 | Customer Support Prepaid Recharge Payment |
+| 1065 | Procurement Order Payment provides payment of supplier order. | Business Partner Financial Management | Business Partner Payment Management | v24.0 | Procurement Order Payment |
