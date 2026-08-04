@@ -1,0 +1,44 @@
+@startyaml
+publishedEvents:
+  - id: TMF622
+    name: Product Ordering Management API
+    resources:
+      - cancelProductOrderCreateEvent
+      - cancelProductOrderInformationRequiredEvent
+      - cancelProductOrderStateChangeEvent
+      - productOrderAttributeValueChangeEvent
+      - productOrderCreateEvent
+      - productOrderDeleteEvent
+      - productOrderInformationRequiredEvent
+      - productOrderStateChangeEvent
+  - id: TMF701
+    name: Process Management API
+    resources:
+      - processAttributeValueChangeEvent
+      - processCreateEvent
+      - processDeleteEvent
+      - processFlowAttributeValueChangeEvent
+      - processFlowCreateEvent
+      - processFlowDeleteEvent
+      - processFlowStateChangeEvent
+      - processSpecificationAttributeValueChangeEvent
+      - processSpecificationCreateEvent
+      - processSpecificationDeleteEvent
+      - processSpecificationStateChangeEvent
+      - processStateChangeEvent
+      - taskAttributeValueChangeEvent
+      - taskCreateEvent
+      - taskDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowDeleteEvent
+      - taskFlowInformationRequiredEvent
+      - taskFlowStateChangeEvent
+      - taskInformationRequiredEvent
+      - taskSpecificationAttributeValueChangeEvent
+      - taskSpecificationCreateEvent
+      - taskSpecificationDeleteEvent
+      - taskSpecificationStateChangeEvent
+      - taskStateChangeEvent
+
+@endyaml
