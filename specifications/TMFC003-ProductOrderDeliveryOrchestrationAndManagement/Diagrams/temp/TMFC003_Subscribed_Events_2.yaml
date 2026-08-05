@@ -1,0 +1,12 @@
+@startyaml
+subscribedEvents:
+  - name: ProductCatalogManagement
+    resources:
+      - productSpecificationDeleteEvent
+      - productOfferingDeleteEvent
+      - productOfferingPriceDeleteEvent
+  - name: QuoteManagement
+    resources:
+      - quoteDeleteEvent
+
+@endyaml

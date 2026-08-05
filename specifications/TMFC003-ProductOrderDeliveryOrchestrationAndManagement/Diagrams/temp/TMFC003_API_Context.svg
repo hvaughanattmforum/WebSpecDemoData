@@ -15,24 +15,15 @@
 <rect x="410" y="370" width="420" height="70" fill="white" stroke="black" stroke-width="1.5" stroke-dasharray="6,3"/>
 <text x="620.0" y="403.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">1.6.8</text>
 <text x="620.0" y="419.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">Business Partner Order Management</text>
-<path d="M 410 937.7 L 410 992.3 A 210.0 7.7 0 0 0 830 992.3 L 830 937.7 A 210.0 7.7 0 0 0 410 937.7 Z" fill="white" stroke="black" stroke-width="1.5"/>
-<ellipse cx="620.0" cy="937.7" rx="210.0" ry="7.7" fill="white" stroke="black" stroke-width="1.5"/>
-<text x="620.0" y="968.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">Product Order</text>
-<path d="M 410 1022.7 L 410 1077.3 A 210.0 7.7 0 0 0 830 1077.3 L 830 1022.7 A 210.0 7.7 0 0 0 410 1022.7 Z" fill="white" stroke="black" stroke-width="1.5"/>
-<ellipse cx="620.0" cy="1022.7" rx="210.0" ry="7.7" fill="white" stroke="black" stroke-width="1.5"/>
-<text x="620.0" y="1053.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">Business Partner Product Order</text>
 <path d="M 410 1107.7 L 410 1162.3 A 210.0 7.7 0 0 0 830 1162.3 L 830 1107.7 A 210.0 7.7 0 0 0 410 1107.7 Z" fill="white" stroke="black" stroke-width="1.5"/>
 <ellipse cx="620.0" cy="1107.7" rx="210.0" ry="7.7" fill="white" stroke="black" stroke-width="1.5"/>
-<text x="620.0" y="1131.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">Customer Product Order</text>
-<text x="620.0" y="1147.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">CustomerProductOfferingOrderItem</text>
+<text x="620.0" y="1138.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">Product Order</text>
 <path d="M 410 1192.7 L 410 1247.3 A 210.0 7.7 0 0 0 830 1247.3 L 830 1192.7 A 210.0 7.7 0 0 0 410 1192.7 Z" fill="white" stroke="black" stroke-width="1.5"/>
 <ellipse cx="620.0" cy="1192.7" rx="210.0" ry="7.7" fill="white" stroke="black" stroke-width="1.5"/>
-<text x="620.0" y="1216.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">Customer Product Order</text>
-<text x="620.0" y="1232.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">CustomerProductOrder</text>
+<text x="620.0" y="1223.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">Business Partner Product Order</text>
 <path d="M 410 1277.7 L 410 1332.3 A 210.0 7.7 0 0 0 830 1332.3 L 830 1277.7 A 210.0 7.7 0 0 0 410 1277.7 Z" fill="white" stroke="black" stroke-width="1.5"/>
 <ellipse cx="620.0" cy="1277.7" rx="210.0" ry="7.7" fill="white" stroke="black" stroke-width="1.5"/>
-<text x="620.0" y="1301.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">Customer Product Order</text>
-<text x="620.0" y="1317.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">CustomerProductOrderItem</text>
+<text x="620.0" y="1308.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="black">Customer Product Order</text>
 <line x1="380" y1="70.0" x2="340" y2="70.0" stroke="black" stroke-width="1.5"/>
 <circle cx="340" cy="70.0" r="8" fill="white" stroke="black" stroke-width="1.5"/>
 <path d="M 351 62.0 A 8 8 0 0 1 351 78.0" fill="none" stroke="black" stroke-width="1.5"/>

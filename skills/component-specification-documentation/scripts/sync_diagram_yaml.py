@@ -1,20 +1,30 @@
 """
-Regenerate a component's Diagrams/<ID>_{Exposed_API,Dependant_API}.yaml files from its current main
-component YAML, instead of assuming they're already in sync. `<ID>_Events.yaml` is currently accepted
-at face value (read, never regenerated) -- see the note in sync_all() and the sync_events() docstring;
-that's a temporary, acknowledged decision pending a fix to its id/resources matching, not a design call.
+Regenerate a component's Diagrams/temp/<ID>_{Exposed_API,Dependant_API,Events,Published_Events,
+Subscribed_Events}.yaml files from its current main component YAML, instead of assuming they're already
+in sync. Everything this module writes is disposable and rebuilt from scratch on every run -- per
+explicit user decision, none of it is a hand-maintained, carried-forward file (unlike the Supplement,
+eTOM-SID Links, and eTOM/FF/SID Descriptions files, which live directly under Diagrams/ and this module
+never touches).
 
-Why this exists: these files are the source for the Exposed API / Dependent API diagrams AND the
-display-name lookup used when writing the tables in the generated Markdown. They are maintained as
-separate files alongside the main YAML, not auto-derived from it on every edit -- so they can silently
-drift (an API added/removed from the main YAML without the Diagrams file being touched, a required flag
-flipping, a resource/operation list changing). Regenerate them every time this skill runs, before
-treating them as a data source, rather than trusting they're current.
+Why this exists: these files are the source for the Exposed API / Dependent API / Events diagrams AND
+the display-name lookup used when writing the tables in the generated Markdown. The API lists are
+maintained as separate files alongside the main YAML, not auto-derived from it on every edit -- so they
+can silently drift (an API added/removed from the main YAML without the Diagrams file being touched, a
+required flag flipping, a resource/operation list changing). Regenerate them every time this skill runs,
+before treating them as a data source, rather than trusting they're current.
 
-Name resolution: this script never invents a display name. It reuses the existing Diagrams file's
-id->name mapping (it already did the hard work of resolving names once) for any id that's still
-present, and reports any id that's new (no prior name on file) so it can be resolved by hand (e.g. via
-apiIndex.json or the TMF spec) rather than silently left blank or guessed.
+Name resolution for the API lists: this script never invents a display name. It reuses the existing
+Diagrams file's id->name mapping (it already did the hard work of resolving names once) for any id
+that's still present, falls back to the main component YAML's own `name` field for that entry (already
+present, not derived), and only reports an id as unresolved -- to be resolved by hand (e.g. via
+apiIndex.json or the TMF spec) -- if neither source has a name for it, which should be rare.
+
+Events are different, per explicit user decision: there is no name resolution step and no matching
+against an old file or against the exposedAPIs/dependentAPIs lists at all -- `sync_events()` is a direct
+passthrough of the main YAML's own publishedEvents/subscribedEvents (see `_merge_event_entries`), which
+sidesteps the old resources-set matching bug entirely (it used to drop entries and mint fake
+`UNRESOLVED-<name>` ids once the main YAML's `resources` drifted from an old Diagrams file's -- confirmed
+on TMFC003) rather than trying to fix that matching.
 
 Usage: call sync_all(component_dir, component_id) with the path to one component's folder (the one
 containing both the main <ComponentID>-<Name>.yaml and the Diagrams/ subfolder) and its ID (e.g.
@@ -79,30 +89,35 @@ def _load_first_page(diagrams_dir, component_id, base_name):
 
 
 def _name_map(entries):
-    """id -> name, from an existing (already name-resolved) Diagrams file's entry list."""
+    """id -> name, from an existing (already name-resolved) Diagrams file's entry list. A prior
+    `UNRESOLVED-<id>` placeholder is deliberately excluded -- it's not a real resolution, and treating
+    it as one would lock that placeholder in permanently (every later run would see it as "the existing
+    name" and never fall through to the main YAML's real one)."""
     m = {}
     for e in entries or []:
-        if e and e.get("id") and e.get("name"):
+        if e and e.get("id") and e.get("name") and not e["name"].startswith("UNRESOLVED-"):
             m[e["id"]] = e["name"]
     return m
 
 
-def _resolve_event(entry, by_resources):
-    """Returns (id, name) or (None, None). Main-YAML event entries carry a raw `name` (e.g.
-    "ResourceInventory") that does NOT match the diagram file's resolved display name (e.g.
-    "Resource Inventory Management API") -- there's no shared string key at all between the two. The
-    `resources` list (the event names themselves, e.g. resourceCreateEvent/resourceDeleteEvent/...) is
-    the one field that's actually identical between a main-YAML entry and its diagram-file counterpart,
-    so match on that instead of on id or name."""
-    if entry.get("id"):
-        old = by_resources.get(frozenset(entry.get("resources", [])))
-        if old:
-            return entry["id"], old[1]
-        return entry["id"], None
-    old = by_resources.get(frozenset(entry.get("resources", [])))
-    if old:
-        return old
-    return None, None
+def _merge_event_entries(main_list):
+    """Group main-YAML publishedEvents/subscribedEvents entries by their own raw `name` (e.g.
+    "ProductOrder"), merging duplicate version entries (a v4 and a v5 block for the same event group)
+    into one, with their `resources` lists combined and de-duplicated, order preserved. Per explicit
+    user decision, this is a direct passthrough of the main YAML's own event data -- no `id` is invented,
+    no cross-referencing against exposedAPIs/dependentAPIs to resolve a "cleaner" display name. Whatever
+    the main YAML says is what the Events diagram shows."""
+    order = []
+    merged = {}
+    for e in main_list:
+        name = e.get("name", "<unnamed>")
+        if name not in merged:
+            merged[name] = {"name": name, "resources": []}
+            order.append(name)
+        for r in e.get("resources", []) or []:
+            if r not in merged[name]["resources"]:
+                merged[name]["resources"].append(r)
+    return [merged[n] for n in order]
 
 
 PAGE_THRESHOLD = 60
@@ -188,7 +203,12 @@ def _specification_without_urls(specification):
 
 def sync_api_list(main_entries, old_diagram_entries, key):
     """Rebuild an exposedAPIs/dependentAPIs list: current main-YAML entries, names resolved from the
-    old diagram file's id->name map. Returns (new_entries, unresolved_ids, report_lines)."""
+    old diagram file's id->name map where one exists, falling back to the main YAML entry's own `name`
+    field (it already carries one for every entry) rather than fabricating an `UNRESOLVED-<id>`
+    placeholder -- there's no reason to treat a name that's already sitting right there in the source of
+    truth as missing. `unresolved_ids` (returned) now only fires for the genuinely-pathological case of
+    a main YAML entry with no `name` field of its own and no prior resolution either; that should be rare
+    and worth flagging by hand. Returns (new_entries, unresolved_ids, report_lines)."""
     old_names = _name_map(old_diagram_entries)
     old_ids = {e["id"] for e in (old_diagram_entries or []) if e.get("id")}
     new_ids = {e["id"] for e in main_entries}
@@ -204,7 +224,7 @@ def sync_api_list(main_entries, old_diagram_entries, key):
     unresolved = []
     new_entries = []
     for e in main_entries:
-        name = old_names.get(e["id"])
+        name = old_names.get(e["id"]) or e.get("name")
         if not name:
             unresolved.append(e["id"])
             name = f"UNRESOLVED-{e['id']}"
@@ -218,43 +238,16 @@ def sync_api_list(main_entries, old_diagram_entries, key):
     return new_entries, unresolved, report
 
 
-def sync_events(main_published, main_subscribed, old_events_doc):
-    """NOT currently called by sync_all() -- see the note there. Kept in place (not deleted) because the
-    matching approach is right in principle, just broken for components whose main-YAML event entries
-    have no `id` and whose `resources` set no longer matches the existing Diagrams file's (TMFC003:
-    3 events dropped, 9 others got an UNRESOLVED-<name> id when this was last actually run). Fix the
-    matching, then re-wire this back into sync_all()."""
-    old_pub = (old_events_doc or {}).get("publishedEvents", [])
-    old_sub = (old_events_doc or {}).get("subscribedEvents", [])
-    by_resources = {}
-    for e in old_pub + old_sub:
-        if e.get("id") and e.get("resources"):
-            by_resources[frozenset(e["resources"])] = (e["id"], e.get("name"))
-
-    report = []
-    unresolved = []
-
-    def rebuild(main_list, old_list, label):
-        new_list = []
-        old_ids = {e["id"] for e in old_list if e.get("id")}
-        seen_ids = set()
-        for e in main_list:
-            rid, rname = _resolve_event(e, by_resources)
-            if not rid:
-                unresolved.append(e.get("name", "<unnamed>"))
-                rid = f"UNRESOLVED-{e.get('name', 'unknown')}"
-            if not rname:
-                rname = e.get("name")  # fall back to the raw main-YAML name if nothing better is known
-            seen_ids.add(rid)
-            new_list.append({"id": rid, "name": rname, "resources": e.get("resources", [])})
-        gone = old_ids - seen_ids
-        if gone:
-            report.append(f"{label}: removed (no longer in main YAML): {sorted(gone)}")
-        return new_list
-
-    new_pub = rebuild(main_published, old_pub, "publishedEvents")
-    new_sub = rebuild(main_subscribed, old_sub, "subscribedEvents")
-    return new_pub, new_sub, unresolved, report
+def sync_events(main_published, main_subscribed):
+    """Rebuild the Published/Subscribed Events lists straight from the main YAML every run -- called by
+    sync_all() same as the API lists. Per explicit user decision, this is a direct passthrough (see
+    `_merge_event_entries`): no matching against an old Diagrams file, no cross-referencing against
+    exposedAPIs/dependentAPIs to invent an `id` or a "resolved" display name. The old approach tried to
+    carry forward an `id`+resolved-name pair from a previous Diagrams file by matching on the
+    `resources` set, which broke silently once that set drifted (confirmed on TMFC003: 3 events dropped,
+    9 others got a fabricated `UNRESOLVED-<name>` id) -- rather than fix that matching, the simpler and
+    more correct rule is to not resolve anything at all and just emit what the main YAML says."""
+    return _merge_event_entries(main_published), _merge_event_entries(main_subscribed)
 
 
 def sync_all(component_dir, component_id):
@@ -291,17 +284,18 @@ def sync_all(component_dir, component_id):
     _write_paginated(diagrams_dir, component_id, "Dependant_API", "dependentAPIs", new_dependant,
                       _operation_count, report["changes"], "dependentAPIs")
 
-    # Events are deliberately NOT synced here -- per-component `_Events.yaml` files are accepted at face
-    # value (read as-is, never regenerated) until sync_events()'s id/resources matching is fixed. It
-    # currently drops entries and mints UNRESOLVED-<name> ids for components whose main-YAML event
-    # entries carry no `id` and whose `resources` set has drifted from the existing Diagrams file (found
-    # on TMFC003) -- a real bug, acknowledged, deferred rather than silently corrupting the file on every
-    # run. This is a temporary decision, not a permanent design call -- revisit once that's fixed.
-    events_path = os.path.join(diagrams_dir, f"{component_id}_Events.yaml")
-    if not os.path.exists(events_path):
-        report["changes"].append(
-            "events: no existing Events.yaml and event sync is currently disabled (see sync_events "
-            "docstring) -- this file needs to be authored by hand for a brand-new component")
+    # Events are regenerated fresh every run too, same as the API lists above -- per explicit user
+    # decision, as a direct passthrough of the main YAML's own publishedEvents/subscribedEvents (see
+    # sync_events()/`_merge_event_entries`), with no old-file matching and no cross-referencing against
+    # exposedAPIs/dependentAPIs.
+    new_pub, new_sub = sync_events(core.get("publishedEvents", []), core.get("subscribedEvents", []))
+    _write_paginated(diagrams_dir, component_id, "Published_Events", "publishedEvents", new_pub,
+                      _event_count, report["changes"], "publishedEvents")
+    _write_paginated(diagrams_dir, component_id, "Subscribed_Events", "subscribedEvents", new_sub,
+                      _event_count, report["changes"], "subscribedEvents")
+    _write_lf(os.path.join(diagrams_dir, f"{component_id}_Events.yaml"),
+              "@startyaml\n" + _dump_yaml({"publishedEvents": new_pub, "subscribedEvents": new_sub}) +
+              "\n@endyaml\n")
 
     return report
 

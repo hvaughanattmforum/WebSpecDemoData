@@ -35,10 +35,15 @@ SID ABEs this ODA Component is responsible for:
 | Customer Product Order | CustomerProductOfferingOrderItem | A CustomerProductOfferingOrderItem is a specializaiton of ProductOfferingOrderItem. Each CustomerProductOfferingOrderItem requires an action (AllowedProductAction) on a ProductOffering. |
 | Customer Product Order | CustomerProductOrder | A Customer might place orders with the Service Provider. This is represented by the CustomerProductOrder. CustomerProductOrder / CustomerProductOfferingOrderItem / CustomerProductOrderItem are sub-classes from ProductOrder / ProductOfferingOrderItem / ProductOrderItem. For further details about PartyOrder / PartyOfferingOrderItem / PartyOrderItem refer to the Business Partner guide book. A CustomerProductOrder represents a communication used to procure or update one or many ProductOfferingInstances in the context of a ProductOfferingSpecification through all its CustomerProductOfferingOrderItems. The particularity of the CustomerProductOrder is to procure or update ProductOfferingInstances for Customer even if the CustomerProductOrder might be placed by the Service Provider when applying precautionary measures in case of bad debt. |
 | Customer Product Order | CustomerProductOrderItem | Each CustomerProductOrderItem requires an action (AllowedProductAction) on a ProductSpecification. |
+| Customer Product Order |  | Handles single customer orders and the various types thereof, such as regulated and non-regulated orders. / Orders ProductOfferings and concerns Products |
 
 ### 2.3. eTOM L2 - SID ABEs links
 
-*(no eTOM–SID links recorded for this component in `TMFC003_eTOM_SID_Links.md`)*
+![eTOM L2 - SID ABEs links diagram](TMFC003_eTOM_SID.svg)
+
+*(SVG source: [TMFC003_eTOM_SID.svg](TMFC003_eTOM_SID.svg) — hand-drawn rather than PlantUML since this
+component's eTOM+SID element count (4 + 3 = 7) is over the 6-element threshold. Link data from
+[TMFC003_eTOM_SID_Links.md](TMFC003_eTOM_SID_Links.md).)*
 
 ### 2.4. Functional Framework Functions
 
@@ -207,8 +212,9 @@ subscribe to and then may receive. Both lists are derived from the APIs listed i
 
 | API ID | API Name | Event Resources |
 |---|---|---|
-| TMF622 | Product Ordering Management API | cancelProductOrderCreateEvent<br>cancelProductOrderInformationRequiredEvent<br>cancelProductOrderStateChangeEvent<br>productOrderAttributeValueChangeEvent<br>productOrderCreateEvent<br>productOrderDeleteEvent<br>productOrderInformationRequiredEvent<br>productOrderStateChangeEvent |
-| TMF701 | Process Management API | processAttributeValueChangeEvent<br>processCreateEvent<br>processDeleteEvent<br>processFlowAttributeValueChangeEvent<br>processFlowCreateEvent<br>processFlowDeleteEvent<br>processFlowStateChangeEvent<br>processSpecificationAttributeValueChangeEvent<br>processSpecificationCreateEvent<br>processSpecificationDeleteEvent<br>processSpecificationStateChangeEvent<br>processStateChangeEvent<br>taskAttributeValueChangeEvent<br>taskCreateEvent<br>taskDeleteEvent<br>taskFlowAttributeValueChangeEvent<br>taskFlowCreateEvent<br>taskFlowDeleteEvent<br>taskFlowInformationRequiredEvent<br>taskFlowStateChangeEvent<br>taskInformationRequiredEvent<br>taskSpecificationAttributeValueChangeEvent<br>taskSpecificationCreateEvent<br>taskSpecificationDeleteEvent<br>taskSpecificationStateChangeEvent<br>taskStateChangeEvent |
+|  | ProductOrder | productOrderStateChangeEvent<br>productOrderCreateEvent<br>productOrderAttributeValueChangeEvent<br>productOrderDeleteEvent<br>productOrderInformationRequiredEvent<br>cancelProductOrderCreateEvent<br>cancelProductOrderStateChangeEvent<br>cancelProductOrderInformationRequiredEvent |
+|  | ProcessFlowManagement | processFlowCreateEvent<br>processFlowStateChangeEvent<br>processFlowDeleteEvent<br>processFlowAttributeValueChangeEvent<br>taskFlowCreateEvent<br>taskFlowStateChangeEvent<br>taskFlowDeleteEvent<br>taskFlowAttributeValueChangeEvent<br>taskFlowInformationRequiredEvent |
+|  | ProcessManagement | processCreateEvent<br>processStateChangeEvent<br>processDeleteEvent<br>processAttributeValueChangeEvent<br>taskCreateEvent<br>taskStateChangeEvent<br>taskDeleteEvent<br>taskAttributeValueChangeEvent<br>taskInformationRequiredEvent<br>processSpecificationAttributeValueChangeEvent<br>processSpecificationCreateEvent<br>processSpecificationDeleteEvent<br>processSpecificationStateChangeEvent<br>taskSpecificationAttributeValueChangeEvent<br>taskSpecificationCreateEvent<br>taskSpecificationDeleteEvent<br>taskSpecificationStateChangeEvent |
 
 ![Published Events diagram](TMFC003_Published_Events.png)
 
@@ -218,30 +224,36 @@ subscribe to and then may receive. Both lists are derived from the APIs listed i
 
 | API ID | API Name | Event Resources |
 |---|---|---|
-| TMF620 | Product Catalog Management API | productOfferingDeleteEvent<br>productOfferingPriceDeleteEvent<br>productSpecificationDeleteEvent |
-| TMF632 | Party Management API | individualDeleteEvent<br>organizationDeleteEvent |
-| TMF633 | Service Catalog Management API | serviceSpecificationDeleteEvent |
-| TMF634 | Resource Catalog Management API | resourceSpecificationDeleteEvent |
-| TMF637 | Product Inventory Management API | productAttributeValueChangeEvent<br>productBatchEvent<br>productCreateEvent<br>productDeleteEvent<br>productStateChangeEvent |
-| TMF638 | Service Inventory Management API | serviceDeleteEvent |
-| TMF639 | Resource Inventory Management API | resourceDeleteEvent |
-| TMF641 | Service Ordering Management API | cancelServiceOrderInformationRequiredEvent<br>cancelServiceOrderStateChangeEvent<br>serviceOrderAttributeValueChangeEvent<br>serviceOrderDeleteEvent<br>serviceOrderInformationRequiredEvent<br>serviceOrderJeopardyEvent<br>serviceOrderMilestoneEvent<br>serviceOrderStateChangeEvent |
-| TMF646 | Appointment Management API | appointmentAttributeValueChangeEvent<br>appointmentCreateEvent<br>appointmentDeleteEvent<br>appointmentStateChange |
-| TMF648 | Quote Management API | quoteDeleteEvent |
-| TMF651 | Agreement Management API | agreementDeleteEvent |
-| TMF652 | Resource Order Management API | cancelResourceOrderInformationRequiredEvent<br>cancelResourceOrderStateChange<br>resourceOrderAttributeValueChangeEvent<br>resourceOrderInformationRequiredEvent<br>resourceOrderStateChange |
-| TMF666 | Account Management API | billingAccountDeleteEvent |
-| TMF669 | Party Role Management API | partyRoleDeleteEvent<br>partyRoleSpecificationDeleteEvent |
-| TMF673 | Geographic Address Management API | geographicAddressAttributeValueChangeEvent<br>geographicAddressCreateEvent<br>geographicAddressDeleteEvent<br>geographicAddressValidationStateChangeEvent |
-| TMF674 | Geographic Site Management API | geographicSiteAttributeValueChangeEvent<br>geographicSiteCreateEvent<br>geographicSiteDeleteEvent<br>geographicSiteStateChangeEvent<br>geographicSiteStatusChangeEvent |
-| TMF675 | Geographic Location Management API | geographicLocationAttributeValueChangeEvent<br>geographicLocationCreateEvent<br>geographicLocationDeleteEvent |
-| TMF676 | Payment Management API | paymentDeleteEvent |
-| TMF679 | Product Offering Qualification Management API | checkProductOfferingQualificationAttributeValueChangeEvent<br>checkProductOfferingQualificationCreateEvent<br>checkProductOfferingQualificationDeleteEvent<br>checkProductOfferingQualificationStateChangeEvent<br>productOfferingQualificationAttributeValueChangeEvent<br>productOfferingQualificationCreateEvent<br>productOfferingQualificationDeleteEvent<br>productOfferingQualificationInformationRequiredEvent<br>productOfferingQualificationStateChangeEvent |
-| TMF921 | Intent Management API | intentAttributeValueChangeEvent<br>intentCreateEvent<br>intentDeleteEvent<br>intentStatusChangeEvent |
+|  | ServiceOrder | serviceOrderAttributeValueChangeEvent<br>serviceOrderInformationRequiredEvent<br>serviceOrderMilestoneEvent<br>serviceOrderJeopardyEvent<br>serviceOrderDeleteEvent<br>cancelServiceOrderStateChangeEvent<br>cancelServiceOrderInformationRequiredEvent<br>serviceOrderStateChangeEvent |
+|  | ResourceOrder | resourceOrderStateChange<br>resourceOrderAttributeValueChangeEvent<br>resourceOrderInformationRequiredEvent<br>cancelResourceOrderStateChange<br>cancelResourceOrderInformationRequiredEvent |
+|  | GeographicLocation | geographicLocationCreateEvent<br>geographicLocationAttributeValueChangeEvent<br>geographicLocationDeleteEvent |
+|  | GeographicSiteManagement | geographicSiteCreateEvent<br>geographicSiteAttributeValueChangeEvent<br>geographicSiteDeleteEvent<br>geographicSiteStatusChangeEvent<br>geographicSiteStateChangeEvent |
+|  | GeographicAddressManagement | geographicAddressValidationStateChangeEvent<br>geographicAddressAttributeValueChangeEvent<br>geographicAddressCreateEvent<br>geographicAddressDeleteEvent |
+|  | IntentManagement | intentCreateEvent<br>intentStatusChangeEvent<br>intentDeleteEvent<br>intentAttributeValueChangeEvent |
+|  | AppointmentManagement | appointmentStateChange<br>appointmentCreateEvent<br>appointmentAttributeValueChangeEvent<br>appointmentDeleteEvent |
+|  | ProductOfferingQualification | productOfferingQualificationCreateEvent<br>productOfferingQualificationAttributeValueChangeEvent<br>productOfferingQualificationStateChangeEvent<br>productOfferingQualificationDeleteEvent<br>productOfferingQualificationInformationRequiredEvent<br>checkProductOfferingQualificationCreateEvent<br>checkProductOfferingQualificationAttributeValueChangeEvent<br>checkProductOfferingQualificationStateChangeEvent<br>checkProductOfferingQualificationDeleteEvent |
+|  | PartyManagement | individualDeleteEvent<br>organizationDeleteEvent |
+|  | PartyRoleManagement | partyRoleDeleteEvent<br>partyRoleSpecificationDeleteEvent |
+|  | PaymentManagement | paymentDeleteEvent |
+|  | AccountManagement | billingAccountDeleteEvent |
+|  | AgreementManagement | agreementDeleteEvent |
+|  | ResourceInventoryManagement | resourceDeleteEvent |
+|  | ResourceCatalogManagement | resourceSpecificationDeleteEvent |
+|  | ServiceInventoryManagement | serviceDeleteEvent |
+|  | ServiceCatalogManagement | serviceSpecificationDeleteEvent |
+|  | ProductInventoryManagement | productCreateEvent<br>productAttributeValueChangeEvent<br>productStateChangeEvent<br>productDeleteEvent<br>productBatchEvent |
+|  | ProductCatalogManagement | productSpecificationDeleteEvent<br>productOfferingDeleteEvent<br>productOfferingPriceDeleteEvent |
+|  | QuoteManagement | quoteDeleteEvent |
 
-![Subscribed Events diagram](TMFC003_Subscribed_Events.png)
+![Subscribed Events diagram (1 of 2)](TMFC003_Subscribed_Events_1.png)
 
-*(PlantUML source: [TMFC003_Subscribed_Events.yaml](TMFC003_Subscribed_Events.yaml))*
+*(PlantUML source: [TMFC003_Subscribed_Events_1.yaml](TMFC003_Subscribed_Events_1.yaml) — split across 2
+diagrams since the full subscribed-events list has more than 60 event names combined; see the following
+diagram for the rest.)*
+
+![Subscribed Events diagram (2 of 2)](TMFC003_Subscribed_Events_2.png)
+
+*(PlantUML source: [TMFC003_Subscribed_Events_2.yaml](TMFC003_Subscribed_Events_2.yaml))*
 
 ## 4. Machine Readable Component Specification
 

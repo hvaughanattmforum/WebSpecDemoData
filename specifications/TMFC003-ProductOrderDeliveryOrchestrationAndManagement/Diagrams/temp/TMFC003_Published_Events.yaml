@@ -1,44 +1,44 @@
 @startyaml
 publishedEvents:
-  - id: TMF622
-    name: Product Ordering Management API
+  - name: ProductOrder
     resources:
-      - cancelProductOrderCreateEvent
-      - cancelProductOrderInformationRequiredEvent
-      - cancelProductOrderStateChangeEvent
-      - productOrderAttributeValueChangeEvent
+      - productOrderStateChangeEvent
       - productOrderCreateEvent
+      - productOrderAttributeValueChangeEvent
       - productOrderDeleteEvent
       - productOrderInformationRequiredEvent
-      - productOrderStateChangeEvent
-  - id: TMF701
-    name: Process Management API
+      - cancelProductOrderCreateEvent
+      - cancelProductOrderStateChangeEvent
+      - cancelProductOrderInformationRequiredEvent
+  - name: ProcessFlowManagement
     resources:
-      - processAttributeValueChangeEvent
-      - processCreateEvent
-      - processDeleteEvent
-      - processFlowAttributeValueChangeEvent
       - processFlowCreateEvent
-      - processFlowDeleteEvent
       - processFlowStateChangeEvent
+      - processFlowDeleteEvent
+      - processFlowAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+  - name: ProcessManagement
+    resources:
+      - processCreateEvent
+      - processStateChangeEvent
+      - processDeleteEvent
+      - processAttributeValueChangeEvent
+      - taskCreateEvent
+      - taskStateChangeEvent
+      - taskDeleteEvent
+      - taskAttributeValueChangeEvent
+      - taskInformationRequiredEvent
       - processSpecificationAttributeValueChangeEvent
       - processSpecificationCreateEvent
       - processSpecificationDeleteEvent
       - processSpecificationStateChangeEvent
-      - processStateChangeEvent
-      - taskAttributeValueChangeEvent
-      - taskCreateEvent
-      - taskDeleteEvent
-      - taskFlowAttributeValueChangeEvent
-      - taskFlowCreateEvent
-      - taskFlowDeleteEvent
-      - taskFlowInformationRequiredEvent
-      - taskFlowStateChangeEvent
-      - taskInformationRequiredEvent
       - taskSpecificationAttributeValueChangeEvent
       - taskSpecificationCreateEvent
       - taskSpecificationDeleteEvent
       - taskSpecificationStateChangeEvent
-      - taskStateChangeEvent
 
 @endyaml
