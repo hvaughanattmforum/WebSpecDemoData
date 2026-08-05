@@ -1,0 +1,147 @@
+@startyaml
+publishedEvents:
+  - name: ProductOrder
+    resources:
+      - productOrderStateChangeEvent
+      - productOrderCreateEvent
+      - productOrderAttributeValueChangeEvent
+      - productOrderDeleteEvent
+      - productOrderInformationRequiredEvent
+      - cancelProductOrderCreateEvent
+      - cancelProductOrderStateChangeEvent
+      - cancelProductOrderInformationRequiredEvent
+  - name: ProcessFlowManagement
+    resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowDeleteEvent
+      - processFlowAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+  - name: ProcessManagement
+    resources:
+      - processCreateEvent
+      - processStateChangeEvent
+      - processDeleteEvent
+      - processAttributeValueChangeEvent
+      - taskCreateEvent
+      - taskStateChangeEvent
+      - taskDeleteEvent
+      - taskAttributeValueChangeEvent
+      - taskInformationRequiredEvent
+      - processSpecificationAttributeValueChangeEvent
+      - processSpecificationCreateEvent
+      - processSpecificationDeleteEvent
+      - processSpecificationStateChangeEvent
+      - taskSpecificationAttributeValueChangeEvent
+      - taskSpecificationCreateEvent
+      - taskSpecificationDeleteEvent
+      - taskSpecificationStateChangeEvent
+subscribedEvents:
+  - name: ServiceOrder
+    resources:
+      - serviceOrderAttributeValueChangeEvent
+      - serviceOrderInformationRequiredEvent
+      - serviceOrderMilestoneEvent
+      - serviceOrderJeopardyEvent
+      - serviceOrderDeleteEvent
+      - cancelServiceOrderStateChangeEvent
+      - cancelServiceOrderInformationRequiredEvent
+      - serviceOrderStateChangeEvent
+  - name: ResourceOrder
+    resources:
+      - resourceOrderStateChange
+      - resourceOrderAttributeValueChangeEvent
+      - resourceOrderInformationRequiredEvent
+      - cancelResourceOrderStateChange
+      - cancelResourceOrderInformationRequiredEvent
+  - name: GeographicLocation
+    resources:
+      - geographicLocationCreateEvent
+      - geographicLocationAttributeValueChangeEvent
+      - geographicLocationDeleteEvent
+  - name: GeographicSiteManagement
+    resources:
+      - geographicSiteCreateEvent
+      - geographicSiteAttributeValueChangeEvent
+      - geographicSiteDeleteEvent
+      - geographicSiteStatusChangeEvent
+      - geographicSiteStateChangeEvent
+  - name: GeographicAddressManagement
+    resources:
+      - geographicAddressValidationStateChangeEvent
+      - geographicAddressAttributeValueChangeEvent
+      - geographicAddressCreateEvent
+      - geographicAddressDeleteEvent
+  - name: IntentManagement
+    resources:
+      - intentCreateEvent
+      - intentStatusChangeEvent
+      - intentDeleteEvent
+      - intentAttributeValueChangeEvent
+  - name: AppointmentManagement
+    resources:
+      - appointmentStateChange
+      - appointmentCreateEvent
+      - appointmentAttributeValueChangeEvent
+      - appointmentDeleteEvent
+  - name: ProductOfferingQualification
+    resources:
+      - productOfferingQualificationCreateEvent
+      - productOfferingQualificationAttributeValueChangeEvent
+      - productOfferingQualificationStateChangeEvent
+      - productOfferingQualificationDeleteEvent
+      - productOfferingQualificationInformationRequiredEvent
+      - checkProductOfferingQualificationCreateEvent
+      - checkProductOfferingQualificationAttributeValueChangeEvent
+      - checkProductOfferingQualificationStateChangeEvent
+      - checkProductOfferingQualificationDeleteEvent
+  - name: PartyManagement
+    resources:
+      - individualDeleteEvent
+      - organizationDeleteEvent
+  - name: PartyRoleManagement
+    resources:
+      - partyRoleDeleteEvent
+      - partyRoleSpecificationDeleteEvent
+  - name: PaymentManagement
+    resources:
+      - paymentDeleteEvent
+  - name: AccountManagement
+    resources:
+      - billingAccountDeleteEvent
+  - name: AgreementManagement
+    resources:
+      - agreementDeleteEvent
+  - name: ResourceInventoryManagement
+    resources:
+      - resourceDeleteEvent
+  - name: ResourceCatalogManagement
+    resources:
+      - resourceSpecificationDeleteEvent
+  - name: ServiceInventoryManagement
+    resources:
+      - serviceDeleteEvent
+  - name: ServiceCatalogManagement
+    resources:
+      - serviceSpecificationDeleteEvent
+  - name: ProductInventoryManagement
+    resources:
+      - productCreateEvent
+      - productAttributeValueChangeEvent
+      - productStateChangeEvent
+      - productDeleteEvent
+      - productBatchEvent
+  - name: ProductCatalogManagement
+    resources:
+      - productSpecificationDeleteEvent
+      - productOfferingDeleteEvent
+      - productOfferingPriceDeleteEvent
+  - name: QuoteManagement
+    resources:
+      - quoteDeleteEvent
+
+@endyaml

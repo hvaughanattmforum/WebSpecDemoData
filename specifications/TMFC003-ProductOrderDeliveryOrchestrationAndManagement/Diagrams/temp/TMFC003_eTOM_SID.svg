@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 490" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="1120" height="490" fill="white"/>
+<text x="40" y="55" font-size="16" font-weight="bold" fill="black">TMFC003 eTOM L2 - SID ABEs links</text>
+<line x1="300" y1="115.0" x2="560" y2="353.3333333333333" stroke="black" stroke-width="1.5"/>
+<polygon points="560,353.3333333333333 548.4512518035217,348.1732543519281 553.8570488316604,342.27602123032216" fill="black"/>
+<polygon points="300,115.0 311.5487481964783,120.16007898140519 306.14295116833955,126.05731210301111" fill="black"/>
+<line x1="300" y1="203.33333333333334" x2="560" y2="147.5" stroke="black" stroke-width="1.5"/>
+<polygon points="560,147.5 549.1073011057431,153.93032742549346 547.4276444292984,146.1086426038406" fill="black"/>
+<polygon points="300,203.33333333333334 310.89269889425697,196.90300590783988 312.57235557070163,204.72469072949275" fill="black"/>
+<line x1="300" y1="226.66666666666666" x2="560" y2="376.6666666666667" stroke="black" stroke-width="1.5"/>
+<polygon points="300,226.66666666666666 312.39311684654155,229.19859376434718 308.3953372186249,236.128078452736" fill="black"/>
+<line x1="300" y1="315.0" x2="560" y2="165.0" stroke="black" stroke-width="1.5"/>
+<polygon points="300,315.0 308.3953372186249,305.53858821393067 312.39311684654155,312.4680729023195" fill="black"/>
+<line x1="300" y1="403.3333333333333" x2="560" y2="265.0" stroke="black" stroke-width="1.5"/>
+<polygon points="560,265.0 551.2849577413959,274.16777172658357 547.5273031571666,267.10519202610436" fill="black"/>
+<polygon points="300,403.3333333333333 308.7150422586041,394.16556160674975 312.4726968428334,401.22814130722895" fill="black"/>
+<line x1="300" y1="426.6666666666667" x2="560" y2="182.5" stroke="black" stroke-width="1.5"/>
+<polygon points="300,426.6666666666667 306.00919817746274,415.53609896937564 311.4856991603448,421.3677314153115" fill="black"/>
+<rect x="40" y="80.0" width="260" height="70" fill="white" stroke="black" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="170.0" y="120.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="black">L2 - Customer Order Processing Management</text>
+<rect x="40" y="180.0" width="260" height="70" fill="white" stroke="black" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="170.0" y="220.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="black">L2 - Product Order Management</text>
+<rect x="40" y="280.0" width="260" height="70" fill="white" stroke="black" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="170.0" y="320.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="black">L2 - Service Activation Management</text>
+<rect x="40" y="380.0" width="260" height="70" fill="white" stroke="black" stroke-width="1.5" stroke-dasharray="6,3"/>
+<text x="170.0" y="420.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="black">L2 - Business Partner Order Management</text>
+<path d="M 560 137.7 L 560 192.3 A 130.0 7.7 0 0 0 820 192.3 L 820 137.7 A 130.0 7.7 0 0 0 560 137.7 Z" fill="white" stroke="black" stroke-width="1.5"/>
+<ellipse cx="690.0" cy="137.7" rx="130.0" ry="7.7" fill="white" stroke="black" stroke-width="1.5"/>
+<text x="690.0" y="168.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="black">Product Order</text>
+<path d="M 560 237.7 L 560 292.3 A 130.0 7.7 0 0 0 820 292.3 L 820 237.7 A 130.0 7.7 0 0 0 560 237.7 Z" fill="white" stroke="black" stroke-width="1.5"/>
+<ellipse cx="690.0" cy="237.7" rx="130.0" ry="7.7" fill="white" stroke="black" stroke-width="1.5"/>
+<text x="690.0" y="268.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="black">Business Partner Product Order</text>
+<path d="M 560 337.7 L 560 392.3 A 130.0 7.7 0 0 0 820 392.3 L 820 337.7 A 130.0 7.7 0 0 0 560 337.7 Z" fill="white" stroke="black" stroke-width="1.5"/>
+<ellipse cx="690.0" cy="337.7" rx="130.0" ry="7.7" fill="white" stroke="black" stroke-width="1.5"/>
+<text x="690.0" y="368.85" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="black">Customer Product Order</text>
+<rect x="870" y="70" width="20" height="14" fill="white" stroke="black" stroke-width="1.5" stroke-dasharray="4,2"/>
+<text x="900" y="80" font-size="12" fill="black">eTOM Business Activity</text>
+<ellipse cx="880" cy="104" rx="10" ry="6" fill="white" stroke="black" stroke-width="1.5"/>
+<text x="900" y="108" font-size="12" fill="black">SID Data Entity</text>
+<line x1="870" y1="132" x2="894" y2="132" stroke="black" stroke-width="1.5"/>
+<polygon points="894,132 882.0,136.0 882.0,128.0" fill="black"/>
+<text x="904" y="136" font-size="12" fill="black">produced by the activity</text>
+<line x1="870" y1="156" x2="894" y2="156" stroke="black" stroke-width="1.5"/>
+<polygon points="870,156 882.0,152.0 882.0,160.0" fill="black"/>
+<text x="904" y="160" font-size="12" fill="black">consumed by the activity</text>
+</svg>

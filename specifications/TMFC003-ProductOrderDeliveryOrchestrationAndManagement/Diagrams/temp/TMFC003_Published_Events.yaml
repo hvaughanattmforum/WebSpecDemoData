@@ -1,0 +1,44 @@
+@startyaml
+publishedEvents:
+  - name: ProductOrder
+    resources:
+      - productOrderStateChangeEvent
+      - productOrderCreateEvent
+      - productOrderAttributeValueChangeEvent
+      - productOrderDeleteEvent
+      - productOrderInformationRequiredEvent
+      - cancelProductOrderCreateEvent
+      - cancelProductOrderStateChangeEvent
+      - cancelProductOrderInformationRequiredEvent
+  - name: ProcessFlowManagement
+    resources:
+      - processFlowCreateEvent
+      - processFlowStateChangeEvent
+      - processFlowDeleteEvent
+      - processFlowAttributeValueChangeEvent
+      - taskFlowCreateEvent
+      - taskFlowStateChangeEvent
+      - taskFlowDeleteEvent
+      - taskFlowAttributeValueChangeEvent
+      - taskFlowInformationRequiredEvent
+  - name: ProcessManagement
+    resources:
+      - processCreateEvent
+      - processStateChangeEvent
+      - processDeleteEvent
+      - processAttributeValueChangeEvent
+      - taskCreateEvent
+      - taskStateChangeEvent
+      - taskDeleteEvent
+      - taskAttributeValueChangeEvent
+      - taskInformationRequiredEvent
+      - processSpecificationAttributeValueChangeEvent
+      - processSpecificationCreateEvent
+      - processSpecificationDeleteEvent
+      - processSpecificationStateChangeEvent
+      - taskSpecificationAttributeValueChangeEvent
+      - taskSpecificationCreateEvent
+      - taskSpecificationDeleteEvent
+      - taskSpecificationStateChangeEvent
+
+@endyaml

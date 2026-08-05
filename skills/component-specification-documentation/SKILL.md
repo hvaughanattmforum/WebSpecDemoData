@@ -78,22 +78,23 @@ branch `v1.1.0`):
 
   This rebuilds the Exposed/Dependent API files' entry lists fresh from `coreFunction.exposedAPIs` /
   `.dependentAPIs`, reusing the *existing* Diagrams file's `id → name` resolutions (it already did that
-  work once) rather than inventing names. It reports what changed (entries added/removed, `required`
-  flips) and any id it couldn't resolve a name for — resolve those by hand (e.g. via `apiIndex.json` or
-  the TMF spec) rather than leaving a placeholder in the file.
+  work once) where one exists, falling back to that same main-YAML entry's own `name` field otherwise —
+  never inventing a name from nothing. It reports what changed (entries added/removed, `required` flips)
+  and any id that has no name in *either* place — resolve those by hand (e.g. via `apiIndex.json` or the
+  TMF spec) rather than leaving a placeholder in the file; this should now be rare, since the main YAML
+  carries a `name` for essentially every entry.
 
-  **`<ComponentID>_Events.yaml` is accepted at face value — `sync_all()` does not regenerate it.** Per
-  explicit user decision, treat an existing Events file exactly like the hand-maintained Links/
-  Descriptions/Supplement files: read it as-is, don't touch it. This is a deliberate, temporary
-  workaround, not a design call: `sync_events()`/`_resolve_event()` in the script still exist and describe
-  the intended matching (main-YAML event entries carry a raw `name` with no shared key against the
-  Diagrams file's resolved display name, so matching falls back to the `resources` list), but that
-  matching is currently broken for components whose `resources` set has drifted from the existing
-  Diagrams file — confirmed on TMFC003, where running it dropped 3 events and minted `UNRESOLVED-<name>`
-  ids for 9 others instead of their real `TMFxxx` ids. Fix `sync_events()`'s matching before re-wiring it
-  into `sync_all()`; don't attempt a workaround inline. For a genuinely new component with no
-  `_Events.yaml` yet, it has to be authored by hand for now (`sync_all()` reports this rather than
-  fabricating one).
+  **`<ComponentID>_Events.yaml` is regenerated fresh by `sync_all()` every run**, same as the Exposed/
+  Dependent API files — it is *not* one of the hand-maintained files (Links/Descriptions/Supplement)
+  and is never carried forward as a trusted cache. Per explicit user decision, `sync_events()` does not
+  try to resolve an `id` or a "cleaner" display name for each event group at all — no matching against
+  an old Diagrams file, no cross-referencing against `exposedAPIs`/`dependentAPIs`. It's a direct
+  passthrough of the main YAML's own `publishedEvents`/`subscribedEvents`: entries with the same raw
+  `name` are merged (duplicate version blocks combined into one, `resources` de-duplicated), and that
+  raw `name` is what the diagram shows — nothing more. This deliberately sidesteps the old
+  resources-set matching bug (confirmed on TMFC003: it used to drop 3 events and mint fake
+  `UNRESOLVED-<name>` ids for 9 others once the main YAML's `resources` drifted from an old Diagrams
+  file) rather than fixing that matching — the simpler passthrough has nothing to drift against.
 
   This does reformat the files (consistent 2-space indent throughout, replacing whatever hand/tool-authored
   indentation was there before) — mention that in your summary so a real diff doesn't come as a surprise,
@@ -451,11 +452,10 @@ threshold doesn't leave an orphaned `_2.yaml`/`_2.png` behind. TMFC003's `Depend
 operations total) is a real example, currently split into 3 pages of 56/59/45 — see
 [references/diagrams.md](references/diagrams.md) for the worked embedding.
 
-**Events aren't auto-split yet**, since `sync_events()` isn't currently wired into `sync_all()` at all (see
-"Where the data lives" above — accepted at face value until its id/resolution bug is fixed). If a
-component's Published or Subscribed Events list passes 60 event names, apply the same `paginate_entries()`
-helper by hand (`from sync_diagram_yaml import paginate_entries, _event_count`) when splitting
-`Events.yaml` into its two halves.
+**Events auto-split the same way**, via the same `sync_all()` call (see "Where the data lives" above) —
+`_write_paginated()` applies the 60-event-name threshold to `publishedEvents`/`subscribedEvents`
+independently, producing `<ID>_Published_Events_1.yaml`/`_2.yaml`/... (or `_Subscribed_Events_...`)
+exactly like the Exposed/Dependent API split, with no manual step needed.
 
 When embedding multiple pages, number them in the caption (`Dependent API diagram (1 of 3)`) and say in the
 first page's caption that it continues — see the worked `.md` snippet in

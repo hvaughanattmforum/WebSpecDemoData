@@ -285,61 +285,40 @@ manual edit stays under 60 — the count is the total across *all* entries, not 
 small edit (adding one more API, or a handful of operations to an existing one) can be what tips a
 component over the threshold for the first time.
 
-## Events diagrams (Published / Subscribed — split from one file)
+## Events diagrams (Published / Subscribed — regenerated fresh by sync_all(), split from one file)
 
-`Diagrams/<ID>_Events.yaml` combines both directions in one `@startyaml` block, with `publishedEvents:` and
-`subscribedEvents:` as sibling top-level keys. The document needs these as **two separate diagrams**, so
-split the file at that top-level key boundary rather than writing a fresh one — the entries are already
-correctly `id`/`name`-resolved. For TMFC005, the source file:
+`sync_all()` (see "Where the data lives" in `SKILL.md`) regenerates `Diagrams/temp/<ID>_Events.yaml`,
+`<ID>_Published_Events.yaml`, and `<ID>_Subscribed_Events.yaml` fresh every run, straight from the main
+YAML's `coreFunction.publishedEvents`/`.subscribedEvents` — no old-file matching, and (per explicit user
+decision) no cross-referencing against `exposedAPIs`/`dependentAPIs` to resolve an `id` or a "cleaner"
+display name. `sync_events()`/`_merge_event_entries()` just group the main YAML's own entries by their
+raw `name`, merging duplicate version blocks (a v4 and a v5 entry for the same event group) into one
+with a de-duplicated `resources` list — that raw `name` is what ends up in the diagram, nothing invented
+on top of it. For TMFC005 (whose main YAML entries happen to carry a `name` that already reads as an API
+display name), the combined file:
 
 ```yaml
 @startyaml
 publishedEvents:
-    - id: TMF637
-      name: Product Inventory Management API
-      resources: [...]
-    - id: TMF701
-      name: Process Flow Management API
+    - name: Product Inventory Management API
       resources: [...]
 subscribedEvents:
-    - id: TMF639
-      name: Resource Inventory Management API
+    - name: Resource Inventory Management API
       resources: [...]
     ... (more entries)
 @endyaml
 ```
 
-becomes two fenced blocks:
+`sync_all()` also writes the two halves as their own standalone `<ID>_Published_Events.yaml` /
+`<ID>_Subscribed_Events.yaml` files directly (not something you split out of the combined file by hand)
+— reference those two in the document, and treat the combined `<ID>_Events.yaml` as a convenience
+artifact, not itself one of the two diagram sources.
 
-```plantuml
-@startyaml
-publishedEvents:
-    - id: TMF637
-      name: Product Inventory Management API
-      resources: [...]
-    - id: TMF701
-      name: Process Flow Management API
-      resources: [...]
-@endyaml
-```
-
-```plantuml
-@startyaml
-subscribedEvents:
-    - id: TMF639
-      name: Resource Inventory Management API
-      resources: [...]
-    ... (more entries)
-@endyaml
-```
-
-**Either half can itself pass the 60-event-name threshold** — count `len(entry["resources"])` (the event
-names) summed across every entry in that half, same `_event_count()` metric `sync_diagram_yaml.py` uses
-for the API diagrams. If it does, apply `paginate_entries()` to that half's entry list before writing it
-out, producing `<ID>_Published_Events_1.yaml`/`_2.yaml`/... (or `_Subscribed_Events_...`) instead of one
-file, embedded the same numbered-page way as the Exposed/Dependent API split above. This isn't automated
-yet (`sync_events()` isn't wired into `sync_all()` — see "Where the data lives" in `SKILL.md`), so do it by
-hand: `from sync_diagram_yaml import paginate_entries, _event_count`.
+**Either half can itself pass the 60-event-name threshold** — `sync_all()` runs `_write_paginated()` on
+each half independently, same `_event_count()` metric the API diagrams use, producing
+`<ID>_Published_Events_1.yaml`/`_2.yaml`/... (or `<ID>_Subscribed_Events_...`) instead of one file, in
+which case embed each page the same numbered way as the Exposed/Dependent API split above. This is fully
+automated — there's no manual pagination step for Events anymore.
 
 Keep each entry's original indentation exactly as in the source file — PlantUML's YAML renderer is
 whitespace-sensitive the same way real YAML is.
