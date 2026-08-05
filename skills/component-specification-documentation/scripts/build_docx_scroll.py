@@ -56,6 +56,13 @@ PANEL_TITLE = "In this deliverable:"
 
 _LEADING_NUMBER = re.compile(r"^\d+(?:\.\d+)*\.?\s+")
 _SOURCE_CAPTION = re.compile(r"^\s*(PlantUML|SVG|Mermaid)\s+source\s*:", re.IGNORECASE)
+# The one piece of a source caption that must survive even though the rest of the caption (the
+# provenance link back to the diagram source file) is dropped for this format -- per SKILL.md, the
+# "(1 of 3)"/"split across N diagrams" notice is "necessary for a reader to understand the document
+# structure, not analysis of the data", unlike e.g. an SVG-vs-PlantUML rationale note, which stays
+# dropped. Matched narrowly on "split across" rather than on the caption's em-dash generally, so a
+# rationale caption (which also uses an em-dash) isn't accidentally preserved too.
+_SPLIT_NOTICE = re.compile(r"—\s*(split across .+)$", re.IGNORECASE | re.DOTALL)
 
 
 def _strip_section_number(text):
@@ -332,6 +339,14 @@ def build_docx_scroll(md_path, template_path=None, out_path=None, yaml_path=None
             # the italic flag alone, so genuine italic prose in the Supplement still comes through. The
             # shared .md and the PDF keep the captions -- only this format omits them.
             if block.get("italic") and _SOURCE_CAPTION.match(text):
+                # ...except the split-notice sentence on a split diagram's first page (see _SPLIT_NOTICE
+                # above) -- without it, a reader sees 2-3 diagram images run together back-to-back with
+                # nothing explaining why, which is exactly the confusion this sentence exists to prevent.
+                note = _SPLIT_NOTICE.search(text)
+                if note:
+                    p = doc.add_paragraph()
+                    run = p.add_run(note.group(1).strip())
+                    run.italic = True
                 continue
             p = doc.add_paragraph()
             _add_runs(p, block["runs"])
@@ -353,6 +368,14 @@ def build_docx_scroll(md_path, template_path=None, out_path=None, yaml_path=None
             path = block["path"]
             if path and os.path.exists(path):
                 doc.add_picture(path, width=Inches(IMAGE_WIDTH_IN))
+                # The reference export has no source-file caption (see _SOURCE_CAPTION above), but the
+                # image's own alt text (e.g. "Dependent API diagram (1 of 3)") is the only label telling
+                # a reader what a given picture is and, for a split diagram, which page of it -- drop
+                # that too and split diagrams become indistinguishable back-to-back images.
+                if block.get("alt"):
+                    cap = doc.add_paragraph()
+                    run = cap.add_run(block["alt"])
+                    run.italic = True
             else:
                 skipped_images.append(path)
 
