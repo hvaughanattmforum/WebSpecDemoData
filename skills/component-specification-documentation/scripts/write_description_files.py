@@ -5,12 +5,8 @@ existing <ID>_eTOM_SID_Links.md: a one-line source note, then a pipe table keyed
 """
 import json
 import os
-import sys
 
-# This skill lives inside the specification repository (skills/<name>/scripts/), so the specifications
-# folder is three levels up -- no absolute path needed, and the script works from any clone.
-REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                    "..", "..", "..", "specifications"))
+REPO = r"C:\Users\HugoVaughan\source\repos\tmforum-rand\TMForum-ODA-Component-Specification\specifications"
 
 COMPONENTS = {
     "TMFC001": ("TMFC001-ProductCatalogManagement", "TMFC001 Product Catalog Management v2.2.2.docx"),
@@ -80,17 +76,10 @@ def write_ff_file(cid, folder, source_name, ff):
 
 
 if __name__ == "__main__":
-    # The extraction JSON is a working artifact of a particular batch run, not repository content, so
-    # its location is given on the command line rather than assumed. (It used to point at a scratch
-    # folder on one machine, which meant this script could only ever run there.)
-    if len(sys.argv) < 2:
-        sys.exit("usage: write_description_files.py <descriptions_raw.json>\n"
-                 "  produce that file first with extract_descriptions.py")
-    raw_path = sys.argv[1]
-    if not os.path.exists(raw_path):
-        sys.exit(f"not found: {raw_path}")
-    with open(raw_path, encoding="utf-8") as f:
-        data = json.load(f)
+    data = json.load(open(
+        r"C:\Users\HugoVaughan\ClaudeCode\.claude\skills\component-specification-documentation\_batch\descriptions_raw.json",
+        encoding="utf-8",
+    ))
     for cid, (folder, source_name) in COMPONENTS.items():
         r = data[cid]
         p1 = write_etom_file(cid, folder, source_name, r["etom"])

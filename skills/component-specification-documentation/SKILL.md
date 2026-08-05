@@ -16,15 +16,20 @@ Two files that together are the source-of-truth-driven counterpart of a componen
 - `Diagrams/TMFCxxx_<Name>_Supplement.md` — hand-maintained, never auto-regenerated once it exists. Sections
   5.2, 5.3, and 6 (Jira References, Further resources, Administrative Appendix) — curated editorial content
   with no YAML equivalent. See "Supplement file" below.
-- `Diagrams/TMFCxxx_<Name>.pdf` and `Diagrams/TMFCxxx_<Name>.docx` — generated on every run from the two
-  `.md` files above, see "Also produce a PDF" and "Also produce a Word document (.docx)" below. Unlike the
-  PDF, the `.docx` has no "publish to component root" step — there's no pre-existing official `.docx` for
-  any component, so it's a working artifact that lives in `Diagrams/` only, not something this skill
-  overwrites elsewhere. Revisit this if that ever changes (e.g. if a component's official spec starts being
-  published as `.docx` too).
+- `TMFCxxx_<Name>.pdf` **at the component root** and `Diagrams/TMFCxxx_<Name>.docx` — generated on every
+  run from the two `.md` files above, see "Also produce a PDF" and "Also produce a Word document (.docx)"
+  below. These two land in different places, both deliberate: the PDF has an official, published
+  location to overwrite (the component root, where the original PDF already lived), so it's written
+  straight there and never has a standing copy in `Diagrams/`. The `.docx` has no such pre-existing
+  official location — no component has an official `.docx` today — so it's a working artifact that lives
+  in `Diagrams/` only, not something this skill writes anywhere else. Revisit that if it ever changes
+  (e.g. if a component's official spec starts being published as `.docx` too). Everything either script
+  generates that isn't one of these two deliverables (rasterization caches, mid-assembly render passes)
+  goes into `Diagrams/temp/` instead — see "`Diagrams/temp/`" under "Also produce a PDF" below.
 
-Both live inside the component's `Diagrams/` folder, not at the component root next to the original
-PDF/YAML — see "Where the data lives" below for why and what that means for image/source paths inside them.
+The main `.md` and its Supplement live inside the component's `Diagrams/` folder, not at the component
+root next to the main YAML — see "Where the data lives" below for why and what that means for image/source
+paths inside them.
 
 **The original PDF is no longer needed to generate this document at all** — not for structure, not for
 cover/notice boilerplate, not for chapters 5/6. Every fact that used to come from reading the old PDF now
@@ -56,11 +61,11 @@ branch `v1.1.0`):
   `name: Product Catalog Management API`) — use that as your name-resolution source for API display names
   in both the diagrams and the tables, since it's more direct than cross-referencing `apiIndex.json`.
 
-  **Always regenerate these three files from the current main YAML before using them — every run, not
-  just when drift is suspected.** They're separately maintained, not auto-derived from the main YAML on
-  every edit, so they can silently drift (an API added/removed without the Diagrams file being touched, a
-  `required` flag flipping, a resource/operation list changing) — treating them as trustworthy-as-is was
-  the previous approach, and it isn't safe. Use
+  **Always regenerate the Exposed/Dependent API files from the current main YAML before using them —
+  every run, not just when drift is suspected.** They're separately maintained, not auto-derived from the
+  main YAML on every edit, so they can silently drift (an API added/removed without the Diagrams file
+  being touched, a `required` flag flipping, a resource/operation list changing) — treating them as
+  trustworthy-as-is was the previous approach, and it isn't safe. Use
   [scripts/sync_diagram_yaml.py](scripts/sync_diagram_yaml.py):
 
   ```python
@@ -71,14 +76,24 @@ branch `v1.1.0`):
   report = sync_all(component_dir, "TMFC012")  # component_dir = the folder holding the main YAML + Diagrams/
   ```
 
-  This rebuilds all three files' entry lists fresh from `coreFunction.exposedAPIs` / `.dependentAPIs` /
-  `.publishedEvents` + `.subscribedEvents`, reusing the *existing* Diagrams file's `id → name` resolutions
-  (it already did that work once) rather than inventing names. It reports what changed (entries added/
-  removed, `required` flips) and any id/event it couldn't resolve a name for — resolve those by hand (e.g.
-  via `apiIndex.json` or the TMF spec) rather than leaving a placeholder in the file. For events
-  specifically, note that main-YAML entries carry a raw `name` (`ResourceInventory`) that never matches
-  the Diagrams file's resolved display name (`Resource Inventory Management API`) — the script matches on
-  the `resources` list instead, which is the one field guaranteed identical between the two.
+  This rebuilds the Exposed/Dependent API files' entry lists fresh from `coreFunction.exposedAPIs` /
+  `.dependentAPIs`, reusing the *existing* Diagrams file's `id → name` resolutions (it already did that
+  work once) rather than inventing names. It reports what changed (entries added/removed, `required`
+  flips) and any id it couldn't resolve a name for — resolve those by hand (e.g. via `apiIndex.json` or
+  the TMF spec) rather than leaving a placeholder in the file.
+
+  **`<ComponentID>_Events.yaml` is accepted at face value — `sync_all()` does not regenerate it.** Per
+  explicit user decision, treat an existing Events file exactly like the hand-maintained Links/
+  Descriptions/Supplement files: read it as-is, don't touch it. This is a deliberate, temporary
+  workaround, not a design call: `sync_events()`/`_resolve_event()` in the script still exist and describe
+  the intended matching (main-YAML event entries carry a raw `name` with no shared key against the
+  Diagrams file's resolved display name, so matching falls back to the `resources` list), but that
+  matching is currently broken for components whose `resources` set has drifted from the existing
+  Diagrams file — confirmed on TMFC003, where running it dropped 3 events and minted `UNRESOLVED-<name>`
+  ids for 9 others instead of their real `TMFxxx` ids. Fix `sync_events()`'s matching before re-wiring it
+  into `sync_all()`; don't attempt a workaround inline. For a genuinely new component with no
+  `_Events.yaml` yet, it has to be authored by hand for now (`sync_all()` reports this rather than
+  fabricating one).
 
   This does reformat the files (consistent 2-space indent throughout, replacing whatever hand/tool-authored
   indentation was there before) — mention that in your summary so a real diff doesn't come as a surprise,
@@ -86,6 +101,14 @@ branch `v1.1.0`):
   Write with `newline="\n"` explicitly — a plain Windows text-mode write silently turns every `\n` into
   `\r\n`, which would make every single line show as changed in git diff even when content didn't change
   (the repo's `core.autocrlf=true` handles the local-checkout line-ending presentation on its own).
+
+  **These files, and therefore the Exposed/Dependent API diagrams rendered from them, must never show an
+  API's `url`.** `sync_diagram_yaml.py`'s `sync_api_list()` strips the `url` field from every
+  `specification` version block before writing (`_specification_without_urls()`) — these `@startyaml`
+  files are rendered verbatim as diagram boxes, so a `url` here isn't inert metadata, it prints the full
+  swagger link as diagram text. The main YAML and the 3.2/3.3 tables are unaffected; this only concerns
+  what the diagram itself displays. If you ever hand-edit one of these three Diagrams files instead of
+  going through the sync script, strip `url` the same way before saving.
 - `TMFCxxx_<Name>.pdf` — **only needed for one specific, one-time, component-by-component task, and only if
   `Diagrams/<ComponentID>_eTOM_SID_Links.md` doesn't exist yet**: manually reading off the eTOM–SID link
   diagram to seed that Links file (see [references/diagrams.md](references/diagrams.md), "eTOM–SID
@@ -117,23 +140,14 @@ branch `v1.1.0`):
   [references/diagrams.md](references/diagrams.md) for the Links/Descriptions files, and "Write the file"
   below for the main `.md`'s exact output path.
 
-**Where the repo is**: this skill is committed *inside* the specification repository, at
-`skills/component-specification-documentation/`, so the component data is always reachable relatively — from
-`scripts/`, the specifications folder is `../../../specifications`. Resolve it from `__file__` rather than
-from the working directory or an absolute path, so the skill works in any clone. `scripts/build_pdf.py`,
-`build_docx_scroll.py`, `add_descriptions_to_md.py` and `write_description_files.py` all do this.
-
-Components are read straight from the checkout; only reach for `git fetch`/`gh api` if the component you
-need isn't present locally or the branch is stale. Note that components are sometimes worked on their own
-branch (e.g. `v1.1.0-TMFC003`) rather than all on `v1.1.0` — check which branch the user means rather than
-assuming. A synced copy of the repo also often exists under a user's OneDrive, written by the Component
-Specification Studio app; treat the git checkout as authoritative if the two disagree, since the OneDrive
-copy is an external tool's snapshot rather than the git history.
-
-The framework spreadsheets and JSON definitions are the one thing that is *not* reachable relatively —
-they're published TM Forum releases, not component data. Ask the user for that folder when a run needs it;
-see "Sourcing descriptions from the framework spreadsheets" in
-[references/diagrams.md](references/diagrams.md).
+**Local repo**: this is normally already cloned at
+`C:\Users\HugoVaughan\source\repos\tmforum-rand\TMForum-ODA-Component-Specification`, checked out on
+`v1.1.0`, authenticated via `gh` (account `hvaughanattmforum`, already logged in — `gh auth status`
+confirms it). Read directly from this local clone; only reach for `git fetch`/`gh api` if the component
+you need isn't present locally or the branch is stale. There's also frequently a synced copy under the
+user's OneDrive (`OneDrive - TM Forum\Apps\ODA Component Editor\TMForum-ODA-Component-Specification-1.1.0\`)
+— treat the git clone as authoritative if the two ever disagree, since OneDrive is a snapshot from an
+external editor tool, not the git history.
 
 ## Front matter
 
@@ -221,6 +235,22 @@ Then the **eTOM L2 – SID ABEs links** diagram — see [references/diagrams.md]
   `.subscribedEvents`, followed by **two separate diagrams** (Published Events, Subscribed Events) — not
   one combined diagram. See [references/diagrams.md](references/diagrams.md) for exactly how to split the
   existing combined `Diagrams/<ComponentID>_Events.yaml` into the two.
+
+**Multi-value cells (3.2/3.3's Resources and Operations columns, 3.4's event-name column): one entry per
+line, joined with `<br>`, never comma-space-joined.** E.g. a resource's operations render as
+`GET<br>GET /id<br>POST<br>PATCH<br>DELETE`, not `GET, GET /id, POST, PATCH, DELETE`; a resource list as
+`productOffering<br>productOfferingPrice<br>productSpecification`; an event-name cell the same way, one
+event per line. This is a new line **within the same cell**, not a new table row — every other column on
+that row (ID, name, mandatory/optional, version) still applies to the whole multi-line cell as one row, the
+same grouping as before, just readable instead of wrapped. `<br>` is plain HTML and renders correctly as a
+line break in the `.md` (GitHub/most Markdown viewers honor it inside a table cell), the PDF (passed
+through by `markdown` untouched, rendered by `xhtml2pdf`), and the `.docx` (`build_docx.py`'s `_parse_inline`
+turns `<br>`/`<br/>` into a `{"break": True}` run, which `build_docx_scroll.py`'s `_add_runs` turns into a
+same-paragraph line break via `run.add_break()` — not a second table row or a second paragraph). Both
+scripts' column-width weighting (`_cell_text_len` in `build_pdf.py`, `_cell_weight`/`_col_widths_pct` in
+`build_docx.py`) measures the **longest individual line** in a `<br>`-joined cell, not the concatenated
+total — sizing the column to what actually needs to fit on one line now that entries stack vertically
+instead of flowing inline.
 
 ### 4. Machine Readable Component Specification
 A fixed pointer sentence to the ODA Component Directory on the TM Forum website — this section has never
@@ -334,10 +364,10 @@ Quick map:
 | Diagram | Section | Source |
 |---|---|---|
 | API context | 3.1 (placed before the other 3.x subsections — see below) | built fresh, purely from YAML — **hand-drawn SVG, not PlantUML** (see below) |
-| Exposed API | 3.2 | `Diagrams/<ID>_Exposed_API.yaml`, used near-verbatim (PlantUML `@startyaml`) |
-| Dependent API | 3.3 | `Diagrams/<ID>_Dependant_API.yaml`, used near-verbatim (PlantUML `@startyaml`) |
-| Published Events / Subscribed Events | 3.4 | `Diagrams/<ID>_Events.yaml`, split into two (PlantUML `@startyaml`) |
-| eTOM–SID links | 2.3 | built fresh from `Diagrams/<ID>_eTOM_SID_Links.md`'s 5-column table (`eTOM activity \| SID ABE \| Direction \| YAML eTOM \| YAML SID`) — the first 3 columns are hand-maintained and seeded once from the existing PDF's diagram image, never re-derived from the PDF after that; the last 2 are a derived YAML cross-reference, refreshed on every read (see references/diagrams.md). `Direction` is always exactly `bidirectional` / `activity produces` / `activity consumes`. PlantUML `@startuml` if the diagram has **6 or fewer** total eTOM+SID elements, otherwise **hand-drawn SVG** (see below) |
+| Exposed API | 3.2 | `Diagrams/<ID>_Exposed_API.yaml`, used near-verbatim (PlantUML `@startyaml`) — **split into `_1`/`_2`/... once the total operation count passes 60**, see "Splitting oversized Exposed/Dependent API and Events diagrams" below |
+| Dependent API | 3.3 | `Diagrams/<ID>_Dependant_API.yaml`, used near-verbatim (PlantUML `@startyaml`) — same 60-operation split rule (TMFC003's is a real example, 160 operations across 3 pages) |
+| Published Events / Subscribed Events | 3.4 | `Diagrams/<ID>_Events.yaml`, split into two (PlantUML `@startyaml`) — each of those two can itself further split past 60 event names, same rule |
+| eTOM–SID links | 2.3 | built fresh from `Diagrams/<ID>_eTOM_SID_Links.md`'s 5-column table (`eTOM activity \| SID ABE \| Direction \| YAML eTOM \| YAML SID`) — the first 3 columns are hand-maintained and seeded once from the existing PDF's diagram image, never re-derived from the PDF after that; the last 2 are a derived YAML cross-reference, refreshed on every read (see references/diagrams.md). `Direction` is always exactly `bidirectional` / `activity produces` / `activity consumes`. PlantUML `@startuml` if the diagram has **6 or fewer** total eTOM+SID elements, otherwise **hand-drawn SVG** (see below). For any SID ABE flagged `external (cross-component)`, look up which component it's depicted under in the repo-root `docs/Common_Links/Common_Component_SID_owner_Links.md` — matched by `Domain\|ABE[\|BE]` token path, ignoring the version suffix on both sides (that file's data is treated as true for every framework version, not just the one its own row is pinned to) — see "Which component a cross-component SID ABE is depicted under" in references/diagrams.md |
 
 **Every diagram gets its own standalone source file in `Diagrams/`**, following the existing naming
 convention: `.yaml` for the three `@startyaml` data diagrams (Exposed/Dependent API, and the two new
@@ -398,6 +428,42 @@ Below the threshold, PlantUML stays fine and is simpler — don't switch pre-emp
 [references/diagrams.md](references/diagrams.md) for the worked example — TMFC010's 6 eTOM + 4 SID = 10
 elements crosses the threshold).
 
+### Splitting oversized Exposed/Dependent API and Events diagrams
+
+A different size problem from the eTOM–SID one above: `@startyaml` doesn't have a messy-layout failure
+mode (it's just a literal nested-list renderer, not a Graphviz layout), but a component with enough APIs
+or events simply produces a box too tall to read comfortably on one page — this is a page-fit problem, not
+a visual-clarity one. **Once the total operation count (Exposed/Dependent API) or event-name count
+(Published/Subscribed Events) across all entries passes 60, split into multiple `@startyaml` files** —
+`<ID>_Exposed_API_1.yaml`, `_2.yaml`, ... (same for `Dependant_API`, and independently for each of the
+Published/Subscribed Events halves) — each rendered and embedded as its own image, in order, under the
+same subsection.
+
+**`sync_diagram_yaml.py` does this automatically for the Exposed/Dependent API files** via
+`paginate_entries()`: walk the API list in order, keep a running total of `_operation_count(entry)`, and
+start a new page whenever adding the next whole entry would push the current page's total past 60 — never
+splitting a single API's own operations across two pages, even if that API alone has more than 60 (it just
+gets a page to itself; there's nothing safe to cut it into). Below the threshold this writes the plain
+unnumbered `<ID>_Exposed_API.yaml`/`<ID>_Dependant_API.yaml` exactly as before pagination existed — no
+behavior change for the common case. `_write_paginated()` also removes any stale numbered (or unnumbered)
+file left from a previous run whose page count has since changed, so a diagram that shrinks back under the
+threshold doesn't leave an orphaned `_2.yaml`/`_2.png` behind. TMFC003's `Dependant_API` diagram (160
+operations total) is a real example, currently split into 3 pages of 56/59/45 — see
+[references/diagrams.md](references/diagrams.md) for the worked embedding.
+
+**Events aren't auto-split yet**, since `sync_events()` isn't currently wired into `sync_all()` at all (see
+"Where the data lives" above — accepted at face value until its id/resolution bug is fixed). If a
+component's Published or Subscribed Events list passes 60 event names, apply the same `paginate_entries()`
+helper by hand (`from sync_diagram_yaml import paginate_entries, _event_count`) when splitting
+`Events.yaml` into its two halves.
+
+When embedding multiple pages, number them in the caption (`Dependent API diagram (1 of 3)`) and say in the
+first page's caption that it continues — see the worked `.md` snippet in
+[references/diagrams.md](references/diagrams.md). Don't add any other commentary about *why* it's split
+(see "Handling YAML/PDF disagreement" above — this kind of explanation belongs in your chat summary, the
+"(1 of 3)"/"split across N diagrams" caption text is the one narrow exception since it's necessary for a
+reader to understand the document structure, not analysis of the data).
+
 ### The API context diagram is different: generated SVG, not PlantUML
 
 This diagram needs each API drawn as a **straight line individually anchored** to its own point on the
@@ -427,9 +493,19 @@ with open("Diagrams/<ComponentID>_API_Context.svg", "w", encoding="utf-8") as f:
 
 Save the `.svg` in `Diagrams/` alongside the others, and embed it directly (`![...](<ID>_API_Context.svg)`,
 no `Diagrams/` prefix — see "Where the data lives" above) — SVG renders natively in Markdown viewers, so no
-PNG conversion is required. If a PNG is specifically
-needed (e.g. for a pipeline that doesn't handle SVG), there's no working `cairosvg`/`rsvg-convert` in this
-environment either, but this route does work (pure Python, no native cairo dependency):
+PNG conversion is required for the `.md` itself. The PDF/docx pipelines do each need a raster copy (neither
+can rasterize inline `.svg` directly) — call `build_pdf.py`'s `_svg_to_png()` rather than hand-rolling this;
+it caches the result in `Diagrams/temp/` (see "`Diagrams/temp/`" under "Also produce a PDF" below), shared
+between both scripts so the conversion only happens once per SVG:
+
+```python
+from build_pdf import _svg_to_png
+
+png_path = _svg_to_png("Diagrams/<ID>_API_Context.svg")   # -> Diagrams/temp/<ID>_API_Context.png
+```
+
+Internally this is `svglib → reportlab → pymupdf` (pure Python, no native cairo dependency — there's no
+working `cairosvg`/`rsvg-convert` in this environment either):
 
 ```python
 from svglib.svglib import svg2rlg
@@ -439,7 +515,7 @@ import fitz  # PyMuPDF
 drawing = svg2rlg("Diagrams/<ID>_API_Context.svg")
 renderPDF.drawToFile(drawing, "_tmp.pdf")          # svglib->reportlab needs a PDF step, not direct-to-PNG
 doc = fitz.open("_tmp.pdf")
-doc[0].get_pixmap(dpi=150).save("Diagrams/<ID>_API_Context.png")
+doc[0].get_pixmap(dpi=150).save("Diagrams/temp/<ID>_API_Context.png")
 ```
 
 Always look at the rendered result before finalizing — screenshot it (a local `python -m http.server` plus
@@ -551,17 +627,36 @@ top of the base conversion, `build_pdf.py` does five things this document specif
    cover+notice, ToC, and body are three separately-paginated renders merged together afterward, so
    only a post-merge pass can know the true final "Page N of M").
 
-**Naming/overwrite behavior**: `build_pdf()`'s default `out_path` (when not passed explicitly) writes next
-to the main `.md` — i.e. inside `Diagrams/`, sharing its base filename. **After that build succeeds, copy
-that file over the officially-published `TMFCxxx_<Name>.pdf` at the component root, overwriting it.** This
-is now standard practice for this skill, not a one-off — confirmed repeatedly across many components in
-one session (individually at first, then via a direct standing instruction to do it by default going
-forward) rather than something to re-ask permission for on every run. The generated PDF becomes the
-published one; the `Diagrams/` copy stays too (it's the thing `.md`/Supplement image references point at,
-and the input `build_pdf()` re-derives from next time). Do still confirm with the user before writing
-anything into the real repo at all if this is the *first* time running the skill for a repo/user that hasn't
-established this pattern — the "just overwrite root by default" behavior applies once a user has confirmed
-it for their repo, not as a blanket default for every user of this skill.
+**Naming/overwrite behavior**: `build_pdf()`'s default `out_path` (when not passed explicitly) writes
+straight to the component root, sharing the main `.md`'s base filename — **directly overwriting the
+officially-published `TMFCxxx_<Name>.pdf`.** This is the PDF's *only* destination; per explicit user
+instruction, it does not stop in `Diagrams/` or `Diagrams/temp/` along the way, and there is no separate
+copy-to-root step to perform afterward — `build_pdf()` already wrote there. This is standard practice for
+this skill, not a one-off — confirmed repeatedly across many components in one session (individually at
+first, then via a direct standing instruction to do it by default going forward) rather than something to
+re-ask permission for on every run. Do still confirm with the user before writing anything into the real
+repo at all if this is the *first* time running the skill for a repo/user that hasn't established this
+pattern — the "just overwrite root by default" behavior applies once a user has confirmed it for their
+repo, not as a blanket default for every user of this skill.
+
+**`Diagrams/temp/`: where every interim, non-deliverable asset this skill generates lives.** Per explicit
+user instruction, each component's `Diagrams/` folder gets its own `temp/` subfolder for anything the
+build scripts produce that isn't one of the document's actual outputs — created on demand by
+`build_pdf.py`'s `_temp_dir()` helper (`os.makedirs(..., exist_ok=True)`, safe to call every run). Three
+things live there, all owned by the tooling and safe to delete/regenerate at any time (nothing reads them
+back as a source of truth):
+- The SVG→PNG rasterization cache (`_svg_to_png()`) for the API context diagram, and the eTOM–SID diagram
+  once past the SVG size threshold — the `.md` itself always embeds the `.svg` directly (SVG renders
+  natively in Markdown viewers), so this PNG is *only* needed because `xhtml2pdf` can't rasterize `.svg`
+  inline and `build_docx_scroll.py` needs a raster image too. Both scripts share one cached PNG per SVG.
+- `build_pdf()`'s three mid-assembly render passes (`_body_tmp.pdf`, `_front_tmp.pdf`, `_toc_tmp.pdf`) —
+  merged into the final PDF and deleted in a `finally` block either way, but written into `temp/` rather
+  than `Diagrams/` itself so a crash mid-build never leaves debris next to the real files.
+- `build_docx.py`'s (superseded, reference-only) JSON payload handoff to `build_docx.js`.
+
+Nothing in `temp/` is ever a document deliverable. The two real destinations stay exactly what they were
+before this folder existed: the PDF at the component root (above), and the `.docx` in `Diagrams/` itself
+(below) — `temp/` doesn't change either of those, it just keeps the scratch work out of `Diagrams/`'s way.
 
 ## Also produce a Word document (.docx)
 

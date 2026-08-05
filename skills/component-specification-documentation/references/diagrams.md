@@ -106,34 +106,17 @@ neither source has the ID does the cell get `*(no description available)*`.
 
 ### Sourcing descriptions from the framework spreadsheets
 
-The official framework workbooks live **outside this repository** — they are published TM Forum releases,
-not component data, so nothing here can reach them by a relative path.
-
-**Ask the user where the frameworks folder is** the first time a run needs it, rather than assuming a
-location. Don't hard-code a path here: the folder sits in different places for different people (a
-OneDrive sync, a local download, a shared drive), and a stale absolute path fails in the worst way — it
-looks like the descriptions genuinely don't exist, and the run quietly emits
-`*(no description available)*` instead of stopping to ask. If a path was established earlier in the
-session, reuse it rather than asking again.
-
-Once pointed at the folder, expect one file per framework per release, covering v23.0 to v26.0:
+The official framework workbooks are on disk, covering every release from v23.0 to v26.0:
 
 ```
-<frameworks folder>/
+C:\Users\HugoVaughan\OneDrive - TM Forum\Apps\ODA Component Editor\frameworks\
     GB921_Business_Process_Framework_Processes_Excel_v<ver>.xlsx    <- eTOM (section 2.1)
     GB1033[F]_Functional_Framework_Excel[_Format]_v<ver>.xlsx       <- Functional Framework (section 2.4)
     GB922_Information_Framework_SID_Excel_v<ver>.xlsx               <- SID
-    functionalFramework_v<ver>.json / etom_v<ver>.json / sid_v<ver>.json
 ```
 
-The `.xlsx` files carry the prose (descriptions, and GB922's ABE `Documentation` column). The `.json`
-files carry ids, display names and a `token` field holding exactly the underscore form the component
-YAML uses — which is what makes them the right source for *name* alignment, as against the spreadsheets
-for *descriptions*.
-
-Having these available is what makes the precedence rule above workable for a component with no published
-document at all — there is always a default, so `*(no description available)*` should be rare, and when it
-does happen it usually means the ID exists in no framework release at all.
+This is what makes the precedence rule above workable for a component with no published document at all —
+there is always a default available, so `*(no description available)*` should be rare.
 
 **Look each ID up in the release its own YAML entry pins it to, not one blanket release.** Every
 `componentMetadata` entry carries its own version suffix and a component's list is often mixed (TMFC003 has
@@ -257,6 +240,51 @@ just read the file and drop its contents into a fenced ` ```plantuml ` block ver
 double-checking: these files' `name:` fields are your best source for API display names when writing the
 adjacent table (they're already resolved, unlike the bare `id` in the main component YAML).
 
+**Never let a `url` field reach either diagram.** `@startyaml` prints every key in the block as literal
+diagram text, so a `specification` entry's `url` (the swagger/OpenAPI link) would render as a long URL
+string inside the box. `sync_diagram_yaml.py` strips `url` from every version block before writing these
+two files (see `_specification_without_urls()` in the script) — always regenerate through that script
+rather than hand-copying a `specification` list out of the main YAML, which would carry `url` straight
+through. The main YAML itself keeps its `url` fields untouched; this rule is scoped to what the diagram
+displays, not to the source data.
+
+### Past 60 total operations, the file (and diagram) splits into numbered pages
+
+`sync_diagram_yaml.py`'s `sync_all()` bin-packs the API list by `_operation_count(entry)` (total
+`GET`/`POST`/... leaf operations across every version/resource of that one API) via `paginate_entries()`,
+never splitting one API's own operations across two pages — see "Splitting oversized Exposed/Dependent
+API and Events diagrams" in `SKILL.md` for the algorithm. Below 60 total, nothing changes: the plain
+`<ID>_Exposed_API.yaml`/`<ID>_Dependant_API.yaml` gets written as always. Above it, you get
+`<ID>_Dependant_API_1.yaml`, `_2.yaml`, ... instead, and the main `.md` embeds each page as its own image
+in sequence, e.g. TMFC003's real dependent-API list (160 operations, split 56/59/45):
+
+```markdown
+![Dependent API diagram (1 of 3)](TMFC003_Dependant_API_1.png)
+
+*(PlantUML source: [TMFC003_Dependant_API_1.yaml](TMFC003_Dependant_API_1.yaml) — split across 3
+diagrams since the full dependent-API list has more than 60 operations combined; see the following two
+diagrams for the rest.)*
+
+![Dependent API diagram (2 of 3)](TMFC003_Dependant_API_2.png)
+
+*(PlantUML source: [TMFC003_Dependant_API_2.yaml](TMFC003_Dependant_API_2.yaml))*
+
+![Dependent API diagram (3 of 3)](TMFC003_Dependant_API_3.png)
+
+*(PlantUML source: [TMFC003_Dependant_API_3.yaml](TMFC003_Dependant_API_3.yaml))*
+```
+
+Only the first page's caption explains the split (so a reader hitting page 2 or 3 cold doesn't need
+it re-explained); the rest just cite their own source file, same as an unsplit diagram's caption always
+has. Render every numbered `.yaml` into its own `.png` the same way as an unsplit diagram — nothing about
+the PlantUML server call changes, there's just more than one call now.
+
+**If you ever hand-edit a Diagrams file instead of going through `sync_all()`, re-run the pagination check
+yourself** (`from sync_diagram_yaml import paginate_entries, _operation_count`) rather than assuming a
+manual edit stays under 60 — the count is the total across *all* entries, not any single one, so even a
+small edit (adding one more API, or a handful of operations to an existing one) can be what tips a
+component over the threshold for the first time.
+
 ## Events diagrams (Published / Subscribed — split from one file)
 
 `Diagrams/<ID>_Events.yaml` combines both directions in one `@startyaml` block, with `publishedEvents:` and
@@ -304,6 +332,14 @@ subscribedEvents:
     ... (more entries)
 @endyaml
 ```
+
+**Either half can itself pass the 60-event-name threshold** — count `len(entry["resources"])` (the event
+names) summed across every entry in that half, same `_event_count()` metric `sync_diagram_yaml.py` uses
+for the API diagrams. If it does, apply `paginate_entries()` to that half's entry list before writing it
+out, producing `<ID>_Published_Events_1.yaml`/`_2.yaml`/... (or `_Subscribed_Events_...`) instead of one
+file, embedded the same numbered-page way as the Exposed/Dependent API split above. This isn't automated
+yet (`sync_events()` isn't wired into `sync_all()` — see "Where the data lives" in `SKILL.md`), so do it by
+hand: `from sync_diagram_yaml import paginate_entries, _event_count`.
 
 Keep each entry's original indentation exactly as in the source file — PlantUML's YAML renderer is
 whitespace-sensitive the same way real YAML is.
@@ -416,6 +452,40 @@ one box) gets multiple YAML entries joined with `; `. A SID ABE that belongs to 
 (named like `Product (TMFC005 - Product Inventory)` in the `SID ABE` column) gets `external
 (cross-component)` in the `YAML SID` column instead of a local match — it's correctly absent from this
 component's own YAML, that's not an error.
+
+### Which component a cross-component SID ABE is depicted under: `Common_Component_SID_owner_Links.md`
+
+When a `SID ABE` cell is flagged `external (cross-component)`, don't guess which other component's box it
+belongs under — look it up in `docs/Common_Links/Common_Component_SID_owner_Links.md`, which lives once at
+the repo root (sibling to `specifications/`, not per-component like the Links file above). It's maintained
+through the Component Specification Studio app's "Common Component–SID owner links" editor and consolidates
+this one cross-component fact for every SID ABE in the whole spec suite: which component's box a given SID
+entity is drawn under when it isn't its own component's. Two columns:
+
+```markdown
+| Depicted under component | SID element as present in the YAML file |
+|---|---|
+| TMFC001 - ProductCatalogManagement | Product_Domain\|Product_Specification_ABE\|v26.0 |
+```
+
+**Match on the `Domain|ABE[|BE]` token path only — ignore the version suffix on both sides.** Per explicit
+user instruction, treat every row in this file as true for all versions of the frameworks, not just the
+one its own row happens to be pinned to. A component's own `SIDs` entry for the same ABE is very often on a
+different framework release than whatever version this file's row was last written at (the same lagging-
+version pattern documented elsewhere in this skill) — that's expected, not a mismatch to resolve, and it
+must never produce a `**NO MATCH**` on version grounds alone. Strip the trailing `|v<ver>` from the file's
+`SID element` column the same way you already strip it from a component's own `SIDs` entries, then compare
+the remaining `Domain|ABE[|BE]` tokens for equality.
+
+**Rows can legitimately repeat the same component/SID pair** — this file's own editor deliberately applies
+no duplicate-pair check, unlike every other Common-Links table — so don't treat a repeated row as an error
+or collapse it.
+
+When a match is found, use its `Depicted under component` value (already in `TMFCxxx - ComponentName`
+form) as the `external (cross-component)` annotation in the eTOM–SID Links file and in the rendered
+diagram's box label, instead of leaving a bare `external (cross-component)` with no component named. If the
+SID ABE genuinely isn't in this file yet, leave the annotation as the bare `external (cross-component)` and
+flag the gap in your chat summary rather than inventing an owning component.
 
 For a component that genuinely has no eTOM–SID diagram — no eTOM/SID entries in the YAML at all, or the
 original PDF's page 2.3 turns out to be blank — still create the file, just recording that fact instead of
