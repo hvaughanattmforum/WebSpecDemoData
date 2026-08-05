@@ -45,7 +45,8 @@ _IMAGE_RE = re.compile(r'^!\[([^\]]*)\]\(([^)\s]+)\)\s*$')
 _TABLE_ROW_RE = re.compile(r'^\|(.+)\|\s*$')
 _TABLE_SEP_RE = re.compile(r'^\|[\s:|-]+\|\s*$')
 _BULLET_RE = re.compile(r'^(\s*)-\s+(.+)$')
-_INLINE_RE = re.compile(r'(\*\*.+?\*\*|`[^`]+`)')
+_INLINE_RE = re.compile(r'(\*\*.+?\*\*|`[^`]+`|<br\s*/?>)')
+_BR_RE = re.compile(r'<br\s*/?>', re.IGNORECASE)
 _ESCAPED_STAR = ""
 
 MIN_COL_PCT = 8
@@ -57,10 +58,10 @@ def _unescape_placeholder(text):
 
 
 def _parse_inline(text):
-    """Bold (**) and inline code (`) only -- the only inline markup this document's prose
-    actually uses. Links are flattened to their display text: relative paths (diagram
-    source files) aren't meaningful as Word hyperlinks, so there's nothing worth preserving
-    by keeping them clickable."""
+    """Bold (**), inline code (`), and `<br>` line breaks -- the only inline markup this document's prose
+    and multi-value table cells (resources/operations/event names, one entry per line -- see SKILL.md)
+    actually use. Links are flattened to their display text: relative paths (diagram source files) aren't
+    meaningful as Word hyperlinks, so there's nothing worth preserving by keeping them clickable."""
     text = text.replace("\\*", _ESCAPED_STAR)
     text = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', text)
     runs = []
@@ -71,6 +72,10 @@ def _parse_inline(text):
         token = m.group(0)
         if token.startswith("**"):
             runs.append({"text": _unescape_placeholder(token[2:-2]), "bold": True})
+        elif token.startswith("<"):
+            # A same-paragraph line break, not a new paragraph or table row -- the consumer
+            # (build_docx_scroll.py's _add_runs) turns this into run.add_break().
+            runs.append({"break": True})
         else:
             runs.append({"text": _unescape_placeholder(token[1:-1]), "code": True})
         pos = m.end()
@@ -80,7 +85,10 @@ def _parse_inline(text):
 
 
 def _cell_weight(cell_text):
-    return min(len(cell_text), MAX_CELL_SAMPLE)
+    """As with build_pdf.py's _cell_text_len: a `<br>`-joined multi-value cell wraps onto separate
+    lines, so its width weight is the longest single line, not the total joined length."""
+    segments = _BR_RE.split(cell_text)
+    return min(max((len(s) for s in segments), default=0), MAX_CELL_SAMPLE)
 
 
 def _col_widths_pct(header, rows):
@@ -185,11 +193,17 @@ def _heading_color(level):
 
 
 def build_docx(md_path, out_path=None, yaml_path=None, supplement_path=None):
+    # Superseded/reference-only (see SKILL.md, "Also produce a Word document") -- build_docx_scroll.py
+    # is the active .docx pipeline. Paths below are kept consistent with the current Diagrams/temp/
+    # layout (base_dir = Diagrams/temp/, one level below Diagrams/ where the .docx/Supplement live)
+    # for whoever eventually revives this script, not because it's exercised today.
     md_path = os.path.abspath(md_path)
     base_dir = os.path.dirname(md_path)
-    out_path = out_path or os.path.splitext(md_path)[0] + ".docx"
+    diagrams_dir = os.path.dirname(base_dir)
+    stem = os.path.splitext(os.path.basename(md_path))[0]
+    out_path = out_path or os.path.join(diagrams_dir, f"{stem}.docx")
     yaml_path = yaml_path or _find_component_yaml(base_dir)
-    supplement_path = supplement_path or (os.path.splitext(md_path)[0] + "_Supplement.md")
+    supplement_path = supplement_path or os.path.join(diagrams_dir, f"{stem}_Supplement.md")
     if not os.path.exists(supplement_path):
         raise FileNotFoundError(
             f"No supplement file at {supplement_path} -- chapters 5.2/5.3/6 live there, hand-"
@@ -247,7 +261,7 @@ def build_docx(md_path, out_path=None, yaml_path=None, supplement_path=None):
     }
 
     with tempfile.NamedTemporaryFile(
-        "w", suffix=".json", delete=False, encoding="utf-8", dir=base_dir
+        "w", suffix=".json", delete=False, encoding="utf-8", dir=base_dir  # already Diagrams/temp/
     ) as f:
         json.dump(payload, f)
         payload_path = f.name

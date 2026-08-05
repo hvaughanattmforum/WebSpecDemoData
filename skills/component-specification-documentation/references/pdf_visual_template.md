@@ -140,6 +140,17 @@ Every table gets a light-gray `#EFEFEF` header row (`th { background-color: ... 
 1px borders throughout — matches the original's own table styling, sampled the same way as the
 heading colors.
 
+**Single line, everywhere, no exceptions.** `border-collapse: collapse` (in `BASE_CSS`) is what turns
+each cell's own `1px solid #999999` into one shared single-ruled line between adjacent cells rather than
+a doubled line — don't switch this to `separate` or drop it, since that's what actually delivers "single
+line borders," not the per-cell `border` declaration alone. This is a standing, cross-format rule, not
+just a PDF detail: the `.docx` export enforces the identical single-line look via an explicit
+`w:tblBorders` override in `build_docx_scroll.py`'s `_set_single_line_borders()` (same `#999999`, same
+"single" style) rather than trusting the `Scroll Table Normal` template style to already have it. The
+only intentional exception in either output is the Table of Contents, which is deliberately borderless
+except for its dotted leader line (see "Table of Contents page" above) — every other table, in both the
+PDF and the `.docx`, must render with single-line borders.
+
 ## Font
 
 The original uses **Aptos** (Microsoft 365's current default, replacing Calibri) throughout,
