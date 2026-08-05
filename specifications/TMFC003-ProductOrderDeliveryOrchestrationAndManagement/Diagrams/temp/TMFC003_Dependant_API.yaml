@@ -7,7 +7,6 @@ dependentAPIs:
     specification:
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF620_Product_Catalog/5.0.0/swagger/TMF620-Product_Catalog_Management-v5.0.0.oas.yaml
         resources:
           - productSpecification:
               - GET
@@ -20,7 +19,6 @@ dependentAPIs:
               - GET /id
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF620_Product_Catalog/4.1.0/swagger/TMF620_Product_Catalog_Management_API_v4.1.0_swagger.json
         resources:
           - productSpecification:
               - GET
@@ -38,14 +36,12 @@ dependentAPIs:
     specification:
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF622_Product_Ordering/5.0.0/swagger/TMF622-ProductOrdering-v5.0.0.oas.yaml
         resources:
           - productOrder:
               - GET
               - GET /id
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF622_Product_Ordering/4.0.0/swagger/TMF622_Product_Ordering_Management_API_v4.0.0_swagger.json
         resources:
           - productOrder:
               - GET
@@ -57,7 +53,6 @@ dependentAPIs:
     specification:
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF637_Product_Inventory/5.0.0/swagger/TMF637-ProductInventory-v5.0.0.oas.yaml
         resources:
           - product:
               - GET
@@ -67,7 +62,6 @@ dependentAPIs:
               - DELETE
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF637_Product_Inventory/4.0.0/swagger/TMF637_Product_Inventory_Management_API_v4.0.0_swagger.json
         resources:
           - product:
               - POST
@@ -82,7 +76,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF633_Service_Catalog/4.0.0/swagger/TMF633_Service_Catalog_Management_API_v4.0.0_swagger.json
         resources:
           - serviceSpecification:
               - GET
@@ -94,14 +87,12 @@ dependentAPIs:
     specification:
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/5.0.0/swagger/TMF638-Service_Inventory_Management-v5.0.0.oas.yaml
         resources:
           - service:
               - GET
               - GET /id
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/4.0.0/swagger/TMF638_Service_Inventory_Management_API_v4.0.0_swagger.json
         resources:
           - service:
               - GET /id
@@ -113,7 +104,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF641_Service_Ordering/4.1.0/swagger/TMF641_Service_Ordering_Management_API_v4.1.0_swagger.json
         resources:
           - serviceOrder:
               - GET
@@ -127,7 +117,6 @@ dependentAPIs:
               - POST
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF641_Service_Ordering/5.0.0/swagger/TMF641-ServiceOrdering-v5.0.0.oas.yaml
         resources:
           - serviceOrder:
               - GET
@@ -146,14 +135,12 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF634_Resource_Catalog/4.1.0/swagger/TMF634_Resource_Catalog_Management_API_v4.1.0_swagger.json
         resources:
           - resourceSpecification:
               - GET
               - GET /id
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF634_Resource_Catalog/5.0.0/swagger/TMF634-Resource_Catalog_Management-v5.0.0.oas.yaml
         resources:
           - resourceSpecification:
               - GET
@@ -165,14 +152,12 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF639_Resource_Inventory/4.0.0/swagger/TMF639_Resource_Inventory_Management_API_v4.0.0_swagger.json
         resources:
           - resource:
               - GET
               - GET /id
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF639_Resource_Inventory/5.0.0/swagger/TMF639-Resource_Inventory_Management-v5.0.0.oas.yaml
         resources:
           - resource:
               - GET
@@ -184,7 +169,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF652_Resource_Order/4.0.0/swagger/TMF652_Resource_Order_Management_API_v4.0.0_swagger.json
         resources:
           - resourceOrder:
               - GET /id
@@ -194,7 +178,6 @@ dependentAPIs:
               - POST
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF652_Resource_Order/5.0.0/swagger/TMF652-Resource_Ordering-v5.0.0.oas.yaml
         resources:
           - resourceOrder:
               - GET /id
@@ -209,7 +192,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF701_Process_Flow/4.1.0/swagger/TMF701_Process_Flow_Management_API_v4.1.0_beta_swagger.json
         resources:
           - processFlow:
               - GET
@@ -223,7 +205,6 @@ dependentAPIs:
               - DELETE /id
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF701_Process_Flow/5.0.0/swagger/TMF701-Process_Management-v5.0.0.oas.yaml
         resources:
           - process:
               - GET
@@ -242,7 +223,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF651_Agreement/4.0.0/swagger/TMF651_Agreement_Management_API_v4.0.0_swagger.json
         resources:
           - agreement:
               - GET
@@ -254,14 +234,12 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF666_Account/4.0.0/swagger/TMF666_Account_Management_API_v4.0.0_swagger.json
         resources:
           - billingAccount:
               - GET /id
               - GET
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF666_Account/5.0.0/swagger/TMF666-Account_Management-v5.0.0.oas.yaml
         resources:
           - billingAccount:
               - GET /id
@@ -273,7 +251,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF676_Payment/4.0.0/swagger/TMF676_Payment_Management_API_v4.0.0_swagger.json
         resources:
           - payment:
               - GET /id
@@ -285,14 +262,12 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF669_Party_Role/4.0.0/swagger/TMF669_Party_Role_Management_API_v4.0.0_swagger.json
         resources:
           - partyRole:
               - GET
               - GET /id
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF669_Party_Role/5.0.0/swagger/TMF669-Party_Role_Management-v5.0.0.oas.yaml
         resources:
           - partyRole:
               - GET
@@ -307,7 +282,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF632_Party/4.0.0/swagger/TMF632_Party_Management_API_v4.0.0_swagger.json
         resources:
           - individual:
               - GET
@@ -317,7 +291,6 @@ dependentAPIs:
               - GET /id
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF632_Party/5.0.0/swagger/TMF632-Party_Management-v5.0.0.oas.yaml
         resources:
           - individual:
               - GET
@@ -332,7 +305,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF679_Product_Offering_Qualification/4.0.0/swagger/TMF679_Product_Offering_Qualification_Management_API_v4.0.0_swagger.json
         resources:
           - productOfferingQualification:
               - GET
@@ -341,7 +313,6 @@ dependentAPIs:
               - PATCH
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF679_Product_Offering_Qualification/5.0.0/swagger/TMF679-Product_Offering_Qualification-v5.0.0.oas.yaml
         resources:
           - checkProductOfferingQualification:
               - GET
@@ -355,7 +326,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF646_Appointment/4.0.0/swagger/TMF646_Appointment_Management_API_v4.0.0_swagger.json
         resources:
           - appointment:
               - GET
@@ -370,7 +340,6 @@ dependentAPIs:
     specification:
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF921_Intent/5.0.0/swagger/TMF921_Intent_Management_v5.0.0.oas.yaml
         resources:
           - intent:
               - GET
@@ -385,7 +354,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF673_Geographic_Address/4.0.0/swagger/TMF673_Geographic_Address_Management_API_v4.0.0_swagger.json
         resources:
           - geographicAddress:
               - GET
@@ -404,7 +372,6 @@ dependentAPIs:
               - PATCH
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF673_Geographic_Address/5.0.0/swagger/TMF673-GeographicAddress-v5.0.0.oas.yaml
         resources:
           - geographicAddress:
               - GET
@@ -428,7 +395,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF674_Geographic_Site/4.0.0/swagger/TMF674_Geographic_Site_Management_API_v4.0.0_swagger.json
         resources:
           - geographicSite:
               - GET
@@ -437,7 +403,6 @@ dependentAPIs:
               - PATCH
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF674_Geographic_Site/5.0.0/swagger/TMF674-Geographic_Site-v5.0.0.oas.yaml
         resources:
           - geographicSite:
               - GET
@@ -451,7 +416,6 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF675_Geographic_Location/4.0.0/swagger/TMF675_Geographic_Location_Management_API_v4.0.0_beta_swagger.json
         resources:
           - geographicLocation:
               - GET
@@ -465,14 +429,12 @@ dependentAPIs:
     specification:
       - version: 4
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF648_Quote/4.0.0/swagger/TMF648_Quote_Management_API_v4.0.0_swagger.json
         resources:
           - quote:
               - GET
               - GET /id
       - version: 5
         apiType: openapi
-        url: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF648_Quote/5.0.0/swagger/TMF648-Quote-v5.0.0.oas.yaml
         resources:
           - quote:
               - GET

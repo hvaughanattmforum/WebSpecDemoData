@@ -109,16 +109,16 @@ skill's `scripts/render_api_context_svg.py`.)*
 
 | API ID | API Name | Mandatory / Optional | API Version | Resource | Operations |
 |---|---|---|---|---|---|
-| TMF622 | Product Ordering Management API | Mandatory | 5 | productOrder | GET, GET /id, POST, PATCH, DELETE |
-| TMF622 | Product Ordering Management API | Mandatory | 5 | cancelProductOrder | GET, GET /id, POST |
-| TMF622 | Product Ordering Management API | Mandatory | 4 | productOrder | POST, GET, GET /id, PATCH, DELETE |
-| TMF622 | Product Ordering Management API | Mandatory | 4 | cancelProductOrder | GET, GET /id, POST |
-| TMF701 | Process Management API | Optional | 4 | processFlow | POST, GET, GET /id, DELETE |
-| TMF701 | Process Management API | Optional | 4 | taskFlow | POST, PATCH, GET, GET /id |
-| TMF701 | Process Management API | Optional | 5 | process | POST, GET, GET /id, PATCH |
-| TMF701 | Process Management API | Optional | 5 | task | POST, GET, GET /id, PATCH |
-| TMF701 | Process Management API | Optional | 5 | processSpecification | POST, GET, GET /id, PATCH |
-| TMF701 | Process Management API | Optional | 5 | taskSpecification | POST, GET, GET /id, PATCH |
+| TMF622 | Product Ordering Management API | Mandatory | 5 | productOrder | GET<br>GET /id<br>POST<br>PATCH<br>DELETE |
+| TMF622 | Product Ordering Management API | Mandatory | 5 | cancelProductOrder | GET<br>GET /id<br>POST |
+| TMF622 | Product Ordering Management API | Mandatory | 4 | productOrder | POST<br>GET<br>GET /id<br>PATCH<br>DELETE |
+| TMF622 | Product Ordering Management API | Mandatory | 4 | cancelProductOrder | GET<br>GET /id<br>POST |
+| TMF701 | Process Management API | Optional | 4 | processFlow | POST<br>GET<br>GET /id<br>DELETE |
+| TMF701 | Process Management API | Optional | 4 | taskFlow | POST<br>PATCH<br>GET<br>GET /id |
+| TMF701 | Process Management API | Optional | 5 | process | POST<br>GET<br>GET /id<br>PATCH |
+| TMF701 | Process Management API | Optional | 5 | task | POST<br>GET<br>GET /id<br>PATCH |
+| TMF701 | Process Management API | Optional | 5 | processSpecification | POST<br>GET<br>GET /id<br>PATCH |
+| TMF701 | Process Management API | Optional | 5 | taskSpecification | POST<br>GET<br>GET /id<br>PATCH |
 
 ![Exposed API diagram](TMFC003_Exposed_API.png)
 
@@ -128,61 +128,61 @@ skill's `scripts/render_api_context_svg.py`.)*
 
 | API ID | API Name | API Version | Mandatory / Optional | Resource | Operations |
 |---|---|---|---|---|---|
-| TMF620 | Product Catalog Management API | 5 | Mandatory | productSpecification | GET, GET /id |
-| TMF620 | Product Catalog Management API | 5 | Mandatory | productOffering | GET, GET /id |
-| TMF620 | Product Catalog Management API | 5 | Mandatory | productOfferingPrice | GET, GET /id |
-| TMF620 | Product Catalog Management API | 4 | Mandatory | productSpecification | GET, GET /id |
-| TMF620 | Product Catalog Management API | 4 | Mandatory | productOffering | GET, GET /id |
-| TMF620 | Product Catalog Management API | 4 | Mandatory | productOfferingPrice | GET, GET /id |
-| TMF622 | Product Ordering Management API | 5 | Optional | productOrder | GET, GET /id |
-| TMF622 | Product Ordering Management API | 4 | Optional | productOrder | GET, GET /id |
-| TMF637 | Product Inventory Management API | 5 | Mandatory | product | GET, GET /id, POST, PATCH, DELETE |
-| TMF637 | Product Inventory Management API | 4 | Mandatory | product | POST, GET, GET /id, PATCH, DELETE |
-| TMF633 | Service Catalog Management API | 4 | Optional | serviceSpecification | GET, GET /id |
-| TMF638 | Service Inventory Management API | 5 | Optional | service | GET, GET /id |
-| TMF638 | Service Inventory Management API | 4 | Optional | service | GET /id, GET |
-| TMF641 | Service Ordering Management API | 4 | Optional | serviceOrder | GET, GET /id, POST, PATCH, DELETE |
-| TMF641 | Service Ordering Management API | 4 | Optional | cancelServiceOrder | GET, GET /id, POST |
-| TMF641 | Service Ordering Management API | 5 | Optional | serviceOrder | GET, GET /id, POST, PATCH, DELETE |
-| TMF641 | Service Ordering Management API | 5 | Optional | cancelServiceOrder | GET, GET /id, POST |
-| TMF634 | Resource Catalog Management API | 4 | Optional | resourceSpecification | GET, GET /id |
-| TMF634 | Resource Catalog Management API | 5 | Optional | resourceSpecification | GET, GET /id |
-| TMF639 | Resource Inventory Management API | 4 | Optional | resource | GET, GET /id |
-| TMF639 | Resource Inventory Management API | 5 | Optional | resource | GET, GET /id |
-| TMF652 | Resource Order Management API | 4 | Optional | resourceOrder | GET /id, POST |
-| TMF652 | Resource Order Management API | 4 | Optional | cancelResourceOrder | GET /id, POST |
-| TMF652 | Resource Order Management API | 5 | Optional | resourceOrder | GET /id, POST |
-| TMF652 | Resource Order Management API | 5 | Optional | cancelResourceOrder | GET /id, POST |
-| TMF701 | Process Management API | 4 | Optional | processFlow | GET, GET /id, POST, DELETE /id |
-| TMF701 | Process Management API | 4 | Optional | taskFlow | GET, GET /id, POST, DELETE /id |
-| TMF701 | Process Management API | 5 | Optional | process | GET, GET /id, POST, DELETE /id |
-| TMF701 | Process Management API | 5 | Optional | task | GET, GET /id, POST, DELETE /id |
-| TMF651 | Agreement Management API | 4 | Optional | agreement | GET, GET /id |
-| TMF666 | Account Management API | 4 | Optional | billingAccount | GET /id, GET |
-| TMF666 | Account Management API | 5 | Optional | billingAccount | GET /id, GET |
-| TMF676 | Payment Management API | 4 | Optional | payment | GET /id, GET |
-| TMF669 | Party Role Management API | 4 | Optional | partyRole | GET, GET /id |
-| TMF669 | Party Role Management API | 5 | Optional | partyRole | GET, GET /id |
-| TMF669 | Party Role Management API | 5 | Optional | partyRoleSpecification | GET, GET /id |
-| TMF632 | Party Management API | 4 | Optional | individual | GET, GET /id |
-| TMF632 | Party Management API | 4 | Optional | organization | GET, GET /id |
-| TMF632 | Party Management API | 5 | Optional | individual | GET, GET /id |
-| TMF632 | Party Management API | 5 | Optional | organization | GET, GET /id |
-| TMF679 | Product Offering Qualification Management API | 4 | Optional | productOfferingQualification | GET, GET /id, POST, PATCH |
-| TMF679 | Product Offering Qualification Management API | 5 | Optional | checkProductOfferingQualification | GET, GET /id, POST, PATCH |
-| TMF646 | Appointment Management API | 4 | Optional | appointment | GET, GET /id, POST, PATCH, DELETE |
-| TMF921 | Intent Management API | 5 | Optional | intent | GET, GET /id, POST, PATCH, DELETE |
-| TMF673 | Geographic Address Management API | 4 | Optional | geographicAddress | GET, GET /id, POST, PATCH |
-| TMF673 | Geographic Address Management API | 4 | Optional | geographicSubAddress | GET, GET /id, POST, PATCH |
-| TMF673 | Geographic Address Management API | 4 | Optional | geographicAddressValidation | GET, GET /id, POST, PATCH |
-| TMF673 | Geographic Address Management API | 5 | Optional | geographicAddress | GET, GET /id, POST, PATCH |
-| TMF673 | Geographic Address Management API | 5 | Optional | geographicSubAddress | GET, GET /id, POST, PATCH |
-| TMF673 | Geographic Address Management API | 5 | Optional | geographicAddressValidation | GET, GET /id, POST, PATCH |
-| TMF674 | Geographic Site Management API | 4 | Optional | geographicSite | GET, GET /id, POST, PATCH |
-| TMF674 | Geographic Site Management API | 5 | Optional | geographicSite | GET, GET /id, POST, PATCH |
-| TMF675 | Geographic Location Management API | 4 | Optional | geographicLocation | GET, GET /id, POST, PATCH |
-| TMF648 | Quote Management API | 4 | Optional | quote | GET, GET /id |
-| TMF648 | Quote Management API | 5 | Optional | quote | GET, GET /id |
+| TMF620 | Product Catalog Management API | 5 | Mandatory | productSpecification | GET<br>GET /id |
+| TMF620 | Product Catalog Management API | 5 | Mandatory | productOffering | GET<br>GET /id |
+| TMF620 | Product Catalog Management API | 5 | Mandatory | productOfferingPrice | GET<br>GET /id |
+| TMF620 | Product Catalog Management API | 4 | Mandatory | productSpecification | GET<br>GET /id |
+| TMF620 | Product Catalog Management API | 4 | Mandatory | productOffering | GET<br>GET /id |
+| TMF620 | Product Catalog Management API | 4 | Mandatory | productOfferingPrice | GET<br>GET /id |
+| TMF622 | Product Ordering Management API | 5 | Optional | productOrder | GET<br>GET /id |
+| TMF622 | Product Ordering Management API | 4 | Optional | productOrder | GET<br>GET /id |
+| TMF637 | Product Inventory Management API | 5 | Mandatory | product | GET<br>GET /id<br>POST<br>PATCH<br>DELETE |
+| TMF637 | Product Inventory Management API | 4 | Mandatory | product | POST<br>GET<br>GET /id<br>PATCH<br>DELETE |
+| TMF633 | Service Catalog Management API | 4 | Optional | serviceSpecification | GET<br>GET /id |
+| TMF638 | Service Inventory Management API | 5 | Optional | service | GET<br>GET /id |
+| TMF638 | Service Inventory Management API | 4 | Optional | service | GET /id<br>GET |
+| TMF641 | Service Ordering Management API | 4 | Optional | serviceOrder | GET<br>GET /id<br>POST<br>PATCH<br>DELETE |
+| TMF641 | Service Ordering Management API | 4 | Optional | cancelServiceOrder | GET<br>GET /id<br>POST |
+| TMF641 | Service Ordering Management API | 5 | Optional | serviceOrder | GET<br>GET /id<br>POST<br>PATCH<br>DELETE |
+| TMF641 | Service Ordering Management API | 5 | Optional | cancelServiceOrder | GET<br>GET /id<br>POST |
+| TMF634 | Resource Catalog Management API | 4 | Optional | resourceSpecification | GET<br>GET /id |
+| TMF634 | Resource Catalog Management API | 5 | Optional | resourceSpecification | GET<br>GET /id |
+| TMF639 | Resource Inventory Management API | 4 | Optional | resource | GET<br>GET /id |
+| TMF639 | Resource Inventory Management API | 5 | Optional | resource | GET<br>GET /id |
+| TMF652 | Resource Order Management API | 4 | Optional | resourceOrder | GET /id<br>POST |
+| TMF652 | Resource Order Management API | 4 | Optional | cancelResourceOrder | GET /id<br>POST |
+| TMF652 | Resource Order Management API | 5 | Optional | resourceOrder | GET /id<br>POST |
+| TMF652 | Resource Order Management API | 5 | Optional | cancelResourceOrder | GET /id<br>POST |
+| TMF701 | Process Management API | 4 | Optional | processFlow | GET<br>GET /id<br>POST<br>DELETE /id |
+| TMF701 | Process Management API | 4 | Optional | taskFlow | GET<br>GET /id<br>POST<br>DELETE /id |
+| TMF701 | Process Management API | 5 | Optional | process | GET<br>GET /id<br>POST<br>DELETE /id |
+| TMF701 | Process Management API | 5 | Optional | task | GET<br>GET /id<br>POST<br>DELETE /id |
+| TMF651 | Agreement Management API | 4 | Optional | agreement | GET<br>GET /id |
+| TMF666 | Account Management API | 4 | Optional | billingAccount | GET /id<br>GET |
+| TMF666 | Account Management API | 5 | Optional | billingAccount | GET /id<br>GET |
+| TMF676 | Payment Management API | 4 | Optional | payment | GET /id<br>GET |
+| TMF669 | Party Role Management API | 4 | Optional | partyRole | GET<br>GET /id |
+| TMF669 | Party Role Management API | 5 | Optional | partyRole | GET<br>GET /id |
+| TMF669 | Party Role Management API | 5 | Optional | partyRoleSpecification | GET<br>GET /id |
+| TMF632 | Party Management API | 4 | Optional | individual | GET<br>GET /id |
+| TMF632 | Party Management API | 4 | Optional | organization | GET<br>GET /id |
+| TMF632 | Party Management API | 5 | Optional | individual | GET<br>GET /id |
+| TMF632 | Party Management API | 5 | Optional | organization | GET<br>GET /id |
+| TMF679 | Product Offering Qualification Management API | 4 | Optional | productOfferingQualification | GET<br>GET /id<br>POST<br>PATCH |
+| TMF679 | Product Offering Qualification Management API | 5 | Optional | checkProductOfferingQualification | GET<br>GET /id<br>POST<br>PATCH |
+| TMF646 | Appointment Management API | 4 | Optional | appointment | GET<br>GET /id<br>POST<br>PATCH<br>DELETE |
+| TMF921 | Intent Management API | 5 | Optional | intent | GET<br>GET /id<br>POST<br>PATCH<br>DELETE |
+| TMF673 | Geographic Address Management API | 4 | Optional | geographicAddress | GET<br>GET /id<br>POST<br>PATCH |
+| TMF673 | Geographic Address Management API | 4 | Optional | geographicSubAddress | GET<br>GET /id<br>POST<br>PATCH |
+| TMF673 | Geographic Address Management API | 4 | Optional | geographicAddressValidation | GET<br>GET /id<br>POST<br>PATCH |
+| TMF673 | Geographic Address Management API | 5 | Optional | geographicAddress | GET<br>GET /id<br>POST<br>PATCH |
+| TMF673 | Geographic Address Management API | 5 | Optional | geographicSubAddress | GET<br>GET /id<br>POST<br>PATCH |
+| TMF673 | Geographic Address Management API | 5 | Optional | geographicAddressValidation | GET<br>GET /id<br>POST<br>PATCH |
+| TMF674 | Geographic Site Management API | 4 | Optional | geographicSite | GET<br>GET /id<br>POST<br>PATCH |
+| TMF674 | Geographic Site Management API | 5 | Optional | geographicSite | GET<br>GET /id<br>POST<br>PATCH |
+| TMF675 | Geographic Location Management API | 4 | Optional | geographicLocation | GET<br>GET /id<br>POST<br>PATCH |
+| TMF648 | Quote Management API | 4 | Optional | quote | GET<br>GET /id |
+| TMF648 | Quote Management API | 5 | Optional | quote | GET<br>GET /id |
 
 ![Dependent API diagram](TMFC003_Dependant_API.png)
 
@@ -197,8 +197,8 @@ subscribe to and then may receive. Both lists are derived from the APIs listed i
 
 | API ID | API Name | Event Resources |
 |---|---|---|
-| TMF622 | Product Ordering Management API | cancelProductOrderCreateEvent, cancelProductOrderInformationRequiredEvent, cancelProductOrderStateChangeEvent, productOrderAttributeValueChangeEvent, productOrderCreateEvent, productOrderDeleteEvent, productOrderInformationRequiredEvent, productOrderStateChangeEvent |
-| TMF701 | Process Management API | processAttributeValueChangeEvent, processCreateEvent, processDeleteEvent, processFlowAttributeValueChangeEvent, processFlowCreateEvent, processFlowDeleteEvent, processFlowStateChangeEvent, processSpecificationAttributeValueChangeEvent, processSpecificationCreateEvent, processSpecificationDeleteEvent, processSpecificationStateChangeEvent, processStateChangeEvent, taskAttributeValueChangeEvent, taskCreateEvent, taskDeleteEvent, taskFlowAttributeValueChangeEvent, taskFlowCreateEvent, taskFlowDeleteEvent, taskFlowInformationRequiredEvent, taskFlowStateChangeEvent, taskInformationRequiredEvent, taskSpecificationAttributeValueChangeEvent, taskSpecificationCreateEvent, taskSpecificationDeleteEvent, taskSpecificationStateChangeEvent, taskStateChangeEvent |
+| TMF622 | Product Ordering Management API | cancelProductOrderCreateEvent<br>cancelProductOrderInformationRequiredEvent<br>cancelProductOrderStateChangeEvent<br>productOrderAttributeValueChangeEvent<br>productOrderCreateEvent<br>productOrderDeleteEvent<br>productOrderInformationRequiredEvent<br>productOrderStateChangeEvent |
+| TMF701 | Process Management API | processAttributeValueChangeEvent<br>processCreateEvent<br>processDeleteEvent<br>processFlowAttributeValueChangeEvent<br>processFlowCreateEvent<br>processFlowDeleteEvent<br>processFlowStateChangeEvent<br>processSpecificationAttributeValueChangeEvent<br>processSpecificationCreateEvent<br>processSpecificationDeleteEvent<br>processSpecificationStateChangeEvent<br>processStateChangeEvent<br>taskAttributeValueChangeEvent<br>taskCreateEvent<br>taskDeleteEvent<br>taskFlowAttributeValueChangeEvent<br>taskFlowCreateEvent<br>taskFlowDeleteEvent<br>taskFlowInformationRequiredEvent<br>taskFlowStateChangeEvent<br>taskInformationRequiredEvent<br>taskSpecificationAttributeValueChangeEvent<br>taskSpecificationCreateEvent<br>taskSpecificationDeleteEvent<br>taskSpecificationStateChangeEvent<br>taskStateChangeEvent |
 
 ![Published Events diagram](TMFC003_Published_Events.png)
 
@@ -208,26 +208,26 @@ subscribe to and then may receive. Both lists are derived from the APIs listed i
 
 | API ID | API Name | Event Resources |
 |---|---|---|
-| TMF620 | Product Catalog Management API | productOfferingDeleteEvent, productOfferingPriceDeleteEvent, productSpecificationDeleteEvent |
-| TMF632 | Party Management API | individualDeleteEvent, organizationDeleteEvent |
+| TMF620 | Product Catalog Management API | productOfferingDeleteEvent<br>productOfferingPriceDeleteEvent<br>productSpecificationDeleteEvent |
+| TMF632 | Party Management API | individualDeleteEvent<br>organizationDeleteEvent |
 | TMF633 | Service Catalog Management API | serviceSpecificationDeleteEvent |
 | TMF634 | Resource Catalog Management API | resourceSpecificationDeleteEvent |
-| TMF637 | Product Inventory Management API | productAttributeValueChangeEvent, productBatchEvent, productCreateEvent, productDeleteEvent, productStateChangeEvent |
+| TMF637 | Product Inventory Management API | productAttributeValueChangeEvent<br>productBatchEvent<br>productCreateEvent<br>productDeleteEvent<br>productStateChangeEvent |
 | TMF638 | Service Inventory Management API | serviceDeleteEvent |
 | TMF639 | Resource Inventory Management API | resourceDeleteEvent |
-| TMF641 | Service Ordering Management API | cancelServiceOrderInformationRequiredEvent, cancelServiceOrderStateChangeEvent, serviceOrderAttributeValueChangeEvent, serviceOrderDeleteEvent, serviceOrderInformationRequiredEvent, serviceOrderJeopardyEvent, serviceOrderMilestoneEvent, serviceOrderStateChangeEvent |
-| TMF646 | Appointment Management API | appointmentAttributeValueChangeEvent, appointmentCreateEvent, appointmentDeleteEvent, appointmentStateChange |
+| TMF641 | Service Ordering Management API | cancelServiceOrderInformationRequiredEvent<br>cancelServiceOrderStateChangeEvent<br>serviceOrderAttributeValueChangeEvent<br>serviceOrderDeleteEvent<br>serviceOrderInformationRequiredEvent<br>serviceOrderJeopardyEvent<br>serviceOrderMilestoneEvent<br>serviceOrderStateChangeEvent |
+| TMF646 | Appointment Management API | appointmentAttributeValueChangeEvent<br>appointmentCreateEvent<br>appointmentDeleteEvent<br>appointmentStateChange |
 | TMF648 | Quote Management API | quoteDeleteEvent |
 | TMF651 | Agreement Management API | agreementDeleteEvent |
-| TMF652 | Resource Order Management API | cancelResourceOrderInformationRequiredEvent, cancelResourceOrderStateChange, resourceOrderAttributeValueChangeEvent, resourceOrderInformationRequiredEvent, resourceOrderStateChange |
+| TMF652 | Resource Order Management API | cancelResourceOrderInformationRequiredEvent<br>cancelResourceOrderStateChange<br>resourceOrderAttributeValueChangeEvent<br>resourceOrderInformationRequiredEvent<br>resourceOrderStateChange |
 | TMF666 | Account Management API | billingAccountDeleteEvent |
-| TMF669 | Party Role Management API | partyRoleDeleteEvent, partyRoleSpecificationDeleteEvent |
-| TMF673 | Geographic Address Management API | geographicAddressAttributeValueChangeEvent, geographicAddressCreateEvent, geographicAddressDeleteEvent, geographicAddressValidationStateChangeEvent |
-| TMF674 | Geographic Site Management API | geographicSiteAttributeValueChangeEvent, geographicSiteCreateEvent, geographicSiteDeleteEvent, geographicSiteStateChangeEvent, geographicSiteStatusChangeEvent |
-| TMF675 | Geographic Location Management API | geographicLocationAttributeValueChangeEvent, geographicLocationCreateEvent, geographicLocationDeleteEvent |
+| TMF669 | Party Role Management API | partyRoleDeleteEvent<br>partyRoleSpecificationDeleteEvent |
+| TMF673 | Geographic Address Management API | geographicAddressAttributeValueChangeEvent<br>geographicAddressCreateEvent<br>geographicAddressDeleteEvent<br>geographicAddressValidationStateChangeEvent |
+| TMF674 | Geographic Site Management API | geographicSiteAttributeValueChangeEvent<br>geographicSiteCreateEvent<br>geographicSiteDeleteEvent<br>geographicSiteStateChangeEvent<br>geographicSiteStatusChangeEvent |
+| TMF675 | Geographic Location Management API | geographicLocationAttributeValueChangeEvent<br>geographicLocationCreateEvent<br>geographicLocationDeleteEvent |
 | TMF676 | Payment Management API | paymentDeleteEvent |
-| TMF679 | Product Offering Qualification Management API | checkProductOfferingQualificationAttributeValueChangeEvent, checkProductOfferingQualificationCreateEvent, checkProductOfferingQualificationDeleteEvent, checkProductOfferingQualificationStateChangeEvent, productOfferingQualificationAttributeValueChangeEvent, productOfferingQualificationCreateEvent, productOfferingQualificationDeleteEvent, productOfferingQualificationInformationRequiredEvent, productOfferingQualificationStateChangeEvent |
-| TMF921 | Intent Management API | intentAttributeValueChangeEvent, intentCreateEvent, intentDeleteEvent, intentStatusChangeEvent |
+| TMF679 | Product Offering Qualification Management API | checkProductOfferingQualificationAttributeValueChangeEvent<br>checkProductOfferingQualificationCreateEvent<br>checkProductOfferingQualificationDeleteEvent<br>checkProductOfferingQualificationStateChangeEvent<br>productOfferingQualificationAttributeValueChangeEvent<br>productOfferingQualificationCreateEvent<br>productOfferingQualificationDeleteEvent<br>productOfferingQualificationInformationRequiredEvent<br>productOfferingQualificationStateChangeEvent |
+| TMF921 | Intent Management API | intentAttributeValueChangeEvent<br>intentCreateEvent<br>intentDeleteEvent<br>intentStatusChangeEvent |
 
 ![Subscribed Events diagram](TMFC003_Subscribed_Events.png)
 
