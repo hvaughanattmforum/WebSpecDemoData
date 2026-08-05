@@ -84,7 +84,33 @@ MIN_COL_PCT = 8
 MAX_CELL_SAMPLE = 40
 
 
+def reset_temp_dir(diagrams_dir):
+    """Wipe and recreate `Diagrams/temp/` -- call this ONCE, before generating anything else, whenever
+    (re)generating a component's document set.
+
+    `Diagrams/temp/` is where every skill-generated, non-hand-maintained asset lives: the main `.md`
+    itself, the three diagram-source `.yaml` files (Exposed/Dependant API, Events), every diagram
+    image (`.svg`/`.png`, including the SVG->PNG rasterization cache the PDF/docx pipelines share), and
+    the three PDF-assembly render passes. Only the `.docx` and the hand-maintained files (Supplement,
+    eTOM-SID Links, eTOM/FF/SID Descriptions) stay directly under `Diagrams/` -- per explicit user
+    decision, everything else this skill produces is disposable and regenerated fresh every run, never
+    trusted as a carry-over cache. Wiping the whole folder first (rather than overwriting file-by-file)
+    is what actually delivers that: a stale leftover from a previous run (a diagram image nothing
+    references anymore, a half-written file from an interrupted run) can't silently survive and get
+    read back as if it were current."""
+    import shutil
+    path = os.path.join(diagrams_dir, "temp")
+    shutil.rmtree(path, ignore_errors=True)
+    os.makedirs(path, exist_ok=True)
+    return path
+
+
 def _svg_to_png(svg_path):
+    """Rasterize an SVG for the PDF/docx pipelines only -- the .md itself always embeds the .svg
+    directly (SVG renders natively in Markdown viewers), so this PNG is never a document deliverable,
+    just a cache these two build scripts share. Written as a sibling of the .svg -- since the .svg
+    itself now lives in Diagrams/temp/ (see reset_temp_dir()), that's where this lands too, with no
+    further nesting needed."""
     png_path = os.path.splitext(svg_path)[0] + ".png"
     if os.path.exists(png_path):
         return png_path
@@ -123,9 +149,17 @@ def _strip_front_matter(text):
     return text
 
 
+_BR_RE = re.compile(r"<br\s*/?>", re.IGNORECASE)
+
+
 def _cell_text_len(cell_html):
-    text = html_lib.unescape(_TAG_RE.sub("", cell_html)).strip()
-    return min(len(text), MAX_CELL_SAMPLE)
+    """Width weight for one cell. A `<br>`-joined multi-value cell (resources/operations/event names,
+    one entry per line -- see SKILL.md) now wraps onto separate lines instead of flowing inline, so the
+    column only needs to fit its *longest single line*, not the sum of every entry's length -- measure
+    per-`<br>`-segment and take the max, rather than the old flat total-length count."""
+    segments = _BR_RE.split(cell_html)
+    lengths = [len(html_lib.unescape(_TAG_RE.sub("", seg)).strip()) for seg in segments]
+    return min(max(lengths, default=0), MAX_CELL_SAMPLE)
 
 
 def _optimize_table_widths(html_doc):
@@ -275,10 +309,12 @@ def _approval_status(status):
 
 
 def _find_component_yaml(base_dir):
-    """The main .md lives in the component's Diagrams/ folder (see SKILL.md "Where the data lives"),
-    so the one component-root *.yaml sits one directory up from base_dir, not inside it -- base_dir
-    itself is full of unrelated *.yaml diagram sources (Exposed_API.yaml, Events.yaml, etc.)."""
-    component_dir = os.path.dirname(base_dir)
+    """The main .md lives in the component's Diagrams/temp/ folder (see SKILL.md "Where the data
+    lives"), so the one component-root *.yaml sits TWO directories up from base_dir, not inside it or
+    one level up -- base_dir itself is full of unrelated *.yaml diagram sources (Exposed_API.yaml,
+    Events.yaml, etc.), and the level directly above it is Diagrams/ (the .docx and hand-maintained
+    files), not the component root."""
+    component_dir = os.path.dirname(os.path.dirname(base_dir))
     matches = glob.glob(os.path.join(component_dir, "*.yaml"))
     if len(matches) != 1:
         raise FileNotFoundError(
@@ -420,10 +456,18 @@ def _apply_page_chrome(doc, meta):
 
 def build_pdf(md_path, out_path=None, yaml_path=None, supplement_path=None):
     md_path = os.path.abspath(md_path)
-    base_dir = os.path.dirname(md_path)
-    out_path = out_path or os.path.splitext(md_path)[0] + ".pdf"
+    base_dir = os.path.dirname(md_path)  # Diagrams/temp/ -- see reset_temp_dir()
+    diagrams_dir = os.path.dirname(base_dir)
+    component_dir = os.path.dirname(diagrams_dir)
+    stem = os.path.splitext(os.path.basename(md_path))[0]
+    # The PDF's only destination is the component root -- per explicit user instruction, it does NOT
+    # stop in Diagrams/temp/ or Diagrams/ itself along the way. Only the mid-assembly render passes and
+    # the SVG rasterization cache use temp/; the final PDF is written straight to root.
+    out_path = out_path or os.path.join(component_dir, f"{stem}.pdf")
     yaml_path = yaml_path or _find_component_yaml(base_dir)
-    supplement_path = supplement_path or (os.path.splitext(md_path)[0] + "_Supplement.md")
+    # Supplement.md is hand-maintained and stays directly under Diagrams/, one level above the .md's
+    # own Diagrams/temp/ -- not a sibling of the .md the way it was before temp/ existed.
+    supplement_path = supplement_path or os.path.join(diagrams_dir, f"{stem}_Supplement.md")
     if not os.path.exists(supplement_path):
         raise FileNotFoundError(
             f"No supplement file at {supplement_path} -- chapters 5.2/5.3/6 live there, hand-"
@@ -458,7 +502,7 @@ def build_pdf(md_path, out_path=None, yaml_path=None, supplement_path=None):
     body_html = markdown.markdown(text, extensions=["tables", "fenced_code"])
     body_html = _optimize_table_widths(body_html)
 
-    tmp_dir = base_dir
+    tmp_dir = base_dir  # already Diagrams/temp/ -- see reset_temp_dir()
     body_pdf_path = os.path.join(tmp_dir, "_body_tmp.pdf")
     front_pdf_path = os.path.join(tmp_dir, "_front_tmp.pdf")
     toc_pdf_path = os.path.join(tmp_dir, "_toc_tmp.pdf")

@@ -1,0 +1,166 @@
+@startyaml
+dependentAPIs:
+  - id: TMF620
+    name: Product Catalog Management API
+    apiSDO: tmForum
+    required: true
+    specification:
+      - version: 5
+        apiType: openapi
+        resources:
+          - productSpecification:
+              - GET
+              - GET /id
+          - productOffering:
+              - GET
+              - GET /id
+          - productOfferingPrice:
+              - GET
+              - GET /id
+      - version: 4
+        apiType: openapi
+        resources:
+          - productSpecification:
+              - GET
+              - GET /id
+          - productOffering:
+              - GET
+              - GET /id
+          - productOfferingPrice:
+              - GET
+              - GET /id
+  - id: TMF622
+    name: Product Ordering Management API
+    apiSDO: tmForum
+    required: false
+    specification:
+      - version: 5
+        apiType: openapi
+        resources:
+          - productOrder:
+              - GET
+              - GET /id
+      - version: 4
+        apiType: openapi
+        resources:
+          - productOrder:
+              - GET
+              - GET /id
+  - id: TMF637
+    name: Product Inventory Management API
+    apiSDO: tmForum
+    required: true
+    specification:
+      - version: 5
+        apiType: openapi
+        resources:
+          - product:
+              - GET
+              - GET /id
+              - POST
+              - PATCH
+              - DELETE
+      - version: 4
+        apiType: openapi
+        resources:
+          - product:
+              - POST
+              - GET
+              - GET /id
+              - PATCH
+              - DELETE
+  - id: TMF633
+    name: Service Catalog Management API
+    apiSDO: tmForum
+    required: false
+    specification:
+      - version: 4
+        apiType: openapi
+        resources:
+          - serviceSpecification:
+              - GET
+              - GET /id
+  - id: TMF638
+    name: Service Inventory Management API
+    apiSDO: tmForum
+    required: false
+    specification:
+      - version: 5
+        apiType: openapi
+        resources:
+          - service:
+              - GET
+              - GET /id
+      - version: 4
+        apiType: openapi
+        resources:
+          - service:
+              - GET /id
+              - GET
+  - id: TMF641
+    name: Service Ordering Management API
+    apiSDO: tmForum
+    required: false
+    specification:
+      - version: 4
+        apiType: openapi
+        resources:
+          - serviceOrder:
+              - GET
+              - GET /id
+              - POST
+              - PATCH
+              - DELETE
+          - cancelServiceOrder:
+              - GET
+              - GET /id
+              - POST
+      - version: 5
+        apiType: openapi
+        resources:
+          - serviceOrder:
+              - GET
+              - GET /id
+              - POST
+              - PATCH
+              - DELETE
+          - cancelServiceOrder:
+              - GET
+              - GET /id
+              - POST
+  - id: TMF634
+    name: Resource Catalog Management API
+    apiSDO: tmForum
+    required: false
+    specification:
+      - version: 4
+        apiType: openapi
+        resources:
+          - resourceSpecification:
+              - GET
+              - GET /id
+      - version: 5
+        apiType: openapi
+        resources:
+          - resourceSpecification:
+              - GET
+              - GET /id
+  - id: TMF639
+    name: Resource Inventory Management API
+    apiSDO: tmForum
+    required: false
+    specification:
+      - version: 4
+        apiType: openapi
+        resources:
+          - resource:
+              - GET
+              - GET /id
+      - version: 5
+        apiType: openapi
+        resources:
+          - resource:
+              - GET
+              - GET /id
+
+@endyaml

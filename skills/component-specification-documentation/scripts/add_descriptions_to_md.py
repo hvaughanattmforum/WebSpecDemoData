@@ -17,10 +17,7 @@ import sys
 
 import yaml
 
-# This skill lives inside the specification repository (skills/<name>/scripts/), so the specifications
-# folder is three levels up -- no absolute path needed, and the script works from any clone.
-REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                    "..", "..", "..", "specifications"))
+REPO = r"C:\Users\HugoVaughan\source\repos\tmforum-rand\TMForum-ODA-Component-Specification\specifications"
 
 COMPONENTS = {
     "TMFC001": "TMFC001-ProductCatalogManagement",

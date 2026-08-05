@@ -128,6 +128,12 @@ def _retitle_header_footer(doc, title_line):
 
 def _add_runs(paragraph, runs):
     for r in runs:
+        if r.get("break"):
+            # A same-paragraph line break (build_docx.py's _parse_inline turns <br> into this marker),
+            # for multi-value cells (resources/operations/event names, one entry per line -- see
+            # SKILL.md) -- not a new paragraph, so it stays one row/one cell, just multiple lines.
+            paragraph.add_run().add_break()
+            continue
         run = paragraph.add_run(r.get("text", ""))
         if r.get("bold"):
             run.bold = True
@@ -185,6 +191,23 @@ def _set_or_add(cell, text, bold=False):
     run.bold = bold
 
 
+def _set_single_line_borders(table):
+    """Force every table to render with a single 1px line on every edge (outer + inside), matching
+    build_pdf.py's `border-collapse: collapse` + `border: 1px solid #999999` rule -- don't rely on
+    `Scroll Table Normal`'s own border definition, since a template swap or style edit could silently
+    drop or double it (e.g. a `double`/`thick` val, or no `insideH`/`insideV`, leaving ruled rows only)."""
+    tbl_pr = table._tbl.tblPr
+    for existing in tbl_pr.findall(qn("w:tblBorders")):
+        tbl_pr.remove(existing)
+    borders = tbl_pr.makeelement(qn("w:tblBorders"), {})
+    for edge in ("top", "left", "bottom", "right", "insideH", "insideV"):
+        el = borders.makeelement(qn(f"w:{edge}"), {
+            qn("w:val"): "single", qn("w:sz"): "4", qn("w:space"): "0", qn("w:color"): "999999",
+        })
+        borders.append(el)
+    tbl_pr.append(borders)
+
+
 def _add_table(doc, block):
     header, rows = block["header"], block["rows"]
     n_cols = len(header)
@@ -194,6 +217,7 @@ def _add_table(doc, block):
         table = doc.add_table(rows=1, cols=n_cols)
     table.autofit = True
     _set_table_look(table)
+    _set_single_line_borders(table)
 
     for j, cell_runs in enumerate(header):
         cell = table.rows[0].cells[j]
@@ -223,18 +247,23 @@ def _add_table(doc, block):
 def build_docx_scroll(md_path, template_path=None, out_path=None, yaml_path=None,
                       supplement_path=None):
     md_path = os.path.abspath(md_path)
-    base_dir = os.path.dirname(md_path)
+    base_dir = os.path.dirname(md_path)  # Diagrams/temp/ -- see build_pdf.reset_temp_dir()
+    diagrams_dir = os.path.dirname(base_dir)
     stem = os.path.splitext(os.path.basename(md_path))[0]
 
     if supplement_path is None:
-        supplement_path = os.path.join(base_dir, f"{stem}_Supplement.md")
+        # Supplement.md is hand-maintained and stays directly under Diagrams/, one level above the
+        # .md's own Diagrams/temp/.
+        supplement_path = os.path.join(diagrams_dir, f"{stem}_Supplement.md")
     if not os.path.exists(supplement_path):
         raise FileNotFoundError(
             f"Supplement file not found: {supplement_path}\n"
             "Chapters 5.2/5.3/6 live there; seed it from templates/Supplement_Template.md.")
     if yaml_path is None:
-        # takes the .md's directory, then looks one level up: the component root holds the single
-        # componentMetadata YAML, while base_dir is full of unrelated diagram-source .yaml files
+        # takes the .md's directory, then looks two levels up: the component root holds the single
+        # componentMetadata YAML, while base_dir is full of unrelated diagram-source .yaml files and
+        # the level directly above it (Diagrams/) holds the .docx and hand-maintained files, not the
+        # component YAML.
         yaml_path = _find_component_yaml(base_dir)
     if template_path is None:
         template_path = DEFAULT_TEMPLATE
@@ -245,7 +274,9 @@ def build_docx_scroll(md_path, template_path=None, out_path=None, yaml_path=None
             "This format is produced by templating from a real Confluence/Scroll export -- place one at "
             "that path (see this module's docstring).")
     if out_path is None:
-        out_path = os.path.join(base_dir, f"{stem}.docx")
+        # The .docx has no interim stop in temp/ -- per explicit user instruction it's a final
+        # deliverable that stays directly under Diagrams/, same level as the hand-maintained files.
+        out_path = os.path.join(diagrams_dir, f"{stem}.docx")
 
     meta = _load_component_metadata(yaml_path)
     display = _spaced_name(meta["name"])
