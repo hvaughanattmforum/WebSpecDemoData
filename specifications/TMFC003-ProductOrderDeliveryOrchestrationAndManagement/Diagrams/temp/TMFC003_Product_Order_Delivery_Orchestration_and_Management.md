@@ -184,9 +184,19 @@ skill's `scripts/render_api_context_svg.py`.)*
 | TMF648 | Quote Management API | 4 | Optional | quote | GET<br>GET /id |
 | TMF648 | Quote Management API | 5 | Optional | quote | GET<br>GET /id |
 
-![Dependent API diagram](TMFC003_Dependant_API.png)
+![Dependent API diagram (1 of 3)](TMFC003_Dependant_API_1.png)
 
-*(PlantUML source: [TMFC003_Dependant_API.yaml](TMFC003_Dependant_API.yaml))*
+*(PlantUML source: [TMFC003_Dependant_API_1.yaml](TMFC003_Dependant_API_1.yaml) — split across 3
+diagrams since the full dependent-API list has more than 60 operations combined; see the following two
+diagrams for the rest.)*
+
+![Dependent API diagram (2 of 3)](TMFC003_Dependant_API_2.png)
+
+*(PlantUML source: [TMFC003_Dependant_API_2.yaml](TMFC003_Dependant_API_2.yaml))*
+
+![Dependent API diagram (3 of 3)](TMFC003_Dependant_API_3.png)
+
+*(PlantUML source: [TMFC003_Dependant_API_3.yaml](TMFC003_Dependant_API_3.yaml))*
 
 ### 3.4. Events
 
