@@ -85,7 +85,8 @@ spec:
           - GET /id
           - PATCH /id
     publishedEvents:
-    - implementation: /{{.Release.Name}}-appointmentManagement
+    - id: TMF646
+      implementation: /{{.Release.Name}}-appointmentManagement
       name: appointmentManagement
       port: 80
       resources:

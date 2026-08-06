@@ -132,8 +132,9 @@ spec:
           - GET
           - GET /id
     publishedEvents:
-    - implementation: /{{.Release.Name}}-agreemngtapi
-      name: userRole
+    - id: TMF651
+      implementation: /{{.Release.Name}}-agreemngtapi
+      name: AgreementManagement
       port: 80
       resources:
       - agreementCreateEvent

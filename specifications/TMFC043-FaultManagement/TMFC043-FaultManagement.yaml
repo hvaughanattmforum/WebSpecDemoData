@@ -115,7 +115,8 @@ spec:
           - GET
           - GET /id
     publishedEvents:
-    - name: Alarm Management API
+    - id: TMF642
+      name: Alarm Management API
       port: 80
       resources:
       - alarmCreateEvent
@@ -136,7 +137,8 @@ spec:
       - unGroupAlarmsStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
       apiType: openapi
-    - name: ProcessFlowManagement
+    - id: TMF701
+      name: ProcessFlowManagement
       port: 80
       resources:
       - processFlowCreateEvent
@@ -150,7 +152,8 @@ spec:
       - taskFlowInformationRequiredEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
-    - name: ServiceProblemManagement
+    - id: TMF656
+      name: ServiceProblemManagement
       port: 80
       resources:
       - problemAcknowledgementCreateEvent

@@ -69,7 +69,8 @@ spec:
           - GET /id
           - POST
     publishedEvents:
-    - apitype: openapi
+    - id: TMF702
+      apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationManagement/hub
       implementation: /{{.Release.Name}}-ResourceActivationManagement
       name: ResourceActivationManagement
@@ -80,7 +81,8 @@ spec:
       - ResourceStateChangeEvent
       - ResourceDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF702_v4.0.0.swagger.json
-    - apitype: openapi
+    - id: TMF664
+      apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationManagement/hub
       implementation: /{{.Release.Name}}-ResourceFunctionActivationManagement
       name: ResourceFunctionActivationManagement

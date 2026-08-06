@@ -212,7 +212,8 @@ spec:
           - GET
           - GET /id
     publishedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productinventory/hub
+    - id: TMF637
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productinventory/hub
       implementation: /{{.Release.Name}}-ProductinventoryEvent
       name: Productinventory
       port: 80
@@ -224,7 +225,8 @@ spec:
       - productBatchEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF637_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - id: TMF701
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80

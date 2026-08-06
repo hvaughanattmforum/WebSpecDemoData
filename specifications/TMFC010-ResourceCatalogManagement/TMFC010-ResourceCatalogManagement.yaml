@@ -210,7 +210,8 @@ spec:
           - GET
           - GET /id
     publishedEvents:
-    - hub: /{{.Release.Name}}-ResourceCatalog/hub
+    - id: TMF634
+      hub: /{{.Release.Name}}-ResourceCatalog/hub
       implementation: /{{.Release.Name}}-ResourceCatalogEvent
       name: ResourceCatalogManagement
       port: 80
@@ -232,7 +233,8 @@ spec:
       - exportJobStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       version: 4
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - id: TMF701
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80

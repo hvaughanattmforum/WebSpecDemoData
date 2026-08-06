@@ -166,7 +166,8 @@ spec:
           - PATCH
           - DELETE
     publishedEvents:
-    - developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/v4/docs
+    - id: TMF645
+      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/v4/docs
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/hub
       implementation: /{{.Release.Name}}-ServiceQualification
       name: ServiceQualification
