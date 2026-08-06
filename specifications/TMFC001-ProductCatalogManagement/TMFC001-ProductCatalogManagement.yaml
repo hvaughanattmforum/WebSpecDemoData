@@ -319,10 +319,7 @@ spec:
           - DELETE
     publishedEvents:
     - id: TMF620
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productspecification/hub
-      implementation: /{{.Release.Name}}-ProductCatalogManagementEvent
       name: ProductCatalogManagement
-      port: 80
       resources:
       - productSpecificationCreate
       - productSpecificationDeleteEvent
@@ -343,10 +340,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
       apiType: openapi
     - id: TMF671
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
-      implementation: /{{.Release.Name}}-PromotionManagementEvent
       name: PromotionManagement
-      port: 80
       resources:
       - promotionCreateEvent
       - promotionDeleteEvent
@@ -356,10 +350,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF671_v4.1.0.swagger.json
       apiType: openapi
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -374,10 +365,7 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF633
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
-      implementation: /{{.Release.Name}}-ServiceCatalogManagement
       name: ServiceCatalogManagement
-      port: 80
       resources:
       - serviceSpecificationCreateEvent
       - serviceSpecificationDeleteEvent
@@ -387,18 +375,12 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
-      implementation: /{{.Release.Name}}-PartyRoleManagement
       name: PartyRoleManagement
-      port: 80
       resources:
       - partyRoleDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
     - id: TMF632
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
-      implementation: /{{.Release.Name}}-Party
       name: Party
-      port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent

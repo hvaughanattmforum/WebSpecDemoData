@@ -184,10 +184,8 @@ spec:
     publishedEvents:
     - id: TMF639
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      implementation: /{{.Release.Name}}-ResourceInventory
       name: ResourceInventory
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
-      port: 8080
       resources:
       - resourceCreateEvent
       - resourceChangeEvent
@@ -197,10 +195,7 @@ spec:
       version: 4
       apiType: openapi
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -216,10 +211,8 @@ spec:
     subscribedEvents:
     - id: TMF634
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4/docs
-      implementation: /{{.Release.Name}}-ResourceCatalog
       name: ResourceCatalogManagement
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/v4.1.0
-      port: 8080
       resources:
       - resourceCatalogCreateEvent
       - resourceCatalogChangeEvent
@@ -241,10 +234,8 @@ spec:
       apiType: openapi
     - id: TMF639
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
-      implementation: /{{.Release.Name}}-ResourceInventory
       name: ResourceInventory
       path: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4.1.0
-      port: 8080
       resources:
       - resourceCreateEvent
       - resourceChangeEvent
@@ -255,7 +246,6 @@ spec:
       apiType: openapi
     - id: TMF669
       name: PartyRoleManagement
-      port: 80
       resources:
       - PartyRoleCreateEvent
       - PartyRoleAttributeValueChangeEvent
@@ -264,28 +254,19 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF674
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
-      implementation: /{{.Release.Name}}-GeographicSiteManagement
       name: GeographicSiteManagement
-      port: 80
       resources:
       - geographicSiteDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF675
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
-      implementation: /{{.Release.Name}}-GeographicLocation
       name: GeographicLocation
-      port: 80
       resources:
       - geographicLocationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF675_Geographic_Location/4.0.0/swagger/TMF675_Geographic_Location_Management_API_v4.0.0_beta_swagger.json
       apiType: openapi
     - id: TMF632
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
-      implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
-      port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent

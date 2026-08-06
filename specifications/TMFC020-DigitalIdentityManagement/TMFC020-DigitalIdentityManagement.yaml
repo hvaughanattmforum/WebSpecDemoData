@@ -88,9 +88,7 @@ spec:
           - PATCH /id
     publishedEvents:
     - id: TMF720
-      implementation: /{{.Release.Name}}-digidemngt
       name: digitalIdentity
-      port: 80
       resources:
       - DigitalIdentityCreateEvent
       - DigitalIdentityStateChangeEvent
@@ -101,7 +99,6 @@ spec:
     subscribedEvents:
     - id: TMF669
       name: PartyRoleManagement
-      port: 80
       resources:
       - UserRoleCreationNotification
       - UserRoleChangeNotification

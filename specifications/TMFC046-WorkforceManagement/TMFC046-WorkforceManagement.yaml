@@ -86,9 +86,7 @@ spec:
           - PATCH /id
     publishedEvents:
     - id: TMF646
-      implementation: /{{.Release.Name}}-appointmentManagement
       name: appointmentManagement
-      port: 80
       resources:
       - appointmentStateChange
       - appointmentCreateEvent
@@ -103,7 +101,6 @@ spec:
     subscribedEvents:
     - id: TMF669
       name: PartyRoleManagement
-      port: 80
       resources:
       - partyRoleCreateEvent
       - partyRoleAttributeValueChangeEvent
@@ -113,7 +110,6 @@ spec:
       apiType: openapi
     - id: TMF701
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent

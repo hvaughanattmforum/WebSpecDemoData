@@ -135,9 +135,7 @@ spec:
           - PATCH /id
     publishedEvents:
     - id: TMF677
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UsageConsumption/hub
       name: UsageConsumption
-      port: 80
       resources:
       - queryUsageConsumptionCreateEvent
       - queryUsageConsumptionDeleteEvent
@@ -145,9 +143,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF677_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF635
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/usageManagement/hub
       name: UsageManagement
-      port: 80
       resources:
       - usageCreateEvent
       - usageAttributeValueChangeEvent
@@ -157,18 +153,14 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF632
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/party/call-back
       name: Party
-      port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF669
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyrole/call-back
       name: PartyRoleManagement
-      port: 80
       resources:
       - partyRoleCreateEvent
       - partyRoleAttributeValueChangeEvent

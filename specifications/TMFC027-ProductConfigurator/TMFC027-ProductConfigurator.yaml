@@ -257,9 +257,7 @@ spec:
           - PATCH
     publishedEvents:
     - id: TMF760
-      implementation: /{{.Release.Name}}-ProductConfiguration
       name: ProductConfiguration
-      port: 80
       resources:
       - checkProductConfigurationAttributeValueChangeEvent
       - checkProductConfigurationCreateEvent
@@ -272,9 +270,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF760_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF679
-      implementation: /{{.Release.Name}}-pdtquali
       name: ProductOfferingQualification
-      port: 80
       resources:
       - ProductOfferingQualificationCreateEvent
       - ProductOfferingQualificationAttributeValueChangeEvent
@@ -286,7 +282,6 @@ spec:
     subscribedEvents:
     - id: TMF620
       name: ProductCatalogManagement
-      port: 80
       resources:
       - CatalogCreateEvent
       - CatalogAttributeValueChangeEvent
@@ -307,10 +302,7 @@ spec:
       apiType: openapi
     - id: TMF645
       apiType: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/call-back
-      implementation: /{{.Release.Name}}-ServiceQualificationEvent
       name: ServiceQualification
-      port: 80
       resources:
       - checkServiceQualificationStateChangeEvent
       - queryServiceQualificationStateChangeEvent

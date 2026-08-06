@@ -144,7 +144,6 @@ spec:
     subscribedEvents:
     - id: TMF635
       name: usageManagement
-      port: 80
       resources:
       - UsageCreateEvent
       - UsageAttributeValueChangeEvent

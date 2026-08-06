@@ -144,10 +144,7 @@ spec:
           - GET /id
     publishedEvents:
     - id: TMF699
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/SalesManagement/hub
-      implementation: /{{.Release.Name}}-SalesManagement
       name: SalesManagement
-      port: 80
       resources:
       - SalesLeadCreateEvent
       - SalesLeadAttributeValueChangeEvent
@@ -160,10 +157,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF699_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -186,10 +180,7 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF632
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/call-back
-      implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
-      port: 80
       resources:
       - IndividualCreateEvent
       - IndividualAttributeValueChangeEvent
@@ -202,10 +193,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF620
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
-      implementation: /{{.Release.Name}}-ProductCatalogManagement
       name: ProductCatalogManagement
-      port: 80
       resources:
       - ProductOfferingCreateEvent
       - ProductOfferingAttributeValueChangeEvent
@@ -222,10 +210,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
       apiType: openapi
     - id: TMF622
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
-      implementation: /{{.Release.Name}}-ProductOrder
       name: Product Ordering
-      port: 80
       resources:
       - ProductOrderCreateEvent
       - ProductOrderAttributeValueChangeEvent
@@ -235,10 +220,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF651
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Agreement/call-back
-      implementation: /{{.Release.Name}}-Agreement
       name: AgreementManagement
-      port: 80
       resources:
       - AgreementCreateEvent
       - AgreementAttributeValueChangeEvent
@@ -251,10 +233,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF651_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF648
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/QuoteManagement/call-back
-      implementation: /{{.Release.Name}}-QuoteManagement
       name: QuoteManagement
-      port: 80
       resources:
       - QuoteCreateEvent
       - QuoteStateChangeEvent
@@ -264,10 +243,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF648_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/call-back
-      implementation: /{{.Release.Name}}-PartyRoleManagement
       name: PartyRoleManagement
-      port: 80
       resources:
       - PartyRoleCreateEvent
       - PartyRoleAttributeValueChangeEvent

@@ -25,11 +25,8 @@ spec:
           - DELETE /id
     publishedEvents:
     - apitype: openapi
-      hub: /{{.Release.Name}}-AnomalyManagementEvent/hub
       id: TMF751
-      implementation: /{{.Release.Name}}-AnomalyManagementEvent
       name: AnomalyManagementEvent
-      port: 8080
       resources:
       - anomalyCreateEvent
       - anomalyDeleteEvent
@@ -43,10 +40,7 @@ spec:
     subscribedEvents:
     - id: TMF915
       apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AIManagement/call-back
-      implementation: /{{.Release.Name}}-AIManagement
       name: Ai Management
-      port: 80
       resources:
       - aiContractSpecificationCreateEvent
       - aiContractSpecificationDeleteEvent
@@ -65,10 +59,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF915_v4.0.0.swagger.json
     - id: TMF642
       apitype: openapi
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/call-back
-      implementation: /{{.Release.Name}}-AlarmManagement
       name: AlarmManagement
-      port: 80
       resources:
       - alarmCreateEvent
       - alarmStateChangeEvent

@@ -169,10 +169,7 @@ spec:
           - GET /id
     publishedEvents:
     - id: TMF652
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/resourceOrderingManagement/hub
-      implementation: /{{.Release.Name}}-ResourceOrderingManagementEvent
       name: ResourceOrderingManagement
-      port: 80
       resources:
       - CancelResourceOrderInformationRequiredEvent
       - CancelResourceOrderInformationRequiredEventPayload
@@ -191,10 +188,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF652_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -209,10 +203,7 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF664
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationConfiguration/call-back
-      implementation: /{{.Release.Name}}-ResourceFunctionActivationConfiguration
       name: ResourceFunctionActivationConfiguration
-      port: 80
       resources:
       - resourceFunctionCreateEvent
       - resourceFunctionChangeEvent
@@ -223,10 +214,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF664_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF702
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationAndConfiguration/call-back
-      implementation: /{{.Release.Name}}-ResourceActivationAndConfiguration
       name: ResourceActivationAndConfiguration
-      port: 80
       resources:
       - resourceChangeEvent
       - monitorCreateEvent

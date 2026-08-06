@@ -163,9 +163,7 @@ spec:
           - DELETE
     publishedEvents:
     - id: TMF713
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/workManagement/hub
       name: TMF713 Work Management API
-      port: 80
       resources:
       - workStateChange
       - workCreateEvent
@@ -178,9 +176,7 @@ spec:
       specification: https://github.com/tmforum-apis/TMF713_WorkManagement/blob/master/TMF713-Work-v4.0.0.swagger.json
       apiType: openapi
     - id: TMF697
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrderManagementEvent/hub
       name: TMF697_WorkOrderManagement
-      port: 80
       resources:
       - workOrderStateChange
       - workOrderCreateEvent
@@ -193,9 +189,7 @@ spec:
       specification: https://github.com/tmforum-apis/TMF697_WorkOrderManagement/blob/master/TMF97-WorkOrder-v4.0.0.swagger.json
       apiType: openapi
     - id: TMF714
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkQualificationManagementEvent/hub
       name: workQualificationManagement
-      port: 80
       resources:
       - checkWorkQualificationStateChange
       - checkWorkQualificationCreateEvent
@@ -207,9 +201,7 @@ spec:
       specification: https://github.com/tmforum-apis/TMF714_WorkQualificationManagement/blob/master/TMF714-WorkQualification-v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -224,9 +216,7 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF632
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/call-back
       name: PartyManagement
-      port: 80
       resources:
       - IndividualCreateEvent
       - IndividualAttributeValueChangeEvent
@@ -239,9 +229,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF632
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/call-back
       name: PartyRoleManagement
-      port: 80
       resources:
       - partyRoleCreateEvent
       - partyRoleAttributeValueChangeEvent
@@ -250,9 +238,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourcePoolManagement/hub
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -266,9 +252,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     - id: TMF646
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AppointmentManagementEvent/hub
       name: appointmentManagement
-      port: 80
       resources:
       - appointmentStateChange
       - appointmentCreateEvent

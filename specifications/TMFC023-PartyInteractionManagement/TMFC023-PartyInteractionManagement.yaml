@@ -124,10 +124,7 @@ spec:
           - GET /id
     publishedEvents:
     - id: TMF683
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyInteractionManagement/hub
-      implementation: /{{.Release.Name}}-PartyInteractionManagementEvent
       name: PartyInteractionManagement
-      port: 80
       resources:
       - partyInteractionCreateEvent
       - partyInteractionAttributeValueChangeEvent
@@ -136,10 +133,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF683_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -154,10 +148,7 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF632
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/call-back
-      implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
-      port: 80
       resources:
       - individualCreateEvent
       - individualAttributeValueChangeEvent
@@ -170,29 +161,20 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF669
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/call-back
-      implementation: /{{.Release.Name}}-PartyRoleManagement
       name: PartyRoleManagement
-      port: 80
       resources:
       - partyRoleCreateEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF667
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/DocumentgManagement/call-back
-      implementation: /{{.Release.Name}}-DocumentgManagementEvent
       name: documentManagement
-      port: 80
       resources:
       - documentChangeEvent
       - documentSpecificationAttributeValueChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF667_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent

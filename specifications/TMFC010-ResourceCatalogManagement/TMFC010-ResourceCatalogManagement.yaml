@@ -211,10 +211,7 @@ spec:
           - GET /id
     publishedEvents:
     - id: TMF634
-      hub: /{{.Release.Name}}-ResourceCatalog/hub
-      implementation: /{{.Release.Name}}-ResourceCatalogEvent
       name: ResourceCatalogManagement
-      port: 80
       resources:
       - resourceCatalogCreateEvent
       - resourceCatalogChangeEvent
@@ -234,10 +231,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       version: 4
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -252,10 +246,8 @@ spec:
       version: 4
       apiType: openapi
     subscribedEvents:
-    - call-back: /{{.Release.Name}}-EntityCatalog/call-back
-      id: TMF662
+    - id: TMF662
       name: EntityCatalogManagement
-      port: 80
       resources:
       - entitySpecificationCreateEvent
       - entitySpecificationAttributeValueChangeEvent
@@ -263,18 +255,14 @@ spec:
       - entitySpecificationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF662_v4.0.0.swagger.json
       version: 4
-    - call-back: /{{.Release.Name}}-EntityCatalog/call-back
-      id: TMF669
+    - id: TMF669
       name: PartyRoleManagement
-      port: 80
       resources:
       - partyRoleDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       version: 4
-    - call-back: /{{.Release.Name}}-EntityCatalog/call-back
-      id: TMF632
+    - id: TMF632
       name: Party
-      port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
