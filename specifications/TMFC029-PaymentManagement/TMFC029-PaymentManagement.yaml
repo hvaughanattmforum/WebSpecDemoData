@@ -163,7 +163,7 @@ spec:
       - RefundAttributeValueChangeEvent
       - RefundCreateEvent
       - RefundStatusChangeEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF676_PaymentManagement/master/TMF676-Payment-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF676_v4.0.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentMethods/hub
       implementation: /{{.Release.Name}}-PaymentMethods
@@ -174,7 +174,7 @@ spec:
       - PaymentMethodCreateEvent
       - PaymentMethodDeleteEvent
       - PaymentMethodStatusChangeEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF670_PaymentMethods/master/TMF670-PaymentMethod-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF670_v4.0.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent

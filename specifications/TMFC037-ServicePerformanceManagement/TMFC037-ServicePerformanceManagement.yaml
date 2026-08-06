@@ -229,7 +229,7 @@ spec:
       - alarmCreateEvent**
       - alarmClearEvent**
       - alarmAckEvent**
-      specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642-Alarm-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/hub
       implementation: /{{.Release.Name}}-PerformanceManagement
@@ -265,7 +265,7 @@ spec:
       port: 80
       resources:
       - serviceSpecificationChangeEvent
-      specification: https://github.com/tmforum-apis/TMF633_ServiceCatalog/blob/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/call-back
       implementation: /{{.Release.Name}}-ServiceInventoryManagement
@@ -276,7 +276,7 @@ spec:
       - serviceAttributeValueChangeEvent
       - serviceStateChangeEvent
       - serviceDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF638_ServiceInventory/blob/master/TMF638-ServiceInventory-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/call-back
       implementation: /{{.Release.Name}}-ResourceInventory
@@ -287,7 +287,7 @@ spec:
       - resourceAttributeValueChangeEvent
       - resourceStateChangeEvent
       - resourceDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF639_ResourceInventory/blob/master/TMF639-ResourceInventory-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/call-back
       implementation: /{{.Release.Name}}-ProcessFlowManagement

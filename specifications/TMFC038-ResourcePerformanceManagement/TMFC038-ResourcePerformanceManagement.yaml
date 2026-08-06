@@ -212,7 +212,7 @@ spec:
       - alarmCreateEvent**
       - alarmClearEvent**
       - alarmAckEvent**
-      specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642-Alarm-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Performance/hub
       implementation: /{{.Release.Name}}-Performance
@@ -255,7 +255,7 @@ spec:
       port: 80
       resources:
       - ResourceSpecificationChangeEvent
-      specification: https://github.com/tmforum-apis/TMF634_ResourceCatalog/blob/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/hub
       implementation: /{{.Release.Name}}-ResourceInventory
@@ -266,7 +266,7 @@ spec:
       - ResourceAttributeValueChangeEvent
       - ResourceStateChangeEvent
       - ResourceDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF639_ResourceInventory/blob/master/TMF639-ResourceInventory-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/hub
       implementation: /{{.Release.Name}}-GeographicAddressManagement
@@ -274,7 +274,7 @@ spec:
       port: 80
       resources:
       - geographicAddressValidationStateChange
-      specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.1.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent

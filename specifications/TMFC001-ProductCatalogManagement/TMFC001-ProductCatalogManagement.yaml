@@ -339,7 +339,7 @@ spec:
       - catalogDeleteEvent
       - catalogBatchEvent
       - productSpecificationCreateEvent
-      specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
       implementation: /{{.Release.Name}}-PromotionManagementEvent
@@ -351,7 +351,7 @@ spec:
       - promotionAttributeValueChangeEvent
       - promotionStateChangeEvent
       - promotionInformationRequiredEvent
-      specification: https://github.com/tmforum-apis/TMF671_Promotion/blob/master/TMF671-Promotion-v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF671_v4.1.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -380,7 +380,7 @@ spec:
       - resourceSpecificationCreateEvent
       - resourceSpecificationChangeEvent
       - resourceSpecificationDeleteEvent
-      specification: https://open-api.tmforum.org/TMF633-Servicecatalog-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
       implementation: /{{.Release.Name}}-PartyRoleManagement
@@ -396,13 +396,14 @@ spec:
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - name: ServiceCatalogManagement
       resources:
       - serviceSpecificationChangeEvent
       - serviceSpecificationCreateEvent
       - serviceSpecificationDeleteEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
     - name: ResourceCatalogManagement
       resources:
@@ -410,6 +411,7 @@ spec:
       - resourceSpecificationDeleteEvent
       - resourceSpecificationStatusChangeEvent
       - resourceSpecificationAttributeValueChangeEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC001

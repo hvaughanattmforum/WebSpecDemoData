@@ -141,7 +141,7 @@ spec:
       - queryUsageConsumptionCreateEvent
       - queryUsageConsumptionDeleteEvent
       - queryUsageConsumptionStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF677_UsageConsumption/blob/master/TMF677-UsageConsumption-v4.0.1.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF677_v4.0.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/usageManagement/hub
       name: UsageManagement
@@ -151,7 +151,7 @@ spec:
       - usageAttributeValueChangeEvent
       - usageDeleteEvent
       - usageStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF635_UsageManagement/blob/master/TMF635-UsageManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF635_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/party/call-back
@@ -160,7 +160,7 @@ spec:
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyrole/call-back
       name: PartyRoleManagement
@@ -170,7 +170,7 @@ spec:
       - partyRoleAttributeValueChangeEvent
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC040

@@ -134,7 +134,7 @@ spec:
       - groupAlarmsStateChangeEvent
       - unGroupAlarmsCreateEvent
       - unGroupAlarmsStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642_AlarmManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
       apiType: openapi
     - name: ProcessFlowManagement
       port: 80
@@ -170,7 +170,7 @@ spec:
       - serviceProblemDeleteEvent
       - serviceProblemInformationRequiredEvent
       - serviceProblemStateChangeEvent
-      specification: https://github.com/tmforum-rand/TMF656_Service_Problem/blob/master/swaggers-gen/TMF656-ServiceProblem-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF656_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
     - name: ServiceCatalogManagement
@@ -188,7 +188,7 @@ spec:
       - serviceSpecificationCreateEvent
       - serviceSpecificationChangeEvent
       - serviceSpecificationDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF633_ServiceCatalog/blob/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
     - name: ServiceInventoryManagement
       port: 80
       resources:
@@ -196,7 +196,7 @@ spec:
       - serviceChangeEvent
       - serviceDeleteEvent
       - serviceStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF638_ServiceInventory/blob/master/TMF638-ServiceInventory-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
       apiType: openapi
     - name: ResourceInventoryManagement
       port: 80
@@ -205,13 +205,13 @@ spec:
       - resourceChangeEvent
       - resourceDeleteEvent
       - resourceStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF639_ResourceInventory/blob/master/TMF639-ResourceInventory-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
     - name: GeographicAddressManagement
       port: 80
       resources:
       - geographicAddressValidationStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF673_GeographicAddress/blob/master/TMF673-GeographicAddress-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
     - name: GeographicSiteManagement
       port: 80
@@ -220,7 +220,7 @@ spec:
       - geographicSiteAttributeValueChangeEvent
       - geographicSiteStatusChangeEvent
       - geographicSiteDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF674_GeographicSite/blob/master/TMF674-GeographicSite-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
       apiType: openapi
     - name: GeographicLocationManagement
       port: 80
@@ -249,7 +249,7 @@ spec:
       - groupAlarmsStateChangeEvent
       - unGroupAlarmsCreateEvent
       - unGroupAlarmsStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF642_AlarmManagement/blob/master/TMF642_AlarmManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
       apiType: openapi
     - name: ServiceProblemManagement
       port: 80
@@ -271,7 +271,7 @@ spec:
       - serviceProblemDeleteEvent
       - serviceProblemInformationRequiredEvent
       - serviceProblemStateChangeEvent
-      specification: https://github.com/tmforum-rand/TMF656_Service_Problem/blob/master/swaggers-gen/TMF656-ServiceProblem-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF656_v4.0.0.swagger.json
       apiType: openapi
     - name: TroubleTicketManagement
       port: 80
@@ -282,20 +282,20 @@ spec:
       - troubleTicketDeleteEvent
       - troubleTicketResolvedEvent
       - troubleTicketInformationRequiredEvent
-      specification: https://github.com/tmforum-apis/TMF621_TroubleTicket/blob/master/TMF621-TroubleTicket-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF621_v4.0.0.swagger.json
       apiType: openapi
     - name: PartyManagement
       port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF632_Party/blob/master/TMF632-Party-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - name: PartyRoleManagement
       port: 80
       resources:
       - partyRoleDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF669_PartyRole/blob/master/TMF669-PartyRole-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
     - name: EntityCatalogManagement
       port: 80
@@ -310,7 +310,7 @@ spec:
       - associationSpecificationDeleteEvent
       - associationCreateEvent
       - associationDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF662_EntityCatalogue/blob/master/TMF662-EntityCatalogue-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF662_v4.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC043

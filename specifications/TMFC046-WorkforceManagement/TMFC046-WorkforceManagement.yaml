@@ -97,7 +97,7 @@ spec:
       - searchTimeSlotAttributeValueChangeEvent
       - searchTimeSlotStateChangeEvent
       - searchTimeSlotDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF646_AppointmentManagement/blob/master/TMF646-Appointment-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF646_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
     - name: PartyRoleManagement
@@ -107,7 +107,7 @@ spec:
       - partyRoleAttributeValueChangeEvent
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
     - name: ProcessFlowManagement
       port: 80

@@ -178,7 +178,7 @@ spec:
       resources:
       - productSpecificationCreateEvent
       - productSpecificationDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceTestManagement/call-back
       implementation: /{{.Release.Name}}-serviceTestManagement
@@ -188,7 +188,7 @@ spec:
       - serviceTestSpecificationCreateEvent
       - serviceTestSpecificationAttributeValueChangeEvent
       - serviceTestSpecificationDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF653_ServiceTestManagement/blob/master/TMF653-ServiceTest-v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF653_v4.2.0.swagger.json
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyManagement/call-back
       implementation: /{{.Release.Name}}-Party
       name: Party
@@ -196,7 +196,7 @@ spec:
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC054

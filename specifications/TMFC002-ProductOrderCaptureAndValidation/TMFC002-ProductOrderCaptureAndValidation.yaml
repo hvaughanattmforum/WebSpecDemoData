@@ -338,6 +338,7 @@ spec:
       - quoteAttributeValueChangeEvent
       - quoteDeleteEvent
       - quoteInformationRequiredEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF648_v4.0.0.swagger.json
     - id: TMF663
       apiType: openapi
       hubResource: /hub
@@ -345,6 +346,7 @@ spec:
       - shoppingCartCreateEvent
       - shoppingCartAttributeValueChangeEvent
       - shoppingCartDeleteEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF663_v4.0.0.swagger.json
     - id: TMF701
       apiType: openapi
       hubResource: /hub
@@ -363,15 +365,18 @@ spec:
       apiType: openapi
       resources:
       - productOfferingQualificationStateChangeEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF679_v4.0.0.swagger.json
     - id: TMF673
       apiType: openapi
       resources:
       - geographicAddressValidationStateChangeEvent
-    - id: TMF670
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
+    - id: TMF676
       apiType: openapi
       resources:
       - paymentCreateEvent
       - paymentStateChangeEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF676_v4.0.0.swagger.json
     - id: TMF716
       apiType: openapi
       resources:
@@ -383,6 +388,7 @@ spec:
       - cancelResourceReservationCreateEvent
       - cancelResourceReservationStateChangeEvent
       - cancelResourceReservationInformationRequiredEvent
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF716_v4.0.0.swagger.json
   componentMetadata:
     id: TMFC002
     name: ProductOrderCaptureAndValidation
