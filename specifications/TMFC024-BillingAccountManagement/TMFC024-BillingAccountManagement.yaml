@@ -142,9 +142,7 @@ spec:
           - PATCH /id
     publishedEvents:
     - id: TMF666
-      implementation: /{{.Release.Name}}-accmngt
       name: AccountManagement
-      port: 80
       resources:
       - billingAccountAttributeValueChangeEvent
       - billingAccountStateChangeEvent
@@ -153,7 +151,6 @@ spec:
     subscribedEvents:
     - id: TMF669
       name: PartyRoleManagement
-      port: 80
       resources:
       - partyRoleCreateEvent
       - partyRoleAttributeValueChangeEvent

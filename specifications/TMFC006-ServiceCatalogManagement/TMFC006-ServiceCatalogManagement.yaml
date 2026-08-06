@@ -147,10 +147,7 @@ spec:
           - GET /id
     publishedEvents:
     - id: TMF633
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/hub
-      implementation: /{{.Release.Name}}-ServiceCatalog
       name: ServiceCatalogManagement
-      port: 80
       resources:
       - serviceSpecificationCreateEvent
       - serviceSpecificationChangeEvent
@@ -168,10 +165,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF657
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualityManagement/hub
-      implementation: /{{.Release.Name}}-ServiceQualityManagement
       name: ServiceQualityManagement
-      port: 80
       resources:
       - serviceLevelObjectiveCreateEvent
       - serviceLevelObjectiveChangeEvent
@@ -182,10 +176,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF657_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -200,10 +191,7 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF634
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/call-back
-      implementation: /{{.Release.Name}}-ResourceCatalog
       name: ResourceCatalogManagement
-      port: 80
       resources:
       - resourceSpecificationCreateEvent
       - resourceSpecificationChangeEvent
@@ -211,10 +199,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       apiType: openapi
     - id: TMF662
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/call-back
-      implementation: /{{.Release.Name}}-EntityCatalog
       name: EntityCatalogManagement
-      port: 80
       resources:
       - entitySpecificationCreateEvent
       - entitySpecificationAttributeValueChangeEvent

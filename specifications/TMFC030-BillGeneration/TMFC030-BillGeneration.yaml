@@ -177,7 +177,6 @@ spec:
     subscribedEvents:
     - id: TMF669
       name: partyRoleManagement
-      port: 80
       resources:
       - partyRoleAttributeValueChangeEvent
       - partyRoleStateChangeEvent

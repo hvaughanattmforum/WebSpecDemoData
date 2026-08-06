@@ -157,10 +157,7 @@ spec:
           - GET /id
     publishedEvents:
     - id: TMF769
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productTestManagement/hub
-      implementation: /{{.Release.Name}}-productTestManagement
       name: productTestManagement
-      port: 80
       resources:
       - ProductTestSpecificationCreateEvent
       - ProductTestSpecificationDeleteEvent
@@ -173,30 +170,21 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF620
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productCatalogManagement/call-back
-      implementation: /{{.Release.Name}}-productCatalogManagement
       name: productCatalogManagement
-      port: 80
       resources:
       - productSpecificationCreateEvent
       - productSpecificationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
       apiType: openapi
     - id: TMF653
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceTestManagement/call-back
-      implementation: /{{.Release.Name}}-serviceTestManagement
       name: serviceTestManagement
-      port: 80
       resources:
       - serviceTestSpecificationCreateEvent
       - serviceTestSpecificationAttributeValueChangeEvent
       - serviceTestSpecificationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF653_v4.2.0.swagger.json
     - id: TMF632
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyManagement/call-back
-      implementation: /{{.Release.Name}}-Party
       name: Party
-      port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent

@@ -117,7 +117,6 @@ spec:
     publishedEvents:
     - id: TMF642
       name: Alarm Management API
-      port: 80
       resources:
       - alarmCreateEvent
       - alarmAttributeValueChangeEvent
@@ -139,7 +138,6 @@ spec:
       apiType: openapi
     - id: TMF701
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -154,7 +152,6 @@ spec:
       apiType: openapi
     - id: TMF656
       name: ServiceProblemManagement
-      port: 80
       resources:
       - problemAcknowledgementCreateEvent
       - problemAcknowledgementDeleteEvent
@@ -178,7 +175,6 @@ spec:
     subscribedEvents:
     - id: TMF633
       name: ServiceCatalogManagement
-      port: 80
       resources:
       - serviceCatalogCreateEvent
       - serviceCatalogChangeEvent
@@ -195,7 +191,6 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
     - id: TMF638
       name: ServiceInventoryManagement
-      port: 80
       resources:
       - serviceCreateEvent
       - serviceChangeEvent
@@ -205,7 +200,6 @@ spec:
       apiType: openapi
     - id: TMF639
       name: ResourceInventoryManagement
-      port: 80
       resources:
       - resourceCreateEvent
       - resourceChangeEvent
@@ -215,14 +209,12 @@ spec:
       apiType: openapi
     - id: TMF673
       name: API Place - GeographicAddress
-      port: 80
       resources:
       - geographicAddressValidationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF674
       name: GeographicSiteManagement
-      port: 80
       resources:
       - geographicSiteCreateEvent
       - geographicSiteAttributeValueChangeEvent
@@ -232,7 +224,6 @@ spec:
       apiType: openapi
     - id: TMF675
       name: GeographicLocationManagement
-      port: 80
       resources:
       - geographicLocationCreateEvent
       - geographicLocationAttributeValueChangeEvent
@@ -241,7 +232,6 @@ spec:
       apiType: openapi
     - id: TMF642
       name: AlarmManagement
-      port: 80
       resources:
       - alarmCreateEvent
       - alarmAttributeValueChangeEvent
@@ -263,7 +253,6 @@ spec:
       apiType: openapi
     - id: TMF656
       name: ServiceProblemManagement
-      port: 80
       resources:
       - problemAcknowledgementCreateEvent
       - problemAcknowledgementDeleteEvent
@@ -286,7 +275,6 @@ spec:
       apiType: openapi
     - id: TMF621
       name: TroubleTicketManagement
-      port: 80
       resources:
       - troubleTicketCreateEvent
       - troubleTicketAttributeValueChangeEvent
@@ -298,7 +286,6 @@ spec:
       apiType: openapi
     - id: TMF632
       name: PartyManagement
-      port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
@@ -306,14 +293,12 @@ spec:
       apiType: openapi
     - id: TMF669
       name: PartyRoleManagement
-      port: 80
       resources:
       - partyRoleDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF662
       name: EntityCatalogManagement
-      port: 80
       resources:
       - entityCatalogCreateEvent
       - entityCatalogDeleteEvent

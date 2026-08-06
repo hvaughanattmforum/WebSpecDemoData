@@ -188,10 +188,7 @@ spec:
           - GET /id
     publishedEvents:
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -205,10 +202,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     - id: TMF642
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Alarm/hub
-      implementation: /{{.Release.Name}}-Alarm
       name: AlarmManagement
-      port: 80
       resources:
       - alarmStateChange**
       - alarmCreateEvent**
@@ -217,10 +211,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF628
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Performance/hub
-      implementation: /{{.Release.Name}}-Performance
       name: PerformanceManagement
-      port: 80
       resources:
       - measurementCollectionJobCreateEvent
       - measurementCollectionJobExecutionStateChangeEvent
@@ -237,10 +228,7 @@ spec:
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF628-Performance-v4.0.0.swagger.json
       apiType: openapi
     - id: TMF628
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceThreshold/hub
-      implementation: /{{.Release.Name}}-PerformanceThreshold
       name: PerformanceThresholdManagement
-      port: 80
       resources:
       - thresholdCreateNotification
       - thresholdChangeNotification
@@ -254,19 +242,13 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF634
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/hub
-      implementation: /{{.Release.Name}}-ResourceCatalog
       name: ResourceCatalogManagement
-      port: 80
       resources:
       - ResourceSpecificationChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       apiType: openapi
     - id: TMF639
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/hub
-      implementation: /{{.Release.Name}}-ResourceInventory
       name: ResourceInventoryManagement
-      port: 80
       resources:
       - ResourceCreateEvent
       - ResourceAttributeValueChangeEvent
@@ -275,19 +257,13 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF673
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/hub
-      implementation: /{{.Release.Name}}-GeographicAddressManagement
       name: API Place - GeographicAddress
-      port: 80
       resources:
       - geographicAddressValidationStateChange
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent

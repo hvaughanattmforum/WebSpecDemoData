@@ -205,10 +205,7 @@ spec:
           - GET /id
     publishedEvents:
     - id: TMF701
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
-      implementation: /{{.Release.Name}}-processFlowEvent
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -222,10 +219,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     - id: TMF642
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/hub
-      implementation: /{{.Release.Name}}-AlarmManagement
       name: AlarmManagement
-      port: 80
       resources:
       - alarmStateChange**
       - alarmCreateEvent**
@@ -234,10 +228,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF628
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/hub
-      implementation: /{{.Release.Name}}-PerformanceManagement
       name: PerformanceManagement
-      port: 80
       resources:
       - measurementCollectionJobCreateEvent
       - measurementCollectionJobExecutionStateChangeEvent
@@ -263,19 +254,13 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF633
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/call-back
-      implementation: /{{.Release.Name}}-ServiceCatalogManagement
       name: ServiceCatalogManagement
-      port: 80
       resources:
       - serviceSpecificationChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF638
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/call-back
-      implementation: /{{.Release.Name}}-ServiceInventoryManagement
       name: ServiceInventoryManagement
-      port: 80
       resources:
       - serviceCreateEvent
       - serviceAttributeValueChangeEvent
@@ -284,10 +269,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF639
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/call-back
-      implementation: /{{.Release.Name}}-ResourceInventory
       name: ResourceInventoryManagement
-      port: 80
       resources:
       - resourceCreateEvent
       - resourceAttributeValueChangeEvent
@@ -296,10 +278,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/call-back
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent

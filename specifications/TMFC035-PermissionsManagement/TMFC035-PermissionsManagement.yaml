@@ -81,9 +81,7 @@ spec:
           - DELETE /id
     publishedEvents:
     - id: TMF672
-      implementation: /{{.Release.Name}}-userrole&permapi
       name: User Roles And Permissions
-      port: 80
       resources:
       - permissionCreateEvent
       - permissionAttributeValueChangeEvent
@@ -96,9 +94,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF672_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF669
-      implementation: /{{.Release.Name}}-partyroleapi
       name: partyRole
-      port: 80
       resources:
       - PartyRoleCreateEvent
       - PartyRoleAttributeValueChangeEvent
@@ -108,9 +104,7 @@ spec:
       apiType: openapi
     subscribedEvents:
     - id: TMF632
-      implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
-      port: 80
       resources:
       - individualCreateEvent
       - individualAttributeValueChangeEvent
@@ -121,9 +115,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF701
-      implementation: /{{.Release.Name}}-ProcessFlowManagement
       name: ProcessFlowManagement
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent

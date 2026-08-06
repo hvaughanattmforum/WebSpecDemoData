@@ -123,9 +123,7 @@ spec:
           - PATCH
     publishedEvents:
     - id: TMF653
-      hub: ServiceTestManagement.com
       name: ServiceTestManagement
-      port: 80
       apiType: openapi
       resources:
       - serviceTestCreateEvent
@@ -136,28 +134,21 @@ spec:
       - serviceTestDeleteEvent
       - serviceTestSpecificationAttributeValueChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF653_v4.2.0.swagger.json
-      implementation: ServiceTestManagement
     subscribedEvents:
     - id: TMF633
       name: ServiceCatalogManagement
-      port: 80
       apiType: openapi
-      call-back: ServiceTestManagement
       resources:
       - serviceSpecificationCreateEvent
       - serviceSpecificationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
-      implementation: /{{.Release.Name}}-ServiceTestManagement
     - id: TMF632
       name: PartyManagement
-      port: 80
       apiType: openapi
-      call-back: PartyManagement
       resources:
       - organizationDeleteEvent
       - individualDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
-      implementation: /{{.Release.Name}}-PartyManagement
   componentMetadata:
     id: TMFC055
     name: ServiceTestManagement
