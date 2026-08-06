@@ -259,7 +259,8 @@ spec:
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF628-Performance-v4.1.0.swagger.json
       apiType: openapi
     subscribedEvents:
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/call-back
+    - id: TMF633
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/call-back
       implementation: /{{.Release.Name}}-ServiceCatalogManagement
       name: ServiceCatalogManagement
       port: 80
@@ -267,7 +268,8 @@ spec:
       - serviceSpecificationChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/call-back
+    - id: TMF638
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/call-back
       implementation: /{{.Release.Name}}-ServiceInventoryManagement
       name: ServiceInventoryManagement
       port: 80
@@ -278,7 +280,8 @@ spec:
       - serviceDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/call-back
+    - id: TMF639
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/call-back
       implementation: /{{.Release.Name}}-ResourceInventory
       name: ResourceInventoryManagement
       port: 80
@@ -289,7 +292,8 @@ spec:
       - resourceDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/call-back
+    - id: TMF701
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/call-back
       implementation: /{{.Release.Name}}-ProcessFlowManagement
       name: ProcessFlowManagement
       port: 80

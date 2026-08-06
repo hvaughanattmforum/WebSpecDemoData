@@ -41,7 +41,8 @@ spec:
       - anomalySpecificationDeleteEvent
       specification: https://github.com/tmforum-rand/Open_API_And_Data_Model/blob/v4.0-Sprint-2020-03/apis/TMF751_AnomalyManagement/swaggers/TMF751-AnomalyManagement-v4.0.0.swagger.json
     subscribedEvents:
-    - apitype: openapi
+    - id: TMF915
+      apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AIManagement/call-back
       implementation: /{{.Release.Name}}-AIManagement
       name: AIManagement
@@ -62,7 +63,8 @@ spec:
       - aiContractAttributeValueChangeEvent
       - aiContractStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF915_v4.0.0.swagger.json
-    - apitype: openapi
+    - id: TMF642
+      apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/call-back
       implementation: /{{.Release.Name}}-AlarmManagement
       name: AlarmManagement

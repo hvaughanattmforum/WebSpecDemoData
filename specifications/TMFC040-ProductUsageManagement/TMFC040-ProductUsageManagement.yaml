@@ -154,7 +154,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF635_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/party/call-back
+    - id: TMF632
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/party/call-back
       name: Party
       port: 80
       resources:
@@ -162,7 +163,8 @@ spec:
       - organizationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyrole/call-back
+    - id: TMF669
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/partyrole/call-back
       name: PartyRoleManagement
       port: 80
       resources:

@@ -219,7 +219,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     subscribedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/call-back
+    - id: TMF632
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/call-back
       name: PartyManagement
       port: 80
       resources:
@@ -233,7 +234,8 @@ spec:
       - OrganizationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/call-back
+    - id: TMF632
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRoleManagement/call-back
       name: PartyRoleManagement
       port: 80
       resources:
@@ -243,7 +245,8 @@ spec:
       - partyRoleDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourcePoolManagement/hub
+    - id: TMF701
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourcePoolManagement/hub
       name: ProcessFlowManagement
       port: 80
       resources:
@@ -258,7 +261,8 @@ spec:
       - taskFlowInformationRequiredEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AppointmentManagementEvent/hub
+    - id: TMF646
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AppointmentManagementEvent/hub
       name: appointmentManagement
       port: 80
       resources:

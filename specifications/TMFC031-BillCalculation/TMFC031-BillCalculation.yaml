@@ -142,7 +142,8 @@ spec:
           - GET /id
           - PATCH /id
     subscribedEvents:
-    - name: usageManagement
+    - id: TMF635
+      name: usageManagement
       port: 80
       resources:
       - UsageCreateEvent
