@@ -227,7 +227,7 @@ spec:
       - onDemandCollectionFilesPreparationErrorEvent
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF628-Performance-v4.0.0.swagger.json
       apiType: openapi
-    - id: TMF628
+    - id: TMF649
       name: PerformanceThresholdManagement
       resources:
       - thresholdCreateNotification
