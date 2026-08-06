@@ -338,6 +338,7 @@ spec:
       - catalogCreateEvent
       - catalogDeleteEvent
       - catalogBatchEvent
+      - productSpecificationCreateEvent
       specification: https://github.com/tmforum-apis/TMF620_ProductCatalog/blob/master/TMF620-ProductCatalog-v4.0.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
@@ -374,8 +375,6 @@ spec:
       name: ServiceCatalogManagement
       port: 80
       resources:
-      - serviceSpecificationStateChange
-      - serviceSpecificationAttributeValueChangeEvent
       - serviceSpecificationCreateEvent
       - serviceSpecificationDeleteEvent
       - resourceSpecificationCreateEvent
@@ -398,6 +397,19 @@ spec:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
+      apiType: openapi
+    - name: ServiceCatalogManagement
+      resources:
+      - serviceSpecificationChangeEvent
+      - serviceSpecificationCreateEvent
+      - serviceSpecificationDeleteEvent
+      apiType: openapi
+    - name: ResourceCatalogManagement
+      resources:
+      - resourceSpecificationCreateEvent
+      - resourceSpecificationDeleteEvent
+      - resourceSpecificationStatusChangeEvent
+      - resourceSpecificationAttributeValueChangeEvent
       apiType: openapi
   componentMetadata:
     id: TMFC001
