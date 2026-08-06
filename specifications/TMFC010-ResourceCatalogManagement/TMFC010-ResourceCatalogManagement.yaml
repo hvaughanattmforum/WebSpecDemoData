@@ -230,7 +230,7 @@ spec:
       - importJobCreateEvent
       - exportJobCreateEvent
       - exportJobStateChangeEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF634_resourceCatalog/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       version: 4
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -259,7 +259,7 @@ spec:
       - entitySpecificationAttributeValueChangeEvent
       - entitySpecificationStateChangeEvent
       - entitySpecificationDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF662_EntityCatalog/master/TMF662-EntityCatalog-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF662_v4.0.0.swagger.json
       version: 4
     - call-back: /{{.Release.Name}}-EntityCatalog/call-back
       id: TMF669
@@ -267,7 +267,7 @@ spec:
       port: 80
       resources:
       - partyRoleDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRole/master/TMF669-PartyRole-v4.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       version: 4
     - call-back: /{{.Release.Name}}-EntityCatalog/call-back
       id: TMF632
@@ -276,7 +276,7 @@ spec:
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_Party/master/TMF632-Party-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       version: 4
   componentMetadata:
     id: TMFC010

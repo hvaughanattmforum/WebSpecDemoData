@@ -92,7 +92,7 @@ spec:
       - userRoleAttributeValueChangeEvent
       - userRoleStateChangeEvent
       - userRoleDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRoleAndPermission/master/TMF672-UserRolePermission-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF672_v4.0.0.swagger.json
       apiType: openapi
     - implementation: /{{.Release.Name}}-partyroleapi
       name: partyRole
@@ -102,7 +102,7 @@ spec:
       - PartyRoleAttributeValueChangeEvent
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF669_PartyRoleManagement/master/TMF672-PartyRoleManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
     - implementation: /{{.Release.Name}}-PartyManagement
@@ -115,7 +115,7 @@ spec:
       - organizationCreateEvenet
       - organizationAttributeValueChangeEvent
       - organizationStateChangeEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - implementation: /{{.Release.Name}}-ProcessFlowManagement
       name: ProcessFlowManagement

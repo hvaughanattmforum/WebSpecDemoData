@@ -95,7 +95,7 @@ spec:
       - DigitalIdentityStateChangeEvent
       - DigitalIdentityDeleteEvent
       - DigitalIdentityAttributeValueChangeEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF720_DigitalIdentityManagement/master/TMF720-DigitalIdentityManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF720_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
     - name: PartyRoleManagement
@@ -103,7 +103,7 @@ spec:
       resources:
       - UserRoleCreationNotification
       - UserRoleChangeNotification
-      specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC020

@@ -268,7 +268,7 @@ spec:
       - queryProductConfigurationCreateEvent
       - queryProductConfigurationDeleteEvent
       - queryProductConfigurationStateChangeEvent
-      specification: ''
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF760_v5.0.0.swagger.json
       apiType: openapi
     - implementation: /{{.Release.Name}}-pdtquali
       name: ProductConfiguration
@@ -279,7 +279,7 @@ spec:
       - ProductOfferingQualificationStateChangeEvent
       - ProductOfferingQualificationDeleteEvent
       - ProductOfferingQualificationInformationRequiredEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF679_ProductOfferingQualificationManagement/master/TMF679-ProductOfferingQualificationManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF679_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
     - name: ProductCatalogManagement
@@ -300,7 +300,7 @@ spec:
       - ProductSpecificationAttributeValueChangeEvent
       - ProductSpecificationStateChangeEvent
       - ProductSpecificationDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF622-ProductCatalogManagement/blob/master/TMF622-ProductCatalogManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v4.0.0.swagger.json
       apiType: openapi
     - apiType: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/call-back
@@ -310,7 +310,7 @@ spec:
       resources:
       - checkServiceQualificationStateChangeEvent
       - queryServiceQualificationStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF645_ServiceQualification/blob/master/TMF645-ServiceQualification-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF645_v4.0.0.swagger.json
   componentMetadata:
     id: TMFC027
     name: ProductConfigurator

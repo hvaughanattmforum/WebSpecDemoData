@@ -141,7 +141,7 @@ spec:
       - agreementStateChangeEvent
       - agreementSpecificationCreateEvent
       - agreementSpecificationAttributeValueChangeEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF651_AgreementManagement/master/TMF651-AgreementManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF651_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
     - implementation: /{{.Release.Name}}-PartyManagement
@@ -150,7 +150,7 @@ spec:
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF632_PartyManagement/master/TMF632-PartyManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC039

@@ -147,7 +147,7 @@ spec:
       resources:
       - billingAccountAttributeValueChangeEvent
       - billingAccountStateChangeEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF666_AccountManagement/master/TMF666-AccountManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF666_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
     - name: PartyRoleManagement
@@ -157,7 +157,7 @@ spec:
       - partyRoleAttributeValueChangeEvent
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF669-PartyRoleManagement/blob/master/TMF669-PartyRoleManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
   componentMetadata:
     id: TMFC024
     name: BillingAccountManagement

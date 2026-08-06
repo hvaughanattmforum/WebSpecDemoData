@@ -61,7 +61,7 @@ spec:
       - aiContractDeleteEvent
       - aiContractAttributeValueChangeEvent
       - aiContractStateChangeEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF915_AIManagementSuite/master/TMF915-AIManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF915_v4.0.0.swagger.json
     - apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/call-back
       implementation: /{{.Release.Name}}-AlarmManagement
@@ -71,7 +71,7 @@ spec:
       - alarmCreateEvent
       - alarmStateChangeEvent
       - alarmDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF642_AlarmManagement/master/TMF642-Alarm-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
   componentMetadata:
     id: TMFC041
     name: AnomalyManagement

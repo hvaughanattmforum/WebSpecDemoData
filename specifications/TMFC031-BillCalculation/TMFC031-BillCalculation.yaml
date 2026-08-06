@@ -152,7 +152,7 @@ spec:
       - UsageSpecificationCreateEvent
       - UsageSpecificationAttributeValueChangeEvent
       - UsageSpecificationDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF635_UsageManagement/blob/master/TMF635-UsageManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF635_v4.0.0.swagger.json
   componentMetadata:
     id: TMFC031
     name: BillCalculation

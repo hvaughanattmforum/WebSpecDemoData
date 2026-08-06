@@ -134,7 +134,7 @@ spec:
       - serviceTestAttributeValueChangeEvent
       - serviceTestDeleteEvent
       - serviceTestSpecificationAttributeValueChangeEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF653_Service_Test/4.2.0/swagger/TMF653_Service_Test_Management_API_v4.2.0_swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF653_v4.2.0.swagger.json
       implementation: ServiceTestManagement
     subscribedEvents:
     - name: ServiceTestManagement
@@ -144,7 +144,7 @@ spec:
       resources:
       - serviceSpecificationCreateEvent
       - serviceSpecificationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF633_Service_Catalog/4.0.0/swagger/TMF633_Service_Catalog_Management_API_v4.0.0_swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-ServiceTestManagement
     - name: PartyManagement
       port: 80
@@ -153,7 +153,7 @@ spec:
       resources:
       - organizationDeleteEvent
       - individualDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF632_Party/4.0.0/swagger/TMF632_Party_Management_API_v4.0.0_swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-PartyManagement
   componentMetadata:
     id: TMFC055

@@ -164,7 +164,7 @@ spec:
       - serviceCatalogChangeEvent
       - serviceCatalogDeleteEvent
       - serviceCatalogBatchEvent
-      specification: https://github.com/tmforum-apis/TMF633_ServiceCatalog/blob/master/TMF633-ServiceCatalog-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualityManagement/hub
       implementation: /{{.Release.Name}}-ServiceQualityManagement
@@ -177,7 +177,7 @@ spec:
       - serviceLevelSpecificationCreateEvent
       - serviceLevelSpecificationDeleteEvent
       - serviceLevelSpecificationAttributeValueChangeEvent
-      specification: https://github.com/tmforum-apis/TMF657_ServiceQualityManagement/blob/master/TMF657-ServiceQualityManagement-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF657_v4.0.0.swagger.json
       apiType: openapi
     - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -204,7 +204,7 @@ spec:
       - resourceSpecificationCreateEvent
       - resourceSpecificationChangeEvent
       - resourceSpecificationDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF634_ResourceCatalog/blob/master/TMF634-ResourceCatalog-v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/call-back
       implementation: /{{.Release.Name}}-EntityCatalog
@@ -215,7 +215,7 @@ spec:
       - entitySpecificationAttributeValueChangeEvent
       - entitySpecificationChangeEvent
       - entitySpecificationDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF662_EntityCatalog/blob/master/TMF662-EntityCatalog-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF662_v4.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC006
