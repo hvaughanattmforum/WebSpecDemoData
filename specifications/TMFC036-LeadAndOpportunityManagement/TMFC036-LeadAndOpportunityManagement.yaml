@@ -180,7 +180,7 @@ spec:
       - taskFlowSpecificationCreateEvent
       - taskFlowSpecificationDeleteEvent
       - taskFlowSpecificationStateChangeEvent
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     subscribedEvents:
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyManagement/call-back
@@ -265,7 +265,7 @@ spec:
       - PartyRoleAttributeValueChangeEvent
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
-      specification: https://raw.githubusercontent.com/tmforum-apis/TMF701_ProcessFlow/master/TMF701-ProcessFlow-v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
   componentMetadata:
     id: TMFC036
