@@ -26,7 +26,7 @@ spec:
     publishedEvents:
     - apitype: openapi
       hub: /{{.Release.Name}}-AnomalyManagementEvent/hub
-      id: TMF651
+      id: TMF751
       implementation: /{{.Release.Name}}-AnomalyManagementEvent
       name: AnomalyManagementEvent
       port: 8080
