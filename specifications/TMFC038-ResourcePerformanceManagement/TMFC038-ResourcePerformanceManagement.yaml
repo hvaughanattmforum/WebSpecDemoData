@@ -277,7 +277,7 @@ spec:
     - id: TMF673
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/hub
       implementation: /{{.Release.Name}}-GeographicAddressManagement
-      name: GeographicAddressManagement
+      name: API Place - GeographicAddress
       port: 80
       resources:
       - geographicAddressValidationStateChange

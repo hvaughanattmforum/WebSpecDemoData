@@ -82,7 +82,7 @@ spec:
     publishedEvents:
     - id: TMF672
       implementation: /{{.Release.Name}}-userrole&permapi
-      name: userRole
+      name: User Roles And Permissions
       port: 80
       resources:
       - permissionCreateEvent

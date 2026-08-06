@@ -73,7 +73,7 @@ spec:
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationManagement/hub
       implementation: /{{.Release.Name}}-ResourceActivationManagement
-      name: ResourceActivationManagement
+      name: API Resource Activation and Configuration
       port: 80
       resources:
       - ResourceCreateEvent
@@ -85,7 +85,7 @@ spec:
       apitype: openapi
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationManagement/hub
       implementation: /{{.Release.Name}}-ResourceFunctionActivationManagement
-      name: ResourceFunctionActivationManagement
+      name: Resource Function Activation and Configuration
       port: 80
       resources:
       - ResourceFunctionCreateEvent

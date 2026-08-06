@@ -45,7 +45,7 @@ spec:
       apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AIManagement/call-back
       implementation: /{{.Release.Name}}-AIManagement
-      name: AIManagement
+      name: Ai Management
       port: 80
       resources:
       - aiContractSpecificationCreateEvent

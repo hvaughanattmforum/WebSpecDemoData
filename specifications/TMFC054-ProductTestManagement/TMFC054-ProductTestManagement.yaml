@@ -156,7 +156,8 @@ spec:
           - GET
           - GET /id
     publishedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productTestManagement/hub
+    - id: TMF769
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productTestManagement/hub
       implementation: /{{.Release.Name}}-productTestManagement
       name: productTestManagement
       port: 80
@@ -168,7 +169,7 @@ spec:
       - ProductTestCreateEvent
       - ProductTestAttributeValueChangeEvent
       - ProductTestStateChangeEvent
-      specification: ''
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF769_Product_Test/5.0.0/swagger/TMF769-Product_Test-v5.0.0.oas.yaml
       apiType: openapi
     subscribedEvents:
     - id: TMF620

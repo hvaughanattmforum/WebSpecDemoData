@@ -214,7 +214,7 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
     - id: TMF673
-      name: GeographicAddressManagement
+      name: API Place - GeographicAddress
       port: 80
       resources:
       - geographicAddressValidationStateChangeEvent

@@ -224,7 +224,7 @@ spec:
     - id: TMF622
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
       implementation: /{{.Release.Name}}-ProductOrder
-      name: ProductOrder
+      name: Product Ordering
       port: 80
       resources:
       - ProductOrderCreateEvent
