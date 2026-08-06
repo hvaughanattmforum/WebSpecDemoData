@@ -264,7 +264,7 @@ spec:
       port: 80
       resources:
       - geographicSiteDeleteEvent
-      specification: https://open-api.tmforum.org20-GeographicSite-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
       implementation: /{{.Release.Name}}-GeographicLocation
@@ -272,7 +272,7 @@ spec:
       port: 80
       resources:
       - geographicLocationDeleteEvent
-      specification: https://open-api.tmforum.org20-GeographicLocatin-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF675_Geographic_Location/4.0.0/swagger/TMF675_Geographic_Location_Management_API_v4.0.0_beta_swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
       implementation: /{{.Release.Name}}-PartyManagement
@@ -281,7 +281,7 @@ spec:
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://open-api.tmforum.org20-Party-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC012
