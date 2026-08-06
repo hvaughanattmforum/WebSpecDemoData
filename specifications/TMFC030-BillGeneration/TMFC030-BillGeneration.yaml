@@ -175,7 +175,8 @@ spec:
           - PATCH /id
     publishedEvents: []
     subscribedEvents:
-    - name: partyRoleManagement
+    - id: TMF669
+      name: partyRoleManagement
       port: 80
       resources:
       - partyRoleAttributeValueChangeEvent

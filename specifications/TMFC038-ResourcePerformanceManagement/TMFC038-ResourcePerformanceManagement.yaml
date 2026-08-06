@@ -249,7 +249,8 @@ spec:
       specification: https://github.com/tmforum-apis/TMF628_Performance/blob/main/TMF649-PerformanceThreshold-v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/hub
+    - id: TMF634
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/hub
       implementation: /{{.Release.Name}}-ResourceCatalog
       name: ResourceCatalogManagement
       port: 80
@@ -257,7 +258,8 @@ spec:
       - ResourceSpecificationChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/hub
+    - id: TMF639
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/hub
       implementation: /{{.Release.Name}}-ResourceInventory
       name: ResourceInventoryManagement
       port: 80
@@ -268,7 +270,8 @@ spec:
       - ResourceDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/hub
+    - id: TMF673
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/hub
       implementation: /{{.Release.Name}}-GeographicAddressManagement
       name: GeographicAddressManagement
       port: 80
@@ -276,7 +279,8 @@ spec:
       - geographicAddressValidationStateChange
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - id: TMF701
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80

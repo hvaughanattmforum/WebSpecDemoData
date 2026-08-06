@@ -370,7 +370,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     subscribedEvents:
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
+    - id: TMF633
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
       implementation: /{{.Release.Name}}-ServiceCatalogManagement
       name: ServiceCatalogManagement
       port: 80
@@ -382,14 +383,16 @@ spec:
       - resourceSpecificationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
+    - id: TMF701
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
       implementation: /{{.Release.Name}}-PartyRoleManagement
       name: PartyRoleManagement
       port: 80
       resources:
       - partyRoleDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
+    - id: TMF632
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/servicepecification/call-back
       implementation: /{{.Release.Name}}-Party
       name: Party
       port: 80
@@ -398,14 +401,16 @@ spec:
       - organizationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
-    - name: ServiceCatalogManagement
+    - id: TMF633
+      name: ServiceCatalogManagement
       resources:
       - serviceSpecificationChangeEvent
       - serviceSpecificationCreateEvent
       - serviceSpecificationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
-    - name: ResourceCatalogManagement
+    - id: TMF634
+      name: ResourceCatalogManagement
       resources:
       - resourceSpecificationCreateEvent
       - resourceSpecificationDeleteEvent

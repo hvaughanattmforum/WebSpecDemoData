@@ -196,7 +196,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     subscribedEvents:
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/call-back
+    - id: TMF634
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalog/call-back
       implementation: /{{.Release.Name}}-ResourceCatalog
       name: ResourceCatalogManagement
       port: 80
@@ -206,7 +207,8 @@ spec:
       - resourceSpecificationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/call-back
+    - id: TMF662
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/EntityCatalog/call-back
       implementation: /{{.Release.Name}}-EntityCatalog
       name: EntityCatalogManagement
       port: 80

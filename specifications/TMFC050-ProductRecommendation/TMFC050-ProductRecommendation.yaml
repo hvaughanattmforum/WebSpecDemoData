@@ -301,7 +301,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     subscribedEvents:
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
+    - id: TMF620
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/call-back
       implementation: /{{.Release.Name}}-ProductCatalogManagement
       name: ProductCatalogManagement
       port: 80
@@ -342,5 +343,5 @@ spec:
     functionalFrameworkFunctions:
     - 1196|Product_Specification_&_Offering_Simulation|v26.0
     - 1195|Pushed_Offer_Identification|v26.0
-    SIDs: 
+    SIDs:
     - Product_Domain|Product_Offering_Specification_ABE|v26.0

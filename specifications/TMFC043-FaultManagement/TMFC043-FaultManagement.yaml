@@ -173,7 +173,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF656_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
-    - name: ServiceCatalogManagement
+    - id: TMF633
+      name: ServiceCatalogManagement
       port: 80
       resources:
       - serviceCatalogCreateEvent
@@ -189,7 +190,8 @@ spec:
       - serviceSpecificationChangeEvent
       - serviceSpecificationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
-    - name: ServiceInventoryManagement
+    - id: TMF638
+      name: ServiceInventoryManagement
       port: 80
       resources:
       - serviceCreateEvent
@@ -198,7 +200,8 @@ spec:
       - serviceStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
       apiType: openapi
-    - name: ResourceInventoryManagement
+    - id: TMF639
+      name: ResourceInventoryManagement
       port: 80
       resources:
       - resourceCreateEvent
@@ -207,13 +210,15 @@ spec:
       - resourceStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
-    - name: GeographicAddressManagement
+    - id: TMF673
+      name: GeographicAddressManagement
       port: 80
       resources:
       - geographicAddressValidationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
-    - name: GeographicSiteManagement
+    - id: TMF674
+      name: GeographicSiteManagement
       port: 80
       resources:
       - geographicSiteCreateEvent
@@ -222,7 +227,8 @@ spec:
       - geographicSiteDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
       apiType: openapi
-    - name: GeographicLocationManagement
+    - id: TMF675
+      name: GeographicLocationManagement
       port: 80
       resources:
       - geographicLocationCreateEvent
@@ -230,7 +236,8 @@ spec:
       - geographicLocationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF675_GeographicLocation/blob/master/TMF675-GeographicLocation-v4.0.0.swagger.json
       apiType: openapi
-    - name: AlarmManagement
+    - id: TMF642
+      name: AlarmManagement
       port: 80
       resources:
       - alarmCreateEvent
@@ -251,7 +258,8 @@ spec:
       - unGroupAlarmsStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
       apiType: openapi
-    - name: ServiceProblemManagement
+    - id: TMF656
+      name: ServiceProblemManagement
       port: 80
       resources:
       - problemAcknowledgementCreateEvent
@@ -273,7 +281,8 @@ spec:
       - serviceProblemStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF656_v4.0.0.swagger.json
       apiType: openapi
-    - name: TroubleTicketManagement
+    - id: TMF621
+      name: TroubleTicketManagement
       port: 80
       resources:
       - troubleTicketCreateEvent
@@ -284,20 +293,23 @@ spec:
       - troubleTicketInformationRequiredEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF621_v4.0.0.swagger.json
       apiType: openapi
-    - name: PartyManagement
+    - id: TMF632
+      name: PartyManagement
       port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
-    - name: PartyRoleManagement
+    - id: TMF669
+      name: PartyRoleManagement
       port: 80
       resources:
       - partyRoleDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
-    - name: EntityCatalogManagement
+    - id: TMF662
+      name: EntityCatalogManagement
       port: 80
       resources:
       - entityCatalogCreateEvent

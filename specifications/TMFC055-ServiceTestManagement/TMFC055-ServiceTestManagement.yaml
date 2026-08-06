@@ -137,7 +137,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF653_v4.2.0.swagger.json
       implementation: ServiceTestManagement
     subscribedEvents:
-    - name: ServiceTestManagement
+    - id: TMF633
+      name: ServiceCatalogManagement
       port: 80
       apiType: openapi
       call-back: ServiceTestManagement
@@ -146,7 +147,8 @@ spec:
       - serviceSpecificationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-ServiceTestManagement
-    - name: PartyManagement
+    - id: TMF632
+      name: PartyManagement
       port: 80
       apiType: openapi
       call-back: PartyManagement

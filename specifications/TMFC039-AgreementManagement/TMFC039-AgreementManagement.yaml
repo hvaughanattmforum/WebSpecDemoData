@@ -144,7 +144,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF651_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
-    - implementation: /{{.Release.Name}}-PartyManagement
+    - id: TMF632
+      implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
       port: 80
       resources:

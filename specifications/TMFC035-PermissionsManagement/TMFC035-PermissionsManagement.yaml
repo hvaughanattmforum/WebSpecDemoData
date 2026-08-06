@@ -105,7 +105,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
-    - implementation: /{{.Release.Name}}-PartyManagement
+    - id: TMF632
+      implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
       port: 80
       resources:
@@ -117,7 +118,8 @@ spec:
       - organizationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
-    - implementation: /{{.Release.Name}}-ProcessFlowManagement
+    - id: TMF701
+      implementation: /{{.Release.Name}}-ProcessFlowManagement
       name: ProcessFlowManagement
       port: 80
       resources:

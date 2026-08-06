@@ -318,7 +318,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     subscribedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrderManagement/hub
+    - id: TMF652
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrderManagement/hub
       name: ResourceOrderingManagement
       port: 80
       resources:
@@ -327,9 +328,10 @@ spec:
       - resourceOrderInformationRequiredEvent
       - cancelResourceOrderStateChange
       - cancelResourceOrderInformationRequiredEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF652_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/hub
+    - id: TMF645
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/hub
       name: ServiceQualification
       port: 80
       resources:
@@ -337,21 +339,24 @@ spec:
       - queryServiceQualificationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF645_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Communication/hub
+    - id: TMF681
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Communication/hub
       name: Communication
       port: 80
       resources:
       - communicationMessageStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF681_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrder/hub
+    - id: TMF697
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrder/hub
       name: WorkOrder
       port: 80
       resources:
       - workOrderStateChange
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/4.0.0/swagger/TMF697_Work_Order_Management_API_v4.0.0_swagger.json
       apiType: openapi
-    - name: CommunicationManagementAPI
+    - id: TMF681
+      name: CommunicationManagementAPI
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF681_v4.0.0.swagger.json
       apiType: openapi
   componentMetadata:

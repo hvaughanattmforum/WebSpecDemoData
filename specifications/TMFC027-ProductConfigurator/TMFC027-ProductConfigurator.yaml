@@ -282,7 +282,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF679_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
-    - name: ProductCatalogManagement
+    - id: TMF620
+      name: ProductCatalogManagement
       port: 80
       resources:
       - CatalogCreateEvent
@@ -300,9 +301,10 @@ spec:
       - ProductSpecificationAttributeValueChangeEvent
       - ProductSpecificationStateChangeEvent
       - ProductSpecificationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
       apiType: openapi
-    - apiType: openapi
+    - id: TMF645
+      apiType: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceQualification/call-back
       implementation: /{{.Release.Name}}-ServiceQualificationEvent
       name: ServiceQualification

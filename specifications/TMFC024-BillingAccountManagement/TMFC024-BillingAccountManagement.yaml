@@ -150,7 +150,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF666_v4.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
-    - name: PartyRoleManagement
+    - id: TMF669
+      name: PartyRoleManagement
       port: 80
       resources:
       - partyRoleCreateEvent

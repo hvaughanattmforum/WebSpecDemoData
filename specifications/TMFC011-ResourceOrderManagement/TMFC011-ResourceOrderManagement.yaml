@@ -206,7 +206,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     subscribedEvents:
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationConfiguration/call-back
+    - id: TMF664
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceFunctionActivationConfiguration/call-back
       implementation: /{{.Release.Name}}-ResourceFunctionActivationConfiguration
       name: ResourceFunctionActivationConfiguration
       port: 80
@@ -219,7 +220,8 @@ spec:
       - migrateStatechangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF664_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationAndConfiguration/call-back
+    - id: TMF702
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceActivationAndConfiguration/call-back
       implementation: /{{.Release.Name}}-ResourceActivationAndConfiguration
       name: ResourceActivationAndConfiguration
       port: 80

@@ -241,7 +241,8 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
     subscribedEvents:
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Resource/call-back
+    - id: TMF639
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Resource/call-back
       implementation: /{{.Release.Name}}-ResourceInventoryManagement
       name: ResourceInventoryManagement
       port: 80
@@ -249,7 +250,8 @@ spec:
       - resourceDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/call-back
+    - id: TMF638
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/call-back
       implementation: /{{.Release.Name}}-ServiceInventoryManagement
       name: ServiceInventoryManagement
       port: 80
@@ -257,7 +259,8 @@ spec:
       - serviceDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalog/call-back
+    - id: TMF620
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalog/call-back
       implementation: /{{.Release.Name}}-ProductCatalogManagement
       name: ProductCatalogManagement
       port: 80
@@ -267,7 +270,8 @@ spec:
       - productOfferingPriceDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/call-back
+    - id: TMF669
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/call-back
       implementation: /{{.Release.Name}}-PartyRoleManagement
       name: PartyRoleManagement
       port: 80
@@ -275,7 +279,8 @@ spec:
       - partyRoleDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Agreement/call-back
+    - id: TMF651
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Agreement/call-back
       implementation: /{{.Release.Name}}-AgreementManagement
       name: AgreementManagement
       port: 80
@@ -283,7 +288,8 @@ spec:
       - agreementDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF651_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Account/call-back
+    - id: TMF666
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Account/call-back
       implementation: /{{.Release.Name}}-AccountManagement
       name: AccountManagement
       port: 80
@@ -291,7 +297,8 @@ spec:
       - billingAccountDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF666_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolePermission/call-back
+    - id: TMF672
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolePermission/call-back
       implementation: /{{.Release.Name}}-UserRolePermissionManagement
       name: UserRolePermissionManagement
       port: 80
@@ -299,7 +306,8 @@ spec:
       - permissionDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF672_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
+    - id: TMF674
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
       implementation: /{{.Release.Name}}-GeographicSiteManagement
       name: GeographicSiteManagement
       port: 80
@@ -307,7 +315,8 @@ spec:
       - geographicSiteDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
+    - id: TMF675
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
       implementation: /{{.Release.Name}}-GeographicLocation
       name: GeographicLocation
       port: 80
@@ -315,7 +324,8 @@ spec:
       - geographicLocationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF675_Geographic_Location/4.0.0/swagger/TMF675_Geographic_Location_Management_API_v4.0.0_beta_swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
+    - id: TMF632
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
       implementation: /{{.Release.Name}}-PartyManagement
       name: PartyManagement
       port: 80
@@ -324,7 +334,8 @@ spec:
       - organizationDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrdering/call-back
+    - id: TMF622
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrdering/call-back
       implementation: /{{.Release.Name}}-ProductOrderingManagement
       name: ProductOrderingManagement
       port: 80
@@ -332,7 +343,8 @@ spec:
       - productOrderDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v4.0.0.swagger.json
       apiType: openapi
-    - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductInventory/call-back
+    - id: TMF637
+      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductInventory/call-back
       implementation: /{{.Release.Name}}-ProductInventoryManagement
       name: ProductInventoryManagement
       port: 80

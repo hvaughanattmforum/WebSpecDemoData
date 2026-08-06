@@ -104,7 +104,8 @@ spec:
       - MigrateDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF664_v4.0.0.swagger.json
     subscribedEvents:
-    - apitype: openapi
+    - id: TMF634
+      apitype: openapi
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalogManagement/call-back
       implementation: /{{.Release.Name}}-ResourceCatalogManagement
       name: ResourceCatalogManagement
