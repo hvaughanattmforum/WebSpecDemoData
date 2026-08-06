@@ -181,7 +181,7 @@ spec:
       port: 80
       resources:
       - resourceDeleteEvent
-      specification: https://open-api.tmforum.org20-ResourceInventory-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventory/call-back
       implementation: /{{.Release.Name}}-ServiceInventoryManagement
@@ -192,7 +192,7 @@ spec:
       - serviceAttributeValueChangeEvent
       - serviceStateChangeEvent
       - serviceDeleteEvent
-      specification: https://open-api.tmforum.org20-ServiceInventory-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalog/call-back
       implementation: /{{.Release.Name}}-ServiceCatalogManagement
@@ -200,7 +200,7 @@ spec:
       port: 80
       resources:
       - serviceSpecificationDeleteEvent
-      specification: https://open-api.tmforum.org20-ServiceCatalog-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/call-back
       implementation: /{{.Release.Name}}-PartyRoleManagement
@@ -208,14 +208,14 @@ spec:
       port: 80
       resources:
       - partyRoleDeleteEvent
-      specification: https://open-api.tmforum.org20-PartyRole-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/call-back
       implementation: /{{.Release.Name}}-GeographicSiteManagement
       name: GeographicSiteManagement
       port: 80
       resources:
       - geographicSiteDeleteEvent
-      specification: https://open-api.tmforum.org20-GeographicSite-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/call-back
       implementation: /{{.Release.Name}}-GeographicLocation
@@ -223,7 +223,7 @@ spec:
       port: 80
       resources:
       - geographicLocationDeleteEvent
-      specification: https://open-api.tmforum.org20-GeographicLocatin-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF675_Geographic_Location/4.0.0/swagger/TMF675_Geographic_Location_Management_API_v4.0.0_beta_swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/call-back
       implementation: /{{.Release.Name}}-PartyManagement
@@ -232,7 +232,7 @@ spec:
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://open-api.tmforum.org20-Party-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
     - call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceOrdering/call-back
       implementation: /{{.Release.Name}}-ServiceOrderingManagement
@@ -240,7 +240,7 @@ spec:
       port: 80
       resources:
       - serviceOrderDeleteEvent
-      specification: https://open-api.tmforum.org20-ServiceOrdering-v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF641_v4.1.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC008
