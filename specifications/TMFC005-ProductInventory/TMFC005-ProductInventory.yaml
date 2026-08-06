@@ -215,7 +215,7 @@ spec:
     - id: TMF637
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productinventory/hub
       implementation: /{{.Release.Name}}-ProductinventoryEvent
-      name: Productinventory
+      name: Product Inventory
       port: 80
       resources:
       - productCreateEvent
@@ -302,7 +302,7 @@ spec:
     - id: TMF672
       call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UserRolePermission/call-back
       implementation: /{{.Release.Name}}-UserRolePermissionManagement
-      name: UserRolePermissionManagement
+      name: User Roles And Permissions
       port: 80
       resources:
       - permissionDeleteEvent

@@ -169,7 +169,7 @@ spec:
     - id: TMF670
       hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PaymentMethods/hub
       implementation: /{{.Release.Name}}-PaymentMethods
-      name: PaymentMethods
+      name: Payment Method
       port: 80
       resources:
       - PaymentMethodAttributeValueChangeEvent

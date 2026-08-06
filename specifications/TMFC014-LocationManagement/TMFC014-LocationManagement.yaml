@@ -65,7 +65,7 @@ spec:
     - hub: /{{.Release.Name}}-GeographicAddressManagement/hub
       id: TMF673
       implementation: /{{.Release.Name}}-GeographicAddressManagement
-      name: GeographicAddressManagement
+      name: API Place - GeographicAddress
       port: 8080
       resources:
       - geographicAddressValidationStateChangeEvent

@@ -516,7 +516,7 @@ spec:
           - PATCH
     publishedEvents:
     - id: TMF622
-      name: ProductOrder
+      name: Product Ordering
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v4.0.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-ProductOrderEvent
@@ -532,7 +532,7 @@ spec:
       - cancelProductOrderStateChangeEvent
       - cancelProductOrderInformationRequiredEvent
     - id: TMF622
-      name: ProductOrder
+      name: ProductOrdering
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v5.0.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-ProductOrderEvent
@@ -591,7 +591,7 @@ spec:
       - taskSpecificationStateChangeEvent
     subscribedEvents:
     - id: TMF641
-      name: ServiceOrder
+      name: API ServiceOrdering
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF641_v4.1.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-serviceOrderingManagementEvent
@@ -607,7 +607,7 @@ spec:
       - cancelServiceOrderStateChangeEvent
       - cancelServiceOrderInformationRequiredEvent
     - id: TMF641
-      name: ServiceOrder
+      name: API ServiceOrdering
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF641_v4.1.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-serviceOrderingManagementEvent
@@ -624,7 +624,7 @@ spec:
       - cancelServiceOrderStateChangeEvent
       - cancelServiceOrderInformationRequiredEvent
     - id: TMF652
-      name: ResourceOrder
+      name: Resource Ordering Management
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF652_v4.0.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-ResourceOrder
@@ -638,7 +638,7 @@ spec:
       - cancelResourceOrderStateChange
       - cancelResourceOrderInformationRequiredEvent
     - id: TMF652
-      name: ResourceOrder
+      name: Resource Ordering Management
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF652_v4.0.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-ResourceOrder
@@ -687,7 +687,7 @@ spec:
       - geographicSiteDeleteEvent
       - geographicSiteStateChangeEvent
     - id: TMF673
-      name: GeographicAddressManagement
+      name: API Place - GeographicAddress
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-GeographicAddressManagementEvent
@@ -696,7 +696,7 @@ spec:
       resources:
       - geographicAddressValidationStateChangeEvent
     - id: TMF673
-      name: GeographicAddressManagement
+      name: API Place - GeographicAddress
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-GeographicAddressManagementEvent
@@ -708,7 +708,7 @@ spec:
       - geographicAddressCreateEvent
       - geographicAddressDeleteEvent
     - id: TMF921
-      name: IntentManagement
+      name: Intent Managenment
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF921_v4.0.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-IntentManagement
