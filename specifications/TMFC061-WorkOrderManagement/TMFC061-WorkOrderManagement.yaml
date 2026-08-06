@@ -162,7 +162,8 @@ spec:
           - POST
           - DELETE
     publishedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/workManagement/hub
+    - id: TMF713
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/workManagement/hub
       name: TMF713 Work Management API
       port: 80
       resources:
@@ -176,7 +177,8 @@ spec:
       - workSpecificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF713_WorkManagement/blob/master/TMF713-Work-v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrderManagementEvent/hub
+    - id: TMF697
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkOrderManagementEvent/hub
       name: TMF697_WorkOrderManagement
       port: 80
       resources:
@@ -190,7 +192,8 @@ spec:
       - cancelWorkOrderDeleteEvent
       specification: https://github.com/tmforum-apis/TMF697_WorkOrderManagement/blob/master/TMF97-WorkOrder-v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkQualificationManagementEvent/hub
+    - id: TMF714
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/WorkQualificationManagementEvent/hub
       name: workQualificationManagement
       port: 80
       resources:
@@ -203,7 +206,8 @@ spec:
       - queryWorkQualificationDeleteEvent
       specification: https://github.com/tmforum-apis/TMF714_WorkQualificationManagement/blob/master/TMF714-WorkQualification-v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - id: TMF701
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       name: ProcessFlowManagement
       port: 80
       resources:

@@ -204,7 +204,8 @@ spec:
           - GET
           - GET /id
     publishedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - id: TMF701
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-processFlowEvent
       name: ProcessFlowManagement
       port: 80
@@ -220,7 +221,8 @@ spec:
       - taskFlowInformationRequiredEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/hub
+    - id: TMF642
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AlarmManagement/hub
       implementation: /{{.Release.Name}}-AlarmManagement
       name: AlarmManagement
       port: 80
@@ -231,7 +233,8 @@ spec:
       - alarmAckEvent**
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/hub
+    - id: TMF628
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PerformanceManagement/hub
       implementation: /{{.Release.Name}}-PerformanceManagement
       name: PerformanceManagement
       port: 80

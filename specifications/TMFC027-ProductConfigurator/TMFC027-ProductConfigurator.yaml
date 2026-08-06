@@ -256,7 +256,8 @@ spec:
           - get /id
           - PATCH
     publishedEvents:
-    - implementation: /{{.Release.Name}}-ProductConfiguration
+    - id: TMF760
+      implementation: /{{.Release.Name}}-ProductConfiguration
       name: ProductConfiguration
       port: 80
       resources:
@@ -270,8 +271,9 @@ spec:
       - queryProductConfigurationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF760_v5.0.0.swagger.json
       apiType: openapi
-    - implementation: /{{.Release.Name}}-pdtquali
-      name: ProductConfiguration
+    - id: TMF679
+      implementation: /{{.Release.Name}}-pdtquali
+      name: ProductOfferingQualification
       port: 80
       resources:
       - ProductOfferingQualificationCreateEvent

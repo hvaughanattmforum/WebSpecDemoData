@@ -318,7 +318,8 @@ spec:
           - PATCH
           - DELETE
     publishedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productspecification/hub
+    - id: TMF620
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/productspecification/hub
       implementation: /{{.Release.Name}}-ProductCatalogManagementEvent
       name: ProductCatalogManagement
       port: 80
@@ -341,7 +342,8 @@ spec:
       - productSpecificationCreateEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
+    - id: TMF671
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagementEvent/hub
       implementation: /{{.Release.Name}}-PromotionManagementEvent
       name: PromotionManagement
       port: 80
@@ -353,7 +355,8 @@ spec:
       - promotionInformationRequiredEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF671_v4.1.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - id: TMF701
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80

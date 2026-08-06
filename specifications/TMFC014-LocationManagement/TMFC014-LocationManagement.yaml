@@ -71,7 +71,8 @@ spec:
       - geographicAddressValidationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/hub
+    - id: TMF674
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSiteManagement/hub
       implementation: /{{.Release.Name}}-GeographicSiteManagementEvent
       name: GeographicSiteManagement
       port: 8080
@@ -82,7 +83,8 @@ spec:
       - geographicSiteStatusChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/hub
+    - id: TMF675
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/hub
       implementation: /{{.Release.Name}}-GeographicLocationEvent
       name: GeographicLocation
       port: 80

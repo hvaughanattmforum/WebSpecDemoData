@@ -110,7 +110,8 @@ spec:
           - GET /id
           - PATCH /id
     publishedEvents:
-    - apiType: openapi
+    - id: TMF632
+      apiType: openapi
       implementation: /{{.Release.Name}}-partymngtapi
       name: Party Management API
       port: 80

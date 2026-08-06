@@ -141,7 +141,8 @@ spec:
           - GET /id
           - PATCH /id
     publishedEvents:
-    - implementation: /{{.Release.Name}}-accmngt
+    - id: TMF666
+      implementation: /{{.Release.Name}}-accmngt
       name: AccountManagement
       port: 80
       resources:

@@ -147,7 +147,8 @@ spec:
           - GET
           - GET /id
     publishedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/hub
+    - id: TMF638
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceInventory/hub
       implementation: /{{.Release.Name}}-serviceInventoryEvent
       name: ServiceInventoryManagement
       port: 80
@@ -158,7 +159,8 @@ spec:
       - serviceDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - id: TMF701
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
       name: ProcessFlowManagement
       port: 80

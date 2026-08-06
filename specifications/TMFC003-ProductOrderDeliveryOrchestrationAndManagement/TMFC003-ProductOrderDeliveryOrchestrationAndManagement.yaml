@@ -515,7 +515,8 @@ spec:
           - GET /id
           - PATCH
     publishedEvents:
-    - name: ProductOrder
+    - id: TMF622
+      name: ProductOrder
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v4.0.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-ProductOrderEvent
@@ -530,7 +531,8 @@ spec:
       - cancelProductOrderCreateEvent
       - cancelProductOrderStateChangeEvent
       - cancelProductOrderInformationRequiredEvent
-    - name: ProductOrder
+    - id: TMF622
+      name: ProductOrder
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v5.0.0.swagger.json
       apiType: openapi
       implementation: /{{.Release.Name}}-ProductOrderEvent
@@ -545,7 +547,8 @@ spec:
       - cancelProductOrderCreateEvent
       - cancelProductOrderStateChangeEvent
       - cancelProductOrderInformationRequiredEvent
-    - name: ProcessFlowManagement
+    - id: TMF701
+      name: ProcessFlowManagement
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
       implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
@@ -561,7 +564,8 @@ spec:
       - taskFlowDeleteEvent
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
-    - name: ProcessManagement
+    - id: TMF701
+      name: ProcessManagement
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
       implementation: /{{.Release.Name}}-ProcessManagementEvent

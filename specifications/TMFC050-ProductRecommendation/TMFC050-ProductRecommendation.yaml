@@ -275,7 +275,8 @@ spec:
           - GET /id
           - PATCH /id
     publishedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/queryProductRecommendation/hub
+    - id: TMF680
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/queryProductRecommendation/hub
       implementation: /{{.Release.Name}}-QueryProductRecommendation
       name: queryProductRecommendation
       port: 80
@@ -284,7 +285,8 @@ spec:
       - queryProductRecommendationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF680_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
+    - id: TMF701
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/hub
       implementation: /{{.Release.Name}}-ProcessFlowManagement
       name: processFlowManagement
       port: 80

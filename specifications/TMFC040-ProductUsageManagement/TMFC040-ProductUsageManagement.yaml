@@ -134,7 +134,8 @@ spec:
           - GET /id
           - PATCH /id
     publishedEvents:
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UsageConsumption/hub
+    - id: TMF677
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/UsageConsumption/hub
       name: UsageConsumption
       port: 80
       resources:
@@ -143,7 +144,8 @@ spec:
       - queryUsageConsumptionStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF677_v4.0.0.swagger.json
       apiType: openapi
-    - hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/usageManagement/hub
+    - id: TMF635
+      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/usageManagement/hub
       name: UsageManagement
       port: 80
       resources:

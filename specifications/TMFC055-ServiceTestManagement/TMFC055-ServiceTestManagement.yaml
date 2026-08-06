@@ -122,7 +122,8 @@ spec:
           - POST
           - PATCH
     publishedEvents:
-    - hub: ServiceTestManagement.com
+    - id: TMF653
+      hub: ServiceTestManagement.com
       name: ServiceTestManagement
       port: 80
       apiType: openapi

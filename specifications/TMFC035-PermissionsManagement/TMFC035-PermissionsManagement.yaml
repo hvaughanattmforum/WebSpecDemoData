@@ -80,7 +80,8 @@ spec:
           - PATCH /id
           - DELETE /id
     publishedEvents:
-    - implementation: /{{.Release.Name}}-userrole&permapi
+    - id: TMF672
+      implementation: /{{.Release.Name}}-userrole&permapi
       name: userRole
       port: 80
       resources:
@@ -94,7 +95,8 @@ spec:
       - userRoleDeleteEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF672_v4.0.0.swagger.json
       apiType: openapi
-    - implementation: /{{.Release.Name}}-partyroleapi
+    - id: TMF669
+      implementation: /{{.Release.Name}}-partyroleapi
       name: partyRole
       port: 80
       resources:

@@ -87,7 +87,8 @@ spec:
           - GET /id
           - PATCH /id
     publishedEvents:
-    - implementation: /{{.Release.Name}}-digidemngt
+    - id: TMF720
+      implementation: /{{.Release.Name}}-digidemngt
       name: digitalIdentity
       port: 80
       resources:
