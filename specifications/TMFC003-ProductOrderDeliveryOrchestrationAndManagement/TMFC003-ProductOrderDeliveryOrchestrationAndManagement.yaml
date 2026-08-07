@@ -552,12 +552,10 @@ spec:
           - GET /id
           - PATCH
     publishedEvents:
-    - name: ProductOrder
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF622_Product_Ordering/4.0.0/swagger/TMF622_Product_Ordering_Management_API_v4.0.0_swagger.json
+    - id: TMF622
+      name: Product Ordering
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ProductOrderEvent
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrder/v4/hub
-      port: 80
       resources:
       - productOrderStateChangeEvent
       - productOrderCreateEvent
@@ -567,12 +565,10 @@ spec:
       - cancelProductOrderCreateEvent
       - cancelProductOrderStateChangeEvent
       - cancelProductOrderInformationRequiredEvent
-    - name: ProductOrder
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF622_Product_Ordering/5.0.0/swagger/TMF622-ProductOrdering-v5.0.0.oas.yaml
+    - id: TMF622
+      name: ProductOrdering
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v5.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ProductOrderEvent
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductOrder/v5/hub
-      port: 80
       resources:
       - productOrderStateChangeEvent
       - productOrderCreateEvent
@@ -582,12 +578,10 @@ spec:
       - cancelProductOrderCreateEvent
       - cancelProductOrderStateChangeEvent
       - cancelProductOrderInformationRequiredEvent
-    - name: ProcessFlowManagement
-      specification: https://github.com/tmforum-apis/TMF701_ProcessFlow/blob/main/TMF701-ProcessFlow-v4.0.0.swagger.json
+    - id: TMF701
+      name: ProcessFlowManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
-      implementation: /{{.Release.Name}}-ProcessFlowManagementEvent
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessFlowManagement/v5/hub
-      port: 80
       resources:
       - processFlowCreateEvent
       - processFlowStateChangeEvent
@@ -597,13 +591,11 @@ spec:
       - taskFlowStateChangeEvent
       - taskFlowDeleteEvent
       - taskFlowAttributeValueChangeEvent
-      - taskFlowInformationRequiredEvent 
-    - name: ProcessManagement
+      - taskFlowInformationRequiredEvent
+    - id: TMF701
+      name: ProcessManagement
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
-      implementation: /{{.Release.Name}}-ProcessManagementEvent
-      hub: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProcessManagement/v5/hub
-      port: 80
       resources:
       - processCreateEvent
       - processStateChangeEvent
@@ -621,15 +613,13 @@ spec:
       - taskSpecificationAttributeValueChangeEvent
       - taskSpecificationCreateEvent
       - taskSpecificationDeleteEvent
-      - taskSpecificationStateChangeEvent    
+      - taskSpecificationStateChangeEvent
     subscribedEvents:
-    - name: ServiceOrder
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF641_Service_Ordering/4.1.0/swagger/TMF641_Service_Ordering_Management_API_v4.1.0_swagger.json
+    - id: TMF641
+      name: API ServiceOrdering
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF641_v4.1.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-serviceOrderingManagementEvent
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/v4/callback
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
-      port: 80
       resources:
       - serviceOrderAttributeValueChangeEvent
       - serviceOrderInformationRequiredEvent
@@ -638,13 +628,11 @@ spec:
       - serviceOrderDeleteEvent
       - cancelServiceOrderStateChangeEvent
       - cancelServiceOrderInformationRequiredEvent
-    - name: ServiceOrder
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF641_Service_Ordering/5.0.0/swagger/TMF641-ServiceOrdering-v5.0.0.oas.yaml
+    - id: TMF641
+      name: API ServiceOrdering
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF641_v4.1.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-serviceOrderingManagementEvent
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/v5/callback
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/v5/docs
-      port: 80
       resources:
       - serviceOrderDeleteEvent
       - serviceOrderStateChangeEvent
@@ -653,302 +641,240 @@ spec:
       - serviceOrderMilestoneEvent
       - serviceOrderJeopardyEvent
       - cancelServiceOrderStateChangeEvent
-      - cancelServiceOrderInformationRequiredEvent     
-    - name: ResourceOrder
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF652_Resource_Order/4.0.0/swagger/TMF652_Resource_Order_Management_API_v4.0.0_swagger.json
+      - cancelServiceOrderInformationRequiredEvent
+    - id: TMF652
+      name: Resource Ordering Management
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF652_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ResourceOrder
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrder/v4/callback
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrder/v4/docs
-      port: 80
       resources:
       - resourceOrderStateChange
       - resourceOrderAttributeValueChangeEvent
       - resourceOrderInformationRequiredEvent
       - cancelResourceOrderStateChange
       - cancelResourceOrderInformationRequiredEvent
-    - name: ResourceOrder
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF652_Resource_Order/5.0.0/swagger/TMF652-Resource_Ordering-v5.0.0.oas.yaml
+    - id: TMF652
+      name: Resource Ordering Management
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF652_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ResourceOrder
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrder/v5/callback
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrder/v5/docs
-      port: 80
       resources:
       - resourceOrderStateChange
       - resourceOrderAttributeValueChangeEvent
       - resourceOrderInformationRequiredEvent
       - cancelResourceOrderStateChange
-      - cancelResourceOrderInformationRequiredEvent         
-    - name: GeographicLocation
+      - cancelResourceOrderInformationRequiredEvent
+    - id: TMF675
+      name: GeographicLocation
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF675_Geographic_Location/4.0.0/swagger/TMF675_Geographic_Location_Management_API_v4.0.0_beta_swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-GeographicLocation
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicLocation/v4/callback
-      port: 80
       resources:
       - geographicLocationCreateEvent
       - geographicLocationAttributeValueChangeEvent
       - geographicLocationDeleteEvent
-    - name: GeographicSiteManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF674_Geographic_Site/4.0.0/swagger/TMF674_Geographic_Site_Management_API_v4.0.0_swagger.json
+    - id: TMF674
+      name: GeographicSiteManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-GeographicSiteManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/v4/callback
-      port: 80
       resources:
       - geographicSiteCreateEvent
       - geographicSiteAttributeValueChangeEvent
       - geographicSiteDeleteEvent
       - geographicSiteStatusChangeEvent
-    - name: GeographicSiteManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF674_Geographic_Site/5.0.0/swagger/TMF674-Geographic_Site-v5.0.0.oas.yaml
+    - id: TMF674
+      name: GeographicSiteManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-GeographicSiteManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicSite/v5/callback
-      port: 80
       resources:
       - geographicSiteCreateEvent
       - geographicSiteAttributeValueChangeEvent
       - geographicSiteDeleteEvent
-      - geographicSiteStateChangeEvent          
-    - name: GeographicAddressManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF673_Geographic_Address/4.0.0/swagger/TMF673_Geographic_Address_Management_API_v4.0.0_swagger.json
+      - geographicSiteStateChangeEvent
+    - id: TMF673
+      name: API Place - GeographicAddress
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-GeographicAddressManagementEvent
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v4/callback
-      port: 80
       resources:
       - geographicAddressValidationStateChangeEvent
-    - name: GeographicAddressManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF673_Geographic_Address/5.0.0/swagger/TMF673-GeographicAddress-v5.0.0.oas.yaml
+    - id: TMF673
+      name: API Place - GeographicAddress
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-GeographicAddressManagementEvent
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/GeographicAddressManagement/v5/callback
-      port: 80
       resources:
-      - geographicAddressValidationStateChangeEvent      
-      - geographicAddressAttributeValueChangeEvent      
-      - geographicAddressCreateEvent      
-      - geographicAddressDeleteEvent      
-    - name: IntentManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF921_Intent/5.0.0/swagger/TMF921_Intent_Management_v5.0.0.oas.yaml
+      - geographicAddressValidationStateChangeEvent
+      - geographicAddressAttributeValueChangeEvent
+      - geographicAddressCreateEvent
+      - geographicAddressDeleteEvent
+    - id: TMF921
+      name: Intent Managenment
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF921_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-IntentManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/IntentManagement/v5/callback
-      port: 80
       resources:
       - intentCreateEvent
       - intentStatusChangeEvent
-      - intentDeleteEvent       
-      - intentAttributeValueChangeEvent       
-    - name: AppointmentManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF646_Appointment/4.0.0/swagger/TMF646_Appointment_Management_API_v4.0.0_swagger.json
+      - intentDeleteEvent
+      - intentAttributeValueChangeEvent
+    - id: TMF646
+      name: AppointmentManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF646_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-AppointmentManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AppointmentManagement/v4/callback
-      port: 80
       resources:
       - appointmentStateChange
       - appointmentCreateEvent
       - appointmentAttributeValueChangeEvent
-      - appointmentDeleteEvent     
-    - name: ProductOfferingQualification
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF679_Product_Offering_Qualification/4.0.0/swagger/TMF679_Product_Offering_Qualification_Management_API_v4.0.0_swagger.json
+      - appointmentDeleteEvent
+    - id: TMF679
+      name: ProductOfferingQualification
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF679_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-poq
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/poq/v4/callback
-      port: 80
       resources:
       - productOfferingQualificationCreateEvent
       - productOfferingQualificationAttributeValueChangeEvent
       - productOfferingQualificationStateChangeEvent
       - productOfferingQualificationDeleteEvent
       - productOfferingQualificationInformationRequiredEvent
-    - name: ProductOfferingQualification
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF679_Product_Offering_Qualification/5.0.0/swagger/TMF679-Product_Offering_Qualification-v5.0.0.oas.yaml
+    - id: TMF679
+      name: ProductOfferingQualification
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF679_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-poq
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/poq/v5/callback
-      port: 80
       resources:
       - checkProductOfferingQualificationCreateEvent
       - checkProductOfferingQualificationAttributeValueChangeEvent
       - checkProductOfferingQualificationStateChangeEvent
       - checkProductOfferingQualificationDeleteEvent
-    - name: PartyManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF632_Party/4.0.0/swagger/TMF632_Party_Management_API_v4.0.0_swagger.json
+    - id: TMF632
+      name: PartyManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-PartyManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/v4/callback
-      port: 80
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-    - name: PartyManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF632_Party/5.0.0/swagger/TMF632-Party_Management-v5.0.0.oas.yaml
+    - id: TMF632
+      name: PartyManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v5.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-PartyManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Party/v5/callback
-      port: 80
       resources:
       - individualDeleteEvent
-      - organizationDeleteEvent         
-    - name: PartyRoleManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF669_Party_Role/4.0.0/swagger/TMF669_Party_Role_Management_API_v4.0.0_swagger.json
+      - organizationDeleteEvent
+    - id: TMF669
+      name: PartyRoleManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-PartyRoleManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/v4/callback
-      port: 80
       resources:
       - partyRoleDeleteEvent
-    - name: PartyRoleManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF669_Party_Role/5.0.0/swagger/TMF669-Party_Role_Management-v5.0.0.oas.yaml
+    - id: TMF669
+      name: PartyRoleManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-PartyRoleManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PartyRole/v5/callback
-      port: 80
       resources:
       - partyRoleDeleteEvent
       - partyRoleSpecificationDeleteEvent
-    - name: PaymentManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF676_Payment/4.0.0/swagger/TMF676_Payment_Management_API_v4.0.0_swagger.json
+    - id: TMF676
+      name: PaymentManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF676_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-PaymentManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/Payment/v4/callback
-      port: 80
       resources:
       - paymentDeleteEvent
-    - name: AccountManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF666_Account/5.0.0/swagger/TMF666-Account_Management-v5.0.0.oas.yaml
+    - id: TMF666
+      name: AccountManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF666_v5.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-AccountManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AccountManagement/v5/callback
-      port: 80
       resources:
-      - billingAccountDeleteEvent       
-    - name: AgreementManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF651_Agreement/4.0.0/swagger/TMF651_Agreement_Management_API_v4.0.0_swagger.json
+      - billingAccountDeleteEvent
+    - id: TMF651
+      name: AgreementManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF651_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-AgreementManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/AgreementManagement/v4/callback
-      port: 80
       resources:
       - agreementDeleteEvent
-    - name: ResourceInventoryManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF639_Resource_Inventory/4.0.0/swagger/TMF639_Resource_Inventory_Management_API_v4.0.0_swagger.json
+    - id: TMF639
+      name: ResourceInventoryManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ResourceInventoryManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventoryManagement/v4/callback
-      port: 80
       resources:
       - resourceDeleteEvent
-    - name: ResourceInventoryManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF639_Resource_Inventory/5.0.0/swagger/TMF639-Resource_Inventory_Management-v5.0.0.oas.yaml
+    - id: TMF639
+      name: ResourceInventoryManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ResourceInventoryManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventoryManagement/v5/callback
-      port: 80
       resources:
-      - resourceDeleteEvent       
-    - name: ResourceCatalogManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF634_Resource_Catalog/4.1.0/swagger/TMF634_Resource_Catalog_Management_API_v4.1.0_swagger.json
+      - resourceDeleteEvent
+    - id: TMF634
+      name: ResourceCatalogManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ResourceCatalogManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalogManagement/v4/callback
-      port: 80
       resources:
       - resourceSpecificationDeleteEvent
-    - name: ResourceCatalogManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF634_Resource_Catalog/5.0.0/swagger/TMF634-Resource_Catalog_Management-v5.0.0.oas.yaml
+    - id: TMF634
+      name: ResourceCatalogManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v5.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ResourceCatalogManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceCatalogManagement/v5/callback
-      port: 80
       resources:
-      - resourceSpecificationDeleteEvent        
-    - name: ServiceInventoryManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/4.0.0/swagger/TMF638_Service_Inventory_Management_API_v4.0.0_swagger.json
+      - resourceSpecificationDeleteEvent
+    - id: TMF638
+      name: ServiceInventoryManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ServiceInventoryManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventoryManagement/v4/callback
-      port: 80
       resources:
       - serviceDeleteEvent
-    - name: ServiceInventoryManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF638_Service_Inventory/5.0.0/swagger/TMF638-Service_Inventory_Management-v5.0.0.oas.yaml
+    - id: TMF638
+      name: ServiceInventoryManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v5.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ServiceInventoryManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceInventoryManagement/v5/callback
-      port: 80
       resources:
-      - serviceDeleteEvent         
-    - name: ServiceCatalogManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF633_Service_Catalog/4.0.0/swagger/TMF633_Service_Catalog_Management_API_v4.0.0_swagger.json
+      - serviceDeleteEvent
+    - id: TMF633
+      name: ServiceCatalogManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ServiceCatalogManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ServiceCatalogManagement/v4/callback
-      port: 80
       resources:
-      - serviceSpecificationDeleteEvent       
-    - name: ProductInventoryManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF637_Product_Inventory/4.0.0/swagger/TMF637_Product_Inventory_Management_API_v4.0.0_swagger.json
+      - serviceSpecificationDeleteEvent
+    - id: TMF637
+      name: ProductInventoryManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF637_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ProductInventoryManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductInventoryManagement/v4/callback
-      port: 80
       resources:
       - productCreateEvent
       - productAttributeValueChangeEvent
       - productStateChangeEvent
       - productDeleteEvent
       - productBatchEvent
-    - name: ProductInventoryManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF637_Product_Inventory/5.0.0/swagger/TMF637-ProductInventory-v5.0.0.oas.yaml
+    - id: TMF637
+      name: ProductInventoryManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF637_v5.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ProductInventoryManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductInventoryManagement/v5/callback
-      port: 80
       resources:
       - productCreateEvent
       - productAttributeValueChangeEvent
       - productStateChangeEvent
       - productDeleteEvent
-      - productBatchEvent        
-    - name: ProductCatalogManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF620_Product_Catalog/4.1.0/swagger/TMF620_Product_Catalog_Management_API_v4.1.0_swagger.json
+      - productBatchEvent
+    - id: TMF620
+      name: ProductCatalogManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ProductCatalogManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/v4/callback
-      port: 80
       resources:
       - productSpecificationDeleteEvent
       - productOfferingDeleteEvent
       - productOfferingPriceDeleteEvent
-    - name: ProductCatalogManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF620_Product_Catalog/5.0.0/swagger/TMF620-Product_Catalog_Management-v5.0.0.oas.yaml
+    - id: TMF620
+      name: ProductCatalogManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v5.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-ProductCatalogManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ProductCatalogManagement/v5/callback
-      port: 80
       resources:
       - productSpecificationDeleteEvent
       - productOfferingDeleteEvent
       - productOfferingPriceDeleteEvent
-    - name: QuoteManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF648_Quote/4.0.0/swagger/TMF648_Quote_Management_API_v4.0.0_swagger.json
+    - id: TMF648
+      name: QuoteManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF648_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-QuoteManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/QuoteManagement/v4/callback
-      port: 80
       resources:
       - quoteDeleteEvent
-    - name: QuoteManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF648_Quote/5.0.0/swagger/TMF648-Quote-v5.0.0.oas.yaml
+    - id: TMF648
+      name: QuoteManagement
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF648_v4.0.0.swagger.json
       apiType: openapi
-      implementation: /{{.Release.Name}}-QuoteManagement
-      call-back: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/QuoteManagement/v5/callback
-      port: 80
       resources:
       - quoteDeleteEvent
   componentMetadata:
