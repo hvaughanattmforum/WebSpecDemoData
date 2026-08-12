@@ -60,11 +60,11 @@
 
             "id": {
               "type": "string",
-              "description": "TMF ODA Component identifier in the format TMFCXXX."
+              "description": "TMF ODA Component identifier in the format TMFCnnn."
             },
             "description": {
               "type": "string",
-              "description": "TMF ODA Component Description"
+              "description": "TMF ODA Component Description.  The description visable in the Component Directory"
             },
             "name": {
               "type": "string",
@@ -72,7 +72,7 @@
             },
             "version": {
               "type": "string",
-              "description": "TMF ODA Component Version"
+              "description": "TMF ODA Component Version.  N.N.N (no v in front)."
             },
             "publicationDate": {
               "type": ["string", "null"],
@@ -88,14 +88,14 @@
             },
             "owners": {
               "type": "array",
-              "description": "Owners is an optional list of the owners of the installed component.",
+              "description": "Owners is an optional list of the owners of the installed component. Please note there are PID issues with this content.",
               "items": {
                 "$ref": "#/definitions/contact"
               }
             },
             "maintainers": {
               "type": "array",
-              "description": "Maintainers is an optional list of maintainers of the component. The maintainers in this list maintain the source code, images, and package for the component.",
+              "description": "Maintainers is an optional list of maintainers of the component. The maintainers in this list maintain the source code, images, and package for the component. Please note there are PID issues with this content, and we now carry the team eMail of components@tmforum.org instead",
               "items": {
                 "$ref": "#/definitions/contact"
               }
@@ -144,26 +144,26 @@
         },
         "apiType": {
           "type": "string",
-          "description": "The type of API specification. Currently only OpenAPI (swagger) and open-metrics (metrics) APIs are supported."
+          "description": "The type of API specification. Every increasing list of types."
         },
         "url": {
           "type": "string"
         },
         "path": {
           "type": "string",
-          "description": "The path to the root of the API"
+          "description": "The path to the root of the API. Only used in helm chart, not generic spec YAML."
         },
         "developerUI": {
           "type": "string",
-          "description": "(optional) The path to the developer User Interface for the API"
+          "description": "(optional) The path to the developer User Interface for the API. Only used in helm chart, not generic spec YAML."
         },
         "implementation": {
           "type": "string",
-          "description": "The name of the service where the implementation of the API is found"
+          "description": "The name of the service where the implementation of the API is found. Only used in helm chart, not generic spec YAML."
         },
         "port": {
           "type": "number",
-          "description": "The port where the API is exposed"
+          "description": "The port where the API is exposed.  Only used in helm chart, not generic spec YAML."
         },
         "resources": {
           "type": "array",
