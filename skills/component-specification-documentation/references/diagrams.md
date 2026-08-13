@@ -230,6 +230,47 @@ descriptions from the framework spreadsheets" above). A component with **no** pu
 no longer a dead end — build both files entirely from the spreadsheets; there is a default for every ID that
 exists in a framework release.
 
+## SID descriptions (section 2.2 — prose in a hand-maintained lookup file, keyed by name pair, not ID)
+
+Same class of problem as the eTOM/Functional Framework descriptions above: `componentMetadata.SIDs` is
+ID/name/version only (see "Parsing componentMetadata lists" for how Level 1/Level 2 are derived from it),
+and nothing in the YAML holds the ABE definition prose the officially-published component document's own
+2.2 table shows. That text lives in `Diagrams/<ComponentID>_SID_Descriptions.md` — already transcribed for
+every component in this repo (unlike the eTOM/FF files, which only exist for a subset), so section 2.2
+should essentially never fall back to the framework spreadsheet in practice, but the same precedence rule
+applies if a gap ever shows up: component doc wins, framework spreadsheet (`GB922_Information_Framework_
+SID_Excel_v<ver>.xlsx`) is the default, `*(no description available)*` only if neither has it.
+
+**Format**:
+
+```markdown
+# TMFC005 SID Descriptions
+
+Source: `TMFC005 Product Inventory v1.1.4.docx` (Section 2.2) where it documents a definition;
+gap-filled from the SID Information Framework spreadsheet for ABEs/Business Entities it omits.
+
+| SID ABE Level 1 | SID ABE L1 Definition | SID ABE Level 2 | SID ABE L2 Definition | Source |
+|---|---|---|---|---|
+| Product and Offering Instance | Product and ProductOfferingInstance represent... | Product | Represents an instance... | GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |
+```
+
+**Matching is by (Level 1, Level 2) name pair, not by an ID** — SID entries have no stable identifier the
+way eTOM/FF entries do, only the two derived display names (see "Parsing componentMetadata lists" for how a
+YAML `SIDs` entry becomes those two names). Build a dict keyed on the exact `(SID ABE Level 1, SID ABE Level
+2)` tuple from the file (blank Level 2 stays an empty string, matching a YAML entry with no second ABE
+token) and look up each parsed YAML row by that same tuple. A file can and does have multiple rows sharing
+one Level 1 with different Level 2 values (or a blank one) — that's the same entity family documented at
+different levels, not a duplicate to collapse.
+
+Add two columns to the 2.2 table: `SID ABE L1 Definition` and `SID ABE L2 Definition` (looked up
+independently — a row can have an L1 definition with no L2 definition, or vice versa, if the source document
+only defined one level). Escape embedded `|` the same way as the other description files. If a YAML SID
+entry's (L1, L2) pair has no row in the file, that's the rare gap case — check the framework spreadsheet
+before writing `*(no description available)*`, and flag it in your chat summary since the file's near-total
+coverage means a real miss here is more likely to be a name-derivation mismatch (e.g. the SID-parsing rule
+producing a slightly different Level 2 string than what was transcribed) than a genuine absence — recheck
+the parsing before concluding the ID is dangling.
+
 ## Exposed API / Dependent API diagrams
 
 These already exist as ready-to-use PlantUML in `Diagrams/<ID>_Exposed_API.yaml` and
@@ -503,10 +544,19 @@ diagram:
 3. For each row's `SID ABE` cell, check for a trailing `(TMFCxxx - ...)` annotation first — if present, this
    is a cross-component reference; write `external (cross-component)` and don't try to match it locally.
    Otherwise match the (parenthetical-stripped) name against the current SID list's per-entry names.
-4. Rewrite the `YAML eTOM` / `YAML SID` cell for every row with what you found (escaping embedded `|` as
-   `\|`, per above). If a piece has no match at all, write `**NO MATCH**` rather than guessing or leaving
-   the stale prior value — this is a strong, visible signal something drifted (renamed, removed) or that
-   the Links file's own text has a typo.
+4. **Check whether the cell's existing value is still valid before recomputing it.** A cell is still valid
+   if every raw entry it cites is verbatim present in the current YAML list (or the cell reads `external
+   (cross-component)`) — if so, leave it exactly as it is; don't recompute and overwrite it. This is what
+   makes a manual resolution sticky: `eTOM activity`/`SID ABE` labels are often intentionally shortened to
+   fit the diagram boxes (see "Check for `Diagrams/<ComponentID>_eTOM_SID_Links.md` first" above), so the
+   *name-matching* step in 2/3 above frequently can't derive the same match a human already worked out by
+   reading the label in context — without this stickiness rule, every refresh would silently regress an
+   already-correct cell back to `**NO MATCH**`. Only recompute a cell whose existing value cites an entry
+   that's no longer in the current YAML at all (or that already reads `**NO MATCH**`) — that's genuine
+   drift worth re-deriving, or re-attempting. Rewrite the `YAML eTOM` / `YAML SID` cell for every row that
+   *is* recomputed (escaping embedded `|` as `\|`, per above); if a piece still has no match at all, write
+   `**NO MATCH**` rather than guessing — this is a strong, visible signal something drifted (renamed,
+   removed) or that the Links file's own text has a typo.
 5. **Do not silently drop, add, or rename anything in the first three (hand-maintained) columns to fix a
    mismatch** — if refreshing the YAML columns surfaces a real gap (an eTOM activity or SID ABE genuinely
    missing from the Links file, or a Links-file entry that no longer exists in the YAML), leave the link

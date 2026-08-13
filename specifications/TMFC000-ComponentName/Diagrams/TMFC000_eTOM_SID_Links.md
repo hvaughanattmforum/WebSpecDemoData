@@ -11,8 +11,8 @@ overwritten by generated output; how many links the diagram actually contains ve
 
 | eTOM activity | SID ABE | Direction | YAML eTOM | YAML SID |
 |---|---|---|---|---|
-| <1.2.7 Product Specification & Offering Development & Retirement> | <Product Offering Specification> | <bidirectional \| eTOM-to-SID \| SID-to-eTOM> | <1.2.7\|Business_Activity_Name_With_Underscores\|v24.0> | <Domain_Name\|ABE_Name_ABE\|v25.0> |
-| <1.2.7 Product Specification & Offering Development & Retirement> | <Product Configuration> | <bidirectional> | <1.2.7\|Business_Activity_Name_With_Underscores\|v24.0> | <Domain_Name\|ABE_Name_ABE\|BE_Name_BE\|v25.0> |
+| Business Activity Name With Underscores | ABE Name ABE | <bidirectional \| eTOM-to-SID \| SID-to-eTOM> | <1.2.7\|Business_Activity_Name_With_Underscores\|v24.0> | <Domain_Name\|ABE_Name_ABE\|v25.0> |
+| Business Activity Name With Underscores | BE Name BE | <bidirectional> | <1.2.7\|Business_Activity_Name_With_Underscores\|v24.0> | <Domain_Name\|ABE_Name_ABE\|BE_Name_BE\|v25.0> |
 
 <!-- YAML key format:
      eTOM -> <identifier>|<Business_Activity_Name>|<eTOM version>       (spaces become underscores)

@@ -8,5 +8,5 @@ page, rendered it as blank, and wrongly recorded this component as having no dia
 
 | eTOM activity | SID ABE | Direction | YAML eTOM | YAML SID |
 |---|---|---|---|---|
-| Pricing, Discounting, Adjustments & Rebates Application L3 | Applied Customer Billing Rate | bidirectional | 1.3.9.4\|Pricing,_Discounting,_Adjustments_&_Rebates_Application\|v23.5 | Customer_Domain\|Applied_Customer_Billing_Rate_ABE\|v23.5.0 |
-| Pricing, Discounting, Adjustments & Rebates Application L3 | Applied Party Billing Rate | activity produces | 1.3.9.4\|Pricing,_Discounting,_Adjustments_&_Rebates_Application\|v23.5 | Business_Partner_Domain\|Applied_Party_Billing_Rate_ABE\|v23.5.0 |
+| Pricing, Discounting, Adjustments & Rebates Application L3 | Applied Customer Billing Rate ABE | bidirectional | **NO MATCH** | Customer_Domain\|Applied_Customer_Billing_Rate_ABE\|v23.5.0 |
+| Pricing, Discounting, Adjustments & Rebates Application L3 | Applied Party Billing Rate ABE | activity produces | **NO MATCH** | Business_Partner_Domain\|Applied_Party_Billing_Rate_ABE\|v23.5.0 |
