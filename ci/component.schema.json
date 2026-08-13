@@ -59,35 +59,43 @@
           "properties" : {
 
             "id": {
-              "type": "string"
+              "type": "string",
+              "description": "TMF ODA Component identifier in the format TMFCnnn."
             },
             "description": {
-              "type": "string"
+              "type": "string",
+              "description": "TMF ODA Component Description.  The description visable in the Component Directory"
             },
             "name": {
-              "type": "string"
+              "type": "string",
+              "description": "TMF ODA Component Name"
             },
             "version": {
-              "type": "string"
+              "type": "string",
+              "description": "TMF ODA Component Version.  N.N.N (no v in front)."
             },
             "publicationDate": {
               "type": ["string", "null"],
-              "format": "date"
+              "format": "date",
+              "description": "TMF ODA Component publication date"
             },
             "status": {
               "type": "string"
             },
             "functionalBlock": {
-              "type": "string"
+              "type": "string",
+              "description": "TMF ODA Component Name Functional Block"
             },
             "owners": {
               "type": "array",
+              "description": "Owners is an optional list of the owners of the installed component. Please note there are PID issues with this content.",
               "items": {
                 "$ref": "#/definitions/contact"
               }
             },
             "maintainers": {
               "type": "array",
+              "description": "Maintainers is an optional list of maintainers of the component. The maintainers in this list maintain the source code, images, and package for the component. Please note there are PID issues with this content, and we now carry the team eMail of components@tmforum.org instead",
               "items": {
                 "$ref": "#/definitions/contact"
               }
@@ -135,22 +143,27 @@
           "type": ["number", "string"]
         },
         "apiType": {
-          "type": "string"
+          "type": "string",
+          "description": "The type of API specification. Every increasing list of types."
         },
         "url": {
           "type": "string"
         },
         "path": {
-          "type": "string"
+          "type": "string",
+          "description": "The path to the root of the API. Only used in helm chart, not generic spec YAML."
         },
         "developerUI": {
-          "type": "string"
+          "type": "string",
+          "description": "(optional) The path to the developer User Interface for the API. Only used in helm chart, not generic spec YAML."
         },
         "implementation": {
-          "type": "string"
+          "type": "string",
+          "description": "The name of the service where the implementation of the API is found. Only used in helm chart, not generic spec YAML."
         },
         "port": {
-          "type": "number"
+          "type": "number",
+          "description": "The port where the API is exposed.  Only used in helm chart, not generic spec YAML."
         },
         "resources": {
           "type": "array",
@@ -168,7 +181,8 @@
           "type": "string"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the API"
         },
         "apiSDO": {
           "type": "string"
@@ -214,7 +228,8 @@
           "type": "string"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the API that this component is dependent on"
         },
         "apiSDO": {
           "type": "string"
@@ -249,6 +264,7 @@
       "properties": {
         "resources": {
           "type": "array",
+          "description": "Open APIs resources specified for the Component",
           "items": {
             "type": "string"
           }
@@ -263,7 +279,8 @@
           "type": "string"
         },
         "hub": {
-          "type": "string"
+          "type": "string",
+          "description": "The path for configuring the destination for the events"
         },
         "implementation": {
           "type": "string"
@@ -284,7 +301,8 @@
           "type": "string"
         },
         "call-back": {
-          "type": "string"
+          "type": "string",
+          "description": "The path to call-back end-point for these events"
         }
       }
     },
@@ -292,13 +310,16 @@
       "type": "object",
       "properties": {
         "email": {
-          "type": "string"
+          "type": "string",
+          "description": "Email is the email address."
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name is the descriptive name."
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "description": "Website address of maintaining/owning organization."
         }
       },
       "required": [
