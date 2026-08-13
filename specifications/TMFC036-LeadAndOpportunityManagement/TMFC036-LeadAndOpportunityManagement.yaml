@@ -190,7 +190,7 @@ spec:
       - OrganizationAttributeValueChangeEvent
       - OrganizationStateChangeEvent
       - OrganizationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF620
       name: ProductCatalogManagement
@@ -207,7 +207,7 @@ spec:
       - ProductOfferingPriceAttributeValueChangeEvent
       - ProductOfferingPriceStateChangeEvent
       - ProductOfferingPriceDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF622
       name: Product Ordering
@@ -217,7 +217,7 @@ spec:
       - ProductOrderDeleteEvent
       - ProductOrderStateChangeEvent
       - ProductOrderInformationRequiredEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF651
       name: AgreementManagement
@@ -249,7 +249,7 @@ spec:
       - PartyRoleAttributeValueChangeEvent
       - PartyRoleStateChangeEvent
       - PartyRoleDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC036

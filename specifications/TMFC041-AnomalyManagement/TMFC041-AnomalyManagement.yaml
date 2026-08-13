@@ -64,7 +64,7 @@ spec:
       - alarmCreateEvent
       - alarmStateChangeEvent
       - alarmDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v5.0.0.swagger.json
   componentMetadata:
     id: TMFC041
     name: AnomalyManagement

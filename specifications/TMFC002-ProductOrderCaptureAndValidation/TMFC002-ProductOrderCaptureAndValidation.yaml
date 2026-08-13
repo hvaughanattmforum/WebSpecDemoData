@@ -346,6 +346,7 @@ spec:
           - GET /id
     publishedEvents:
     - id: TMF648
+      name: Quote Management API
       apiType: openapi
       hubResource: /hub
       resources:
@@ -356,14 +357,16 @@ spec:
       - quoteInformationRequiredEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF648_v4.0.0.swagger.json
     - id: TMF663
+      name: Shopping Cart Management API
       apiType: openapi
       hubResource: /hub
       resources:
       - shoppingCartCreateEvent
       - shoppingCartAttributeValueChangeEvent
       - shoppingCartDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF663_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF663_v5.0.0.swagger.json
     - id: TMF701
+      name: Process Flow Management API
       apiType: openapi
       hubResource: /hub
       resources:
@@ -379,22 +382,26 @@ spec:
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
     subscribedEvents:
     - id: TMF679
+      name: Product Offering Qualification Management API
       apiType: openapi
       resources:
       - productOfferingQualificationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF679_v4.0.0.swagger.json
     - id: TMF673
+      name: Geographic Address Management API
       apiType: openapi
       resources:
       - geographicAddressValidationStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
     - id: TMF676
+      name: Payment Management API
       apiType: openapi
       resources:
       - paymentCreateEvent
       - paymentStateChangeEvent
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF676_v4.0.0.swagger.json
     - id: TMF716
+      name: Resource Reservation
       apiType: openapi
       resources:
       - resourceReservationCreateEvent

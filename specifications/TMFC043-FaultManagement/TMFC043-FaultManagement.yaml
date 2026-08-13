@@ -134,7 +134,7 @@ spec:
       - groupAlarmsStateChangeEvent
       - unGroupAlarmsCreateEvent
       - unGroupAlarmsStateChangeEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF701
       name: ProcessFlowManagement
@@ -170,7 +170,7 @@ spec:
       - serviceProblemDeleteEvent
       - serviceProblemInformationRequiredEvent
       - serviceProblemStateChangeEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF656_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF656_v5.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
     - id: TMF633
@@ -196,7 +196,7 @@ spec:
       - serviceChangeEvent
       - serviceDeleteEvent
       - serviceStateChangeEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF639
       name: ResourceInventoryManagement
@@ -249,7 +249,7 @@ spec:
       - groupAlarmsStateChangeEvent
       - unGroupAlarmsCreateEvent
       - unGroupAlarmsStateChangeEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF642_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF656
       name: ServiceProblemManagement
@@ -271,7 +271,7 @@ spec:
       - serviceProblemDeleteEvent
       - serviceProblemInformationRequiredEvent
       - serviceProblemStateChangeEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF656_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF656_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF621
       name: TroubleTicketManagement
@@ -282,20 +282,20 @@ spec:
       - troubleTicketDeleteEvent
       - troubleTicketResolvedEvent
       - troubleTicketInformationRequiredEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF621_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF621_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF632
       name: PartyManagement
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF669
       name: PartyRoleManagement
       resources:
       - partyRoleDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF662
       name: EntityCatalogManagement

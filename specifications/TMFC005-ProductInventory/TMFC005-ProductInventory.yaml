@@ -220,7 +220,7 @@ spec:
       - productStateChangeEvent
       - productDeleteEvent
       - productBatchEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF637_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF637_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF701
       name: ProcessFlowManagement
@@ -247,7 +247,7 @@ spec:
       name: ServiceInventoryManagement
       resources:
       - serviceDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF620
       name: ProductCatalogManagement
@@ -255,13 +255,13 @@ spec:
       - productSpecificationDeleteEvent
       - productOfferingDeleteEvent
       - productOfferingPriceDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF669
       name: PartyRoleManagement
       resources:
       - partyRoleDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF651
       name: AgreementManagement
@@ -273,7 +273,7 @@ spec:
       name: AccountManagement
       resources:
       - billingAccountDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF666_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF666_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF672
       name: User Roles And Permissions
@@ -298,13 +298,13 @@ spec:
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF622
       name: ProductOrderingManagement
       resources:
       - productOrderDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF637
       name: ProductInventoryManagement
@@ -313,7 +313,7 @@ spec:
       - productDeleteEvent
       - productAttributeValueChangeEvent
       - productStateChangeEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF637_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF637_v5.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC005

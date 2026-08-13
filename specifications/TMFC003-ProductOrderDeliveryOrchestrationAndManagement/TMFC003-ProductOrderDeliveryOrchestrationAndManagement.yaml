@@ -553,20 +553,7 @@ spec:
           - PATCH
     publishedEvents:
     - id: TMF622
-      name: Product Ordering
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v4.0.0.swagger.json
-      apiType: openapi
-      resources:
-      - productOrderStateChangeEvent
-      - productOrderCreateEvent
-      - productOrderAttributeValueChangeEvent
-      - productOrderDeleteEvent
-      - productOrderInformationRequiredEvent
-      - cancelProductOrderCreateEvent
-      - cancelProductOrderStateChangeEvent
-      - cancelProductOrderInformationRequiredEvent
-    - id: TMF622
-      name: ProductOrdering
+      name: Product Ordering Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF622_v5.0.0.swagger.json
       apiType: openapi
       resources:
@@ -579,7 +566,7 @@ spec:
       - cancelProductOrderStateChangeEvent
       - cancelProductOrderInformationRequiredEvent
     - id: TMF701
-      name: ProcessFlowManagement
+      name: Process Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
       apiType: openapi
       resources:
@@ -592,11 +579,6 @@ spec:
       - taskFlowDeleteEvent
       - taskFlowAttributeValueChangeEvent
       - taskFlowInformationRequiredEvent
-    - id: TMF701
-      name: ProcessManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF701_Process_Management/5.0.0/swagger/TMF701-ProcessManagement-v5.0.0.oas.yaml
-      apiType: openapi
-      resources:
       - processCreateEvent
       - processStateChangeEvent
       - processDeleteEvent
@@ -616,7 +598,7 @@ spec:
       - taskSpecificationStateChangeEvent
     subscribedEvents:
     - id: TMF641
-      name: API ServiceOrdering
+      name: Service Ordering Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF641_v4.1.0.swagger.json
       apiType: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/v4/docs
@@ -628,22 +610,9 @@ spec:
       - serviceOrderDeleteEvent
       - cancelServiceOrderStateChangeEvent
       - cancelServiceOrderInformationRequiredEvent
-    - id: TMF641
-      name: API ServiceOrdering
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF641_v4.1.0.swagger.json
-      apiType: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/serviceOrderingManagement/v5/docs
-      resources:
-      - serviceOrderDeleteEvent
       - serviceOrderStateChangeEvent
-      - serviceOrderAttributeValueChangeEvent
-      - serviceOrderInformationRequiredEvent
-      - serviceOrderMilestoneEvent
-      - serviceOrderJeopardyEvent
-      - cancelServiceOrderStateChangeEvent
-      - cancelServiceOrderInformationRequiredEvent
     - id: TMF652
-      name: Resource Ordering Management
+      name: Resource Order Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF652_v4.0.0.swagger.json
       apiType: openapi
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrder/v4/docs
@@ -653,19 +622,8 @@ spec:
       - resourceOrderInformationRequiredEvent
       - cancelResourceOrderStateChange
       - cancelResourceOrderInformationRequiredEvent
-    - id: TMF652
-      name: Resource Ordering Management
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF652_v4.0.0.swagger.json
-      apiType: openapi
-      developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceOrder/v5/docs
-      resources:
-      - resourceOrderStateChange
-      - resourceOrderAttributeValueChangeEvent
-      - resourceOrderInformationRequiredEvent
-      - cancelResourceOrderStateChange
-      - cancelResourceOrderInformationRequiredEvent
     - id: TMF675
-      name: GeographicLocation
+      name: Geographic Location Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/TMF675_Geographic_Location/4.0.0/swagger/TMF675_Geographic_Location_Management_API_v4.0.0_beta_swagger.json
       apiType: openapi
       resources:
@@ -673,7 +631,7 @@ spec:
       - geographicLocationAttributeValueChangeEvent
       - geographicLocationDeleteEvent
     - id: TMF674
-      name: GeographicSiteManagement
+      name: Geographic Site Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
       apiType: openapi
       resources:
@@ -681,23 +639,9 @@ spec:
       - geographicSiteAttributeValueChangeEvent
       - geographicSiteDeleteEvent
       - geographicSiteStatusChangeEvent
-    - id: TMF674
-      name: GeographicSiteManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF674_v4.0.0.swagger.json
-      apiType: openapi
-      resources:
-      - geographicSiteCreateEvent
-      - geographicSiteAttributeValueChangeEvent
-      - geographicSiteDeleteEvent
       - geographicSiteStateChangeEvent
     - id: TMF673
-      name: API Place - GeographicAddress
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
-      apiType: openapi
-      resources:
-      - geographicAddressValidationStateChangeEvent
-    - id: TMF673
-      name: API Place - GeographicAddress
+      name: Geographic Address Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF673_v4.0.0.swagger.json
       apiType: openapi
       resources:
@@ -706,7 +650,7 @@ spec:
       - geographicAddressCreateEvent
       - geographicAddressDeleteEvent
     - id: TMF921
-      name: Intent Managenment
+      name: Intent Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF921_v4.0.0.swagger.json
       apiType: openapi
       resources:
@@ -715,7 +659,7 @@ spec:
       - intentDeleteEvent
       - intentAttributeValueChangeEvent
     - id: TMF646
-      name: AppointmentManagement
+      name: Appointment Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF646_v4.0.0.swagger.json
       apiType: openapi
       resources:
@@ -724,7 +668,7 @@ spec:
       - appointmentAttributeValueChangeEvent
       - appointmentDeleteEvent
     - id: TMF679
-      name: ProductOfferingQualification
+      name: Product Offering Qualification Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF679_v4.0.0.swagger.json
       apiType: openapi
       resources:
@@ -733,114 +677,68 @@ spec:
       - productOfferingQualificationStateChangeEvent
       - productOfferingQualificationDeleteEvent
       - productOfferingQualificationInformationRequiredEvent
-    - id: TMF679
-      name: ProductOfferingQualification
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF679_v4.0.0.swagger.json
-      apiType: openapi
-      resources:
       - checkProductOfferingQualificationCreateEvent
       - checkProductOfferingQualificationAttributeValueChangeEvent
       - checkProductOfferingQualificationStateChangeEvent
       - checkProductOfferingQualificationDeleteEvent
     - id: TMF632
-      name: PartyManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
-      apiType: openapi
-      resources:
-      - individualDeleteEvent
-      - organizationDeleteEvent
-    - id: TMF632
-      name: PartyManagement
+      name: Party Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v5.0.0.swagger.json
       apiType: openapi
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
     - id: TMF669
-      name: PartyRoleManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
-      apiType: openapi
-      resources:
-      - partyRoleDeleteEvent
-    - id: TMF669
-      name: PartyRoleManagement
+      name: Party Role Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
       apiType: openapi
       resources:
       - partyRoleDeleteEvent
       - partyRoleSpecificationDeleteEvent
     - id: TMF676
-      name: PaymentManagement
+      name: Payment Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF676_v4.0.0.swagger.json
       apiType: openapi
       resources:
       - paymentDeleteEvent
     - id: TMF666
-      name: AccountManagement
+      name: Account Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF666_v5.0.0.swagger.json
       apiType: openapi
       resources:
       - billingAccountDeleteEvent
     - id: TMF651
-      name: AgreementManagement
+      name: Agreement Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF651_v4.0.0.swagger.json
       apiType: openapi
       resources:
       - agreementDeleteEvent
     - id: TMF639
-      name: ResourceInventoryManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
-      apiType: openapi
-      resources:
-      - resourceDeleteEvent
-    - id: TMF639
-      name: ResourceInventoryManagement
+      name: Resource Inventory Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF639_v4.0.0.swagger.json
       apiType: openapi
       resources:
       - resourceDeleteEvent
     - id: TMF634
-      name: ResourceCatalogManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
-      apiType: openapi
-      resources:
-      - resourceSpecificationDeleteEvent
-    - id: TMF634
-      name: ResourceCatalogManagement
+      name: Resource Catalog Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v5.0.0.swagger.json
       apiType: openapi
       resources:
       - resourceSpecificationDeleteEvent
     - id: TMF638
-      name: ServiceInventoryManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
-      apiType: openapi
-      resources:
-      - serviceDeleteEvent
-    - id: TMF638
-      name: ServiceInventoryManagement
+      name: Service Inventory Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v5.0.0.swagger.json
       apiType: openapi
       resources:
       - serviceDeleteEvent
     - id: TMF633
-      name: ServiceCatalogManagement
+      name: Service Catalog Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF633_v4.0.0.swagger.json
       apiType: openapi
       resources:
       - serviceSpecificationDeleteEvent
     - id: TMF637
-      name: ProductInventoryManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF637_v4.0.0.swagger.json
-      apiType: openapi
-      resources:
-      - productCreateEvent
-      - productAttributeValueChangeEvent
-      - productStateChangeEvent
-      - productDeleteEvent
-      - productBatchEvent
-    - id: TMF637
-      name: ProductInventoryManagement
+      name: Product Inventory Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF637_v5.0.0.swagger.json
       apiType: openapi
       resources:
@@ -850,15 +748,7 @@ spec:
       - productDeleteEvent
       - productBatchEvent
     - id: TMF620
-      name: ProductCatalogManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
-      apiType: openapi
-      resources:
-      - productSpecificationDeleteEvent
-      - productOfferingDeleteEvent
-      - productOfferingPriceDeleteEvent
-    - id: TMF620
-      name: ProductCatalogManagement
+      name: Product Catalog Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v5.0.0.swagger.json
       apiType: openapi
       resources:
@@ -866,13 +756,7 @@ spec:
       - productOfferingDeleteEvent
       - productOfferingPriceDeleteEvent
     - id: TMF648
-      name: QuoteManagement
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF648_v4.0.0.swagger.json
-      apiType: openapi
-      resources:
-      - quoteDeleteEvent
-    - id: TMF648
-      name: QuoteManagement
+      name: Quote Management API
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF648_v4.0.0.swagger.json
       apiType: openapi
       resources:

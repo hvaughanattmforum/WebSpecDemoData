@@ -345,10 +345,6 @@ spec:
       - workOrderStateChange
       specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Beta/4.0.0/swagger/TMF697_Work_Order_Management_API_v4.0.0_swagger.json
       apiType: openapi
-    - id: TMF681
-      name: CommunicationManagementAPI
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF681_v4.0.0.swagger.json
-      apiType: openapi
   componentMetadata:
     id: TMFC007
     name: ServiceOrderManagement

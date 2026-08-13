@@ -158,13 +158,13 @@ spec:
       - organizationAttributeValueChangeEvent
       - organizationStateChangeEvent
       - organizationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF669
       name: PartyRoleManagement
       resources:
       - partyRoleCreateEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF667
       name: documentManagement
