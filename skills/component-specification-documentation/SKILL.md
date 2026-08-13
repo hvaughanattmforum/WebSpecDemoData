@@ -620,7 +620,13 @@ top of the base conversion, `build_pdf.py` does five things this document specif
    — the only thing that works is an explicit `width:%` inline style on every `<th>`/`<td>`. `build_pdf.py`
    computes this from each column's actual content length (capped, with a floor so no column starves) and
    injects it into every table in the document automatically — don't hand-tune widths per table.
-3. **Cover, Notice, and a fresh table of contents are generated, not copied from anywhere.** See "Cover
+3. **No table row ever splits across a page break, in either export.** A long cell (typically a Function/
+   eTOM Description) running past the bottom margin used to split its row instead of moving the whole row
+   to the next page — the row's *other* cells, already rendered on the previous page, then showed up as a
+   blank-looking phantom row directly under the repeated header on the new page. `build_pdf.py`'s CSS sets
+   `tr { page-break-inside: avoid; }`; `build_docx_scroll.py` sets `w:cantSplit` on every data row it
+   builds. Keep both in place on any future rewrite of either table-building path.
+4. **Cover, Notice, and a fresh table of contents are generated, not copied from anywhere.** See "Cover
    page & Notice" above for the cover/notice fields. The ToC is built from this document's own actual
    `##`/`###`/`####` heading structure (across the concatenated main `.md` + Supplement content) — not
    copied from any prior document, since section numbering can legitimately differ (this document adds a
@@ -632,11 +638,11 @@ top of the base conversion, `build_pdf.py` does five things this document specif
    `float: right` looked right in isolation but xhtml2pdf's `float` support doesn't actually push the
    element to the margin, it left the page number glued next to the heading text, so don't use that
    approach here again.
-4. **Main `.md` + Supplement `.md` are concatenated before rendering.** The two files stay physically
+5. **Main `.md` + Supplement `.md` are concatenated before rendering.** The two files stay physically
    separate on disk (see "Supplement file" above) — `build_pdf.py` just joins their text in memory for this
    one rendering pass so the final PDF reads as one continuous document, with 5.1 (main `.md`) flowing
    directly into 5.2 (Supplement) with no visible seam.
-5. **The TM Forum logo, running title, and footer are stamped on afterward, in one pass over the
+6. **The TM Forum logo, running title, and footer are stamped on afterward, in one pass over the
    fully merged PDF** (`_apply_page_chrome()`), not baked into any of the three individual xhtml2pdf
    renders. See [references/pdf_visual_template.md](references/pdf_visual_template.md) for the full
    visual spec this implements and why the "stamp after merging" ordering matters (in short:

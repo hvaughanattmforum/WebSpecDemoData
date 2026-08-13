@@ -5,4 +5,4 @@ gap-filled from the SID Information Framework spreadsheet for ABEs/Business Enti
 
 | SID ABE Level 1 | SID ABE L1 Definition | SID ABE Level 2 | SID ABE L2 Definition | Source |
 |---|---|---|---|---|
-| Resource Configuration | The Resource Configuration ABE represents the specification of the different possible Resource configurations as well as the Resource Configurations instantiated for a Resource. |  |  | GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |
+| Resource Configuration ABE | The Resource Configuration ABE represents the specification of the different possible Resource configurations as well as the Resource Configurations instantiated for a Resource. |  |  | GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |

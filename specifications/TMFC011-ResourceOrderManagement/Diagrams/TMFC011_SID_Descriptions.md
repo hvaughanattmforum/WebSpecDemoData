@@ -5,4 +5,4 @@ gap-filled from the SID Information Framework spreadsheet for ABEs/Business Enti
 
 | SID ABE Level 1 | SID ABE L1 Definition | SID ABE Level 2 | SID ABE L2 Definition | Source |
 |---|---|---|---|---|
-| Resource Order | The Resource Order ABE contains entities related to a request to provide / update / remove Resources. |  |  | GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |
+| Resource Order ABE | The Resource Order ABE contains entities related to a request to provide / update / remove Resources. |  |  | GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |
