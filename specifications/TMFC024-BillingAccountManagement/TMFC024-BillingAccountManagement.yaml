@@ -146,7 +146,7 @@ spec:
       resources:
       - billingAccountAttributeValueChangeEvent
       - billingAccountStateChangeEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF666_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF666_v5.0.0.swagger.json
       apiType: openapi
     subscribedEvents:
     - id: TMF669
@@ -156,7 +156,7 @@ spec:
       - partyRoleAttributeValueChangeEvent
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
   componentMetadata:
     id: TMFC024
     name: BillingAccountManagement

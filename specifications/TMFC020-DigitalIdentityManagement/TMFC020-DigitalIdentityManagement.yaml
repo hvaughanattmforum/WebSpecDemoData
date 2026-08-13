@@ -102,7 +102,7 @@ spec:
       resources:
       - partyRoleCreateEvent
       - partyRoleAttributeValueChangeEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC020

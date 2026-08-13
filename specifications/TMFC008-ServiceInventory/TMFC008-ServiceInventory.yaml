@@ -154,7 +154,7 @@ spec:
       - serviceAttributeValueChangeEvent
       - serviceStateChangeEvent
       - serviceDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF701
       name: ProcessFlowManagement
@@ -184,7 +184,7 @@ spec:
       - serviceAttributeValueChangeEvent
       - serviceStateChangeEvent
       - serviceDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF638_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF633
       name: ServiceCatalogManagement
@@ -196,7 +196,7 @@ spec:
       name: PartyRoleManagement
       resources:
       - partyRoleDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
     - id: TMF674
       name: GeographicSiteManagement
       resources:
@@ -214,7 +214,7 @@ spec:
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF641
       name: ServiceOrderingManagement

@@ -337,7 +337,7 @@ spec:
       - catalogDeleteEvent
       - catalogBatchEvent
       - productSpecificationCreateEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF620_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF671
       name: PromotionManagement
@@ -368,13 +368,13 @@ spec:
       name: PartyRoleManagement
       resources:
       - partyRoleDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
     - id: TMF632
       name: Party
       resources:
       - individualDeleteEvent
       - organizationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF633
       name: ServiceCatalogManagement
@@ -392,7 +392,7 @@ spec:
       - resourceSpecificationStatusChangeEvent
       - resourceSpecificationAttributeValueChangeEvent
       - resourceSpecificationChangeEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v5.0.0.swagger.json
       apiType: openapi
   componentMetadata:
     id: TMFC001

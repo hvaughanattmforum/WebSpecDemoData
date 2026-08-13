@@ -186,7 +186,7 @@ spec:
       - cancelWorkOrderCreateEvent
       - cancelWorkOrderStateChangeEvent
       - cancelWorkOrderDeleteEvent
-      specification: https://github.com/tmforum-apis/TMF697_WorkOrderManagement/blob/master/TMF97-WorkOrder-v4.0.0.swagger.json
+      specification: https://github.com/tmforum-apis/TMF697_WorkOrderManagement/blob/master/TMF697-WorkOrder-v4.0.0.swagger.json
       apiType: openapi
     - id: TMF714
       name: workQualificationManagement
@@ -226,16 +226,16 @@ spec:
       - OrganizationAttributeValueChangeEvent
       - OrganizationStateChangeEvent
       - OrganizationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v5.0.0.swagger.json
       apiType: openapi
-    - id: TMF632
+    - id: TMF669
       name: PartyRoleManagement
       resources:
       - partyRoleCreateEvent
       - partyRoleAttributeValueChangeEvent
       - partyRoleStateChangeEvent
       - partyRoleDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF669_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF701
       name: ProcessFlowManagement

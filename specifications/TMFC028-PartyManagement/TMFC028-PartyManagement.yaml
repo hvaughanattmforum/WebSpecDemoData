@@ -122,7 +122,7 @@ spec:
       - OrganizationAttributeValueChangeEvent
       - OrganizationStateChangeEvent
       - OrganizationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v4.0.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF632_v5.0.0.swagger.json
     subscribedEvents: []
   componentMetadata:
     id: TMFC028

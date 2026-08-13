@@ -196,7 +196,7 @@ spec:
       - resourceSpecificationCreateEvent
       - resourceSpecificationChangeEvent
       - resourceSpecificationDeleteEvent
-      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v4.1.0.swagger.json
+      specification: https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/ODA/TMF634_v5.0.0.swagger.json
       apiType: openapi
     - id: TMF662
       name: EntityCatalogManagement
