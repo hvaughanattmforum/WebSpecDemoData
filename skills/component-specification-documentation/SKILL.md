@@ -23,13 +23,15 @@ Two files that together are the source-of-truth-driven counterpart of a componen
   straight there and never has a standing copy in `Diagrams/`. The `.docx` has no such pre-existing
   official location — no component has an official `.docx` today — so it's a working artifact that lives
   in `Diagrams/` only, not something this skill writes anywhere else. Revisit that if it ever changes
-  (e.g. if a component's official spec starts being published as `.docx` too). Everything either script
-  generates that isn't one of these two deliverables (rasterization caches, mid-assembly render passes)
-  goes into `Diagrams/temp/` instead — see "`Diagrams/temp/`" under "Also produce a PDF" below.
+  (e.g. if a component's official spec starts being published as `.docx` too). Everything else either
+  script needs — the main `.md` itself, every diagram source/image, rasterization caches, mid-assembly
+  render passes — goes into `Diagrams/temp/` instead — see "`Diagrams/temp/`" under "Also produce a PDF"
+  below.
 
-The main `.md` and its Supplement live inside the component's `Diagrams/` folder, not at the component
-root next to the main YAML — see "Where the data lives" below for why and what that means for image/source
-paths inside them.
+The main `.md` lives inside the component's `Diagrams/temp/` folder — disposable build output, not a
+standalone checked-in deliverable — while its Supplement stays hand-maintained directly in `Diagrams/`
+itself, not at the component root next to the main YAML. See "Where the data lives" below for why and what
+that means for image/source paths inside the main `.md`.
 
 **The original PDF is no longer needed to generate this document at all** — not for structure, not for
 cover/notice boilerplate, not for chapters 5/6. Every fact that used to come from reading the old PDF now
@@ -121,22 +123,23 @@ branch `v1.1.0`):
   `.md`/Supplement/Links/diagrams below during generation — but see "Naming/overwrite behavior" further
   down: once the fresh PDF is built, it overwrites this file at the component root as the final step,
   per standing user instruction. It isn't a static, permanently-untouched artifact.
-- `Diagrams/<ComponentID>_eTOM_Descriptions.md` and `Diagrams/<ComponentID>_FF_Descriptions.md` — two more
-  hand-maintained, read-only data sources, same status as the Links file above. `componentMetadata.eTOMs`
-  and `.functionalFrameworkFunctions` carry only an ID/name/version, never prose — the descriptive text (and,
-  for Functional Framework Functions, the two Aggregate Function Level columns) only exists in the
-  officially-published component document, transcribed once into these files. See "eTOM/Functional Framework
-  descriptions" in [references/diagrams.md](references/diagrams.md) for the exact format, the lookup-by-ID
-  rule for sections 2.1/2.4, and what to do when a component has no such file yet (13 components have them
-  today, transcribed from the versioned docs in the user's OneDrive `20260716 Completed Component Docs`
-  folder — see that reference file for the full list).
-- `Diagrams/TMFCxxx_<Name>.md`, `Diagrams/TMFCxxx_<Name>_Supplement.md`,
-  `Diagrams/<ComponentID>_eTOM_SID_Links.md`, and the two description files above — the generated main
-  document plus its hand-maintained siblings, all living **inside** the component's `Diagrams/` folder, as
-  siblings of the diagram source/image files rather than at the component root. This is a deliberate
-  per-user-instruction layout: it means every image/source reference inside these files is a bare filename
-  (`TMFC001_eTOM_SID.svg`), not `Diagrams/TMFC001_eTOM_SID.svg` — don't add a `Diagrams/` prefix back in, the
-  `.md` files and the assets they reference are now in the same directory. See "Supplement file" below for
+- `Diagrams/<ComponentID>_eTOM_Descriptions.md`, `Diagrams/<ComponentID>_SID_Descriptions.md`, and
+  `Diagrams/<ComponentID>_FF_Descriptions.md` — three more hand-maintained, read-only data sources, same
+  status as the Links file above. `componentMetadata.eTOMs`, `.SIDs`, and `.functionalFrameworkFunctions`
+  carry only an ID/name/version, never prose — the descriptive text (and, for Functional Framework
+  Functions, the two Aggregate Function Level columns; for SID ABEs, a separate Level 1 and Level 2
+  definition) only exists in the officially-published component document or the official framework
+  spreadsheets, transcribed once into these files. See "eTOM/Functional Framework descriptions" in
+  [references/diagrams.md](references/diagrams.md) for the exact format and the lookup-by-ID rule for
+  sections 2.1/2.4, and "SID descriptions" for section 2.2's variant of the same rule.
+- `Diagrams/temp/TMFCxxx_<Name>.md` — the generated main document, living inside `Diagrams/temp/` as a
+  sibling of the diagram source/image files it references (see "`Diagrams/temp/`" under "Also produce a
+  PDF" below for why this is disposable build output, not a standalone checked-in deliverable). This means
+  every image/source reference inside it is a bare filename (`TMFC001_eTOM_SID.svg`), not
+  `Diagrams/TMFC001_eTOM_SID.svg` or `temp/TMFC001_eTOM_SID.svg` — don't add either prefix back in, the
+  `.md` and the assets it references are in the same directory. `Diagrams/TMFCxxx_<Name>_Supplement.md`,
+  `Diagrams/<ComponentID>_eTOM_SID_Links.md`, and the three description files above stay one level up, in
+  `Diagrams/` itself, since they're hand-maintained rather than regenerated. See "Supplement file" below for
   the Supplement file, "eTOM–SID diagram" and "eTOM/Functional Framework descriptions" in
   [references/diagrams.md](references/diagrams.md) for the Links/Descriptions files, and "Write the file"
   below for the main `.md`'s exact output path.
@@ -187,17 +190,22 @@ Three tables, each parsed from a `componentMetadata` list of pipe-delimited stri
 splitting rules (level inference from ID depth, `_ABE` stripping, etc.) — don't improvise your own
 parsing, since the level-inference rule in particular is easy to get subtly wrong.
 
-**Descriptions (2.1 and 2.4 only)**: `componentMetadata.eTOMs` and `.functionalFrameworkFunctions` never
-carry prose — that text (and, for Functional Framework Functions, the two Aggregate Function Level columns)
-comes from `Diagrams/<ComponentID>_eTOM_Descriptions.md` / `Diagrams/<ComponentID>_FF_Descriptions.md`, a
-pair of hand-maintained lookup files transcribed once from the officially-published component doc — see
-"eTOM/Functional Framework descriptions" in [references/diagrams.md](references/diagrams.md) for the exact
-format and the ID-matching rule. **Check whether these two files exist for the component before writing the
-2.1/2.4 tables**:
-- If they exist, add a `Description` column to 2.1 (looked up by eTOM identifier) and `Function
-  Description` / `Aggregate Function Level 1` / `Aggregate Function Level 2` columns to 2.4 (looked up by
-  Function ID) — matching the shape of the officially-published document's own tables.
-- If they don't exist yet for this component, build them from the framework spreadsheets (below) rather
+**Descriptions (2.1, 2.2, and 2.4)**: `componentMetadata.eTOMs`, `.SIDs`, and `.functionalFrameworkFunctions`
+never carry prose — that text (and, for Functional Framework Functions, the two Aggregate Function Level
+columns; for SID ABEs, separate Level 1 and Level 2 definitions) comes from
+`Diagrams/<ComponentID>_eTOM_Descriptions.md` / `Diagrams/<ComponentID>_SID_Descriptions.md` /
+`Diagrams/<ComponentID>_FF_Descriptions.md`, hand-maintained lookup files transcribed once from the
+officially-published component doc (gap-filled from the official framework spreadsheets) — see
+"eTOM/Functional Framework descriptions" and "SID descriptions" in
+[references/diagrams.md](references/diagrams.md) for the exact format and the ID-matching rule. **Check
+whether the relevant file(s) exist for the component before writing the 2.1/2.2/2.4 tables**:
+- If they exist, add a `Description` column to 2.1 (looked up by eTOM identifier); `SID ABE L1 Definition` /
+  `SID ABE L2 Definition` columns to 2.2 (looked up by the same SID ABE Level 1/Level 2 names the row itself
+  resolves to — see "SID descriptions" for the exact matching rule, since there's no single YAML ID to key
+  on here the way there is for 2.1/2.4); and `Function Description` / `Aggregate Function Level 1` /
+  `Aggregate Function Level 2` columns to 2.4 (looked up by Function ID) — matching the shape of the
+  officially-published document's own tables.
+- If a file doesn't exist yet for this component, build it from the framework spreadsheets (below) rather
   than emitting YAML-only columns.
 
 **Description precedence — the standing rule, and it applies identically to eTOM (2.1) and Functional
@@ -529,11 +537,17 @@ shapes instead of `<marker>` — `render_etom_sid_svg.py`'s `_arrowhead()` is a 
 
 ## Write the file
 
-Output to `specifications/<ComponentFolder>/Diagrams/<same base filename as the existing PDF>.md` — inside
-the component's `Diagrams/` folder, alongside the diagram sources/images and the Supplement file, not at the
-component root (see "Where the data lives" above). If a version of this file already exists, diff against it
-and summarize what changed (new/removed eTOM or SID entries, API mandatory/optional flips, new events) rather
-than silently overwriting.
+Output to `specifications/<ComponentFolder>/Diagrams/temp/<same base filename as the existing PDF>.md` —
+**inside `Diagrams/temp/`, not `Diagrams/` itself.** This corrects an earlier version of this section: the
+main `.md`, the three diagram-source files (Exposed/Dependant API, Events), and every diagram image
+(`.svg`/`.png`) are all disposable, skill-generated build output now, regenerated from scratch on every run
+— only the `.docx`, the Supplement file, the eTOM–SID Links file, and the three Descriptions files stay
+directly under `Diagrams/` as the hand-maintained/persistent set. See "`Diagrams/temp/`" under "Also produce
+a PDF" below for the full rationale, and call `scripts/build_pdf.reset_temp_dir(diagrams_dir)` **first**,
+before generating anything else, so a stale file from a previous run can't survive and get read back as
+current. If a version of the `.md` already exists from a previous run, diff against it and summarize what
+changed (new/removed eTOM or SID entries, API mandatory/optional flips, new events) in your chat summary —
+don't bother preserving the old file itself, since nothing treats it as a source of truth.
 
 ## Cover page & Notice (PDF only, generated entirely from YAML)
 
@@ -578,16 +592,18 @@ import sys
 sys.path.insert(0, "<path to this skill's scripts/ folder>")
 from build_pdf import build_pdf
 
-build_pdf("specifications/<ComponentFolder>/Diagrams/<same base filename as the existing PDF>.md")
+build_pdf("specifications/<ComponentFolder>/Diagrams/temp/<same base filename as the existing PDF>.md")
 ```
 
 `yaml_path` and `supplement_path` are both auto-discovered if not passed explicitly: `yaml_path` by globbing
-for the one `*.yaml` file in the **component root, one directory up from the main `.md`** (since the `.md`
-lives in `Diagrams/`, not next to the component YAML — searching the `.md`'s own directory would instead
-find the Exposed/Dependent API and Events `.yaml` diagram sources and fail with "expected exactly one"),
-`supplement_path` by appending `_Supplement.md` to the main `.md`'s base name in the same directory as the
-main `.md` (i.e. also inside `Diagrams/`). `build_pdf()` raises immediately if the Supplement file doesn't
-exist yet (with a message pointing at the template) rather than silently producing an incomplete PDF.
+for the one `*.yaml` file in the **component root, two directories up from the main `.md`** (since the
+`.md` now lives in `Diagrams/temp/`, not `Diagrams/` — one level up from the `.md` lands in `Diagrams/`
+itself, full of unrelated diagram-source `.yaml` files and the hand-maintained `.md`s, so the search has to
+go up a second level to reach the component root and find the single main component YAML), `supplement_path`
+by appending `_Supplement.md` to the main `.md`'s base name **in `Diagrams/`** (one level up from the `.md`
+itself, since the Supplement stays hand-maintained and never moved into `temp/`). `build_pdf()` raises
+immediately if the Supplement file doesn't exist yet (with a message pointing at the template) rather than
+silently producing an incomplete PDF.
 
 This is pure-Python (`markdown` + `xhtml2pdf`, same pairing the sibling `component-conformance-profile`
 skill already uses, no `pandoc`/`wkhtmltopdf` needed, plus `pyyaml` for reading `componentMetadata`). On
@@ -639,24 +655,32 @@ repo at all if this is the *first* time running the skill for a repo/user that h
 pattern — the "just overwrite root by default" behavior applies once a user has confirmed it for their
 repo, not as a blanket default for every user of this skill.
 
-**`Diagrams/temp/`: where every interim, non-deliverable asset this skill generates lives.** Per explicit
-user instruction, each component's `Diagrams/` folder gets its own `temp/` subfolder for anything the
-build scripts produce that isn't one of the document's actual outputs — created on demand by
-`build_pdf.py`'s `_temp_dir()` helper (`os.makedirs(..., exist_ok=True)`, safe to call every run). Three
-things live there, all owned by the tooling and safe to delete/regenerate at any time (nothing reads them
-back as a source of truth):
-- The SVG→PNG rasterization cache (`_svg_to_png()`) for the API context diagram, and the eTOM–SID diagram
-  once past the SVG size threshold — the `.md` itself always embeds the `.svg` directly (SVG renders
-  natively in Markdown viewers), so this PNG is *only* needed because `xhtml2pdf` can't rasterize `.svg`
-  inline and `build_docx_scroll.py` needs a raster image too. Both scripts share one cached PNG per SVG.
-- `build_pdf()`'s three mid-assembly render passes (`_body_tmp.pdf`, `_front_tmp.pdf`, `_toc_tmp.pdf`) —
-  merged into the final PDF and deleted in a `finally` block either way, but written into `temp/` rather
-  than `Diagrams/` itself so a crash mid-build never leaves debris next to the real files.
+**`Diagrams/temp/`: where every non-hand-maintained asset this skill generates now lives, including the main
+`.md` itself.** This is a correction to an earlier version of this section, which under-scoped `temp/` to
+only three narrow caching concerns — the actual, current behavior (see `reset_temp_dir()` in
+[scripts/build_pdf.py](scripts/build_pdf.py), and `_find_component_yaml()`/`build_pdf()`/
+`build_docx_scroll()`'s shared `md_path` → `Diagrams/temp/` → `Diagrams/` → component-root path-climbing
+logic, which only works if the `.md` actually lives there) is broader: **everything this skill produces
+that isn't hand-maintained goes in `temp/`**, wiped and recreated fresh at the start of every full
+regeneration via `reset_temp_dir(diagrams_dir)` — never trusted as a carry-over cache, so a stale leftover
+from an interrupted or superseded run can't silently survive:
+- The main `.md` itself.
+- The three diagram-source files (`<ID>_Exposed_API.yaml`, `<ID>_Dependant_API.yaml`, `<ID>_Events.yaml`,
+  plus any paginated `_1.yaml`/`_2.yaml`/... variants) written by `sync_diagram_yaml.py`'s `sync_all()`.
+- Every diagram image: the API context SVG, the Exposed/Dependent/Events PlantUML-rendered PNGs, the
+  eTOM–SID diagram (`.puml` or `.svg` depending on the size threshold) and its rendered image, and the
+  SVG→PNG rasterization cache (`_svg_to_png()`) both the PDF and docx pipelines share.
+- `build_pdf()`'s three mid-assembly render passes (`_body_tmp.pdf`, `_front_tmp.pdf`, `_toc_tmp.pdf`).
 - `build_docx.py`'s (superseded, reference-only) JSON payload handoff to `build_docx.js`.
 
-Nothing in `temp/` is ever a document deliverable. The two real destinations stay exactly what they were
-before this folder existed: the PDF at the component root (above), and the `.docx` in `Diagrams/` itself
-(below) — `temp/` doesn't change either of those, it just keeps the scratch work out of `Diagrams/`'s way.
+Only four things stay directly under `Diagrams/` itself, never touched by a regeneration: the **`.docx`**
+(the one real deliverable that lives there — see below) and the three/four **hand-maintained** files —
+Supplement, eTOM–SID Links, and the eTOM/SID/FF Descriptions files. The two real deliverables overall stay
+exactly what they were before `temp/` existed: the PDF at the component root, and the `.docx` in `Diagrams/`
+itself — `temp/` doesn't change either of those, it just means the main `.md` and every diagram are now
+intermediate build state feeding those two outputs, not standalone checked-in artifacts in their own right.
+Add `Diagrams/temp/` to the repo's `.gitignore` if it isn't already there, so a regeneration doesn't dump
+dozens of disposable files into every `git status`.
 
 ## Also produce a Word document (.docx)
 

@@ -19,9 +19,9 @@ restored, all per a fresh trace of that archived diagram.
 
 | eTOM activity | SID ABE | Direction | YAML eTOM | YAML SID |
 |---|---|---|---|---|
-| L2 - Service Strategy Management / L3 - Service Test Strategy | ServiceTestSpec BE | bidirectional | 1.4.1\|Service_Strategy_Management\|v24.5; 1.4.1.8\|Service_Test_Strategy\|v24.5 | Service_Domain\|Service_Test_ABE\|ServiceTestSpec_BE\|v25.0 |
-| L2 - Service Specification Lifecycle Management / L3 - Service Specification Test Development & Retirement | ServiceTestSpec BE | bidirectional | 1.4.3.8\|Service_Specification_Test_Development_&_Retirement\|v24.5 | Service_Domain\|Service_Test_ABE\|ServiceTestSpec_BE\|v25.0 |
-| L2 - Service Strategy Management / L3 - Analyse Service Test Quality | ServiceTest BE | activity consumes | 1.4.1\|Service_Strategy_Management\|v24.5; 1.4.1.9\|Analyze_Service_Test_Quality\|v24.5 | Service_Domain\|Service_Test_ABE\|ServiceTest_BE\|v25.0 |
-| L2 - Service Strategy Management / L3 - Analyse Service Test Quality | ServiceTestSpec BE | activity consumes | 1.4.1\|Service_Strategy_Management\|v24.5; 1.4.1.9\|Analyze_Service_Test_Quality\|v24.5 | Service_Domain\|Service_Test_ABE\|ServiceTestSpec_BE\|v25.0 |
+| Service Strategy Management / Service Test Strategy | ServiceTestSpec BE | bidirectional | 1.4.1\|Service_Strategy_Management\|v24.5; 1.4.1.8\|Service_Test_Strategy\|v24.5 | Service_Domain\|Service_Test_ABE\|ServiceTestSpec_BE\|v25.0 |
+| Service Specification Lifecycle Management / Service Specification Test Development & Retirement | ServiceTestSpec BE | bidirectional | 1.4.3\|Service_Specification_Lifecycle_Management\|v24.5; 1.4.3.8\|Service_Specification_Test_Development_&_Retirement\|v24.5 | Service_Domain\|Service_Test_ABE\|ServiceTestSpec_BE\|v25.0 |
+| Service Strategy Management | ServiceTest BE | activity consumes | 1.4.1\|Service_Strategy_Management\|v24.5 | Service_Domain\|Service_Test_ABE\|ServiceTest_BE\|v25.0 |
+| Service Strategy Management | ServiceTestSpec BE | activity consumes | 1.4.1\|Service_Strategy_Management\|v24.5 | Service_Domain\|Service_Test_ABE\|ServiceTestSpec_BE\|v25.0 |
 | Manage Service Test | ServiceTestSpec BE | activity consumes | 1.4.4.6\|Manage_Service_Test\|v24.5 | Service_Domain\|Service_Test_ABE\|ServiceTestSpec_BE\|v25.0 |
 | Manage Service Test | ServiceTest BE | bidirectional | 1.4.4.6\|Manage_Service_Test\|v24.5 | Service_Domain\|Service_Test_ABE\|ServiceTest_BE\|v25.0 |

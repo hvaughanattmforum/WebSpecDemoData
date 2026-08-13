@@ -10,16 +10,13 @@ below now resolves cleanly.
 
 | eTOM activity | SID ABE | Direction | YAML eTOM | YAML SID |
 |---|---|---|---|---|
-| Mng Service Performance requirement | Service Performance | bidirectional | 1.4.7.6\|Manage_Service_Performance_Requirement\|v25.0 | Service_Domain\|Service_Performance_ABE\|v25.0 |
-| Mnge Service Performance reporting | Service Performance | bidirectional | 1.4.7.11\|Manage_Service_Performance_Reporting\|v25.0 | Service_Domain\|Service_Performance_ABE\|v25.0 |
-| Mnge Service Performance Measure | Measurement Production Job | bidirectional | 1.4.7.8\|Manage_Service_Performance_Measure\|v25.0 | Patterns_Domain\|Performance_ABE\|Performance_Monitoring_ABE\|Performance_Production_ABE\|MeasurementProductionJob_BE\|v25.0 |
-| Mnge Service Performance Measure | Performance Threshold | bidirectional | 1.4.7.8\|Manage_Service_Performance_Measure\|v25.0 | Patterns_Domain\|Performance_ABE\|Performance_Threshold_ABE\|v25.0 |
-| Mnge Service Performance Analysis | Service Performance | bidirectional | 1.4.7.9\|Manage_Service_Performance_Analysis\|v25.0 | Service_Domain\|Service_Performance_ABE\|v25.0 |
-| Mnge Service Performance Control | Performance Threshold | bidirectional | 1.4.7.10\|Manage_Service_Performance_Control\|v25.0 | Patterns_Domain\|Performance_ABE\|Performance_Threshold_ABE\|v25.0 |
-| Mnge Service Performance Control | Service Performance | bidirectional | 1.4.7.10\|Manage_Service_Performance_Control\|v25.0 | Service_Domain\|Service_Performance_ABE\|v25.0 |
-| Mnge Service Performance Control | Adhoc Collection | bidirectional | 1.4.7.10\|Manage_Service_Performance_Control\|v25.0 | Patterns_Domain\|Performance_ABE\|Performance_Monitoring_ABE\|Performance_Collection_ABE\|AdhocCollection_BE\|v25.0 |
-| Mnge Service Performance Control | Measurement Collection Job | bidirectional | 1.4.7.10\|Manage_Service_Performance_Control\|v25.0 | Patterns_Domain\|Performance_ABE\|Performance_Monitoring_ABE\|Performance_Collection_ABE\|MeasurementCollectionJob_BE\|v25.0 |
-| Mnge Service Performance Control | Alarm | bidirectional | 1.4.7.10\|Manage_Service_Performance_Control\|v25.0 | Resource_Domain\|Resource_Trouble_ABE\|Alarm_ABE\|v25.0 |
-
-The same diagram also draws one link directly between two eTOM activities, not eTOM-to-SID — moved to
-`TMFC037_eTOM_eTOM_Links.md`.
+| Manage Service Performance Requirement | Service Performance ABE | bidirectional | 1.4.7.6\|Manage_Service_Performance_Requirement\|v25.0 | Service_Domain\|Service_Performance_ABE\|v25.0 |
+| Manage Service Performance Reporting | Service Performance ABE | bidirectional | 1.4.7.11\|Manage_Service_Performance_Reporting\|v25.0 | Service_Domain\|Service_Performance_ABE\|v25.0 |
+| Manage Service Performance Measure | MeasurementProductionJob BE | bidirectional | 1.4.7.8\|Manage_Service_Performance_Measure\|v25.0 | Patterns_Domain\|Performance_ABE\|Performance_Monitoring_ABE\|Performance_Production_ABE\|MeasurementProductionJob_BE\|v25.0 |
+| Manage Service Performance Measure | Performance Threshold ABE | bidirectional | 1.4.7.8\|Manage_Service_Performance_Measure\|v25.0 | Patterns_Domain\|Performance_ABE\|Performance_Threshold_ABE\|v25.0 |
+| Manage Service Performance Analysis | Service Performance ABE | bidirectional | 1.4.7.9\|Manage_Service_Performance_Analysis\|v25.0 | Service_Domain\|Service_Performance_ABE\|v25.0 |
+| Manage Service Performance Control | Performance Threshold ABE | bidirectional | 1.4.7.10\|Manage_Service_Performance_Control\|v25.0 | Patterns_Domain\|Performance_ABE\|Performance_Threshold_ABE\|v25.0 |
+| Manage Service Performance Control | Service Performance ABE | bidirectional | 1.4.7.10\|Manage_Service_Performance_Control\|v25.0 | Service_Domain\|Service_Performance_ABE\|v25.0 |
+| Manage Service Performance Control | AdhocCollection BE | bidirectional | 1.4.7.10\|Manage_Service_Performance_Control\|v25.0 | Patterns_Domain\|Performance_ABE\|Performance_Monitoring_ABE\|Performance_Collection_ABE\|AdhocCollection_BE\|v25.0 |
+| Manage Service Performance Control | MeasurementCollectionJob BE | bidirectional | 1.4.7.10\|Manage_Service_Performance_Control\|v25.0 | Patterns_Domain\|Performance_ABE\|Performance_Monitoring_ABE\|Performance_Collection_ABE\|MeasurementCollectionJob_BE\|v25.0 |
+| Manage Service Performance Control | Alarm ABE | bidirectional | 1.4.7.10\|Manage_Service_Performance_Control\|v25.0 | Resource_Domain\|Resource_Trouble_ABE\|Alarm_ABE\|v25.0 |

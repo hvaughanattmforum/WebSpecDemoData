@@ -14,4 +14,4 @@ placeholder text, since both a real eTOM and a real SID now exist for this compo
 
 | eTOM activity | SID ABE | Direction | YAML eTOM | YAML SID |
 |---|---|---|---|---|
-| Service Configuration and Activation | Service Configuration | bidirectional | 1.4.5\|Service_Configuration_&_Activation\|v23.0.1 | Service_Domain\|Service_Configuration_ABE\|v23.5.0 |
+| Service Configuration & Activation | Service Configuration ABE | bidirectional | 1.4.5\|Service_Configuration_&_Activation\|v23.0.1 | Service_Domain\|Service_Configuration_ABE\|v23.5.0 |

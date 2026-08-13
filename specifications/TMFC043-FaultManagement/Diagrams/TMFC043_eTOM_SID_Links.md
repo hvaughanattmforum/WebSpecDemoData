@@ -8,6 +8,6 @@ page, rendered it as blank, and wrongly recorded this component as having no dia
 
 | eTOM activity | SID ABE | Direction | YAML eTOM | YAML SID |
 |---|---|---|---|---|
-| Resource Trouble Management L2 | Alarm | bidirectional | 1.5.8\|Resource_Trouble_Management\|v25.0 | Resource_Domain\|Resource_Trouble_ABE\|Resource_Alarm_ABE\|v25.0 |
-| Resource Trouble Management L2 | Alarm Severity Management Profile | activity produces | 1.5.8\|Resource_Trouble_Management\|v25.0 | Resource_Domain\|Resource_Trouble_ABE\|AlarmSeverityAssignmentProfile_BE\|v25.0 |
-| Service Problem Managemnet L2 | Service Problem | activity produces | 1.4.6\|Service_Problem_Management\|v25.0 | Service_Domain\|Service_Problem_ABE\|v25.0 |
+| Resource Trouble Management L2 | Alarm | bidirectional | **NO MATCH** | **NO MATCH** |
+| Resource Trouble Management L2 | Alarm Severity Management Profile | activity produces | **NO MATCH** | **NO MATCH** |
+| Service Problem Managemnet L2 | Service Problem ABE | activity produces | **NO MATCH** | Service_Domain\|Service_Problem_ABE\|v25.0 |

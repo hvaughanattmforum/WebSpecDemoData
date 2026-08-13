@@ -8,5 +8,5 @@ page, rendered it as blank, and wrongly recorded this component as having no dia
 
 | eTOM activity | SID ABE | Direction | YAML eTOM | YAML SID |
 |---|---|---|---|---|
-| Product Test Strategy | Product Test ABE / ProductTestSpec | bidirectional | 1.2.1.5\|Product_Test_Strategy\|v25.0 | Product_Domain\|Product_Test_ABE\|v25.0 |
-| Manage Product Test | Product Test ABE / ProductTest | bidirectional | 1.2.4.9\|Manage_Product_Test\|v25.0 | Product_Domain\|Product_Test_ABE\|v25.0 |
+| Product Test Strategy | Product Test ABE / ProductTestSpec | bidirectional | 1.2.1.5\|Product_Test_Strategy\|v25.0 | **NO MATCH** |
+| Manage Product Test | Product Test ABE / ProductTest | bidirectional | 1.2.4.9\|Manage_Product_Test\|v25.0 | **NO MATCH** |

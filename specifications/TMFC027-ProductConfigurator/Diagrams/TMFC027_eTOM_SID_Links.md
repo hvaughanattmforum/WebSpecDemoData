@@ -14,4 +14,4 @@ respectively).
 
 | eTOM activity | SID ABE | Direction | YAML eTOM | YAML SID |
 |---|---|---|---|---|
-| Product Configuration Management | Product Configuration BE (this component's own Product Configuration ABE) | bidirectional | 1.2.5\|Product_Configuration_Management\|v25.0 | Product_Domain\|Product_Configuration_ABE\|ProductConfiguration_BE\|v25.0 |
+| Product Configuration Management | ProductConfiguration BE | bidirectional | 1.2.5\|Product_Configuration_Management\|v25.0 | Product_Domain\|Product_Configuration_ABE\|ProductConfiguration_BE\|v25.0 |
