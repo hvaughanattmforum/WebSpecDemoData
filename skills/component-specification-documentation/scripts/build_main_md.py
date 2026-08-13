@@ -304,27 +304,27 @@ def build_etom_table(rows, desc_lookup):
 def build_sid_table(rows, desc_lookup):
     if not rows:
         return "*(none listed in the component YAML)*"
-    lines = ["| SID ABE Level 1 | SID ABE Level 2 (or set of BEs) | SID ABE L1 Definition | "
+    lines = ["| SID ABE L1 | SID ABE L1 Definition | SID ABE L2 (or set of BEs) | "
               "SID ABE L2 Definition |", "|---|---|---|---|"]
     for r in rows:
         d = desc_lookup.get((r["l1"], r["l2"]), {})
         d1 = esc(d.get("SID ABE L1 Definition")) or NO_DESC
         d2 = esc(d.get("SID ABE L2 Definition")) or NO_DESC
-        lines.append(f"| {r['l1']} | {r['l2']} | {d1} | {d2} |")
+        lines.append(f"| {r['l1']} | {d1} | {r['l2']} | {d2} |")
     return "\n".join(lines)
 
 
 def build_ff_table(rows, desc_lookup):
     if not rows:
         return "*(none listed in the component YAML)*"
-    lines = ["| Function ID | Function Name | Function Description | Aggregate Function Level 1 | "
-              "Aggregate Function Level 2 |", "|---|---|---|---|---|"]
+    lines = ["| Function ID | Function Name | Aggregate Function Level 1 | Aggregate Function Level 2 | "
+              "Function Description |", "|---|---|---|---|---|"]
     for r in rows:
         d = desc_lookup.get(r["id"], {})
         desc = esc(d.get("Function Description")) or NO_DESC
         a1 = esc(d.get("Aggregate Function Level 1")) or NO_DESC
         a2 = esc(d.get("Aggregate Function Level 2")) or NO_DESC
-        lines.append(f"| {r['id']} | {r['name']} | {desc} | {a1} | {a2} |")
+        lines.append(f"| {r['id']} | {r['name']} | {a1} | {a2} | {desc} |")
     return "\n".join(lines)
 
 
@@ -333,6 +333,8 @@ def build_ff_table(rows, desc_lookup):
 # ---------------------------------------------------------------------------
 
 def build_api_table(entries, name_map, mandatory_first):
+    """One row per resource (not per API+version) -- a resource with several operations lists them
+    all, comma-joined, in that one row's Operations cell."""
     header = ("| API ID | API Name | Mandatory / Optional | API Version | Resource | Operations |"
                if mandatory_first else
                "| API ID | API Name | API Version | Mandatory / Optional | Resource | Operations |")
@@ -342,18 +344,12 @@ def build_api_table(entries, name_map, mandatory_first):
         mo = "Mandatory" if e.get("required") else "Optional"
         for version_block in e.get("specification", []) or []:
             version = version_block.get("version")
-            resources, ops_union = [], []
             for resource in version_block.get("resources", []) or []:
                 for rname, ops in resource.items():
-                    resources.append(rname)
-                    for op in ops or []:
-                        if op not in ops_union:
-                            ops_union.append(op)
-            res_cell = "<br>".join(resources)
-            ops_cell = "<br>".join(ops_union)
-            row = ([e["id"], name, mo, version, res_cell, ops_cell] if mandatory_first else
-                   [e["id"], name, version, mo, res_cell, ops_cell])
-            lines.append("| " + " | ".join(str(c) for c in row) + " |")
+                    ops_cell = ", ".join(ops or [])
+                    row = ([e["id"], name, mo, version, rname, ops_cell] if mandatory_first else
+                           [e["id"], name, version, mo, rname, ops_cell])
+                    lines.append("| " + " | ".join(str(c) for c in row) + " |")
     return "\n".join(lines)
 
 
@@ -713,7 +709,7 @@ def generate(component_dir, component_id, existing_pdf_stem):
     else:
         report["links_status"] = "missing"
         if not etom_rows:
-            section23_block = "*(no eTOM business activities are listed for this component in the YAML — see 2.1)*"
+            section23_block = "*(no eTOM business activities are listed for this component in the YAML — see 2.2)*"
         else:
             section23_block = ("*(eTOM–SID Links file not yet created for this component — see "
                                 "references/diagrams.md, \"If the Links file doesn't exist yet\")*")
@@ -759,21 +755,21 @@ name: {display_name}
 
 ## 2. eTOM Processes, SID Data Entities and Functional Framework Functions
 
-### 2.1. eTOM business activities
+### 2.1. eTOM L2 - SID ABEs links
+
+{section23_block}
+
+### 2.2. eTOM business activities
 
 eTOM business activities this ODA Component is responsible for:
 
 {section21}
 
-### 2.2. SID ABEs
+### 2.3. SID ABEs
 
 SID ABEs this ODA Component is responsible for:
 
 {section22}
-
-### 2.3. eTOM L2 - SID ABEs links
-
-{section23_block}
 
 ### 2.4. Functional Framework Functions
 
