@@ -236,7 +236,15 @@ def _add_table(doc, block):
 
     widths = block.get("colWidthsPct") or []
     for row_runs in rows:
-        cells = table.add_row().cells
+        new_row = table.add_row()
+        # Without this, Word splits a row across a page break wherever one cell's content (typically
+        # a long Function/eTOM Description) runs past the bottom margin -- the row's *other* cells,
+        # whose content already rendered on the previous page, then show up as a blank-looking phantom
+        # row directly under the repeated header on the next page. cantSplit forces the whole row onto
+        # one page instead.
+        row_tr_pr = new_row._tr.get_or_add_trPr()
+        row_tr_pr.append(row_tr_pr.makeelement(qn("w:cantSplit"), {}))
+        cells = new_row.cells
         for j in range(n_cols):
             cell = cells[j]
             cell.paragraphs[0].text = ""

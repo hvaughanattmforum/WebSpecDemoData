@@ -74,6 +74,7 @@ h3 {{ font-size: 13pt; font-weight: bold; color: black; margin-top: 14pt; }}
 h4 {{ font-size: 12pt; font-weight: bold; color: {TMF_RED}; margin-top: 10pt; }}
 code {{ font-family: Courier, monospace; }}
 table {{ border-collapse: collapse; width: 100%; margin: 6pt 0; }}
+tr {{ page-break-inside: avoid; }}
 th, td {{ border: 1px solid #999999; padding: 4pt; font-size: 9pt; vertical-align: top;
           word-wrap: break-word; }}
 th {{ background-color: {TABLE_HEADER_BG}; font-weight: bold; text-align: left; }}

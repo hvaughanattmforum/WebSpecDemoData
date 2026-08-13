@@ -5,4 +5,4 @@ gap-filled from the SID Information Framework spreadsheet for ABEs/Business Enti
 
 | SID ABE Level 1 | SID ABE L1 Definition | SID ABE Level 2 | SID ABE L2 Definition | Source |
 |---|---|---|---|---|
-| Customer Bill | The Customer Bill ABE represents the specification of different formats of CustomerBill, the schedule of the production of bills and the Customer Bills themselves. |  |  | GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |
+| Customer Bill ABE | The Customer Bill ABE represents the specification of different formats of CustomerBill, the schedule of the production of bills and the Customer Bills themselves. |  |  | GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |

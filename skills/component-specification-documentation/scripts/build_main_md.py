@@ -180,6 +180,15 @@ def _clean_sid_token(token):
     return _SUFFIX_RE.sub("", token).replace("_", " ")
 
 
+def _sid_token_suffix(token):
+    """The ABE/BE suffix a raw SID token itself carries (e.g. 'Loyalty_Program_ABE' -> 'ABE'), or ''
+    if it has none. Kept separate from the cleaned display name (_clean_sid_token) because the
+    SID_Descriptions.md lookup files are keyed by the bare, suffix-stripped name -- only the table's
+    *displayed* L1/L2 columns should show the suffix back."""
+    m = _SUFFIX_RE.search(token)
+    return m.group(1) if m else ""
+
+
 def parse_sid_entries(sids):
     rows = []
     for entry in sids or []:
@@ -187,14 +196,17 @@ def parse_sid_entries(sids):
         domain, version = parts[0], parts[-1]
         abe_tokens = parts[1:-1]
         if len(abe_tokens) <= 1:
-            l1, l2 = _clean_sid_token(abe_tokens[0]) if abe_tokens else "", ""
+            l1_tok, l2_tok = (abe_tokens[0] if abe_tokens else ""), ""
         elif len(abe_tokens) == 2:
-            l1, l2 = _clean_sid_token(abe_tokens[0]), _clean_sid_token(abe_tokens[1])
+            l1_tok, l2_tok = abe_tokens[0], abe_tokens[1]
         else:
             # more than two ABE tokens (e.g. TMFC037/038's Patterns_Domain entries): first token is
             # Level 1, last (leaf) token is Level 2, dropping the intermediate classification tokens
-            l1, l2 = _clean_sid_token(abe_tokens[0]), _clean_sid_token(abe_tokens[-1])
-        rows.append({"domain": domain, "l1": l1, "l2": l2, "version": version, "raw": entry})
+            l1_tok, l2_tok = abe_tokens[0], abe_tokens[-1]
+        l1, l2 = _clean_sid_token(l1_tok), _clean_sid_token(l2_tok) if l2_tok else ""
+        rows.append({"domain": domain, "l1": l1, "l2": l2, "version": version, "raw": entry,
+                     "l1_suffix": _sid_token_suffix(l1_tok) if l1_tok else "",
+                     "l2_suffix": _sid_token_suffix(l2_tok) if l2_tok else ""})
     return rows
 
 
@@ -270,11 +282,16 @@ def load_ff_desc(diagrams_dir, cid):
 
 
 def load_sid_desc(diagrams_dir, cid):
+    """Keyed by the *stripped* (ABE/BE-suffix-free) (L1, L2) pair so a lookup by the YAML-derived
+    r['l1']/r['l2'] still hits, even though the file's own 'SID ABE Level 1'/'SID ABE Level 2' column
+    text now carries the suffix back on (per explicit user instruction) -- that literal column text is
+    what the 2.2/2.3 table displays, this dict's key is only for matching."""
     rows, _ = _load_pipe_table(os.path.join(diagrams_dir, f"{cid}_SID_Descriptions.md"))
     out = {}
     for r in rows:
-        key = (r.get("SID ABE Level 1", ""), r.get("SID ABE Level 2", ""))
-        out[key] = r
+        l1 = _SUFFIX_RE.sub("", r.get("SID ABE Level 1", "")).strip()
+        l2 = _SUFFIX_RE.sub("", r.get("SID ABE Level 2", "")).strip()
+        out[(l1, l2)] = r
     return out
 
 
@@ -307,17 +324,23 @@ def build_sid_table(rows, desc_lookup):
     lines = ["| SID ABE L1 | SID ABE L1 Definition | SID ABE L2 (or set of BEs) | "
               "SID ABE L2 Definition |", "|---|---|---|---|"]
     for r in rows:
+        # lookup is keyed on the bare name (see load_sid_desc) -- the ABE/BE-suffixed display text
+        # comes from the Descriptions file's own "SID ABE Level 1"/"SID ABE Level 2" column text
+        # (per explicit user instruction), falling back to reconstructing the suffix from the YAML's
+        # own raw SID token only for a row that file doesn't cover yet.
         d = desc_lookup.get((r["l1"], r["l2"]), {})
         d1 = esc(d.get("SID ABE L1 Definition")) or NO_DESC
         d2 = esc(d.get("SID ABE L2 Definition")) or NO_DESC
-        lines.append(f"| {r['l1']} | {d1} | {r['l2']} | {d2} |")
+        l1_display = d.get("SID ABE Level 1") or (f"{r['l1']} {r['l1_suffix']}".strip() if r["l1"] else r["l1"])
+        l2_display = d.get("SID ABE Level 2") or (f"{r['l2']} {r['l2_suffix']}".strip() if r["l2"] else r["l2"])
+        lines.append(f"| {l1_display} | {d1} | {l2_display} | {d2} |")
     return "\n".join(lines)
 
 
 def build_ff_table(rows, desc_lookup):
     if not rows:
         return "*(none listed in the component YAML)*"
-    lines = ["| Function ID | Function Name | Aggregate Function Level 1 | Aggregate Function Level 2 | "
+    lines = ["| Function ID | Function Name | Aggregate Function L1 | Aggregate Function L2 | "
               "Function Description |", "|---|---|---|---|---|"]
     for r in rows:
         d = desc_lookup.get(r["id"], {})

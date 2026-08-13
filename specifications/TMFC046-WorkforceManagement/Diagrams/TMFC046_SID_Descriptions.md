@@ -5,4 +5,4 @@ gap-filled from the SID Information Framework spreadsheet for ABEs/Business Enti
 
 | SID ABE Level 1 | SID ABE L1 Definition | SID ABE Level 2 | SID ABE L2 Definition | Source |
 |---|---|---|---|---|
-| Workforce | The Workforce ABE models the human and other field resources with their roles, skills, calendar, and other characteristics. It also models the work description and reservation and assignment of a technician to a task. It contains Work, Work Specification, WorkforceResource, and WorkforceSchedule. |  |  | GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |
+| Workforce ABE | The Workforce ABE models the human and other field resources with their roles, skills, calendar, and other characteristics. It also models the work description and reservation and assignment of a technician to a task. It contains Work, Work Specification, WorkforceResource, and WorkforceSchedule. |  |  | GB922_Information_Framework_SID_Excel_v25.0.xlsx (v25.0) |
