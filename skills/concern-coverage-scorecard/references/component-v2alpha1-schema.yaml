@@ -1,0 +1,750 @@
+# Component v2alpha1 — a proposal expanding the ODA Component schema to
+# cover all twelve governance concerns in one object, instead of one CRD
+# per concern.
+# =============================================================================
+# STARTING POINT: the "Comp" schema — WebSpecDemoData's ci/component.schema.json,
+# which validates the real, deployed components.oda.tmforum.org CRD
+# (charts/oda-crds/templates/oda-component-crd.yaml in tmforum-oda/oda-canvas).
+#
+# REVISION: every one of the twelve concerns now gets its own named block,
+# following the *Function naming convention the real CRD already uses
+# (coreFunction, managementFunction, securityFunction) — rather than folding
+# several concerns into one block. Two concerns reuse an existing block
+# instead of getting a new one, because they already ARE that block:
+#   - Documentation  = componentMetadata (id/name/description/owners/docs)
+#   - Gateways       = coreFunction (the invocation/mediation surface —
+#                       exposedAPIs/dependentAPIs/events — unchanged)
+# The other ten get a dedicated <concern>Function block — eight of them
+# net-new: modelFunction, toolFunction, dataFunction, registryFunction,
+# performanceFunction, observabilityFunction, lifecycleFunction,
+# ontologyFunction. The remaining two, agentFunction and securityFunction,
+# already existed (or were proposed) under that name and are unchanged
+# in shape.
+#
+# managementFunction is retired, not deprecated-and-kept: its former role
+# (exposing prometheus/openmetrics scrape endpoints) IS observabilityFunction
+# now — one name for the concern, not two. This is a deliberate exception to
+# the back-compat treatment componentMetadata.status gets (kept, deprecated,
+# superseded by lifecycleFunction.phase): status is free-text an existing
+# instance may already be populating, so it's cheap to tolerate; a whole
+# block is not — a real migration would move managementFunction.exposedAPIs
+# into observabilityFunction.exposedAPIs and drop the old key.
+#
+# NOT reproduced in full: the existing v1beta2/v1beta3/v1beta4/v1 version
+# entries (unchanged, already real) and apiSpecification's
+# gatewayConfiguration sub-block (unchanged from the real CRD) — both
+# elided with a comment pointer so this proposal stays legible.
+#
+# FOUR TEAMS, ONE ELEPHANT: every field below is annotated back to whichever
+# of four teams supplied it. Not two rival proposals with a third input off
+# to the side — four blind teams, each correct about the one part they
+# touched, each wrong about the whole:
+#   - ai-canvas-architecture (ADR-005)         -> AIGatewayConfig
+#       felt the trunk, called it a hose        (strong: Model, Gateways)
+#   - model-as-a-service-crds (MoDaaS)          -> ModelConfig / ToolConfig /
+#                                                   AgentConfig / Registry
+#       felt the body, called it a wall         (strong: Registry, Security,
+#                                                  Lifecycle, Ontology)
+#   - Autonomous Networks Project               -> IG1412 / TMF443-445
+#       felt the ear, called it a fan           (strong: Agent, Security,
+#                                                  Performance, Ontology)
+#   - WebSpecDemoData                           -> component.schema.json
+#       felt the leg, called it a pillar        (strong: Tool, Gateways,
+#                                                  Documentation, Ontology)
+# This object is the whole elephant: each team's strongest part kept, none
+# of the four declared the winner over the other three. Data is the one
+# concern none of the four ever touched — see dataFunction below.
+# =============================================================================
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: components.oda.tmforum.org
+  annotations:
+    cert-manager.io/inject-ca-from: "{{ printf \"%s/%s\" .Release.Namespace .Values.global.certificate.appName }}"
+    oda.tmforum.org/proposal: "true"
+    oda.tmforum.org/binds: "ai-canvas-architecture ADR-005 (AIGatewayConfig); model-as-a-service-crds MoDaaS (ModelConfig/ToolConfig/AgentConfig/Registry); Autonomous Networks Project (IG1412, TMF443-445); WebSpecDemoData (component.schema.json) — four teams, not two"
+spec:
+  scope: Namespaced
+  group: oda.tmforum.org
+  names:
+    plural: components
+    singular: component
+    kind: Component
+  conversion:
+    strategy: Webhook
+    webhook:
+      conversionReviewVersions: ["v1", "v2alpha1", "v1beta4", "v1beta3", "v1beta2"]
+      clientConfig:
+        service:
+          namespace: "{{ .Release.Namespace }}"
+          name: "{{ .Values.global.certificate.appName }}"
+          path: /
+          port: 443
+  versions:
+    # -------------------------------------------------------------------
+    # Existing versions (v1beta2, v1beta3, v1beta4, v1 = current storage)
+    # are unchanged and are not reproduced here.
+    # -------------------------------------------------------------------
+    - name: "v2alpha1"
+      served: true
+      storage: false   # proposal stage — v1 remains storage until adopted
+      schema:
+        openAPIV3Schema:
+          type: object
+          description: >
+            Proposed next version of the ODA Component: one object per
+            deployable unit, with each of the twelve governance concerns
+            (Model, Tool, Agent, Data, Registry, Gateways, Security,
+            Performance, Observability, Lifecycle, Documentation, Ontology)
+            addressable as its own block — either a dedicated
+            <concern>Function, or componentMetadata (Documentation) /
+            coreFunction (Gateways) where an existing block already is
+            that concern.
+          properties:
+            spec:
+              type: object
+              required: ["componentMetadata", "coreFunction"]
+              x-kubernetes-validations:
+                # ── Agent ↔ Tool/Model cross-reference invariant ──
+                # An agent's declared skills are named pointers back into
+                # THIS SAME Component's coreFunction (Gateways), toolFunction
+                # (Tool), or modelFunction (Model) — not a parallel,
+                # undeclared capability list. Only possible to enforce
+                # because all four now live in one object; AgentConfig's own
+                # comments note this exact check can't cross two separate CRs.
+                - rule: |
+                    !has(self.agentFunction) || !has(self.agentFunction.agentCard) ||
+                    self.agentFunction.agentCard.skills.all(s,
+                      !has(s.toolRef) ||
+                      self.coreFunction.exposedAPIs.exists(a, a.id == s.toolRef) ||
+                      self.coreFunction.dependentAPIs.exists(a, a.id == s.toolRef) ||
+                      (has(self.toolFunction) && has(self.toolFunction.toolBindings) && self.toolFunction.toolBindings.exists(t, t.id == s.toolRef)) ||
+                      (has(self.modelFunction) && has(self.modelFunction.dependentAIModels) && self.modelFunction.dependentAIModels.exists(m, m.id == s.toolRef))
+                    )
+                  message: >
+                    agentFunction.agentCard.skills[].toolRef must resolve to an id in
+                    coreFunction.{exposedAPIs,dependentAPIs}, toolFunction.toolBindings,
+                    or modelFunction.dependentAIModels.
+                # ── Security ↔ Tool crossover invariant ──
+                # guardrails.definitions[].mode: pre_mcp_call (AI-gateway-CRD.yaml,
+                # AIGatewayConfig draft v1alpha1) is the one guardrail mode that
+                # gates an MCP/tool call rather than a model call — the single
+                # field, across every source examined, that is simultaneously
+                # Tool-shaped and Security-shaped rather than cleanly one or the
+                # other. A guardrail declaring pre_mcp_call with no tool bindings
+                # to gate is a policy with nothing to enforce against.
+                - rule: |
+                    !has(self.securityFunction) || !has(self.securityFunction.guardrails) ||
+                    !has(self.securityFunction.guardrails.definitions) ||
+                    !self.securityFunction.guardrails.definitions.exists(d, has(d.mode) && 'pre_mcp_call' in d.mode) ||
+                    (has(self.toolFunction) && has(self.toolFunction.toolBindings) && size(self.toolFunction.toolBindings) > 0)
+                  message: >
+                    securityFunction.guardrails.definitions[] declaring mode=pre_mcp_call requires
+                    at least one toolFunction.toolBindings[] entry to gate — this is the Tool×Security
+                    crossover; pre_mcp_call is the one guardrail mode that reaches outside Security.
+              properties:
+
+                # =============================================================
+                # DOCUMENTATION  ·  componentMetadata IS this concern —
+                # narrowed to identity + documentation only. Ontology's
+                # taxonomy fields (eTOMs, functionalFrameworkFunctions) move
+                # out to ontologyFunction below, since Metadata is Documentation,
+                # not Ontology.
+                # Sources: Component (id/name/description/owners/maintainers) —
+                #   IG1412 (documentation.{technical_manual,api_spec,
+                #   autonomy_case_ref,maintenance_plan} — moved in here rather
+                #   than living under lifecycle, since these are pure
+                #   documentation pointers, not lifecycle state).
+                # =============================================================
+                componentMetadata:
+                  type: object
+                  required: ["id", "name", "description", "functionalBlock", "version"]
+                  properties:
+                    id: { type: string, description: "TMFCnnn identifier." }
+                    name: { type: string }
+                    description: { type: string }
+                    version: { type: string }
+                    publicationDate: { type: ["string", "null"], format: date }
+                    status:
+                      type: string
+                      description: "DEPRECATED — superseded by lifecycleFunction.phase. Retained, unenforced, so existing instances keep validating."
+                    functionalBlock: { type: string }
+                    owners:
+                      type: array
+                      items: { $ref: "#/components/schemas/contact" }
+                    maintainers:
+                      type: array
+                      items: { $ref: "#/components/schemas/contact" }
+                    # ── IG1412 documentation.* — moved here, Metadata is Documentation ──
+                    technicalManualUrl: { type: string, format: uri }
+                    apiSpecUrl: { type: string, format: uri }
+                    autonomyCaseUrl: { type: string, format: uri, description: "Evidence-based documentation certifying an autonomy/trust claim (IG1412)." }
+                    maintenancePlan: { type: string, maxLength: 512 }
+
+                # =============================================================
+                # ONTOLOGY  ·  net-new block. Split out of componentMetadata —
+                # Metadata is Documentation now, so ODA's native taxonomy
+                # fields (eTOMs, Functional Framework) and any AI-taxonomy
+                # reference both live here instead.
+                # Sources: Component (eTOMs, functionalFrameworkFunctions) —
+                #   ModelConfig/ToolConfig/AgentConfig (specLineage → GB1085) —
+                #   TMF444 (skill_id, source_taxonomy) — IG1412
+                #   (ontology_alignment, skills[].id).
+                # =============================================================
+                ontologyFunction:
+                  type: object
+                  properties:
+                    eTOMs: { type: array, items: { type: string } }
+                    functionalFrameworkFunctions: { type: array, items: { type: string } }
+                    externalTaxonomies:
+                      type: array
+                      maxItems: 20
+                      description: "Non-ODA-native taxonomy references, e.g. GB1085 spec lineage or an OASF/GB1033 skill id — coexists with eTOM/Functional Framework rather than replacing them."
+                      items:
+                        type: object
+                        required: ["sdo", "taxonomy", "ref"]
+                        properties:
+                          sdo: { type: string, example: "TMForum" }
+                          taxonomy: { type: string, example: "GB1085 Model-as-a-Service v1.0.0" }
+                          ref: { type: string, example: "TMF-OASF 3015" }
+                          section: { type: string }
+
+                # =============================================================
+                # REGISTRY  ·  net-new block wrapping what was a bare
+                # registryRef, for naming consistency with the other nine.
+                # Sources: ModelConfig/ToolConfig/AgentConfig/Registry
+                # (registryRef + status.tmf639Resource).
+                # COMPROMISE: optional and defaulted — classic components
+                # keep today's zero-config publication to the default ODA
+                # Component Directory; an AI-era asset can override the
+                # backing.
+                # =============================================================
+                registryFunction:
+                  type: object
+                  properties:
+                    ref:
+                      type: object
+                      description: "Reference to the Registry CR selecting this component's discovery-catalog backing. Unset = default ODA Component Directory / Resource Inventory."
+                      properties:
+                        name: { type: string, maxLength: 253 }
+                        namespace: { type: string, default: "oda-system", maxLength: 63 }
+
+                # =============================================================
+                # LIFECYCLE  ·  net-new block, split from Documentation.
+                # Documentation pointers moved to componentMetadata above;
+                # this block is purely state — phase, approval gate,
+                # retirement, deviations, hooks.
+                # Sources: ModelConfig/ToolConfig/AgentConfig
+                # (governance.approval.*, status.phase enum, retirementDate) —
+                # TMF444 (lifecycle_hooks, Deviation Register).
+                # COMPROMISE: phase is a strict superset of componentMetadata's
+                # old free-string status — classic components just use
+                # Active/Deprecated; nothing existing breaks.
+                # =============================================================
+                lifecycleFunction:
+                  type: object
+                  properties:
+                    phase:
+                      type: string
+                      enum: [Pending, Reviewing, Active, Deprecated, Failed, Paused, Retired]
+                      default: Active
+                    approval:
+                      type: object
+                      description: "Same approval-gate shape MoDaaS's three CRDs each declare independently, promoted here."
+                      properties:
+                        required: { type: boolean, default: false }
+                        requiredApprovals: { type: integer, minimum: 1, default: 1 }
+                        approverRole: { type: string, maxLength: 253 }
+                    retirementDate: { type: string, format: date }
+                    deviations:
+                      type: array
+                      description: "TMF444's Deviation Register, generalized to any component."
+                      items:
+                        type: object
+                        required: ["section", "deviation", "justification", "approver", "date"]
+                        properties:
+                          section: { type: string }
+                          deviation: { type: string }
+                          justification: { type: string }
+                          approver: { type: string }
+                          date: { type: string, format: date }
+                    hooks:
+                      type: array
+                      maxItems: 20
+                      description: "TMF444's lifecycle_hooks, extended with governance-gate phases (onApprove/onRetire) alongside its original build-time phases."
+                      items:
+                        type: object
+                        required: ["phase", "script"]
+                        properties:
+                          phase: { type: string, enum: [preBootstrap, postBootstrap, preDeploy, onApprove, onRetire] }
+                          script: { type: string, maxLength: 1024 }
+                          failOnError: { type: boolean, default: true }
+
+                # =============================================================
+                # GATEWAYS  ·  coreFunction IS this concern — unchanged
+                # mechanism (paths, ports, event hubs). Model and Data
+                # dependency arrays that lived here in the prior draft have
+                # moved out to their own blocks below.
+                # Sources: Component (exposedAPIs/dependentAPIs/
+                #   publishedEvents/subscribedEvents) — IG1412
+                #   (discovery_primitive, invocation_interface,
+                #   protocol_envelope, handshake_protocol — same shape,
+                #   different names).
+                # =============================================================
+                coreFunction:
+                  type: object
+                  required: ["exposedAPIs"]
+                  description: "The Gateways concern: how any capability on this component is reached — path, port, protocol, event hub. apiType is an open string; mcp/mcp_resource are recognized values alongside openapi."
+                  properties:
+                    exposedAPIs:
+                      type: array
+                      items: { $ref: "#/components/schemas/exposedAPI" }
+                    dependentAPIs:
+                      type: array
+                      items: { $ref: "#/components/schemas/dependentAPI" }
+                    publishedEvents:
+                      type: array
+                      items: { $ref: "#/components/schemas/eventAPI" }
+                    subscribedEvents:
+                      type: array
+                      items: { $ref: "#/components/schemas/eventAPI" }
+
+                # =============================================================
+                # MODEL  ·  net-new block, moved out of coreFunction now that
+                # Model is its own concern, not a coreFunction dependency array.
+                # Sources: AIGatewayConfig (dependentAIModels[], priority,
+                #   trafficSplitStrategy, modality) — ModelConfig
+                #   (alias/provider/modelId/capabilities).
+                # COMPROMISE: carries ModelConfig's richer per-asset identity
+                # AND AIGatewayConfig's routing/priority fields in one array —
+                # the two never conflicted, they were just never in the same
+                # object before.
+                # =============================================================
+                modelFunction:
+                  type: object
+                  properties:
+                    dependentAIModels:
+                      type: array
+                      maxItems: 50
+                      items:
+                        type: object
+                        required: ["id", "alias", "provider", "required"]
+                        properties:
+                          id: { type: string }
+                          alias:
+                            type: string
+                            pattern: "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                            description: "Stable name this component's code refers to (ModelConfig.alias)."
+                          provider:
+                            type: string
+                            pattern: "^[a-z][a-z0-9-]*$"
+                            description: "Open contract, e.g. aws-bedrock, azure-openai, custom."
+                          modelId: { type: string, description: "Provider-native model identifier." }
+                          required: { type: boolean }
+                          priority: { type: integer, minimum: 1, description: "AIGatewayConfig's failover ordering." }
+                          modality: { type: string, enum: [text, image, audio, video, multimodal] }
+                          capabilities:
+                            type: array
+                            items: { type: string, enum: [chat, reasoning, embedding, vision, tool-use, streaming] }
+                          specification:
+                            type: array
+                            items: { $ref: "#/components/schemas/apiSpecification" }
+                    trafficSplitStrategy:
+                      type: string
+                      enum: [priority, roundRobin, random, weighted]
+                      description: "Applies across dependentAIModels[] when more than one model can serve the same request."
+
+                # =============================================================
+                # TOOL  ·  net-new block, distinct from coreFunction/Gateways.
+                # Where an exposedAPI is a generic REST/OpenAPI contract,
+                # a toolBinding is the AI-native MCP-shaped one — command/
+                # transport/env-secret fields that don't fit exposedAPI's
+                # shape, so they get their own block rather than being forced
+                # into it.
+                # Sources: ToolConfig (toolName/toolType/backendRef/
+                #   outputSchema/annotations, agentCoreGateway.*) — TMF444
+                #   (tool_bindings.*, mcp_servers.*) — IG1412
+                #   (tool_integration_mcp.*, tool_execution_class).
+                # =============================================================
+                toolFunction:
+                  type: object
+                  properties:
+                    toolBindings:
+                      type: array
+                      items:
+                        type: object
+                        required: ["id", "type"]
+                        properties:
+                          id: { type: string }
+                          name: { type: string }
+                          type: { type: string, enum: [mcp_tool, mcp_resource, rest_api, function] }
+                          mcpServerRef: { type: string, description: "Name of an entry in toolFunction.mcpServers[]. Required when type is mcp_tool/mcp_resource." }
+                          functionName: { type: string }
+                          resourcePath: { type: string }
+                          outputSchema: { type: object, x-kubernetes-preserve-unknown-fields: true }
+                          annotations:
+                            type: object
+                            properties:
+                              readOnly: { type: boolean, default: true }
+                              idempotent: { type: boolean, default: true }
+                              destructive: { type: boolean, default: false }
+                          authScope: { type: string }
+                          dependsOnModels:
+                            type: array
+                            items: { type: string }
+                            description: "modelFunction.dependentAIModels[].id this tool calls, for RAG/agent-in-tool patterns."
+                      x-kubernetes-validations:
+                        - rule: "!self.exists(t, t.type in ['mcp_tool','mcp_resource']) || self.all(t, t.type not in ['mcp_tool','mcp_resource'] || has(t.mcpServerRef))"
+                          message: "toolBindings[].type mcp_tool/mcp_resource requires mcpServerRef"
+                    mcpServers:
+                      type: array
+                      items:
+                        type: object
+                        required: ["name", "transport"]
+                        properties:
+                          name: { type: string }
+                          transport: { type: string, enum: [stdio, sse, websocket, http] }
+                          command: { type: string, description: "Required for stdio transport." }
+                          args: { type: array, items: { type: string } }
+                          envSecrets: { type: array, items: { type: string }, description: "Env var names resolved from the secrets manager — never inline." }
+                          healthCheck:
+                            type: object
+                            properties:
+                              endpoint: { type: string }
+                              timeout: { type: string, default: "10s" }
+
+                # =============================================================
+                # AGENT  ·  optional block, present only when this Component
+                # acts as an AI agent. Unchanged from the prior draft:
+                # agentCard.skills[].toolRef is enforced against coreFunction/
+                # toolFunction/modelFunction by the CRD-level CEL rule above.
+                # Sources: AgentConfig (agentName/agentCard/hosting) — IG1412
+                #   (Classification & Autonomy, Operational Architecture,
+                #   Coordination & Sensitivities) — TMF444 (generation.*,
+                #   skill_bindings[]).
+                # =============================================================
+                agentFunction:
+                  type: object
+                  description: "Present only when this Component acts as an AI agent. Absent for classic BSS/OSS components."
+                  properties:
+                    agentCard:
+                      type: object
+                      required: ["description", "skills"]
+                      properties:
+                        description: { type: string, maxLength: 512 }
+                        protocolBinding: { type: string, enum: ["HTTP+JSON", "HTTP+PROTO", "gRPC"], default: "HTTP+JSON" }
+                        skills:
+                          type: array
+                          minItems: 1
+                          items:
+                            type: object
+                            required: ["name"]
+                            properties:
+                              name: { type: string }
+                              toolRef:
+                                type: string
+                                description: "id of a coreFunction/toolFunction/modelFunction entry this skill executes against."
+                              boundCoreTask: { type: string, description: "TMF444's bound_core_task — the business-process label for this skill." }
+                    autonomy:
+                      type: object
+                      properties:
+                        level: { type: string, example: "L3 (Consultant)" }
+                        agencyClass: { type: string, example: "Agentic AI" }
+                        intelligenceClass: { type: string }
+                        automationRole: { type: string }
+                        mobility: { type: string, default: "Static" }
+                    execution:
+                      type: object
+                      description: "IG1412's Operational Architecture, minus the memory tiers — those are dataFunction.dependentDataResources now, not duplicated here."
+                      properties:
+                        engine: { type: string, example: "WayFlow" }
+                        logicStructure:
+                          type: object
+                          properties:
+                            type: { type: string, example: "Directed Acyclic Graph (DAG)" }
+                            nodes:
+                              type: array
+                              items:
+                                type: object
+                                required: ["id", "componentType"]
+                                properties:
+                                  id: { type: string }
+                                  componentType: { type: string, enum: [LLMNode, ToolNode, FlowNode] }
+                                  role: { type: string }
+                        workingMemory: { type: string, description: "Transient in-context buffer — ephemeral, not a governed dependency." }
+                        shortTermMemory: { type: string, description: "Session-scoped cache — ephemeral, not a governed dependency." }
+                    hosting:
+                      type: object
+                      required: ["provider"]
+                      properties:
+                        provider: { type: string, enum: [awsAgentCore, kubernetesPod], default: awsAgentCore }
+                        awsAgentCore:
+                          type: object
+                          properties:
+                            containerUri: { type: string }
+                            roleArn: { type: string }
+                        kubernetesPod:
+                          type: object
+                          properties:
+                            containerImage: { type: string }
+                            port: { type: integer, default: 8080 }
+                      x-kubernetes-validations:
+                        - rule: "self.provider != 'awsAgentCore' || has(self.awsAgentCore)"
+                          message: "hosting.provider=awsAgentCore requires hosting.awsAgentCore block"
+                        - rule: "self.provider != 'kubernetesPod' || has(self.kubernetesPod)"
+                          message: "hosting.provider=kubernetesPod requires hosting.kubernetesPod block"
+                    coordination:
+                      type: object
+                      description: "IG1412's Coordination & Sensitivities — multi-agent alignment, distinct from the plain request/response invocation Gateways already covers."
+                      properties:
+                        protocol: { type: string, example: "REP (Ripple Effect Protocol)" }
+                        variables: { type: array, items: { type: string } }
+                        sensitivitySignals: { type: array, items: { type: string } }
+
+                # =============================================================
+                # DATA  ·  net-new block, moved out of coreFunction. The one
+                # concern with zero Strong sources anywhere.
+                # Sources: AIGatewayConfig (rag.{vectorStoreRef,retriever}) —
+                #   IG1412 (memory_hierarchy.{long_term_memory,
+                #   archival_memory}).
+                # COMPROMISE: reuses the same specification[] shape already
+                # used for APIs, rather than a third bespoke shape.
+                # =============================================================
+                dataFunction:
+                  type: object
+                  properties:
+                    dependentDataResources:
+                      type: array
+                      maxItems: 20
+                      items:
+                        type: object
+                        required: ["id", "name", "type", "required"]
+                        properties:
+                          id: { type: string }
+                          name: { type: string }
+                          type:
+                            type: string
+                            enum: [vectorStore, knowledgeGraph, dataProduct, cache]
+                            description: "vectorStore/knowledgeGraph unify AIGatewayConfig.rag and IG1412.memory_hierarchy's long_term/archival tiers; dataProduct covers TMFCOP012-style external data platforms."
+                          required: { type: boolean }
+                          retrieval:
+                            type: object
+                            description: "Only meaningful for type=vectorStore."
+                            properties:
+                              topK: { type: integer, minimum: 1 }
+                              scoreThreshold: { type: number, minimum: 0 }
+                              hybrid: { type: boolean }
+                          specification:
+                            type: array
+                            items: { $ref: "#/components/schemas/apiSpecification" }
+
+                # =============================================================
+                # SECURITY  ·  unchanged in shape from the prior draft.
+                # Split by what's per-instance (secretsManagement, roles)
+                # vs. shareable policy (credentials/guardrails/risk),
+                # with an optional securityPolicyRef to defer to a shared
+                # object instead of the inline fallback.
+                # Sources: Component's own full CRD (secretsManagement,
+                #   canvasSystemRole, componentRole) — ModelConfig/AgentConfig
+                #   (safety.enforcer, credentialProviderType) —
+                #   AIGatewayConfig (guardrails.definitions[], jwtAuth) —
+                #   TMF444 (security_config) — IG1412 (integrity_wrapper,
+                #   deontic_tokens_odp_el, nist_aml_risk_mapping, auth_scheme,
+                #   impact_radius).
+                # =============================================================
+                securityFunction:
+                  type: object
+                  x-kubernetes-validations:
+                    - rule: "!has(self.guardrails) || !self.guardrails.required || (has(self.guardrails.definitions) && size(self.guardrails.definitions) > 0)"
+                      message: "guardrails.required=true requires at least one entry in guardrails.definitions[]"
+                    - rule: "!has(self.credentials) || !(self.credentials.providerType in ['API_KEY','OAUTH']) || (has(self.credentials.secretRef) && self.credentials.secretRef != '')"
+                      message: "credentials.providerType API_KEY or OAUTH requires credentials.secretRef"
+                  properties:
+                    securityPolicyRef:
+                      type: object
+                      description: "Optional — bind to a shared SecurityPolicy instead of declaring guardrails/credentials/riskClassification inline below."
+                      properties:
+                        name: { type: string }
+                        namespace: { type: string }
+                    secretsManagement:
+                      type: object
+                      required: ["type", "podSelector"]
+                      properties:
+                        type: { type: string, enum: ["sideCar"] }
+                        sideCar: { type: object, properties: { port: { type: integer } } }
+                        podSelector:
+                          type: object
+                          properties:
+                            namespace: { type: string }
+                            name: { type: string }
+                            serviceaccount: { type: string }
+                    canvasSystemRole: { type: string }
+                    componentRole:
+                      type: array
+                      items: { type: object, properties: { name: { type: string }, description: { type: string } } }
+                    credentials:
+                      type: object
+                      properties:
+                        providerType: { type: string, enum: [NONE, providerManaged, API_KEY, OAUTH], default: NONE }
+                        secretRef: { type: string, maxLength: 253 }
+                    guardrails:
+                      type: object
+                      properties:
+                        required: { type: boolean, default: false }
+                        definitions:
+                          type: array
+                          items:
+                            type: object
+                            required: ["name", "provider", "mode"]
+                            properties:
+                              name: { type: string }
+                              provider: { type: string, description: "Open contract, e.g. presidio, aporia, bedrock, lakera." }
+                              mode:
+                                type: array
+                                items: { type: string, enum: [pre_call, post_call, pre_mcp_call, logging_only] }
+                                description: >
+                                  When this check runs. pre_call/post_call/logging_only gate a model
+                                  invocation; pre_mcp_call (from AI-gateway-CRD.yaml) gates an MCP/tool
+                                  call instead — the one mode value that is Tool-shaped as much as it is
+                                  Security-shaped. See the CRD-level Security↔Tool crossover rule above:
+                                  declaring it requires a toolFunction.toolBindings[] entry to gate.
+                              action: { type: string, enum: [MASK, BLOCK, ALLOW], default: MASK }
+                    riskClassification:
+                      type: object
+                      properties:
+                        dataClassification: { type: string, enum: [public, internal, confidential, pii, regulated, restricted] }
+                        impactRadius: { type: string, enum: [low, medium, high, critical] }
+
+                # =============================================================
+                # PERFORMANCE  ·  net-new block, split from Observability.
+                # Purely the WHAT — targets and thresholds — not how
+                # telemetry is exposed (that's observabilityFunction).
+                # Sources: IG1412 (metrics[], benchmarks) — TMF444
+                #   (acceptance_criteria).
+                # COMPROMISE: merges IG1412.metrics/benchmarks with
+                # TMF444.acceptance_criteria into ONE array — TMF444 was
+                # explicitly designed to cross-check IG1412's metrics by
+                # name; this makes that join a real field instead of two
+                # documents hoping to agree.
+                # =============================================================
+                performanceFunction:
+                  type: object
+                  properties:
+                    performanceTargets:
+                      type: array
+                      maxItems: 50
+                      items:
+                        type: object
+                        required: ["metric", "threshold"]
+                        properties:
+                          metric: { type: string, example: "EX% (Execution Accuracy)" }
+                          threshold: { type: string, example: ">= 92%" }
+                          testSuite: { type: string, description: "TMF444's acceptance_criteria.test_suite pointer." }
+
+                # =============================================================
+                # OBSERVABILITY  ·  net-new block, split from Performance,
+                # and the full replacement for managementFunction — not a
+                # sibling to it. The real CRD's managementFunction existed
+                # almost entirely to carry this exact concern (an
+                # exposedAPIs array typed for prometheus/openmetrics
+                # scraping); giving the concern its own correctly-named
+                # block makes the old one redundant rather than deprecated.
+                # A real migration renames the key and moves its contents —
+                # nothing stays behind under the old name.
+                # Sources: Component's own full CRD (managementFunction.
+                #   exposedAPIs with prometheus/openmetrics apiTypes — this
+                #   IS that field, renamed) — AIGatewayConfig (observability.
+                #   {enabled,integrations[]}) — TMF444 (deployment.
+                #   observability) — IG1412 (evaluation_harness).
+                # =============================================================
+                observabilityFunction:
+                  type: object
+                  properties:
+                    exposedAPIs:
+                      type: array
+                      items: { $ref: "#/components/schemas/exposedAPI" }
+                      description: "Scrape-style endpoints — apiType prometheus/openmetrics. This is managementFunction.exposedAPIs, renamed, not duplicated."
+                    logging: { type: object, properties: { format: { type: string, enum: [json, plain], default: json } } }
+                    metrics: { type: object, properties: { exporter: { type: string, enum: [prometheus, otel, cloudwatch, none] } } }
+                    tracing: { type: object, properties: { provider: { type: string, enum: [otel, jaeger, zipkin, none] } } }
+                    evaluationHarness: { type: string, description: "IG1412's evaluation_harness — the standardized toolset performanceFunction's targets are measured against." }
+
+            status:
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+      subresources:
+        status: {}
+      additionalPrinterColumns:
+        - { name: deployment_status, type: string, jsonPath: .spec.lifecycleFunction.phase }
+        - { name: agent, type: boolean, jsonPath: .spec.agentFunction, priority: 1 }
+        - { name: registry, type: string, jsonPath: .spec.registryFunction.ref.name, priority: 1 }
+        - { name: security_policy, type: string, jsonPath: .spec.securityFunction.securityPolicyRef.name, priority: 1 }
+
+# =============================================================================
+# Shared sub-schemas — unchanged from the real CRD / the Comp schema, with
+# apiSpecification's gatewayConfiguration sub-block elided (see header note).
+# =============================================================================
+components:
+  schemas:
+    apiSpecification:
+      type: object
+      required: ["version"]
+      properties:
+        version: { type: ["number", "string"] }
+        apiType: { type: string, description: "Open string. Recognized values include openapi, mcp, mcp_resource, prometheus, openmetrics." }
+        url: { type: string }
+        path: { type: string }
+        developerUI: { type: string }
+        implementation: { type: string }
+        port: { type: number }
+        resources: { type: array, items: { type: object } }
+        # gatewayConfiguration.{apiKeyVerification,rateLimit,quota,OASValidation,CORS,template}
+        # unchanged from the real CRD — elided here, see header note.
+    exposedAPI:
+      type: object
+      required: ["id", "required"]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        apiSDO: { type: string }
+        required: { type: boolean }
+        specification: { type: array, items: { $ref: "#/components/schemas/apiSpecification" } }
+        apiType: { type: string }
+        resources: { type: array, items: { type: object } }
+        implementation: { type: string }
+        path: { type: string }
+        developerUI: { type: string }
+        version: { type: ["number", "string"] }
+    dependentAPI:
+      type: object
+      required: ["id", "required"]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        apiSDO: { type: string }
+        required: { type: boolean }
+        specification: { type: array, items: { $ref: "#/components/schemas/apiSpecification" } }
+        apiType: { type: string }
+        resources: { type: array, items: { type: object } }
+        version: { type: ["number", "string"] }
+    eventAPI:
+      type: object
+      properties:
+        resources: { type: array, items: { type: string } }
+        apiType: { type: string }
+        apiSDO: { type: string }
+        hub: { type: string }
+        implementation: { type: string }
+        name: { type: string }
+        description: { type: string }
+        port: { type: number }
+        specification: { type: string }
+        developerUI: { type: string }
+        call-back: { type: string }
+    contact:
+      type: object
+      required: ["email", "name"]
+      properties:
+        email: { type: string }
+        name: { type: string }
+        url: { type: string }
